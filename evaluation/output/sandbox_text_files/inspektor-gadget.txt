@@ -1,0 +1,203 @@
+[Service Account]: prometheus
+  [Resource] (ResourceName/ResourceType): prometheus/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpoints,services,pods,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ingresses",
+        "API groups": "extensions"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [discoverer] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/prometheus] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: container-hook
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,watch,list",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [container-hook-cluster-role] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/container-hook] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: privileged
+-------------------------------------------
+
+[Service Account]: default
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "use",
+        "Resources": "podsecuritypolicies",
+        "API groups": "policy"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [disable-psp-demo] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/default] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: privileged
+-------------------------------------------
+
+[Service Account]: container-network-tracer
+  [Resource] (ResourceName/ResourceType): container-network-tracer/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [container-network-tracer-watch-pods; container-network-tracer-watch-services] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/container-network-tracer] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: gadget-container-collection
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,watch,list",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [gadget-container-collection-cluster-role] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/gadget-container-collection] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: privileged
+-------------------------------------------
+
+[Service Account]: gadget
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,watch,list",
+        "Resources": "seccompprofiles",
+        "API groups": "security-profiles-operator.x-k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,deletecollection,patch",
+        "Resources": "traces,traces/status",
+        "API groups": "gadget.kinvolk.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "daemonsets,jobs,deployments,statefulsets,cronjobs,replicasets,replicationcontrollers",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get",
+        "Resources": "nodes/proxy",
+        "API groups": ""
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,pods,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "services",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [gadget-cluster-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/gadget] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: privileged
+-------------------------------------------
+

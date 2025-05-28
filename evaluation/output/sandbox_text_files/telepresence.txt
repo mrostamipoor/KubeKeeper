@@ -1,0 +1,103 @@
+[Service Account]: traffic-manager
+  [Resource] (ResourceName/ResourceType): traffic-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "pods/eviction",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "pods/log",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "statefulsets,deployments,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,get",
+        "Resources": "events",
+        "API groups": "events.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,services,pods,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [traffic-manager; traffic-manager-default] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/traffic-manager] [Main configs]
+
+    [roles]: [agent-injector-webhook-secret; traffic-manager] [Main configs]
+    [roleBindings]: [ServiceAccount/traffic-manager] [Main configs]
+    [roleResourceNames]: mutator-webhook-tls, traffic-manager
+-------------------------------------------
+

@@ -1,0 +1,45 @@
+[Service Account]: traefik-ingress-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,secrets,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "ingresses",
+        "API groups": "extensions"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [traefik-ingress-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/traefik-ingress-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

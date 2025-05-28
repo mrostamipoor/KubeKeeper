@@ -1,0 +1,319 @@
+[Service Account]: release-name-kube-promethe-prometheus
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,pods,nodes/proxy,nodes,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io,extensions"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes/metrics",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-kube-promethe-prometheus] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-kube-promethe-prometheus] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-grafana-loki-promtail
+  [Resource] (ResourceName/ResourceType): release-name-grafana-loki-promtail/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,pods,nodes/proxy,nodes,services",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-grafana-loki-default-promtail] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-grafana-loki-promtail] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-kube-state-metrics
+  [Resource] (ResourceName/ResourceType): release-name-kube-state-metrics/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "daemonsets",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "deployments",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "limitranges",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "networkpolicies",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "replicasets",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "resourcequotas",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "volumeattachments",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-kube-state-metrics-default] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-kube-state-metrics] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-kube-promethe-operator
+  [Resource] (ResourceName/ResourceType): release-name-kube-promethe-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "alertmanagers,servicemonitors,alertmanagers/finalizers,prometheuses/status,thanosrulers/status,podmonitors,prometheusagents,probes,alertmanagerconfigs,thanosrulers,scrapeconfigs,prometheusagents/status,thanosrulers/finalizers,prometheusagents/finalizers,prometheuses,alertmanagers/status,prometheuses/finalizers,prometheusrules",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "*",
+        "Resources": "configmaps,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create,update,delete,get",
+        "Resources": "endpoints,services,services/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,delete",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-kube-promethe-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-kube-promethe-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: prometheusrules.monitoring.coreos.com,servicemonitors.monitoring.coreos.com,thanosrulers.monitoring.coreos.com,scrapeconfigs.monitoring.coreos.com,alertmanagers.monitoring.coreos.com,prometheuses.monitoring.coreos.com,probes.monitoring.coreos.com,prometheusagents.monitoring.coreos.com,podmonitors.monitoring.coreos.com
+-------------------------------------------
+

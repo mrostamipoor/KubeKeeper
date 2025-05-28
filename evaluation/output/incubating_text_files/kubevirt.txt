@@ -1,0 +1,103 @@
+[Service Account]: multus
+  [Resource] (ResourceName/ResourceType): kube-multus-ds/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "k8s.cni.cncf.io"
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "pods/status,pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [multus] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/multus] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: hostpath-sa
+  [Resource] (ResourceName/ResourceType): hostpath-provisioner/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [hostpath-provisioner] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/hostpath-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: local-storage-admin
+  [Resource] (ResourceName/ResourceType): local-volume-provisioner/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [local-storage-provisioner-node-clusterrole; system:persistent-volume-provisioner] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/local-storage-admin] [Main configs]
+
+    [roles]: [local-storage-provisioner] []
+    [roleBindings]: [ServiceAccount/local-storage-admin] [Main configs]
+-------------------------------------------
+

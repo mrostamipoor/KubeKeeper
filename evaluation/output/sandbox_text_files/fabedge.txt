@@ -1,0 +1,105 @@
+[Service Account]: fabedge-operator
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "clusters,communities",
+        "API groups": "fabedge.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps,pods,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "pods/status,configmaps/status,secrets/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ipamblocks",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [fabedge-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/fabedge-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

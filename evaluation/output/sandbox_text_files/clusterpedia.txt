@@ -1,0 +1,145 @@
+[Service Account]: clusterpedia-binding-apiserver
+  [Resource] (ResourceName/ResourceType): clusterpedia-binding-apiserver/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [clusterpedia] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/clusterpedia-binding-apiserver] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: clusterpedia-synchro
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "",
+        "API groups": "core"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [clusterpedia-synchro] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/clusterpedia-synchro] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: clusterpedia-controller-manager
+  [Resource] (ResourceName/ResourceType): clusterpedia-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [clusterpedia] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/clusterpedia-controller-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: clusterpedia-apiserver
+  [Resource] (ResourceName/ResourceType): clusterpedia-apiserver/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [clusterpedia] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/clusterpedia-apiserver] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: clusterpedia-clustersynchro-manager
+  [Resource] (ResourceName/ResourceType): clusterpedia-clustersynchro-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [clusterpedia] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/clusterpedia-clustersynchro-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

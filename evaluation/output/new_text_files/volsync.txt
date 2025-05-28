@@ -1,0 +1,580 @@
+[Service Account]: release-name-volsync
+  [Resource] (ResourceName/ResourceType): release-name-volsync/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete,deletecollection",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete,deletecollection",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete,deletecollection",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete,deletecollection",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "persistentvolumeclaims/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "replicationdestinations/finalizers",
+        "API groups": "volsync.backube"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "replicationdestinations",
+        "API groups": "volsync.backube"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "replicationsources/finalizers",
+        "API groups": "volsync.backube"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "replicationsources",
+        "API groups": "volsync.backube"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "rolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "roles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch",
+        "Resources": "volumepopulators",
+        "API groups": "populator.storage.k8s.io"
+    },
+    {
+        "verbs": "list,patch,watch,get",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods/log",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": "events.k8s.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "replicationdestinations/status",
+        "API groups": "volsync.backube"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "replicationsources/status",
+        "API groups": "volsync.backube"
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-volsync-manager; release-name-volsync-proxy] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-volsync] [Main configs]
+
+    [roles]: [release-name-volsync-leader-election] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-volsync] [Main configs]
+    [clusterResourceNames]: volsync-privileged-mover
+-------------------------------------------
+
+[Service Account]: volsync-controller-manager
+  [Resource] (ResourceName/ResourceType): volsync-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete,deletecollection",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete,deletecollection",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete,deletecollection",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete,deletecollection",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "replicationdestinations/finalizers,replicationdestinations,replicationsources,replicationsources/finalizers",
+        "API groups": "volsync.backube"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "rolebindings,roles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "serviceaccounts,secrets,services,persistentvolumeclaims/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch",
+        "Resources": "volumepopulators",
+        "API groups": "populator.storage.k8s.io"
+    },
+    {
+        "verbs": "list,patch,watch,get",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods,configmaps,nodes,pods/log,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "replicationsources/status,replicationdestinations/status",
+        "API groups": "volsync.backube"
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [volsync-manager-role; volsync-proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/volsync-controller-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: volsync-privileged-mover
+-------------------------------------------
+
+[Service Account]: controller-manager
+  [Resource] (ResourceName/ResourceType): controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete,deletecollection",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete,deletecollection",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete,deletecollection",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete,deletecollection",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "replicationdestinations/finalizers,replicationdestinations,replicationsources,replicationsources/finalizers",
+        "API groups": "volsync.backube"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "rolebindings,roles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "serviceaccounts,secrets,services,persistentvolumeclaims/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch",
+        "Resources": "volumepopulators",
+        "API groups": "populator.storage.k8s.io"
+    },
+    {
+        "verbs": "list,patch,watch,get",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods,configmaps,nodes,pods/log,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "replicationsources/status,replicationdestinations/status",
+        "API groups": "volsync.backube"
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [manager-role; proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller-manager] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/controller-manager] [Main configs]
+    [clusterResourceNames]: volsync-privileged-mover
+-------------------------------------------
+

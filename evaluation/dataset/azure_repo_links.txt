@@ -1,0 +1,8 @@
+https://github.com/Azure/secrets-store-csi-driver-provider-azure
+https://github.com/Azure/azure-policy
+https://github.com/DataDog/helm-charts
+https://github.com/hashicorp/vault-helm
+https://github.com/traefik/traefik-helm-chart
+https://github.com/kubecost/cost-analyzer-helm-chart
+https://github.com/solarwinds/swi-k8s-opentelemetry-collector
+https://github.com/Kong/kubernetes-ingress-controller

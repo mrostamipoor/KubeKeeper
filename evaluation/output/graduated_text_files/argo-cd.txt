@@ -1,0 +1,674 @@
+[Service Account]: argo
+  [Resource] (ResourceName/ResourceType): workflow-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create,delete,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create,delete,get",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pods/exec,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "workflows,workflows/finalizers",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "delete,get,watch,list,update,patch",
+        "Resources": "cronworkflows/finalizers,cronworkflows",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "serviceaccounts",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "workflowtemplates/finalizers,workflowtemplates",
+        "API groups": "argoproj.io"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [argo-role] [Example configs]
+    [roleBindings]: [ServiceAccount/argo] [Example configs]
+-------------------------------------------
+
+[Service Account]: argocd-server
+  [Resource] (ResourceName/ResourceType): argocd-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "workflows",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "pods,pods/log",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create,delete,update",
+        "Resources": "applications",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "patch,delete,get",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "applications,applicationsets",
+        "API groups": "argoproj.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create,list",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "appprojects,applications,applicationsets",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps,secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [argocd-server; argocd-server-cluster-apps] [Main configs; Example configs]
+    [clusterRoleBindings]: [ServiceAccount/argocd-server] [Main configs; Example configs]
+
+    [roles]: [argocd-server] [Main configs]
+    [roleBindings]: [ServiceAccount/argocd-server] [Main configs; Example configs]
+-------------------------------------------
+
+[Service Account]: argocd-applicationset-controller
+  [Resource] (ResourceName/ResourceType): argocd-applicationset-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "applicationsets/finalizers,applications,applicationsets",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,patch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "applicationsets/status",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "appprojects",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "deployments",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "applicationsets/finalizers,applications,applicationsets",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "get,create,watch,list,patch",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "applicationsets/status",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "appprojects",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps,secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "deployments",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [argocd-applicationset-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/argocd-applicationset-controller] [Main configs]
+
+    [roles]: [argocd-applicationset-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/argocd-applicationset-controller] [Main configs; Example configs]
+-------------------------------------------
+
+[Service Account]: argocd-dex-server
+  [Resource] (ResourceName/ResourceType): argocd-dex-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps,secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [argocd-dex-server] [Main configs]
+    [roleBindings]: [ServiceAccount/argocd-dex-server] [Main configs; Example configs]
+-------------------------------------------
+
+[Service Account]: argo-server
+  [Resource] (ResourceName/ResourceType): argo-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "cronworkflows,workflowtemplates,workflows,cronworkflows/finalizers,workfloweventbindings",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "delete,watch,list,get",
+        "Resources": "pods/exec,pods,pods/log",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "serviceaccounts",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,create,watch",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [argo-server-role] [Example configs]
+    [roleBindings]: [ServiceAccount/argo-server] [Example configs]
+-------------------------------------------
+
+[Service Account]: argocd-application-controller
+  [Resource] (ResourceName/ResourceType): argocd-application-controller/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "",
+        "API groups": "core"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create,list",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "appprojects,applications,applicationsets",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps,secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [argocd-application-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/argocd-application-controller] [Main configs]
+
+    [roles]: [argocd-application-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/argocd-application-controller] [Main configs; Example configs]
+-------------------------------------------
+
+[Service Account]: argocd-redis
+  [Resource] (ResourceName/ResourceType): argocd-redis/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [argocd-redis] [Main configs]
+    [roleBindings]: [ServiceAccount/argocd-redis] [Main configs; Example configs]
+    [roleResourceNames]: argocd-redis
+-------------------------------------------
+
+[Service Account]: argocd-redis-ha
+  [Resource] (ResourceName/ResourceType): argocd-redis-ha-server/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get",
+        "Resources": "endpoints",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [argocd-redis-ha] [Main configs]
+    [roleBindings]: [ServiceAccount/argocd-redis-ha] [Main configs]
+-------------------------------------------
+
+[Service Account]: argocd-notifications-controller
+  [Resource] (ResourceName/ResourceType): argocd-notifications-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "applications",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps,secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "appprojects,applications",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "configmaps,secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [argocd-notifications-controller-cluster-apps] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/argocd-notifications-controller] [Example configs]
+
+    [roles]: [argocd-notifications-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/argocd-notifications-controller] [Main configs; Example configs]
+    [roleResourceNames]: argocd-notifications-cm, argocd-notifications-secret
+-------------------------------------------
+
+[Service Account]: argocd-redis-ha-haproxy
+  [Resource] (ResourceName/ResourceType): argocd-redis-ha-haproxy/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "endpoints",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [argocd-redis-ha-haproxy] [Main configs]
+    [roleBindings]: [ServiceAccount/argocd-redis-ha-haproxy] [Main configs]
+    [roleResourceNames]: argocd-redis
+-------------------------------------------
+

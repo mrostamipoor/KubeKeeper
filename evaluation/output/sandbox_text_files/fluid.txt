@@ -1,0 +1,1345 @@
+[Service Account]: efcruntime-controller
+  [Resource] (ResourceName/ResourceType): efcruntime-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,watch,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods/exec",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "daemonsets,statefulsets,daemonsets/status,statefulsets/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "datasets,datasets/status,efcruntimes,efcruntimes/status",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [efcruntime-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/efcruntime-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: alluxioruntime-controller
+  [Resource] (ResourceName/ResourceType): alluxioruntime-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "pods/exec",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "alluxiodataloads,datasets/status,alluxioruntimes,alluxioruntimes/status,alluxiodataloads/status,datasets",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "daemonsets,statefulsets,daemonsets/status,statefulsets/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [alluxioruntime-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/alluxioruntime-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: juicefsruntime-controller
+  [Resource] (ResourceName/ResourceType): juicefsruntime-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,list,get",
+        "Resources": "roles,rolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "create,delete,list,get",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,list,get",
+        "Resources": "pods/exec",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "daemonsets,statefulsets,daemonsets/status,statefulsets/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "juicefsruntimes,datasets,datasets/status,juicefsruntimes/status",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [juicefsruntime-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/juicefsruntime-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: fluid
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/fluid] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: fluid-webhook
+  [Resource] (ResourceName/ResourceType): fluid-webhook/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "daemonsets,daemonsets/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,persistentvolumeclaims,persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "thinruntimes,jindoruntimes,goosefsruntimes,vineyardruntimes,alluxioruntimes,datasets,efcruntimes,juicefsruntimes",
+        "API groups": "data.fluid.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [fluid-webhook] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/fluid-webhook] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: fluid-pod-admission-webhook
+-------------------------------------------
+
+[Service Account]: pipeline-runner
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,list,update,patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,list,update",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [pipeline-runner-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/pipeline-runner] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: jindoruntime-controller
+  [Resource] (ResourceName/ResourceType): jindoruntime-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "pods/exec",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "daemonsets,statefulsets,daemonsets/status,statefulsets/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "jindoruntimes,jindoruntimes/status,datasets,datasets/status",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [jindoruntime-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/jindoruntime-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: dataset-controller
+  [Resource] (ResourceName/ResourceType): dataset-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,get",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods/exec",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "statefulsets,statefulsets/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "thinruntimes,dataloads,goosefsruntimes,efcruntimes,thinruntimes/status,juicefsruntimes/status,vineyardruntimes,datasets/status,efcruntimes/status,jindoruntimes/status,juicefsruntimes,datamigrates/status,dataloads/status,databackups,jindoruntimes,vineyardruntimes/status,alluxioruntimes,datasets,datamigrates,databackups/status,dataprocesses,alluxioruntimes/status,goosefsruntimes/status,dataprocesses/status",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "jobs/status,jobs,cronjobs/status,cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "deployments/status,deployments,deployments/scale",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "daemonsets,daemonsets/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "persistentvolumeclaims,persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [dataset-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/dataset-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-loader
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create,list,get",
+        "Resources": "pods/exec",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-loader] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-loader] [Main configs]
+-------------------------------------------
+
+[Service Account]: vineyardruntime-controller
+  [Resource] (ResourceName/ResourceType): vineyardruntime-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "daemonsets,statefulsets,daemonsets/status,statefulsets/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "vineyardruntimes/status,vineyardruntimes,datasets,datasets/status",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [vineyardruntime-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/vineyardruntime-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: fluidapp-controller
+  [Resource] (ResourceName/ResourceType): fluidapp-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,watch,get",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,update,list,patch",
+        "Resources": "pods/exec",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [fluidapp-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/fluidapp-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: thinruntime-controller
+  [Resource] (ResourceName/ResourceType): thinruntime-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,list,get",
+        "Resources": "clusterrolebindings,clusterroles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "create,delete,list,get",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods/exec",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "daemonsets,statefulsets,daemonsets/status,statefulsets/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "thinruntimes,jindoruntimes,thinruntimeprofiles,thinruntimeprofiles/status,goosefsruntimes,datasets/status,alluxioruntimes,efcruntimes,datasets,thinruntimes/status,juicefsruntimes",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [thinruntime-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/thinruntime-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: fluid-crds-upgrade
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,update,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [fluid-crds-upgrade] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/fluid-crds-upgrade] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: default
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "alluxioruntimes",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "dataprocesses",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "datasets",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "efcruntimes",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "goosefsruntimes",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "jindoruntimes",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "juicefsruntimes",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "thinruntimes",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "vineyardruntimes",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "alluxioruntimes/status",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "dataprocesses/status",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "datasets/status",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "efcruntimes/status",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "goosefsruntimes/status",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "jindoruntimes/status",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "juicefsruntimes/status",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "thinruntimes/status",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "vineyardruntimes/status",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "dataprocesses/finalizers",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "thinruntimes/finalizers",
+        "API groups": "data.fluid.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [fluid-manager-role; fluid-proxy-role; manager-role; proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/default] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/default] [Main configs]
+-------------------------------------------
+
+[Service Account]: goosefsruntime-controller
+  [Resource] (ResourceName/ResourceType): goosefsruntime-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "pods/exec",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "daemonsets,statefulsets,daemonsets/status,statefulsets/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "goosefsdataloads,goosefsruntimes,datasets/status,datasets,goosefsruntimes/status,goosefsdataloads/status",
+        "API groups": "data.fluid.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [goosefsruntime-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/goosefsruntime-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: fluid-csi
+  [Resource] (ResourceName/ResourceType): csi-nodeplugin-fluid/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "persistentvolumes/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "thinruntimes,jindoruntimes,juicefsruntimes/status,goosefsruntimes,vineyardruntimes/status,vineyardruntimes,datasets/status,efcruntimes/status,alluxioruntimes,alluxioruntimes/status,jindoruntimes/status,efcruntimes,datasets,goosefsruntimes/status,thinruntimes/status,juicefsruntimes",
+        "API groups": "data.fluid.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [fluid-csi-plugin] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/fluid-csi] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

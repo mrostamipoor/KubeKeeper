@@ -1,0 +1,50 @@
+[Service Account]: release-name-jenkins
+  [Resource] (ResourceName/ResourceType): release-name-jenkins/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods/log,pods/exec,pods,persistentvolumeclaims,events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,patch,deletecollection,delete,create",
+        "Resources": "pods/exec,persistentvolumeclaims,pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-jenkins-casc-reload; release-name-jenkins-schedule-agents] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-jenkins] [Main configs]
+-------------------------------------------
+

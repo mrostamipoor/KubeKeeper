@@ -1,0 +1,58 @@
+[Service Account]: release-name-piped
+  [Resource] (ResourceName/ResourceType): release-name-piped/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "",
+        "API groups": "core"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-piped] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-piped] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: piped
+  [Resource] (ResourceName/ResourceType): piped/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "",
+        "API groups": "core"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [piped] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/piped] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

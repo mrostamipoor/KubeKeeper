@@ -1,0 +1,65 @@
+[Service Account]: litmus-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,list,get",
+        "Resources": "pods/exec,pods/log",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,list,deletecollection",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,create,update,list,deletecollection,patch",
+        "Resources": "events,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,update,list,patch",
+        "Resources": "chaosexperiments,chaosresults,chaosengines",
+        "API groups": "litmuschaos.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [litmus-sa] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/litmus-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

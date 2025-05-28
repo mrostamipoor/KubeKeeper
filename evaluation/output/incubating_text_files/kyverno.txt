@@ -1,0 +1,367 @@
+[Service Account]: kwok-controller
+  [Resource] (ResourceName/ResourceType): kwok-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,watch,list,update,patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "nodes/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kwok-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kwok-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: kyverno-admission-controller
+  [Resource] (ResourceName/ResourceType): kyverno-admission-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "delete,get,create,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "serviceaccounts,secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "deployments,deployments/scale",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [kyverno:admission-controller; release-name-kyverno:admission-controller; view] []
+    [clusterRoleBindings]: [ServiceAccount/kyverno-admission-controller] [Main configs; Example configs]
+
+    [roles]: [release-name-kyverno:admission-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/kyverno-admission-controller] [Main configs]
+    [roleResourceNames]: release-name-kyverno,release-name-kyverno-metrics
+-------------------------------------------
+
+[Service Account]: kyverno-reports-controller
+  [Resource] (ResourceName/ResourceType): kyverno-reports-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,delete,update,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [kyverno:reports-controller; release-name-kyverno:reports-controller; view] []
+    [clusterRoleBindings]: [ServiceAccount/kyverno-reports-controller] [Main configs; Example configs]
+
+    [roles]: [release-name-kyverno:reports-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/kyverno-reports-controller] [Main configs]
+    [roleResourceNames]: kyverno-reports-controller, release-name-kyverno,release-name-kyverno-metrics
+-------------------------------------------
+
+[Service Account]: release-name-kyverno-migrate-resources
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "update,list,get",
+        "Resources": "*",
+        "API groups": "kyverno.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "customresourcedefinitions/status",
+        "API groups": "apiextensions.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-kyverno:migrate-resources] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-kyverno-migrate-resources] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-kyverno-remove-configmap
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "delete,list,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-kyverno:remove-configmap] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-kyverno-remove-configmap] [Main configs]
+-------------------------------------------
+
+[Service Account]: kyverno-cleanup-controller
+  [Resource] (ResourceName/ResourceType): kyverno-cleanup-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,watch,update,list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,delete,update,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [kyverno:cleanup-controller; release-name-kyverno:cleanup-controller] []
+    [clusterRoleBindings]: [ServiceAccount/kyverno-cleanup-controller] [Main configs; Example configs]
+
+    [roles]: [release-name-kyverno:cleanup-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/kyverno-cleanup-controller] [Main configs]
+    [roleResourceNames]: kyverno-cleanup-controller.default.svc.kyverno-tls-pair,kyverno-cleanup-controller.default.svc.kyverno-tls-ca, kyverno-cleanup-controller, release-name-kyverno,release-name-kyverno-metrics
+-------------------------------------------
+
+[Service Account]: kyverno-background-controller
+  [Resource] (ResourceName/ResourceType): kyverno-background-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,delete,update,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [kyverno:background-controller; release-name-kyverno:background-controller; view] []
+    [clusterRoleBindings]: [ServiceAccount/kyverno-background-controller] [Main configs; Example configs]
+
+    [roles]: [release-name-kyverno:background-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/kyverno-background-controller] [Main configs]
+    [roleResourceNames]: kyverno-background-controller, release-name-kyverno,release-name-kyverno-metrics
+-------------------------------------------
+

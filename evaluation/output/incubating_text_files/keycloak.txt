@@ -1,0 +1,111 @@
+[Service Account]: keycloak-operator
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "ingresses",
+        "API groups": "config.openshift.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "services,secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [keycloak-operator-clusterrole] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/keycloak-operator] [Main configs]
+
+    [roles]: [keycloak-operator-role] [Main configs]
+    [roleBindings]: [ServiceAccount/keycloak-operator] [Main configs]
+-------------------------------------------
+

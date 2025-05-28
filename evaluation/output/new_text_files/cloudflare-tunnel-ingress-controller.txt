@@ -1,0 +1,132 @@
+[Service Account]: release-name-cloudflare-tunnel-ingress-controller
+  [Resource] (ResourceName/ResourceType): release-name-cloudflare-tunnel-ingress-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,update,get,create,watch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "ingressclasses,ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "ingresses/status",
+        "API groups": "networking.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,update,get,create,watch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-cloudflare-tunnel-ingress-controller-watch-ingress] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-cloudflare-tunnel-ingress-controller] [Main configs]
+
+    [roles]: [release-name-cloudflare-tunnel-ingress-controller-controlled-cloudflared-connector] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-cloudflare-tunnel-ingress-controller] [Main configs]
+-------------------------------------------
+
+[Service Account]: cloudflare-tunnel-ingress-controller
+  [Resource] (ResourceName/ResourceType): cloudflare-tunnel-ingress-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,update,get,create,watch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,secrets,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "ingressclasses,ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "ingresses/status",
+        "API groups": "networking.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cloudflare-tunnel-ingress-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/cloudflare-tunnel-ingress-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

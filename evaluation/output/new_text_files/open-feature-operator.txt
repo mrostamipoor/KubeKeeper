@@ -1,0 +1,306 @@
+[Service Account]: open-feature-operator-flagd-proxy
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "featureflags,featureflagsources",
+        "API groups": "core.openfeature.dev"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [open-feature-operator-flagd-kubernetes-sync] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/open-feature-operator-flagd-proxy] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: open-feature-operator-controller-manager
+  [Resource] (ResourceName/ResourceType): open-feature-operator-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "flagds,inprocessconfigurations,featureflagsources",
+        "API groups": "core.openfeature.dev"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "httproutes",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "services,configmaps,pods,services/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "featureflags,featureflagsources",
+        "API groups": "core.openfeature.dev"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "featureflagsources/status",
+        "API groups": "core.openfeature.dev"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "clusterrolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "featureflagsources/finalizers",
+        "API groups": "core.openfeature.dev"
+    },
+    {
+        "verbs": "update",
+        "Resources": "flagds/finalizers",
+        "API groups": "core.openfeature.dev"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [open-feature-operator-flagd-kubernetes-sync; open-feature-operator-manager-role; open-feature-operator-proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/open-feature-operator-controller-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: open-feature-operator-flagd-kubernetes-sync
+-------------------------------------------
+
+[Service Account]: controller-manager
+  [Resource] (ResourceName/ResourceType): controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "flagds,inprocessconfigurations,featureflagsources",
+        "API groups": "core.openfeature.dev"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "httproutes",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "services,configmaps,pods,services/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "featureflags,featureflagsources",
+        "API groups": "core.openfeature.dev"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "featureflagsources/status",
+        "API groups": "core.openfeature.dev"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "clusterrolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "featureflagsources/finalizers",
+        "API groups": "core.openfeature.dev"
+    },
+    {
+        "verbs": "update",
+        "Resources": "flagds/finalizers",
+        "API groups": "core.openfeature.dev"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [flagd-kubernetes-sync; manager-role; proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller-manager] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/controller-manager] [Main configs]
+    [clusterResourceNames]: open-feature-operator-flagd-kubernetes-sync
+-------------------------------------------
+
+[Service Account]: flagd-proxy
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "featureflags,featureflagsources",
+        "API groups": "core.openfeature.dev"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [flagd-kubernetes-sync] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/flagd-proxy] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

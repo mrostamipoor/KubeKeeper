@@ -1,0 +1,139 @@
+[Service Account]: meshery-operator
+  [Resource] (ResourceName/ResourceType): meshery-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "brokers",
+        "API groups": "meshery.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "brokers/status",
+        "API groups": "meshery.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "*",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [meshery-controller-role; meshery-operator-role; meshery-proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/meshery-operator] [Main configs]
+
+    [roles]: [meshery-leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/meshery-operator] [Main configs]
+-------------------------------------------
+
+[Service Account]: meshery-server
+  [Resource] (ResourceName/ResourceType): meshery/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [meshery-server] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/meshery-server] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: default
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ingresses",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes/proxy,nodes,services,pods,endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [prometheus] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/default] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

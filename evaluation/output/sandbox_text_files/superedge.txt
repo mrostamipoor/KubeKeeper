@@ -1,0 +1,437 @@
+[Service Account]: application-grid-wrapper
+  [Resource] (ResourceName/ResourceType): application-grid-wrapper/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "services,endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [edge:application-grid-wrapper] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/application-grid-wrapper] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: edge-health
+  [Resource] (ResourceName/ResourceType): edge-health/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "nodes/proxy,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [edge-health] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/edge-health] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: apps-manager-service-account
+  [Resource] (ResourceName/ResourceType): apps-manager/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "apps.superedge.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets,events,nodes,namespaces,services,pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [apps-manager-cluster-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/apps-manager-service-account] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: prometheus-server
+  [Resource] (ResourceName/ResourceType): prometheus-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ingresses/status,ingresses",
+        "API groups": "extensions,networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes/proxy,nodes/metrics,nodes,ingresses,services,pods,endpoints,configmaps",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [prometheus-server] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/prometheus-server] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: statefulset-grid-daemon
+  [Resource] (ResourceName/ResourceType): statefulset-grid-daemon/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "services,pods,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsetgrids",
+        "API groups": "superedge.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps,extensions"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [statefulset-grid-daemon] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/statefulset-grid-daemon] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: application-grid-controller
+  [Resource] (ResourceName/ResourceType): application-grid-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets,events,nodes,namespaces,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsetgrids,deploymentgrids/status,statefulsetgrids/status,deploymentgrids,servicegrids,servicegrids/status",
+        "API groups": "superedge.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets,deployments",
+        "API groups": "apps,extensions"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [application-grid-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/application-grid-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: tunnel-edge
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [tunnel-edge] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/tunnel-edge] [Main configs; Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: site-manager-service-account
+  [Resource] (ResourceName/ResourceType): site-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "site.superedge.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets,events,nodes,namespaces,services,pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [site-manager-cluster-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/site-manager-service-account] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: edge-health-admission
+  [Resource] (ResourceName/ResourceType): edge-health-admission/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [edge-health-admission] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/edge-health-admission] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: penetrator
+  [Resource] (ResourceName/ResourceType): penetrator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets,events,nodes,endpoints,configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,delete,update",
+        "Resources": "nodetasks/status,nodetasks",
+        "API groups": "nodetask.apps.superedge.io"
+    },
+    {
+        "verbs": "create,delete,watch,list",
+        "Resources": "nodetasks",
+        "API groups": "nodetask.apps.superedge.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [penetrator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/penetrator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

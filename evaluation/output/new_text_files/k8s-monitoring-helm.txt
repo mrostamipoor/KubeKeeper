@@ -1,0 +1,1022 @@
+[Service Account]: k8smon-alloy-logs
+  [Resource] (ResourceName/ResourceType): k8smon-alloy-logs/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,pods,nodes/proxy,nodes,services,endpointslices,nodes/metrics,ingresses",
+        "API groups": ",networking.k8s.io,discovery.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "podlogs",
+        "API groups": "monitoring.grafana.com"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods/log,namespaces,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "prometheusrules",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "replicasets",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "servicemonitors,podmonitors,probes",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [k8smon-alloy-logs; k8smon-alloy-logs-scc] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/k8smon-alloy-logs] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: k8smon-alloy-logs
+-------------------------------------------
+
+[Service Account]: k8smon-alloy-events
+  [Resource] (ResourceName/ResourceType): k8smon-alloy-events/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,pods,nodes/proxy,nodes,services,endpointslices,nodes/metrics,ingresses",
+        "API groups": ",networking.k8s.io,discovery.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "podlogs",
+        "API groups": "monitoring.grafana.com"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods/log,namespaces,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "prometheusrules",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "replicasets",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "servicemonitors,podmonitors,probes",
+        "API groups": "monitoring.coreos.com"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [k8smon-alloy-events] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/k8smon-alloy-events] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: k8smon-kube-state-metrics
+  [Resource] (ResourceName/ResourceType): k8smon-kube-state-metrics/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "daemonsets",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "deployments",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "limitranges",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "networkpolicies",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "replicasets",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "resourcequotas",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "volumeattachments",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [k8smon-kube-state-metrics] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/k8smon-kube-state-metrics] [Example configs]
+
+    [roles]: [stsdiscovery-k8smon-kube-state-metrics] [Example configs]
+    [roleBindings]: [ServiceAccount/k8smon-kube-state-metrics] [Example configs]
+    [roleResourceNames]: k8smon-kube-state-metrics
+-------------------------------------------
+
+[Service Account]: k8smon-alloy-receiver
+  [Resource] (ResourceName/ResourceType): k8smon-alloy-receiver/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,pods,nodes/proxy,nodes,services,endpointslices,nodes/metrics,ingresses",
+        "API groups": ",networking.k8s.io,discovery.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "podlogs",
+        "API groups": "monitoring.grafana.com"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods/log,namespaces,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "prometheusrules",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "replicasets",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "servicemonitors,podmonitors,probes",
+        "API groups": "monitoring.coreos.com"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [k8smon-alloy-receiver] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/k8smon-alloy-receiver] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: k8smon-kepler
+  [Resource] (ResourceName/ResourceType): k8smon-kepler/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes/metrics,nodes/stats,nodes/proxy,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [k8smon-kepler-clusterrole; k8smon-kepler-scc] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/k8smon-kepler] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: k8smon-kepler
+-------------------------------------------
+
+[Service Account]: k8smon-alloy-profiles
+  [Resource] (ResourceName/ResourceType): k8smon-alloy-profiles/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,pods,nodes/proxy,nodes,services,endpointslices,nodes/metrics,ingresses",
+        "API groups": ",networking.k8s.io,discovery.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "podlogs",
+        "API groups": "monitoring.grafana.com"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods/log,namespaces,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "prometheusrules",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "replicasets",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "servicemonitors,podmonitors,probes",
+        "API groups": "monitoring.coreos.com"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [k8smon-alloy-profiles] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/k8smon-alloy-profiles] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-kube-state-metrics
+  [Resource] (ResourceName/ResourceType): release-name-kube-state-metrics/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "daemonsets",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "deployments",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "limitranges",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "networkpolicies",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "replicasets",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "resourcequotas",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "volumeattachments",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-kube-state-metrics] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-kube-state-metrics] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: k8smon-beyla
+  [Resource] (ResourceName/ResourceType): k8smon-beyla/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services,nodes,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [k8smon-beyla] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/k8smon-beyla] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: k8smon-alloy-singleton
+  [Resource] (ResourceName/ResourceType): k8smon-alloy-singleton/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,pods,nodes/proxy,nodes,services,endpointslices,nodes/metrics,ingresses",
+        "API groups": ",networking.k8s.io,discovery.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "podlogs",
+        "API groups": "monitoring.grafana.com"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods/log,namespaces,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "prometheusrules",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "replicasets",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "servicemonitors,podmonitors,probes",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [k8smon-alloy-singleton; k8smon-alloy-singleton-scc] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/k8smon-alloy-singleton] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: k8smon-alloy-singleton
+-------------------------------------------
+
+[Service Account]: release-name-beyla
+  [Resource] (ResourceName/ResourceType): release-name-beyla/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services,nodes,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-beyla] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-beyla] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: k8smon-alloy-metrics
+  [Resource] (ResourceName/ResourceType): k8smon-alloy-metrics/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,pods,nodes/proxy,nodes,services,endpointslices,nodes/metrics,ingresses",
+        "API groups": ",networking.k8s.io,discovery.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "podlogs",
+        "API groups": "monitoring.grafana.com"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods/log,namespaces,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "prometheusrules",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "replicasets",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "servicemonitors,podmonitors,probes",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [k8smon-alloy-metrics; k8smon-alloy-metrics-scc] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/k8smon-alloy-metrics] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: k8smon-alloy-metrics
+-------------------------------------------
+
+[Service Account]: k8smon-opencost
+  [Resource] (ResourceName/ResourceType): k8smon-opencost/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "deployments,replicasets,daemonsets",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "jobs,cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "resourcequotas,deployments,endpoints,pods,limitranges,replicationcontrollers,configmaps,nodes,services,persistentvolumeclaims,persistentvolumes,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "deployments,replicasets,daemonsets,statefulsets",
+        "API groups": "apps"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [k8smon-opencost] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/k8smon-opencost] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

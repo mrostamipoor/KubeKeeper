@@ -1,0 +1,255 @@
+[Service Account]: chaos-controller-manager
+  [Resource] (ResourceName/ResourceType): chaos-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "chaos-mesh.org"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "delete,get,watch,list,update,patch",
+        "Resources": "configmaps,pods,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,list,patch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "pods/log",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "persistentvolumeclaims,persistentvolumes,nodes,namespaces,services",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "*",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "*",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods/exec",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services,secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-chaos-controller-manager-cluster-level; release-name-chaos-controller-manager-target-namespace] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/chaos-controller-manager] [Main configs]
+
+    [roles]: [release-name-chaos-controller-manager-control-plane] [Main configs]
+    [roleBindings]: [ServiceAccount/chaos-controller-manager] [Main configs]
+-------------------------------------------
+
+[Service Account]: chaos-dns-server
+  [Resource] (ResourceName/ResourceType): chaos-dns-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "chaos-mesh.org"
+    },
+    {
+        "verbs": "*",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,services,pods,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-chaos-dns-server-cluster-level; release-name-chaos-dns-server-target-namespace] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/chaos-dns-server] [Main configs]
+
+    [roles]: [release-name-chaos-dns-server-control-plane] [Main configs]
+    [roleBindings]: [ServiceAccount/chaos-dns-server] [Main configs]
+-------------------------------------------
+
+[Service Account]: local-storage-admin
+  [Resource] (ResourceName/ResourceType): local-volume-provisioner/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [local-storage-provisioner-node-clusterrole; system:persistent-volume-provisioner] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/local-storage-admin] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: chaos-dashboard
+  [Resource] (ResourceName/ResourceType): chaos-dashboard/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "chaos-mesh.org"
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-chaos-dashboard-cluster-level; release-name-chaos-dashboard-target-namespace] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/chaos-dashboard] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

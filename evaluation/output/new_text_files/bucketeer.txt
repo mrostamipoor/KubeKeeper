@@ -1,0 +1,42 @@
+[Service Account]: release-name-vault-agent-injector
+  [Resource] (ResourceName/ResourceType): release-name-vault-agent-injector/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,watch,get",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-vault-agent-injector-clusterrole] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-vault-agent-injector] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-vault
+  [Resource] (ResourceName/ResourceType): release-name-vault/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:auth-delegator] []
+    [clusterRoleBindings]: [ServiceAccount/release-name-vault] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

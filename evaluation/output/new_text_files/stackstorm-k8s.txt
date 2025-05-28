@@ -1,0 +1,29 @@
+[Service Account]: release-name-rabbitmq
+  [Resource] (ResourceName/ResourceType): release-name-rabbitmq/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "endpoints",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-rabbitmq-endpoint-reader] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-rabbitmq] [Main configs]
+-------------------------------------------
+

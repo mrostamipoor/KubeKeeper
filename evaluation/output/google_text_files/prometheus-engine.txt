@@ -1,0 +1,345 @@
+[Service Account]: kube-state-metrics
+  [Resource] (ResourceName/ResourceType): kube-state-metrics/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "deployments,daemonsets,replicasets,ingresses",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "deployments,daemonsets,statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "networkpolicies,ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "nodes,secrets,services,replicationcontrollers,resourcequotas,pods,namespaces,limitranges,persistentvolumeclaims,configmaps,persistentvolumes,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "volumeattachments,storageclasses",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [gmp-public:kube-state-metrics] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/kube-state-metrics] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: operator
+  [Resource] (ResourceName/ResourceType): gmp-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "clusterpodmonitorings,clusterrules,globalrules,clusternodemonitorings,rules,podmonitorings",
+        "API groups": "monitoring.googleapis.com"
+    },
+    {
+        "verbs": "get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "update,get,patch,watch",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "globalrules/status,podmonitorings/status,clusterpodmonitorings/status,rules/status,clusternodemonitorings/status,clusterrules/status",
+        "API groups": "monitoring.googleapis.com"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [gmp-system:operator; gmp-system:operator:webhook-admin] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: verticalpodautoscalers.autoscaling.k8s.io, gmp-operator, gmp-operator.gmp-system.monitoring.googleapis.com
+-------------------------------------------
+
+[Service Account]: prometheus-adapter
+  [Resource] (ResourceName/ResourceType): prometheus-adapter/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes,services,pods,namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (monitoring): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [prometheus-adapter; system:auth-delegator] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/prometheus-adapter] [Example configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/prometheus-adapter] [Example configs]
+-------------------------------------------
+
+[Service Account]: default
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [gmp-test:prometheus-test] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/default] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: collector
+  [Resource] (ResourceName/ResourceType): collector/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes,services,pods,nodes/metrics,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (gmp-system): [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [gmp-system:collector] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/collector] [Main configs]
+
+    [roles]: [go-synthetic-basic-auth-secret-read] [Example configs]
+    [roleBindings]: [ServiceAccount/collector] [Example configs]
+    [roleResourceNames]: go-synthetic-basic-auth
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): rule-evaluator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes,services,pods,nodes/metrics,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (gmp-system): [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [gmp-system:collector] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/collector] [Main configs]
+
+    [roles]: [go-synthetic-basic-auth-secret-read] [Example configs]
+    [roleBindings]: [ServiceAccount/collector] [Example configs]
+    [roleResourceNames]: go-synthetic-basic-auth
+-------------------------------------------
+
+[Service Account]: rule-evaluator
+  [Resource] (ResourceName/ResourceType): rule-evaluator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes,services,pods,nodes/metrics,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [rule-evaluator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/rule-evaluator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

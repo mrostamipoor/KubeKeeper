@@ -1,0 +1,225 @@
+[Service Account]: cleanup-service-account
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete",
+        "Resources": "roles,rolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [k8up-cleanup-roles] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/cleanup-service-account] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-k8up
+  [Resource] (ResourceName/ResourceType): release-name-k8up/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "bind",
+        "Resources": "clusterroles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "create,update,list,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "archives",
+        "API groups": "k8up.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "backups",
+        "API groups": "k8up.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "checks",
+        "API groups": "k8up.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "effectiveschedules",
+        "API groups": "k8up.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "prebackuppods",
+        "API groups": "k8up.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "prunes",
+        "API groups": "k8up.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "restores",
+        "API groups": "k8up.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "schedules",
+        "API groups": "k8up.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "snapshots",
+        "API groups": "k8up.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "rolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "archives/status,archives/finalizers",
+        "API groups": "k8up.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "backups/status,backups/finalizers",
+        "API groups": "k8up.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "checks/finalizers,checks/status",
+        "API groups": "k8up.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "prebackuppods/status,prebackuppods/finalizers",
+        "API groups": "k8up.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "prunes/status,prunes/finalizers",
+        "API groups": "k8up.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "restores/finalizers,restores/status",
+        "API groups": "k8up.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "schedules/finalizers,schedules/status",
+        "API groups": "k8up.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "snapshots/status,snapshots/finalizers",
+        "API groups": "k8up.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "effectiveschedules/finalizers",
+        "API groups": "k8up.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "podconfigs",
+        "API groups": "k8up.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-k8up-manager] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-k8up] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: k8up-executor
+-------------------------------------------
+

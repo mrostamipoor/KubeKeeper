@@ -1,0 +1,129 @@
+[Service Account]: snyk-monitor
+  [Resource] (ResourceName/ResourceType): snyk-monitor/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "deployments,replicasets,daemonsets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "rollouts",
+        "API groups": "argoproj.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (snyk-monitor): [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "deployments,replicasets,daemonsets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "replicationcontrollers",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "rollouts",
+        "API groups": "argoproj.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [snyk-monitor] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/snyk-monitor] [Main configs]
+
+    [roles]: [snyk-monitor] [Main configs]
+    [roleBindings]: [ServiceAccount/snyk-monitor] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name
+  [Resource] (ResourceName/ResourceType): release-name/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "deploymentconfigs",
+        "API groups": "apps.openshift.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "deployments,replicasets,daemonsets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "rollouts",
+        "API groups": "argoproj.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

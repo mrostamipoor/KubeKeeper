@@ -1,0 +1,222 @@
+[Service Account]: clusternet-scheduler
+  [Resource] (ResourceName/ResourceType): clusternet-scheduler/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "sockets/proxy",
+        "API groups": "proxies.clusternet.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "impersonate",
+        "Resources": "userextras/clusternet-token,userextras/clusternet-privatekey,userextras/clusternet-certificate",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "impersonate",
+        "Resources": "users",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "subscriptions/status",
+        "API groups": "apps.clusternet.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "feedinventories,subscriptions",
+        "API groups": "apps.clusternet.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "managedclusters",
+        "API groups": "clusters.clusternet.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [clusternet:scheduler; clusternet:system:socketsproxy] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/clusternet-scheduler] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: clusternet
+-------------------------------------------
+
+[Service Account]: clusternet-agent
+  [Resource] (ResourceName/ResourceType): clusternet-agent/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "serviceexports",
+        "API groups": "multicluster.x-k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods,nodes",
+        "API groups": "metrics.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [clusternet:agent:admin] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/clusternet-agent] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: clusternet-hub-proxy
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "sockets/proxy",
+        "API groups": "proxies.clusternet.io"
+    },
+    {
+        "verbs": "impersonate",
+        "Resources": "userextras/clusternet-token,userextras/clusternet-privatekey,userextras/clusternet-certificate",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "impersonate",
+        "Resources": "users",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [clusternet:system:socketsproxy] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/clusternet-hub-proxy] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: clusternet
+-------------------------------------------
+
+[Service Account]: clusternet-hub
+  [Resource] (ResourceName/ResourceType): clusternet-hub/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/clusternet-hub] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: clusternet-controller-manager
+  [Resource] (ResourceName/ResourceType): clusternet-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/clusternet-controller-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: clusternet-app-deployer
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/clusternet-app-deployer] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: cluster-bootstrap-use
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,get",
+        "Resources": "clusterregistrationrequests",
+        "API groups": "clusters.clusternet.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [clusternet:system:bootstrapping] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/cluster-bootstrap-use] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

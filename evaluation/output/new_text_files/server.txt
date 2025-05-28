@@ -1,0 +1,84 @@
+[Service Account]: release-name-traefik
+  [Resource] (ResourceName/ResourceType): release-name-traefik/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,secrets,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "ingressclasses,ingresses",
+        "API groups": "networking.k8s.io,extensions"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "middlewares,ingressrouteudps,ingressroutetcps,ingressroutes,serverstransports,tlsstores,tlsoptions,middlewaretcps,traefikservices",
+        "API groups": "traefik.containo.us"
+    },
+    {
+        "verbs": "update",
+        "Resources": "ingresses/status",
+        "API groups": "networking.k8s.io,extensions"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-traefik] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-traefik] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-prometheus-adapter
+  [Resource] (ResourceName/ResourceType): release-name-prometheus-adapter/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "custom.metrics.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services,namespaces,pods,configmaps",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [prometheus-adapter-resource-reader; prometheus-adapter-server-resources; system:auth-delegator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-prometheus-adapter] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/release-name-prometheus-adapter] [Main configs]
+-------------------------------------------
+

@@ -1,0 +1,115 @@
+[Service Account]: capsule-pre-delete
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete",
+        "Resources": "clusterrolebindings,clusterroles",
+        "API groups": "rbac.authorization.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "delete",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [capsule-pre-delete] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/capsule-pre-delete] [Main configs]
+
+    [roles]: [capsule-pre-delete] [Main configs]
+    [roleBindings]: [ServiceAccount/capsule-pre-delete] [Main configs]
+    [clusterResourceNames]: capsule-namespace-provisioner,capsule-namespace-deleter
+    [roleResourceNames]: release-name-capsule-tls
+-------------------------------------------
+
+[Service Account]: capsule-crds
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete",
+        "Resources": "jobs",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create,delete,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [capsule-crds] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/capsule-crds] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: capsule-post-install
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [capsule-post-install] [Main configs]
+    [roleBindings]: [ServiceAccount/capsule-post-install] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-capsule
+  [Resource] (ResourceName/ResourceType): release-name-capsule-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/release-name-capsule] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

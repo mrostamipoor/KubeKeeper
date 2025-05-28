@@ -1,0 +1,184 @@
+[Service Account]: rbac-manager
+  [Resource] (ResourceName/ResourceType): crossplane-rbac-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "clusterrolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "bind",
+        "Resources": "clusterroles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list,patch",
+        "Resources": "configmaps,leases",
+        "API groups": ",coordination.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update,patch,escalate",
+        "Resources": "clusterroles,roles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "patch,create,delete,update",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "compositeresourcedefinitions/finalizers",
+        "API groups": "apiextensions.crossplane.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "namespaces/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "providerrevisions/finalizers",
+        "API groups": "pkg.crossplane.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "compositeresourcedefinitions",
+        "API groups": "apiextensions.crossplane.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "providerrevisions",
+        "API groups": "pkg.crossplane.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [crossplane-rbac-manager] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/rbac-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: crossplane
+  [Resource] (ResourceName/ResourceType): crossplane/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "secrets.crossplane.io,pkg.crossplane.io,apiextensions.crossplane.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions/status,customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "services,serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list,patch",
+        "Resources": "configmaps,leases",
+        "API groups": ",coordination.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list,patch",
+        "Resources": "deployments",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list,patch",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "patch,create,delete,update",
+        "Resources": "events",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [crossplane] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/crossplane] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

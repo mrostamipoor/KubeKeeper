@@ -1,0 +1,404 @@
+[Service Account]: openelb-controller
+  [Resource] (ResourceName/ResourceType): openelb-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "daemonsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "eips",
+        "API groups": "network.kubesphere.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "eips/status",
+        "API groups": "network.kubesphere.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "leases/status",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "services/status,nodes/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "services/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods/status,namespaces,pods,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [openelb-controller; release-name-openelb-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/openelb-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): release-name-openelb-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "daemonsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "eips",
+        "API groups": "network.kubesphere.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "eips/status",
+        "API groups": "network.kubesphere.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "leases/status",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "services/status,nodes/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "services/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods/status,namespaces,pods,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [openelb-controller; release-name-openelb-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/openelb-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: openelb-speaker
+  [Resource] (ResourceName/ResourceType): openelb-speaker/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "bgppeers,eips,bgpconfs",
+        "API groups": "network.kubesphere.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bgppeers/status,bgpconfs/status,eips/status",
+        "API groups": "network.kubesphere.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "bgpconfs/finalizers",
+        "API groups": "network.kubesphere.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [openelb-speaker; release-name-openelb-speaker] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/openelb-speaker] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): release-name-openelb-speaker/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "bgppeers,eips,bgpconfs",
+        "API groups": "network.kubesphere.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bgppeers/status,bgpconfs/status,eips/status",
+        "API groups": "network.kubesphere.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "bgpconfs/finalizers",
+        "API groups": "network.kubesphere.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [openelb-speaker; release-name-openelb-speaker] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/openelb-speaker] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: openelb-admission
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "update,get",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [openelb-admission; release-name-openelb-admission] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/openelb-admission] [Main configs]
+
+    [roles]: [openelb-admission; release-name-openelb-admission] [Main configs]
+    [roleBindings]: [ServiceAccount/openelb-admission] [Main configs]
+-------------------------------------------
+

@@ -1,0 +1,252 @@
+[Service Account]: shardingsphere-operator
+  [Resource] (ResourceName/ResourceType): shardingsphere-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "storageproviders",
+        "API groups": "shardingsphere.apache.org"
+    },
+    {
+        "verbs": "get",
+        "Resources": "deployments/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "horizontalpodautoscalers/status",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "get",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "services/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "event",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "chaos/status",
+        "API groups": "shardingsphere.apache.org"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "computenodes/status",
+        "API groups": "shardingsphere.apache.org"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "shardingsphereproxies/status",
+        "API groups": "shardingsphere.apache.org"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "shardingsphereproxyserverconfigs/status",
+        "API groups": "shardingsphere.apache.org"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "storagenodes/status",
+        "API groups": "shardingsphere.apache.org"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "chaos",
+        "API groups": "shardingsphere.apache.org"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "clusters",
+        "API groups": "postgresql.cnpg.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "computenodes",
+        "API groups": "shardingsphere.apache.org"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "networkchaos",
+        "API groups": "chaos-mesh.org"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "podchaos",
+        "API groups": "chaos-mesh.org"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "shardingsphereproxies",
+        "API groups": "shardingsphere.apache.org"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "shardingsphereproxyserverconfigs",
+        "API groups": "shardingsphere.apache.org"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "storagenodes",
+        "API groups": "shardingsphere.apache.org"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "stresschaos",
+        "API groups": "chaos-mesh.org"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,deletecollection,delete,create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "chaos/finalizers",
+        "API groups": "shardingsphere.apache.org"
+    },
+    {
+        "verbs": "update",
+        "Resources": "shardingsphereproxies/finalizers",
+        "API groups": "shardingsphere.apache.org"
+    },
+    {
+        "verbs": "update",
+        "Resources": "shardingsphereproxyserverconfigs/finalizers",
+        "API groups": "shardingsphere.apache.org"
+    },
+    {
+        "verbs": "update",
+        "Resources": "storagenodes/finalizers",
+        "API groups": "shardingsphere.apache.org"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "jobs",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [shardingsphere-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/shardingsphere-operator] [Main configs]
+
+    [roles]: [shardingsphere-operator] [Main configs]
+    [roleBindings]: [ServiceAccount/shardingsphere-operator] [Main configs]
+-------------------------------------------
+

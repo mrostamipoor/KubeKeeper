@@ -1,0 +1,286 @@
+[Service Account]: securecodebox-operator
+  [Resource] (ResourceName/ResourceType): securecodebox-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,create,watch,get",
+        "Resources": "rolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "list,create,watch,get",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "scheduledscans,scans",
+        "API groups": "execution.securecodebox.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch",
+        "Resources": "roles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "scancompletionhooks,parsedefinitions,scantypes",
+        "API groups": "execution.securecodebox.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "scans/status,scheduledscans/status",
+        "API groups": "execution.securecodebox.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "scheduledscans",
+        "API groups": "execution.securecodebox.io/status"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [manager-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/securecodebox-operator] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/securecodebox-operator] [Main configs]
+-------------------------------------------
+
+[Service Account]: auto-discovery
+  [Resource] (ResourceName/ResourceType): auto-discovery/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "pods/status,services/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "scheduledscans",
+        "API groups": "execution.securecodebox.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "scantypes",
+        "API groups": "execution.securecodebox.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services,namespaces,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "scheduledscans",
+        "API groups": "execution.securecodebox.io/status"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [auto-discovery] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/auto-discovery] [Main configs]
+
+    [roles]: [auto-discovery-leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/auto-discovery] [Main configs]
+-------------------------------------------
+
+[Service Account]: cascading-scans
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create,get",
+        "Resources": "scans",
+        "API groups": "execution.securecodebox.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "parsedefinitions",
+        "API groups": "execution.securecodebox.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "cascadingrules",
+        "API groups": "cascading.securecodebox.io"
+    },
+    {
+        "verbs": "patch,get",
+        "Resources": "scans/status",
+        "API groups": "execution.securecodebox.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [cascading-scans] [Main configs]
+    [roleBindings]: [ServiceAccount/cascading-scans] [Main configs]
+-------------------------------------------
+
+[Service Account]: auto-discovery-cloud-aws
+  [Resource] (ResourceName/ResourceType): auto-discovery-cloud-aws/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create,delete",
+        "Resources": "scheduledscans",
+        "API groups": "execution.securecodebox.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [auto-discovery-cloud-aws] [Main configs]
+    [roleBindings]: [ServiceAccount/auto-discovery-cloud-aws] [Main configs]
+-------------------------------------------
+
+[Service Account]: trivy-k8s
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/trivy-k8s] [Main configs]
+
+    [roles]: [lurker] []
+    [roleBindings]: [ServiceAccount/trivy-k8s] [Main configs]
+-------------------------------------------
+
+[Service Account]: kubeaudit
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "deployments,daemonsets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "namespaces,pods,replicationcontrollers,podtemplates",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "networkpolicies",
+        "API groups": "networking"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [kubeaudit; lurker] [Main configs]
+    [roleBindings]: [ServiceAccount/kubeaudit] [Main configs]
+-------------------------------------------
+

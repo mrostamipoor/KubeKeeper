@@ -1,0 +1,1106 @@
+[Service Account]: controller-manager
+  [Resource] (ResourceName/ResourceType): controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "authorizationpolicies",
+        "API groups": "security.istio.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "notebooks,notebooks/finalizers,notebooks/status",
+        "API groups": "kubeflow.org"
+    },
+    {
+        "verbs": "*",
+        "Resources": "profiles/finalizers,profiles,profiles/status",
+        "API groups": "kubeflow.org"
+    },
+    {
+        "verbs": "*",
+        "Resources": "rolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "virtualservices",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,patch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [manager-role; proxy-role; role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller-manager] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/controller-manager] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): deployment/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "authorizationpolicies",
+        "API groups": "security.istio.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "notebooks,notebooks/finalizers,notebooks/status",
+        "API groups": "kubeflow.org"
+    },
+    {
+        "verbs": "*",
+        "Resources": "profiles/finalizers,profiles,profiles/status",
+        "API groups": "kubeflow.org"
+    },
+    {
+        "verbs": "*",
+        "Resources": "rolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "virtualservices",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,patch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [manager-role; proxy-role; role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller-manager] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/controller-manager] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): profiles-deployment/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "authorizationpolicies",
+        "API groups": "security.istio.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "notebooks,notebooks/finalizers,notebooks/status",
+        "API groups": "kubeflow.org"
+    },
+    {
+        "verbs": "*",
+        "Resources": "profiles/finalizers,profiles,profiles/status",
+        "API groups": "kubeflow.org"
+    },
+    {
+        "verbs": "*",
+        "Resources": "rolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "virtualservices",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,patch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [manager-role; proxy-role; role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller-manager] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/controller-manager] [Main configs]
+-------------------------------------------
+
+[Service Account]: jupyter-notebook
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create,delete,list,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,list,update,patch",
+        "Resources": "notebooks,notebooks/finalizers,poddefaults",
+        "API groups": "kubeflow.org"
+    },
+    {
+        "verbs": "list",
+        "Resources": "events,nodes",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [jupyter-notebook-role] [Main configs]
+    [roleBindings]: [ServiceAccount/jupyter-notebook] [Main configs]
+-------------------------------------------
+
+[Service Account]: jupyter-web-app-service-account
+  [Resource] (ResourceName/ResourceType): jupyter-web-app-deployment/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,list,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,list,update,patch",
+        "Resources": "notebooks,notebooks/finalizers,poddefaults",
+        "API groups": "kubeflow.org"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "pods,pods/log",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "events,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [jupyter-web-app-cluster-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/jupyter-web-app-service-account] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: tensorboards-web-app-service-account
+  [Resource] (ResourceName/ResourceType): tensorboards-web-app-deployment/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,list,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,delete,list,get",
+        "Resources": "tensorboards,tensorboards/finalizers",
+        "API groups": "tensorboard.kubeflow.org"
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "poddefaults",
+        "API groups": "kubeflow.org"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [tensorboards-web-app-cluster-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/tensorboards-web-app-service-account] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: kf-conformance
+  [Resource] (ResourceName/ResourceType): training-operator-conformance/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "pipelines",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kfp-conformance-patch] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kf-conformance] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): katib-conformance/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "pipelines",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kfp-conformance-patch] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kf-conformance] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): kfp-conformance/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "pipelines",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kfp-conformance-patch] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kf-conformance] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: centraldashboard
+  [Resource] (ResourceName/ResourceType): centraldashboard/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "events,namespaces,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (kubeflow): [
+    {
+        "verbs": "get",
+        "Resources": "configmaps,secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods/exec,pods,applications,pods/log",
+        "API groups": "app.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods/exec,pods,applications,pods/log",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [centraldashboard] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/centraldashboard] [Main configs]
+
+    [roles]: [centraldashboard] [Main configs]
+    [roleBindings]: [ServiceAccount/centraldashboard] [Main configs]
+-------------------------------------------
+
+[Service Account]: centraldashboard-angular
+  [Resource] (ResourceName/ResourceType): centraldashboard-angular/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "events,namespaces,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (kubeflow): [
+    {
+        "verbs": "get",
+        "Resources": "configmaps,secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods/exec,pods,applications,pods/log",
+        "API groups": "app.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods/exec,pods,applications,pods/log",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [centraldashboard-angular] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/centraldashboard-angular] [Main configs]
+
+    [roles]: [centraldashboard-angular] [Main configs]
+    [roleBindings]: [ServiceAccount/centraldashboard-angular] [Main configs]
+-------------------------------------------
+
+[Service Account]: pvcviewer-controller-manager
+  [Resource] (ResourceName/ResourceType): pvcviewer-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pvcviewers",
+        "API groups": "kubeflow.org"
+    },
+    {
+        "verbs": "get,create,watch,update,list",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,create,watch,update,list",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,update,list",
+        "Resources": "virtualservices",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "pvcviewers/status",
+        "API groups": "kubeflow.org"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pvcviewers/finalizers",
+        "API groups": "kubeflow.org"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [pvcviewer-proxy-role; pvcviewer-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/pvcviewer-controller-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: service-account
+  [Resource] (ResourceName/ResourceType): deployment/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "notebooks,notebooks/finalizers,notebooks/status",
+        "API groups": "kubeflow.org"
+    },
+    {
+        "verbs": "*",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "virtualservices",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "poddefaults",
+        "API groups": "kubeflow.org"
+    },
+    {
+        "verbs": "get,create,watch,list,patch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-role; proxy-role; role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/service-account] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/service-account] [Main configs]
+-------------------------------------------
+
+[Service Account]: admission-webhook-service-account
+  [Resource] (ResourceName/ResourceType): admission-webhook-deployment/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "poddefaults",
+        "API groups": "kubeflow.org"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [admission-webhook-cluster-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/admission-webhook-service-account] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: profiles-controller-service-account
+  [Resource] (ResourceName/ResourceType): profiles-deployment/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/profiles-controller-service-account] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: volumes-web-app-service-account
+  [Resource] (ResourceName/ResourceType): volumes-web-app-deployment/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,list,get",
+        "Resources": "pvcviewers",
+        "API groups": "kubeflow.org"
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "namespaces,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "notebooks",
+        "API groups": "kubeflow.org"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [volumes-web-app-cluster-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/volumes-web-app-service-account] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: notebook-controller-service-account
+  [Resource] (ResourceName/ResourceType): notebook-controller-deployment/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "notebooks,notebooks/finalizers,notebooks/status",
+        "API groups": "kubeflow.org"
+    },
+    {
+        "verbs": "*",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "virtualservices",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "get,create,watch,list,patch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [notebook-controller-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/notebook-controller-service-account] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: tensorboard-controller-controller-manager
+  [Resource] (ResourceName/ResourceType): tensorboard-controller-deployment/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "tensorboards",
+        "API groups": "tensorboard.kubeflow.org"
+    },
+    {
+        "verbs": "get,create,watch,update,list",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,create,watch,update,list",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,update,list",
+        "Resources": "virtualservices",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "tensorboards/status",
+        "API groups": "tensorboard.kubeflow.org"
+    },
+    {
+        "verbs": "update",
+        "Resources": "tensorboards/finalizers",
+        "API groups": "tensorboard.kubeflow.org"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [tensorboard-controller-manager-role; tensorboard-controller-proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/tensorboard-controller-controller-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: tensorboard-web-app
+  [Resource] (ResourceName/ResourceType): tensorboard-web-app/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "tensorboards",
+        "API groups": "tensorboard.kubeflow.org"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "poddefaults",
+        "API groups": "kubeflow.org"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [tensorboard-web-app-cluster-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/tensorboard-web-app] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: controller-service-account
+  [Resource] (ResourceName/ResourceType): deployment/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin; proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller-service-account] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/controller-service-account] [Main configs]
+-------------------------------------------
+

@@ -1,0 +1,284 @@
+[Service Account]: prometheus-k8s
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes/proxy,nodes,services,pods,endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [prometheus] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/prometheus-k8s] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: cilium
+  [Resource] (ResourceName/ResourceType): cilium/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "ciliumidentities,ciliumnodes,ciliumendpoints",
+        "API groups": "cilium.io"
+    },
+    {
+        "verbs": "delete,get",
+        "Resources": "ciliumendpoints",
+        "API groups": "cilium.io"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "ciliumendpoints,ciliuml2announcementpolicies/status,ciliumendpoints/status,ciliumbgpnodeconfigs/status",
+        "API groups": "cilium.io"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "ciliumnodes/status,ciliumnodes",
+        "API groups": "cilium.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "ciliumidentities",
+        "API groups": "cilium.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "networkpolicies",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes,namespaces,services,pods,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "ciliumloadbalancerippools,ciliumpodippools,ciliumendpoints,ciliumbgpadvertisements,ciliumidentities,ciliumendpointslices,ciliumenvoyconfigs,ciliumlocalredirectpolicies,ciliumegressgatewaypolicies,ciliumbgppeerconfigs,ciliuml2announcementpolicies,ciliumnodes,ciliumcidrgroups,ciliumbgpnodeconfigs,ciliumclusterwidenetworkpolicies,ciliumnetworkpolicies,ciliumnodeconfigs,ciliumbgppeeringpolicies,ciliumclusterwideenvoyconfigs",
+        "API groups": "cilium.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cilium] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/cilium] [Main configs]
+
+    [roles]: [cilium-config-agent] [Main configs]
+    [roleBindings]: [ServiceAccount/cilium] [Main configs]
+-------------------------------------------
+
+[Service Account]: elasticsearch
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get",
+        "Resources": "endpoints",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [elasticsearch] [Example configs]
+    [roleBindings]: [ServiceAccount/elasticsearch] [Example configs]
+-------------------------------------------
+
+[Service Account]: cilium-operator
+  [Resource] (ResourceName/ResourceType): cilium-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,update,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "create,watch,list,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "ciliumpodippools",
+        "API groups": "cilium.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "ciliumbgppeerconfigs,ciliumbgpadvertisements,ciliumenvoyconfigs,ciliumbgpnodeconfigs,ciliumendpointslices",
+        "API groups": "cilium.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "ciliumnodes",
+        "API groups": "cilium.io"
+    },
+    {
+        "verbs": "delete,watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,watch,list",
+        "Resources": "ciliumendpoints,ciliumidentities",
+        "API groups": "cilium.io"
+    },
+    {
+        "verbs": "get,create,watch,update,list,deletecollection,patch",
+        "Resources": "ciliumclusterwidenetworkpolicies,ciliumnetworkpolicies",
+        "API groups": "cilium.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "ciliumclusterwidenetworkpolicies/status,ciliumnetworkpolicies/status",
+        "API groups": "cilium.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "services/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "ciliumloadbalancerippools/status",
+        "API groups": "cilium.io"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes/status,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "ciliumbgpclusterconfigs/status,ciliumbgppeerconfigs/status",
+        "API groups": "cilium.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "ciliumidentities",
+        "API groups": "cilium.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "ciliumnodes/status",
+        "API groups": "cilium.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ciliumloadbalancerippools,ciliumbgppeerconfigs,ciliumbgpnodeconfigoverrides,ciliumbgpclusterconfigs,ciliumpodippools,ciliumbgppeeringpolicies",
+        "API groups": "cilium.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cilium-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/cilium-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: ciliumclusterwidenetworkpolicies.cilium.io,ciliumegressgatewaypolicies.cilium.io,ciliumnodeconfigs.cilium.io,ciliumnetworkpolicies.cilium.io,ciliumpodippools.cilium.io,ciliumendpointslices.cilium.io,ciliumloadbalancerippools.cilium.io,ciliumnodes.cilium.io,ciliumbgpadvertisements.cilium.io,ciliumlocalredirectpolicies.cilium.io,ciliumbgppeeringpolicies.cilium.io,ciliumcidrgroups.cilium.io,ciliumenvoyconfigs.cilium.io,ciliumclusterwideenvoyconfigs.cilium.io,ciliumidentities.cilium.io,ciliumbgpnodeconfigoverrides.cilium.io,ciliumgatewayclassconfigs.cilium.io,ciliumbgppeerconfigs.cilium.io,ciliumbgpnodeconfigs.cilium.io,ciliumendpoints.cilium.io,ciliuml2announcementpolicies.cilium.io,ciliumbgpclusterconfigs.cilium.io, cilium-config
+-------------------------------------------
+

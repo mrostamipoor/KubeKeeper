@@ -1,0 +1,64 @@
+[Service Account]: pan-cni-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list",
+        "Resources": "portinfos",
+        "API groups": "paloaltonetworks.com"
+    },
+    {
+        "verbs": "get",
+        "Resources": "services,pods,namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [pan-cni-crole] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/pan-cni-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: pan-plugin-user
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list",
+        "Resources": "nodes,secrets,services,pods,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "services,pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [pan-plugin-crole] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/pan-plugin-user] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

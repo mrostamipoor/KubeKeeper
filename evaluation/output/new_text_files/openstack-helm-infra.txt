@@ -1,0 +1,3150 @@
+[Service Account]: gnocchi-db-sync
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-gnocchi-db-sync] [Main configs]
+    [roleBindings]: [ServiceAccount/gnocchi-db-sync] [Main configs]
+-------------------------------------------
+
+[Service Account]: grafana-db-init
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-grafana-db-init] [Main configs]
+    [roleBindings]: [ServiceAccount/grafana-db-init] [Main configs]
+-------------------------------------------
+
+[Service Account]: gnocchi-ks-service
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-gnocchi-ks-service] [Main configs]
+    [roleBindings]: [ServiceAccount/gnocchi-ks-service] [Main configs]
+-------------------------------------------
+
+[Service Account]: libvirt
+  [Resource] (ResourceName/ResourceType): libvirt-libvirt-default/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-libvirt] [Main configs]
+    [roleBindings]: [ServiceAccount/libvirt] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-ceph-rbd-csi-provisioner
+  [Resource] (ResourceName/ResourceType): ceph-rbd-csi-provisioner/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,create,watch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,watch",
+        "Resources": "volumeattachments",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "csinodes",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "volumesnapshotclasses",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "volumesnapshotcontents/status",
+        "API groups": "snapshot.storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-ceph-rbd-csi-provisioner] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-ceph-rbd-csi-provisioner] [Main configs]
+
+    [roles]: [release-name-ceph-rbd-csi-provisioner; release-name-default-release-name-ceph-rbd-csi-provisioner] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-ceph-rbd-csi-provisioner] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-elastic-apm-server
+  [Resource] (ResourceName/ResourceType): elastic-apm-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "namespaces,pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-elastic-apm-server] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-elastic-apm-server] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: ceph-rbd-pool
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-ceph-rbd-pool] [Main configs]
+    [roleBindings]: [ServiceAccount/ceph-rbd-pool] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-fluentd
+  [Resource] (ResourceName/ResourceType): release-name-fluentd/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "deployments,replicasets,daemonsets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods,limitranges,replicationcontrollers,nodes,services,namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-fluentd] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-fluentd] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: gnocchi-db-init
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-gnocchi-db-init] [Main configs]
+    [roleBindings]: [ServiceAccount/gnocchi-db-init] [Main configs]
+-------------------------------------------
+
+[Service Account]: gnocchi-ks-user
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-gnocchi-ks-user] [Main configs]
+    [roleBindings]: [ServiceAccount/gnocchi-ks-user] [Main configs]
+-------------------------------------------
+
+[Service Account]: grafana-db-session-sync
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-grafana-db-session-sync] [Main configs]
+    [roleBindings]: [ServiceAccount/grafana-db-session-sync] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-elasticsearch-client
+  [Resource] (ResourceName/ResourceType): elasticsearch-client/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-release-name-elasticsearch-client] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-elasticsearch-client] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-packetbeat
+  [Resource] (ResourceName/ResourceType): packetbeat/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "deployments,replicasets,daemonsets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,pods,limitranges,replicationcontrollers,nodes,services,namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-packetbeat] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-packetbeat] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: ceph-pool-checkpgs
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,create,watch,get",
+        "Resources": "pods,pods/exec",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [ceph-pool-checkpgs; release-name-default-ceph-pool-checkpgs] [Main configs]
+    [roleBindings]: [ServiceAccount/ceph-pool-checkpgs] [Main configs]
+-------------------------------------------
+
+[Service Account]: powerdns-db-sync
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-powerdns-db-sync] [Main configs]
+    [roleBindings]: [ServiceAccount/powerdns-db-sync] [Main configs]
+-------------------------------------------
+
+[Service Account]: ceph-checkdns
+  [Resource] (ResourceName/ResourceType): ceph-checkdns/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-clusterrole-checkdns; release-name-default-ceph-checkdns] [Main configs]
+    [roleBindings]: [ServiceAccount/ceph-checkdns] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-prometheus
+  [Resource] (ResourceName/ResourceType): release-name-prometheus/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,pods,nodes/proxy,nodes,services",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-prometheus] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-prometheus] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: gnocchi-api
+  [Resource] (ResourceName/ResourceType): gnocchi-api/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-gnocchi-api] [Main configs]
+    [roleBindings]: [ServiceAccount/gnocchi-api] [Main configs]
+-------------------------------------------
+
+[Service Account]: mariadb-cluster-refresh-statefulset
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,delete,get",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,delete,get",
+        "Resources": "statefulsets",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,delete,get",
+        "Resources": "statefulsets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,delete,get",
+        "Resources": "statefulsets",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [mariadb-cluster-refresh-statefulset] [Main configs]
+    [roleBindings]: [ServiceAccount/mariadb-cluster-refresh-statefulset] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-fluentbit
+  [Resource] (ResourceName/ResourceType): fluentbit/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "deployments,replicasets,daemonsets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods,limitranges,replicationcontrollers,nodes,services,namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-fluentbit] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-fluentbit] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: ovn-ovsdb-sb
+  [Resource] (ResourceName/ResourceType): ovn-ovsdb-sb/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [ovn-ovsdb] [Main configs]
+    [roleBindings]: [ServiceAccount/ovn-ovsdb-sb] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-rabbitmq
+  [Resource] (ResourceName/ResourceType): release-name-rabbitmq/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-rabbitmq] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-rabbitmq] [Main configs]
+-------------------------------------------
+
+[Service Account]: gnocchi-statsd
+  [Resource] (ResourceName/ResourceType): gnocchi-statsd/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-gnocchi-statsd] [Main configs]
+    [roleBindings]: [ServiceAccount/gnocchi-statsd] [Main configs]
+-------------------------------------------
+
+[Service Account]: ovn-controller-gw
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [ovn-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/ovn-controller-gw] [Main configs]
+
+    [roles]: [ovn-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/ovn-controller-gw] [Main configs]
+-------------------------------------------
+
+[Service Account]: grafana-db-init-session
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-grafana-db-init-session] [Main configs]
+    [roleBindings]: [ServiceAccount/grafana-db-init-session] [Main configs]
+-------------------------------------------
+
+[Service Account]: falcon-service
+  [Resource] (ResourceName/ResourceType): falco-agent/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "events,pods,replicationcontrollers,nodes,configmaps,services,namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [falcon-service] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/falcon-service] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-mariadb
+  [Resource] (ResourceName/ResourceType): mariadb-server/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "endpoints",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-mariadb] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-mariadb] [Main configs]
+    [roleResourceNames]: mariadb-server, release-name-mariadb-state
+-------------------------------------------
+
+[Service Account]: ceph-mds
+  [Resource] (ResourceName/ResourceType): ceph-mds/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-ceph-mds] [Main configs]
+    [roleBindings]: [ServiceAccount/ceph-mds] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-kube-state-metrics
+  [Resource] (ResourceName/ResourceType): kube-state-metrics/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch",
+        "Resources": "*",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "*",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-kube-state-metrics] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-kube-state-metrics] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: mariadb-controller
+  [Resource] (ResourceName/ResourceType): mariadb-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get",
+        "Resources": "services",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-mariadb-controller-pod] [Main configs]
+    [roleBindings]: [ServiceAccount/mariadb-controller] [Main configs]
+-------------------------------------------
+
+[Service Account]: docker-registry
+  [Resource] (ResourceName/ResourceType): docker-registry/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-docker-registry] [Main configs]
+    [roleBindings]: [ServiceAccount/docker-registry] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name
+  [Resource] (ResourceName/ResourceType): ceph-mon-default-37207810/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name] [Main configs]
+
+    [roles]: [release-name; release-name-default-release-name] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-node-exporter
+  [Resource] (ResourceName/ResourceType): node-exporter/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/release-name-node-exporter] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: ceph-storage-keys-generator
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,patch,create,get",
+        "Resources": "secrets,pods,pods/exec",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [ceph-storage-keys-generator] [Main configs]
+    [roleBindings]: [ServiceAccount/ceph-storage-keys-generator] [Main configs]
+-------------------------------------------
+
+[Service Account]: flush-kibana-metadata
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-flush-kibana-metadata] [Main configs]
+    [roleBindings]: [ServiceAccount/flush-kibana-metadata] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-process-exporter
+  [Resource] (ResourceName/ResourceType): process-exporter/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/release-name-process-exporter] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: powerdns-db-init
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-powerdns-db-init] [Main configs]
+    [roleBindings]: [ServiceAccount/powerdns-db-init] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-filebeat
+  [Resource] (ResourceName/ResourceType): filebeat/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "deployments,replicasets,daemonsets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,pods,limitranges,replicationcontrollers,nodes,services,namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-filebeat] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-filebeat] [Main configs]
+
+    [roles]: [release-name-default-release-name-filebeat] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-filebeat] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-nfs-provisioner
+  [Resource] (ResourceName/ResourceType): nfs-provisioner/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get,create,watch,delete",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,create,watch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "patch,create,update,get",
+        "Resources": "endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "use",
+        "Resources": "podsecuritypolicies",
+        "API groups": "policy"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-nfs-provisioner] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-nfs-provisioner] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: nfs-provisioner
+-------------------------------------------
+
+[Service Account]: gnocchi-resources-cleaner
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-gnocchi-resources-cleaner] [Main configs]
+    [roleBindings]: [ServiceAccount/gnocchi-resources-cleaner] [Main configs]
+-------------------------------------------
+
+[Service Account]: register-kibana-indexes
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-register-kibana-indexes] [Main configs]
+    [roleBindings]: [ServiceAccount/register-kibana-indexes] [Main configs]
+-------------------------------------------
+
+[Service Account]: ovn-ovsdb-nb
+  [Resource] (ResourceName/ResourceType): ovn-ovsdb-nb/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [ovn-ovsdb] [Main configs]
+    [roleBindings]: [ServiceAccount/ovn-ovsdb-nb] [Main configs]
+-------------------------------------------
+
+[Service Account]: powerdns
+  [Resource] (ResourceName/ResourceType): powerdns/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-powerdns] [Main configs]
+    [roleBindings]: [ServiceAccount/powerdns] [Main configs]
+-------------------------------------------
+
+[Service Account]: gnocchi-ks-endpoints
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-gnocchi-ks-endpoints] [Main configs]
+    [roleBindings]: [ServiceAccount/gnocchi-ks-endpoints] [Main configs]
+-------------------------------------------
+
+[Service Account]: ceph-mds-keyring-generator
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "patch,create,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [ceph-mds-keyring-generator] [Main configs]
+    [roleBindings]: [ServiceAccount/ceph-mds-keyring-generator] [Main configs]
+-------------------------------------------
+
+[Service Account]: grafana-set-admin-user
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-grafana-set-admin-user] [Main configs]
+    [roleBindings]: [ServiceAccount/grafana-set-admin-user] [Main configs]
+-------------------------------------------
+
+[Service Account]: create-elasticsearch-templates
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-create-elasticsearch-templates] [Main configs]
+    [roleBindings]: [ServiceAccount/create-elasticsearch-templates] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-test
+  [Resource] (ResourceName/ResourceType): release-name-test/Pod
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-release-name-test] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-test] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): release-name-run-tests/Pod
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-release-name-test] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-test] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-node-problem-detector
+  [Resource] (ResourceName/ResourceType): node-problem-detector/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/release-name-node-problem-detector] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-metricbeat
+  [Resource] (ResourceName/ResourceType): metricbeat-node-modules/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "deployments,replicasets,daemonsets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,events,pods,limitranges,replicationcontrollers,nodes,services,namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-metricbeat] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-metricbeat] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: prometheus-openstack-exporter-ks-user
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-prometheus-openstack-exporter-ks-user] [Main configs]
+    [roleBindings]: [ServiceAccount/prometheus-openstack-exporter-ks-user] [Main configs]
+-------------------------------------------
+
+[Service Account]: ovn-northd
+  [Resource] (ResourceName/ResourceType): ovn-northd/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "list",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [ovn-northd; release-name-default-ovn-northd] [Main configs]
+    [roleBindings]: [ServiceAccount/ovn-northd] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-metricbeat-deployments
+  [Resource] (ResourceName/ResourceType): metricbeat-deployment-modules/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "deployments,replicasets,daemonsets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,events,pods,limitranges,replicationcontrollers,nodes,services,namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-metricbeat-deployments] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-metricbeat-deployments] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: ceph-osd-keyring-generator
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "patch,create,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [ceph-osd-keyring-generator] [Main configs]
+    [roleBindings]: [ServiceAccount/ceph-osd-keyring-generator] [Main configs]
+-------------------------------------------
+
+[Service Account]: gnocchi-db-init-indexer
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-gnocchi-db-init-indexer] [Main configs]
+    [roleBindings]: [ServiceAccount/gnocchi-db-init-indexer] [Main configs]
+-------------------------------------------
+
+[Service Account]: ceph-mgr-keyring-generator
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "patch,create,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [ceph-mgr-keyring-generator] [Main configs]
+    [roleBindings]: [ServiceAccount/ceph-mgr-keyring-generator] [Main configs]
+-------------------------------------------
+
+[Service Account]: gnocchi-metricd
+  [Resource] (ResourceName/ResourceType): gnocchi-metricd/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-gnocchi-metricd] [Main configs]
+    [roleBindings]: [ServiceAccount/gnocchi-metricd] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-namespace-client-ceph-config
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "patch,create,update,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-namespace-client-ceph-config] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-namespace-client-ceph-config] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-cluster-wait
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-release-name-cluster-wait] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-cluster-wait] [Main configs]
+-------------------------------------------
+
+[Service Account]: ceph-mgr
+  [Resource] (ResourceName/ResourceType): ceph-mgr/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-ceph-mgr] [Main configs]
+    [roleBindings]: [ServiceAccount/ceph-mgr] [Main configs]
+-------------------------------------------
+
+[Service Account]: grafana-run-migrator
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-grafana-run-migrator] [Main configs]
+    [roleBindings]: [ServiceAccount/grafana-run-migrator] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-flannel
+  [Resource] (ResourceName/ResourceType): kube-flannel-ds/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes/status",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-flannel] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-flannel] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: local-volume-provisioner
+  [Resource] (ResourceName/ResourceType): local-volume-provisioner-local-volume-provisioner-default/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin; local-volume-provisioner-nodes] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/local-volume-provisioner] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-ceph-rbd-csi-nodeplugin
+  [Resource] (ResourceName/ResourceType): ceph-rbd-plugin/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "volumeattachments",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-ceph-rbd-csi-nodeplugin] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-ceph-rbd-csi-nodeplugin] [Main configs]
+
+    [roles]: [release-name-default-release-name-ceph-rbd-csi-nodeplugin] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-ceph-rbd-csi-nodeplugin] [Main configs]
+-------------------------------------------
+
+[Service Account]: ceph-mon-keyring-generator
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "patch,create,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [ceph-mon-keyring-generator] [Main configs]
+    [roleBindings]: [ServiceAccount/ceph-mon-keyring-generator] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-elasticsearch-data
+  [Resource] (ResourceName/ResourceType): elasticsearch-data/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-release-name-elasticsearch-data] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-elasticsearch-data] [Main configs]
+-------------------------------------------
+
+[Service Account]: grafana
+  [Resource] (ResourceName/ResourceType): grafana/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-grafana] [Main configs]
+    [roleBindings]: [ServiceAccount/grafana] [Main configs]
+-------------------------------------------
+
+[Service Account]: mariadb-backup
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-mariadb-backup] [Main configs]
+    [roleBindings]: [ServiceAccount/mariadb-backup] [Main configs]
+-------------------------------------------
+
+[Service Account]: ceph-mon-check
+  [Resource] (ResourceName/ResourceType): ceph-mon-check/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-ceph-mon-check] [Main configs]
+    [roleBindings]: [ServiceAccount/ceph-mon-check] [Main configs]
+-------------------------------------------
+
+[Service Account]: postgresql
+  [Resource] (ResourceName/ResourceType): postgresql/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch",
+        "Resources": "endpoints",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,watch",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [postgresql] [Main configs]
+    [roleBindings]: [ServiceAccount/postgresql] [Main configs]
+-------------------------------------------
+
+[Service Account]: ovn-controller
+  [Resource] (ResourceName/ResourceType): ovn-controller-default/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services,pods",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "list",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [ovn-controller; ovn-controller-list-nodes-role-default] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/ovn-controller] [Main configs]
+
+    [roles]: [ovn-controller; release-name-default-ovn-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/ovn-controller] [Main configs]
+-------------------------------------------
+
+[Service Account]: prometheus-alertmanager
+  [Resource] (ResourceName/ResourceType): prometheus-alertmanager/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/prometheus-alertmanager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: prometheus-openstack-exporter
+  [Resource] (ResourceName/ResourceType): prometheus-openstack-exporter/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-prometheus-openstack-exporter] [Main configs]
+    [roleBindings]: [ServiceAccount/prometheus-openstack-exporter] [Main configs]
+-------------------------------------------
+
+[Service Account]: shaker-ks-user
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-shaker-ks-user] [Main configs]
+    [roleBindings]: [ServiceAccount/shaker-ks-user] [Main configs]
+-------------------------------------------
+
+[Service Account]: ceph-defragosds
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,create,watch,get",
+        "Resources": "pods,pods/exec",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [ceph-defragosds] [Main configs]
+    [roleBindings]: [ServiceAccount/ceph-defragosds] [Main configs]
+-------------------------------------------
+
+[Service Account]: gnocchi-storage-init
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "patch,create,update,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [gnocchi-storage-init] [Main configs]
+    [roleBindings]: [ServiceAccount/gnocchi-storage-init] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-namespace-client-key
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "patch,create,update,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-namespace-client-key] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-namespace-client-key] [Main configs]
+-------------------------------------------
+
+[Service Account]: docker-bootstrap
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-docker-bootstrap] [Main configs]
+    [roleBindings]: [ServiceAccount/docker-bootstrap] [Main configs]
+-------------------------------------------
+
+[Service Account]: metacontroller-serviceaccount
+  [Resource] (ResourceName/ResourceType): metacontroller/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [default-metacontroller-serviceaccount] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/metacontroller-serviceaccount] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: kibana
+  [Resource] (ResourceName/ResourceType): kibana/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "jobs,endpoints,services,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-default-kibana] [Main configs]
+    [roleBindings]: [ServiceAccount/kibana] [Main configs]
+-------------------------------------------
+
+[Service Account]: nagios
+  [Resource] (ResourceName/ResourceType): nagios/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,pods,pods/exec,nodes/proxy,nodes,persistentvolumes,services,persistentvolumeclaims",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [nagios] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/nagios] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: gnocchi-clean
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "delete,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [gnocchi-clean] [Main configs]
+    [roleBindings]: [ServiceAccount/gnocchi-clean] [Main configs]
+-------------------------------------------
+

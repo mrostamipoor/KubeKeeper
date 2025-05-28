@@ -1,0 +1,24 @@
+[Service Account]: release-name-api
+  [Resource] (ResourceName/ResourceType): release-name-api/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods/log,pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-api-role] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-api] [Main configs]
+-------------------------------------------
+

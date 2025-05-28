@@ -1,0 +1,103 @@
+[Service Account]: coredns
+  [Resource] (ResourceName/ResourceType): coredns/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "namespaces,services,pods,endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:coredns] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/coredns] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: local-path-provisioner-service-account
+  [Resource] (ResourceName/ResourceType): local-path-provisioner/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "persistentvolumes,pods,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps,pods/log,persistentvolumeclaims,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [local-path-provisioner-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/local-path-provisioner-service-account] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: metrics-server
+  [Resource] (ResourceName/ResourceType): metrics-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "nodes/metrics",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (kube-system): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:auth-delegator; system:metrics-server] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/metrics-server] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/metrics-server] [Main configs]
+-------------------------------------------
+

@@ -1,0 +1,54 @@
+[Service Account]: opencost
+  [Resource] (ResourceName/ResourceType): opencost/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "daemonsets,deployments,replicasets",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "deployments,persistentvolumeclaims,nodes,persistentvolumes,limitranges,resourcequotas,namespaces,services,pods,endpoints,configmaps,replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "daemonsets,statefulsets,deployments,replicasets",
+        "API groups": "apps"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [opencost] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/opencost] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

@@ -1,0 +1,586 @@
+[Service Account]: controller-manager
+  [Resource] (ResourceName/ResourceType): controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "builders",
+        "API groups": "core.openfunction.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "builds,buildruns",
+        "API groups": "shipwright.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clustereventbus",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clustereventbuses",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "eventbus",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "eventbuses",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": "events.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "eventsources",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "functions",
+        "API groups": "core.openfunction.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "gateways",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "gateways",
+        "API groups": "networking.openfunction.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "httproutes",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "httpscaledobjects",
+        "API groups": "http.keda.sh"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "scaledjobs,scaledobjects",
+        "API groups": "keda.sh"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "services",
+        "API groups": "serving.knative.dev"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "servings",
+        "API groups": "core.openfunction.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "statefulsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "subscriptions,components",
+        "API groups": "dapr.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "triggers",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "builders/status",
+        "API groups": "core.openfunction.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "clustereventbus/status",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "clustereventbuses/status",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "eventbus/status",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "eventbuses/status",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "eventsources/status",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "functions/status",
+        "API groups": "core.openfunction.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "gateways/status",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "gateways/status",
+        "API groups": "networking.openfunction.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "servings/status",
+        "API groups": "core.openfunction.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "triggers/status",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "clustereventbus/finalizers",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "clustereventbuses/finalizers",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "eventbus/finalizers",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "eventbuses/finalizers",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "eventsources/finalizers",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "functions/finalizers",
+        "API groups": "core.openfunction.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "gateways/finalizers",
+        "API groups": "networking.openfunction.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "servings/finalizers",
+        "API groups": "core.openfunction.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "triggers/finalizers",
+        "API groups": "events.openfunction.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [manager-role; proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller-manager] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/controller-manager] [Main configs]
+-------------------------------------------
+
+[Service Account]: openfunction-controller-manager
+  [Resource] (ResourceName/ResourceType): openfunction-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "builders",
+        "API groups": "core.openfunction.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "builds,buildruns",
+        "API groups": "shipwright.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clustereventbus",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clustereventbuses",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "eventbus",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "eventbuses",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": "events.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "eventsources",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "functions",
+        "API groups": "core.openfunction.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "gateways",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "gateways",
+        "API groups": "networking.openfunction.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "httproutes",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "httpscaledobjects",
+        "API groups": "http.keda.sh"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "scaledjobs,scaledobjects",
+        "API groups": "keda.sh"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "services",
+        "API groups": "serving.knative.dev"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "servings",
+        "API groups": "core.openfunction.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "statefulsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "subscriptions,components",
+        "API groups": "dapr.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "triggers",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "builders/status",
+        "API groups": "core.openfunction.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "clustereventbus/status",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "clustereventbuses/status",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "eventbus/status",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "eventbuses/status",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "eventsources/status",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "functions/status",
+        "API groups": "core.openfunction.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "gateways/status",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "gateways/status",
+        "API groups": "networking.openfunction.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "servings/status",
+        "API groups": "core.openfunction.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "triggers/status",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "clustereventbus/finalizers",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "clustereventbuses/finalizers",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "eventbus/finalizers",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "eventbuses/finalizers",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "eventsources/finalizers",
+        "API groups": "events.openfunction.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "functions/finalizers",
+        "API groups": "core.openfunction.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "gateways/finalizers",
+        "API groups": "networking.openfunction.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "servings/finalizers",
+        "API groups": "core.openfunction.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "triggers/finalizers",
+        "API groups": "events.openfunction.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [openfunction-manager-role; openfunction-proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/openfunction-controller-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

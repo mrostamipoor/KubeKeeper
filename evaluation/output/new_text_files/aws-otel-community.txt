@@ -1,0 +1,113 @@
+[Service Account]: adot-collector-sa
+  [Resource] (ResourceName/ResourceType): adot-collector-daemonset/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,get",
+        "Resources": "events,configmaps,nodes/stats",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "nodes/proxy",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "endpoints,nodes,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [adot-collector-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/adot-collector-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: adot-container-insight-clusterleader
+-------------------------------------------
+
+[Service Account]: fluent-bit
+  [Resource] (ResourceName/ResourceType): fluent-bit/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "namespaces,pods,pods/logs",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [fluent-bit] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/fluent-bit] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: adot-collector
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,pods,nodes/proxy,nodes,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "ingresses",
+        "API groups": "extensions"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [otel-prometheus-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/adot-collector] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

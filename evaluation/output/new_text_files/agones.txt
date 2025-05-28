@@ -1,0 +1,134 @@
+[Service Account]: custom-controller-sa
+  [Resource] (ResourceName/ResourceType): custom-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "gameservers",
+        "API groups": "agones.dev"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [custom-controller-role] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/custom-controller-sa] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: agones-allocator
+  [Resource] (ResourceName/ResourceType): agones-allocator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "gameserverallocations",
+        "API groups": "allocation.agones.dev"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "gameserverallocationpolicies",
+        "API groups": "multicluster.agones.dev"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "gameservers",
+        "API groups": "agones.dev"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "gameservers,gameserversets",
+        "API groups": "agones.dev"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [agones-allocator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/agones-allocator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: agones-controller
+  [Resource] (ResourceName/ResourceType): agones-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:auth-delegator] []
+    [clusterRoleBindings]: [ServiceAccount/agones-controller] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/agones-controller] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): agones-extensions/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:auth-delegator] []
+    [clusterRoleBindings]: [ServiceAccount/agones-controller] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/agones-controller] [Main configs]
+-------------------------------------------
+

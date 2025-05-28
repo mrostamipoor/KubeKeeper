@@ -1,0 +1,196 @@
+[Service Account]: kubernetes-dashboard
+  [Resource] (ResourceName/ResourceType): kubernetes-dashboard/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (kube-system): [
+    {
+        "verbs": "create",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "services/proxy",
+        "API groups": "core"
+    },
+    {
+        "verbs": "proxy",
+        "Resources": "services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,delete,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [kubernetes-dashboard-minimal] [Main configs]
+    [roleBindings]: [ServiceAccount/kubernetes-dashboard] [Main configs]
+    [roleResourceNames]: kubernetes-dashboard-key-holder,kubernetes-dashboard-certs, heapster, kubernetes-dashboard-settings, https:heapster:,http:heapster:,heapster
+-------------------------------------------
+
+[Service Account]: coredns
+  [Resource] (ResourceName/ResourceType): coredns/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch",
+        "Resources": "endpoints,namespaces,services,pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:coredns] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/coredns] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: admin-user
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/admin-user] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: heapster
+  [Resource] (ResourceName/ResourceType): heapster/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:heapster] []
+    [clusterRoleBindings]: [ServiceAccount/heapster] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: nfs-client-provisioner
+  [Resource] (ResourceName/ResourceType): nfs-client-provisioner/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,get,create,watch,delete",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,create,watch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [nfs-client-provisioner-runner] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/nfs-client-provisioner] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-jenkins
+  [Resource] (ResourceName/ResourceType): release-name-jenkins/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/release-name-jenkins] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: ingress
+  [Resource] (ResourceName/ResourceType): traefik-ingress-lb/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/ingress] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

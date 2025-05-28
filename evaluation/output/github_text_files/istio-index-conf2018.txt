@@ -1,0 +1,25 @@
+[Service Account]: weave-scope
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "use",
+        "Resources": "podsecuritypolicies",
+        "API groups": "extensions"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [weave-scope] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/weave-scope] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: weave-scope
+-------------------------------------------
+

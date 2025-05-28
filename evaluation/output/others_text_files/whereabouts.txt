@@ -1,0 +1,97 @@
+[Service Account]: whereabouts
+  [Resource] (ResourceName/ResourceType): whereabouts/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "ippools,nodeslicepools,overlappingrangeipreservations",
+        "API groups": "whereabouts.cni.cncf.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "network-attachment-definitions",
+        "API groups": "k8s.cni.cncf.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create,update,get",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [whereabouts-cni] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/whereabouts] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): whereabouts-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "ippools,nodeslicepools,overlappingrangeipreservations",
+        "API groups": "whereabouts.cni.cncf.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "network-attachment-definitions",
+        "API groups": "k8s.cni.cncf.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create,update,get",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [whereabouts-cni] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/whereabouts] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

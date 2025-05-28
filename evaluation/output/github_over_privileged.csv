@@ -1,0 +1,48 @@
+Application Name,Over-Privileged,Critical Permissions,Direct Access via Secret Permissions Counts,Indirect Access via Secret Manipulation Counts,Indirect Access via Resource Scheduling Control Counts,Indirect Access via Node Manipulation Counts
+GameOn-Java-Microservices-on-Kubernetes,N/A,,0,0,0,0
+DeviceCache.Containers,N/A,,0,0,0,0
+micro-apps,N/A,,0,0,0,0
+netcore-microservices,True,list::secrets::::whole; watch::secrets::::whole,2,0,0,0
+eShopOnContainers,N/A,,0,0,0,0
+Microservices-Nodejs-React,N/A,,0,0,0,0
+MicroservicesOnContainers,N/A,,0,0,0,0
+spring-cloud-dataflow,N/A,,0,0,0,0
+innovate-digital-bank,N/A,,0,0,0,0
+spring-cloud-microservices-on-kubernetes,N/A,,0,0,0,0
+terraform-aks-microservices,True,get::secrets::::whole; list::secrets::::whole; watch::secrets::::whole,3,0,0,0
+kafka-cqrs,N/A,,0,0,0,0
+piggymetrics-k8s,N/A,,0,0,0,0
+marblerun,N/A,,0,0,0,0
+kubernetes-microservices,N/A,,0,0,0,0
+microservice-choreography-tweetboard,N/A,,0,0,0,0
+MicroCouriers,N/A,,0,0,0,0
+IngressMonitorController,True,get::secrets::core::whole; list::secrets::core::whole,4,0,0,0
+worklog,N/A,,0,0,0,0
+microservices-dotnetcore-docker-sf-k8s,N/A,,0,0,0,0
+kubernetes-native-testbed,N/A,,0,0,0,0
+cloudify-kubernetes-plugin,N/A,,0,0,0,0
+restful_relay,N/A,,0,0,0,0
+microservices-deploy,N/A,,0,0,0,0
+twitter-go,True,get::secrets::core::whole; list::secrets::core::whole; watch::secrets::core::whole,3,0,0,0
+spring-microservices-k8s,N/A,,0,0,0,0
+microservices-applications,N/A,,0,0,0,0
+caastle,N/A,,0,0,0,0
+kube-micro,N/A,,0,0,0,0
+istio-index-conf2018,N/A,,0,0,0,0
+Microservices-deployment-with-PaaS-Containers-and-Serverless-Platforms,N/A,,0,0,0,0
+podinfo,N/A,,0,0,0,0
+tfm_swcraftsmanship,N/A,,0,0,0,0
+grpc-go-api,N/A,,0,0,0,0
+RSO,N/A,,0,0,0,0
+kubeyard,N/A,,0,0,0,0
+operator,True,*::daemonsets::apps::whole; *::deployments::apps::whole; *::pods::::whole; *::replicasets::apps::whole; *::secrets::::whole; *::statefulsets::apps::whole,1,0,5,0
+opentracing-istio-troubleshooting,N/A,,0,0,0,0
+java-on-aks,N/A,,0,0,0,0
+k8s-springboot-data-rest,N/A,,0,0,0,0
+CloudFlix,N/A,,0,0,0,0
+Java-MicroProfile-on-Kubernetes,N/A,,0,0,0,0
+tye,N/A,,0,0,0,0
+emissary,True,*::secrets::::whole; *::statefulsets::apps::whole; get::secrets::::whole; list::secrets::::whole; patch::secrets::::whole,3,1,1,0
+ultimate-stack,True,*::cronjobs::batch::whole; *::daemonsets::apps::whole; *::deployments::apps::whole; *::jobs::batch::whole; *::nodes::::whole; *::pods::::whole; *::secrets::::whole; *::statefulsets::apps::whole; create::deployments::apps::whole; create::pods::::whole; create::statefulsets::apps::whole; get::*::*::whole; get::secrets::::whole; get::secrets::core::whole; list::secrets::::whole; list::secrets::core::whole; patch::cronjobs::batch::whole; patch::deployments::apps::whole; patch::jobs::batch::whole; patch::nodes::::whole; patch::pods::::whole; patch::replicasets::apps::whole; patch::secrets::::whole; patch::secrets::core::whole; patch::statefulsets::apps::whole; update::deployments::apps::whole; update::pods::::whole; update::secrets::::whole; update::secrets::core::whole; update::statefulsets::apps::whole; watch::secrets::::whole; watch::secrets::core::whole,41,15,60,3
+kubernetes-with-spring-boot-microservices,N/A,,0,0,0,0
+run-devops,N/A,,0,0,0,0

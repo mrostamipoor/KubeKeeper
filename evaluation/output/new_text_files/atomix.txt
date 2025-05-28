@@ -1,0 +1,295 @@
+[Service Account]: release-name-atomix-sidecar-controller
+  [Resource] (ResourceName/ResourceType): release-name-atomix-sidecar-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "atomix.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "events,configmaps,pods/status,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "serviceaccounts,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-atomix-sidecar-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-atomix-sidecar-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-atomix-shared-memory-controller
+  [Resource] (ResourceName/ResourceType): release-name-atomix-shared-memory-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "atomix.io,sharedmemory.atomix.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "endpoints,events,serviceaccounts,pods,configmaps,pods/status,services,pods/ephemeralcontainers,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-atomix-shared-memory-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-atomix-shared-memory-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-atomix-raft-controller
+  [Resource] (ResourceName/ResourceType): release-name-atomix-raft-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "atomix.io,raft.atomix.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "endpoints,events,serviceaccounts,pods,configmaps,pods/status,services,pods/ephemeralcontainers,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-atomix-raft-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-atomix-raft-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-atomix-pod-memory-controller
+  [Resource] (ResourceName/ResourceType): release-name-atomix-pod-memory-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "atomix.io,podmemory.atomix.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "endpoints,events,serviceaccounts,pods,configmaps,pods/status,services,pods/ephemeralcontainers,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-atomix-pod-memory-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-atomix-pod-memory-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-atomix-controller
+  [Resource] (ResourceName/ResourceType): release-name-atomix-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "atomix.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "events,configmaps,pods/status,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "serviceaccounts,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-atomix-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-atomix-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

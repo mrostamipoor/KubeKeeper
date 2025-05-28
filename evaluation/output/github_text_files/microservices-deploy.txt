@@ -1,0 +1,59 @@
+[Service Account]: release-name-msvc-chart
+  [Resource] (ResourceName/ResourceType): backend-release-name/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [admin] []
+    [roleBindings]: [ServiceAccount/release-name-msvc-chart] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): gateway-release-name/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [admin] []
+    [roleBindings]: [ServiceAccount/release-name-msvc-chart] [Main configs]
+-------------------------------------------
+
+[Service Account]: filebeat
+  [Resource] (ResourceName/ResourceType): filebeat/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "namespaces,pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [filebeat] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/filebeat] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

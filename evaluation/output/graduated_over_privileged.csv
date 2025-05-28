@@ -1,0 +1,27 @@
+Application Name,Over-Privileged,Critical Permissions,Direct Access via Secret Permissions Counts,Indirect Access via Secret Manipulation Counts,Indirect Access via Resource Scheduling Control Counts,Indirect Access via Node Manipulation Counts
+spec,N/A,,0,0,0,0
+cri-o,N/A,,0,0,0,0
+fluentd,N/A,,0,0,0,0
+vitess,True,*::daemonsets::apps::whole; *::deployments::apps::whole; *::jobs::batch::whole; *::pods::::whole; *::replicasets::apps::whole; *::secrets::::whole; *::statefulsets::apps::whole,1,0,6,0
+rook,True,create::cronjobs::batch::whole; create::daemonsets::apps::whole; create::deployments::apps::whole; create::deployments::policy::whole; create::jobs::batch::whole; create::pods::core::whole; create::replicasets::apps::whole; create::replicasets::policy::whole; create::statefulsets::apps::whole; get::secrets::::specific; get::secrets::::whole; get::secrets::core::whole; list::secrets::::whole; patch::daemonsets::apps::whole; patch::deployments::apps::whole; patch::pods::core::whole; update::cronjobs::batch::whole; update::daemonsets::apps::whole; update::deployments::apps::whole; update::deployments::policy::whole; update::jobs::batch::whole; update::pods::core::whole; update::replicasets::apps::whole; update::replicasets::policy::whole; update::secrets::::whole; update::secrets::core::whole; update::statefulsets::apps::whole; watch::secrets::::whole,24,3,34,0
+python-tuf,N/A,,0,0,0,0
+argo-cd,True,create::jobs::batch::whole; create::pods::core::whole; get::*::*::whole; get::secrets::::whole; get::secrets::core::whole; list::secrets::::whole; list::secrets::core::whole; patch::pods::core::whole; patch::secrets::core::whole; update::pods::core::whole; update::secrets::core::whole; watch::secrets::::whole; watch::secrets::core::whole,26,2,4,0
+coredns,N/A,,0,0,0,0
+istio,True,create::deployments::apps::whole; get::secrets::::whole; get::secrets::core::whole; list::secrets::::whole; list::secrets::core::whole; patch::cronjobs::batch::whole; patch::daemonsets::apps::whole; patch::deployments::apps::whole; patch::jobs::batch::whole; patch::pods::::whole; patch::replicasets::apps::whole; patch::statefulsets::apps::whole; update::deployments::apps::whole; watch::secrets::::whole; watch::secrets::core::whole,18,0,10,0
+helm,N/A,,0,0,0,0
+spire,N/A,,0,0,0,0
+keda,True,create::jobs::batch::whole; get::*::*::whole; get::secrets::::whole; list::secrets::::whole; patch::jobs::batch::whole; update::jobs::batch::whole; watch::secrets::::whole,12,0,9,0
+opa,N/A,,0,0,0,0
+prometheus,N/A,,0,0,0,0
+kubernetes,True,get::*::*::whole; list::*::*::whole; patch::daemonsets::apps::whole; patch::deployments::apps::specific; patch::deployments::apps::whole; patch::nodes::::whole; update::nodes::::whole; watch::*::*::whole,3,0,6,2
+jaeger,N/A,,0,0,0,0
+containerd,N/A,,0,0,0,0
+tikv,N/A,,0,0,0,0
+flux2,True,get::secrets::::whole; list::secrets::::whole; watch::secrets::::whole,18,0,0,0
+cilium,True,get::secrets::::whole; list::secrets::::whole; patch::nodes::::whole; watch::secrets::::whole,3,0,0,1
+harbor,N/A,,0,0,0,0
+etcd,N/A,,0,0,0,0
+falco,N/A,,0,0,0,0
+linkerd2,True,get::secrets::core::whole; list::secrets::core::whole; watch::secrets::core::whole,3,0,0,0
+envoy,N/A,,0,0,0,0
+spiffe,N/A,,0,0,0,0

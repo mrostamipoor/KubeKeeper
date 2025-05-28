@@ -1,0 +1,775 @@
+[Service Account]: metrics-server
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "nodes/metrics",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,get",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (kube-system): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:auth-delegator; system:metrics-server] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/metrics-server] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/metrics-server] [Main configs]
+    [clusterResourceNames]: metrics-server-v0.7.1
+-------------------------------------------
+
+[Service Account]: node-problem-detector
+  [Resource] (ResourceName/ResourceType): node-problem-detector/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:node-problem-detector] []
+    [clusterRoleBindings]: [ServiceAccount/node-problem-detector] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: calico
+  [Resource] (ResourceName/ResourceType): calico-typha/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,update",
+        "Resources": "bgppeers,bgpconfigurations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "create,update",
+        "Resources": "ippools,felixconfigurations,clusterinformations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "ipamhandles,blockaffinities,ipamblocks",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "ipamconfigs",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "get",
+        "Resources": "namespaces,pods,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "nodes/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ippools,ipamblocks,networksets,globalfelixconfigs,globalnetworksets,globalnetworkpolicies,networkpolicies,globalbgpconfigs,bgpconfigurations,hostendpoints,felixconfigurations,bgppeers,clusterinformations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "namespaces,pods,serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "networkpolicies",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "blockaffinities",
+        "API groups": "crd.projectcalico.org"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [calico] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/calico] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): calico-node/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,update",
+        "Resources": "bgppeers,bgpconfigurations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "create,update",
+        "Resources": "ippools,felixconfigurations,clusterinformations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "ipamhandles,blockaffinities,ipamblocks",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "ipamconfigs",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "get",
+        "Resources": "namespaces,pods,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "nodes/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ippools,ipamblocks,networksets,globalfelixconfigs,globalnetworksets,globalnetworkpolicies,networkpolicies,globalbgpconfigs,bgpconfigurations,hostendpoints,felixconfigurations,bgppeers,clusterinformations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "namespaces,pods,serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "networkpolicies",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "blockaffinities",
+        "API groups": "crd.projectcalico.org"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [calico] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/calico] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: volume-snapshot-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "volumesnapshots/status",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "volumesnapshotcontents/status",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "volumesnapshotclasses",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (kube-system): [
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [volume-snapshot-controller-runner] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/volume-snapshot-controller] [Main configs]
+
+    [roles]: [volume-snapshot-controller-leaderelection] [Main configs]
+    [roleBindings]: [ServiceAccount/volume-snapshot-controller] [Main configs]
+-------------------------------------------
+
+[Service Account]: cloud-node-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,update,list,patch",
+        "Resources": "nodes/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,update,list,patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,list",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,list",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:controller:cloud-node-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/cloud-node-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: metadata-agent
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "*",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "*",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [stackdriver:metadata-agent] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/metadata-agent] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: pod-security-webhook
+  [Resource] (ResourceName/ResourceType): pod-security-webhook/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [pod-security-webhook] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/pod-security-webhook] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: cloud-provider
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "services/status",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (kube-system): [
+    {
+        "verbs": "get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [gce:cloud-provider] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/cloud-provider] [Main configs]
+
+    [roles]: [gce:cloud-provider] [Main configs]
+    [roleBindings]: [ServiceAccount/cloud-provider] [Main configs]
+-------------------------------------------
+
+[Service Account]: fluentd-gcp-scaler
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (kube-system): [
+    {
+        "verbs": "get",
+        "Resources": "scalingpolicies",
+        "API groups": "scalingpolicy.kope.io"
+    },
+    {
+        "verbs": "patch,get",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [system:fluentd-gcp-scaler] [Main configs]
+    [roleBindings]: [ServiceAccount/fluentd-gcp-scaler] [Main configs]
+-------------------------------------------
+
+[Service Account]: kube-proxy
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:node-proxier] []
+    [clusterRoleBindings]: [ServiceAccount/kube-proxy] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: typha-cpha
+  [Resource] (ResourceName/ResourceType): calico-typha-horizontal-autoscaler/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (kube-system): [
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "deployments/scale",
+        "API groups": "apps"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [typha-cpha] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/typha-cpha] [Main configs]
+
+    [roles]: [typha-cpha] [Main configs]
+    [roleBindings]: [ServiceAccount/typha-cpha] [Main configs]
+-------------------------------------------
+
+[Service Account]: kube-network-policies
+  [Resource] (ResourceName/ResourceType): kube-network-policies/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,pods,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "networkpolicies",
+        "API groups": "networking.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:network-policies] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kube-network-policies] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: typha-cpva
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [typha-cpva] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/typha-cpva] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: cloud-controller-manager
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (kube-system): [
+    {
+        "verbs": "update,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [system::leader-locking-cloud-controller-manager] [Main configs]
+    [roleBindings]: [ServiceAccount/cloud-controller-manager] [Main configs]
+    [roleResourceNames]: cloud-controller-manager
+-------------------------------------------
+
+[Service Account]: calico-cpva
+  [Resource] (ResourceName/ResourceType): calico-node-vertical-autoscaler/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets,deployments",
+        "API groups": "apps"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [calico-cpva] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/calico-cpva] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): calico-typha-vertical-autoscaler/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets,deployments",
+        "API groups": "apps"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [calico-cpva] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/calico-cpva] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: apiserver
+  [Resource] (ResourceName/ResourceType): wardle-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "validatingadmissionpolicybindings,validatingwebhookconfigurations,mutatingwebhookconfigurations,validatingadmissionpolicies",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "flowschemas,prioritylevelconfigurations",
+        "API groups": "flowcontrol.apiserver.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (wardle): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [aggregated-apiserver-clusterrole; system:auth-delegator] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/apiserver] [Example configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/apiserver] [Example configs]
+-------------------------------------------
+

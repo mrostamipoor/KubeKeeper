@@ -1,0 +1,111 @@
+[Service Account]: halkyon-operator
+  [Resource] (ResourceName/ResourceType): halkyon-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "halkyon.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "kubedb.com,catalog.kubedb.com"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "tekton.dev"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments,ingresses",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments,replicasets,daemonsets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "endpoints,events,serviceaccounts,pods,configmaps,persistentvolumeclaims,services,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "imagestreams,imagestreams/layers",
+        "API groups": "image.openshift.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "*",
+        "Resources": "rolebindings,clusterroles,clusterrolebindings,roles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "routes",
+        "API groups": "route.openshift.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [halkyon-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/halkyon-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: privileged
+-------------------------------------------
+

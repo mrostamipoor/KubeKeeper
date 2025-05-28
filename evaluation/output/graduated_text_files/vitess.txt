@@ -1,0 +1,96 @@
+[Service Account]: vitess-operator
+  [Resource] (ResourceName/ResourceType): vitess-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "daemonsets,statefulsets,deployments,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "etcdlockservers/finalizers,vitesscells,vitessbackupstorages,vitesskeyspaces/finalizers,vitessbackupschedules/finalizers,vitessbackupschedules,vitessclusters/finalizers,vitesscells/status,vitessshards/finalizers,vitessclusters/status,etcdlockservers,vitessshards/status,vitessbackups/status,vitessbackupschedules/status,vitessshards,vitesskeyspaces,vitessclusters,vitesskeyspaces/status,vitessbackupstorages/status,vitessbackups/finalizers,vitesscells/finalizers,vitessbackupstorages/finalizers,vitessbackups,etcdlockservers/status",
+        "API groups": "planetscale.com"
+    },
+    {
+        "verbs": "*",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "persistentvolumeclaims,secrets,events,services,pods,endpoints,configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments/finalizers",
+        "API groups": "apps"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [vitess-operator] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/vitess-operator] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: vitess-operator
+-------------------------------------------
+

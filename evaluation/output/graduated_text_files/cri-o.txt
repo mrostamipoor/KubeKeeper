@@ -1,0 +1,24 @@
+[Service Account]: cri-o-metrics-exporter
+  [Resource] (ResourceName/ResourceType): cri-o-metrics-exporter/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cri-o-metrics-exporter] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/cri-o-metrics-exporter] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

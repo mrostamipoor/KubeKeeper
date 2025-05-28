@@ -1,0 +1,908 @@
+[Service Account]: controller-manager
+  [Resource] (ResourceName/ResourceType): controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "kubearmorclusterpolicies",
+        "API groups": "security.kubearmor.com"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "kubearmorhostpolicies",
+        "API groups": "security.kubearmor.com"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "kubearmorpolicies",
+        "API groups": "security.kubearmor.com"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "kubearmorclusterpolicies/status",
+        "API groups": "security.kubearmor.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "kubearmorhostpolicies/status",
+        "API groups": "security.kubearmor.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "kubearmorpolicies/status",
+        "API groups": "security.kubearmor.com"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [manager-role; metrics-auth-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller-manager] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/controller-manager] [Main configs]
+-------------------------------------------
+
+[Service Account]: kubearmor-operator
+  [Resource] (ResourceName/ResourceType): kubearmor-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,get",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "create,get",
+        "Resources": "clusterrolebindings,clusterroles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "kubearmorclusterpolicies,kubearmorhostpolicies,kubearmorpolicies",
+        "API groups": "security.kubearmor.com"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "kubearmorconfigs",
+        "API groups": "operator.kubearmor.com"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,watch,list,update",
+        "Resources": "kubearmorclusterpolicies,kubearmorhostpolicies,kubearmorpolicies",
+        "API groups": "security.kubearmor.com"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "kubearmorclusterpolicies/status,kubearmorhostpolicies/status,kubearmorpolicies/status",
+        "API groups": "security.kubearmor.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "kubearmorconfigs/status",
+        "API groups": "operator.kubearmor.com"
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps,pods,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "daemonsets,statefulsets,deployments,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create,delete,get",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create,get",
+        "Resources": "roles,rolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "create,get",
+        "Resources": "services,serviceaccounts",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create,update,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create,update,get",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "delete,update,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [kubearmor-operator-clusterrole; kubearmor-operator-manage-controller-clusterrole; kubearmor-operator-manage-kubearmor-clusterrole; kubearmor-operator-manage-relay-clusterrole] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kubearmor-operator] [Main configs]
+
+    [roles]: [kubearmor-operator-manage-controller-leader-election-role; kubearmor-operator-manage-snitch-job-role; kubearmor-operator-manage-snitch-job-rolebinding; kubearmor-operator-role; kubearmor-operator-tls-secrets-role] [Main configs]
+    [roleBindings]: [ServiceAccount/kubearmor-operator] [Main configs]
+    [roleResourceNames]: kubearmor-relay-server-certs,kubearmor-client-certs,kubearmor-controller-webhook-server-cert,kubearmor-ca
+-------------------------------------------
+
+[Service Account]: kubearmor-relay
+  [Resource] (ResourceName/ResourceType): kubearmor-relay/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kubearmor-relay-clusterrole] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kubearmor-relay] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: kubearmor-controller
+  [Resource] (ResourceName/ResourceType): kubearmor-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "kubearmorclusterpolicies,kubearmorhostpolicies,kubearmorpolicies",
+        "API groups": "security.kubearmor.com"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "kubearmorclusterpolicies/status,kubearmorhostpolicies/status,kubearmorpolicies/status",
+        "API groups": "security.kubearmor.com"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "daemonsets,statefulsets,deployments,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kubearmor-controller-clusterrole] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kubearmor-controller] [Main configs]
+
+    [roles]: [kubearmor-controller-leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/kubearmor-controller] [Main configs]
+-------------------------------------------
+
+[Service Account]: cert-manager
+  [Resource] (ResourceName/ResourceType): cert-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "approve",
+        "Resources": "signers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "create,delete,update",
+        "Resources": "certificaterequests,certificates",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "create,delete",
+        "Resources": "challenges",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "routes/custom-host",
+        "API groups": "route.openshift.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "httproutes",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "orders",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "services,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "certificaterequests/status,certificaterequests,certificates/status,certificates",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "certificatesigningrequests/status",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "challenges,challenges/status",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "clusterissuers/status,clusterissuers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "issuers,issuers/status",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "orders,orders/status",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "sign",
+        "Resources": "signers",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "certificaterequests/finalizers,certificates/finalizers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "challenges/finalizers",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "httproutes/finalizers,gateways/finalizers",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "ingresses/finalizers",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "orders/finalizers",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "challenges",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "clusterissuers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "httproutes,gateways",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "issuers,certificaterequests,clusterissuers,certificates",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "issuers,clusterissuers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "issuers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "orders,challenges",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cert-manager-controller-approve:cert-manager-io; cert-manager-controller-certificates; cert-manager-controller-certificatesigningrequests; cert-manager-controller-challenges; cert-manager-controller-clusterissuers; cert-manager-controller-ingress-shim; cert-manager-controller-issuers; cert-manager-controller-orders] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/cert-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: issuers.cert-manager.io/*,clusterissuers.cert-manager.io/*
+-------------------------------------------
+
+[Service Account]: kubearmor-controller-manager
+  [Resource] (ResourceName/ResourceType): kubearmor-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "kubearmorclusterpolicies",
+        "API groups": "security.kubearmor.com"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "kubearmorhostpolicies",
+        "API groups": "security.kubearmor.com"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "kubearmorpolicies",
+        "API groups": "security.kubearmor.com"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "kubearmorclusterpolicies/status",
+        "API groups": "security.kubearmor.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "kubearmorhostpolicies/status",
+        "API groups": "security.kubearmor.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "kubearmorpolicies/status",
+        "API groups": "security.kubearmor.com"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kubearmor-manager-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kubearmor-controller-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: cert-manager-cainjector
+  [Resource] (ResourceName/ResourceType): cert-manager-cainjector/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "patch,create,update,get",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "certificates",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "apiservices",
+        "API groups": "apiregistration.k8s.io"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cert-manager-cainjector] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/cert-manager-cainjector] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: kubearmor-kured
+  [Resource] (ResourceName/ResourceType): kubearmor-kured/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "pods/eviction",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kubearmor-kured] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kubearmor-kured] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: kubearmor
+  [Resource] (ResourceName/ResourceType): kubearmor/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,watch,list,update",
+        "Resources": "kubearmorclusterpolicies,kubearmorhostpolicies,kubearmorpolicies",
+        "API groups": "security.kubearmor.com"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps,pods,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "daemonsets,statefulsets,deployments,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kubearmor-clusterrole] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kubearmor] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: cert-manager-webhook
+  [Resource] (ResourceName/ResourceType): cert-manager-webhook/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cert-manager-webhook:subjectaccessreviews] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/cert-manager-webhook] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

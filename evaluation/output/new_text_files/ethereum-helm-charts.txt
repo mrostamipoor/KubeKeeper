@@ -1,0 +1,419 @@
+[Service Account]: release-name-nimbus
+  [Resource] (ResourceName/ResourceType): release-name-nimbus/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [default-release-name-nimbus] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-nimbus] [Main configs]
+
+    [roles]: [release-name-nimbus] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-nimbus] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-geth
+  [Resource] (ResourceName/ResourceType): release-name-geth/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [default-release-name-geth] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-geth] [Main configs]
+
+    [roles]: [release-name-geth] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-geth] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-lighthouse
+  [Resource] (ResourceName/ResourceType): release-name-lighthouse/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [default-release-name-lighthouse] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-lighthouse] [Main configs]
+
+    [roles]: [release-name-lighthouse] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-lighthouse] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-erigon
+  [Resource] (ResourceName/ResourceType): release-name-erigon/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [default-release-name-erigon] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-erigon] [Main configs]
+
+    [roles]: [release-name-erigon] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-erigon] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-grandine
+  [Resource] (ResourceName/ResourceType): release-name-grandine/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [default-release-name-grandine] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-grandine] [Main configs]
+
+    [roles]: [release-name-grandine] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-grandine] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-reth
+  [Resource] (ResourceName/ResourceType): release-name-reth/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [default-release-name-reth] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-reth] [Main configs]
+
+    [roles]: [release-name-reth] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-reth] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-teku
+  [Resource] (ResourceName/ResourceType): release-name-teku/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [default-release-name-teku] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-teku] [Main configs]
+
+    [roles]: [release-name-teku] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-teku] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-ethereumjs
+  [Resource] (ResourceName/ResourceType): release-name-ethereumjs/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [default-release-name-ethereumjs] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-ethereumjs] [Main configs]
+
+    [roles]: [release-name-ethereumjs] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-ethereumjs] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-lodestar
+  [Resource] (ResourceName/ResourceType): release-name-lodestar/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [default-release-name-lodestar] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-lodestar] [Main configs]
+
+    [roles]: [release-name-lodestar] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-lodestar] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-prysm
+  [Resource] (ResourceName/ResourceType): release-name-prysm/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [default-release-name-prysm] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-prysm] [Main configs]
+
+    [roles]: [release-name-prysm] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-prysm] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-nethermind
+  [Resource] (ResourceName/ResourceType): release-name-nethermind/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [default-release-name-nethermind] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-nethermind] [Main configs]
+
+    [roles]: [release-name-nethermind] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-nethermind] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-besu
+  [Resource] (ResourceName/ResourceType): release-name-besu/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [default-release-name-besu] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-besu] [Main configs]
+
+    [roles]: [release-name-besu] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-besu] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-ipfs-cluster
+  [Resource] (ResourceName/ResourceType): cluster-0-ipfs-cluster/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-ipfs-cluster] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-ipfs-cluster] [Main configs]
+
+    [roles]: [release-name-ipfs-cluster] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-ipfs-cluster] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): ipfs-release-name-ipfs-cluster/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-ipfs-cluster] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-ipfs-cluster] [Main configs]
+
+    [roles]: [release-name-ipfs-cluster] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-ipfs-cluster] [Main configs]
+-------------------------------------------
+

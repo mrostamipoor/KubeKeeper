@@ -1,0 +1,378 @@
+[Service Account]: linstor-csi-node-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,update,get,create,watch",
+        "Resources": "events",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [linstor-csi-driver-registrar-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/linstor-csi-node-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: linstor-ha-controller
+  [Resource] (ResourceName/ResourceType): linstor-ha-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,watch,delete",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,delete",
+        "Resources": "volumeattachments",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [linstor-ha-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/linstor-ha-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: linstor-ha-controller
+-------------------------------------------
+
+[Service Account]: linstor-stork
+  [Resource] (ResourceName/ResourceType): linstor-stork/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [linstor-stork] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/linstor-stork] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: linstor-csi-controller-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,create,watch,delete",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,get,create,watch,delete",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,create,watch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,watch,get",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,watch,get",
+        "Resources": "volumeattachments",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "csinodes",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "volumeattachments",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "volumesnapshotclasses",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "volumesnapshotcontents/status",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "volumesnapshots/status",
+        "API groups": "snapshot.storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [linstor-csi-attacher-role; linstor-csi-provisioner-role; linstor-csi-resizer-role; linstor-csi-snapshotter-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/linstor-csi-controller-sa] [Main configs]
+
+    [roles]: [linstor-csi-attacher-role; linstor-csi-provisioner-role; linstor-csi-resizer-role; linstor-csi-snapshotter-role] [Main configs]
+    [roleBindings]: [ServiceAccount/linstor-csi-controller-sa] [Main configs]
+-------------------------------------------
+
+[Service Account]: linstor-controller
+  [Resource] (ResourceName/ResourceType): linstor-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "endpoints,endpoints/restricted",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [linstor-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/linstor-controller] [Main configs]
+    [roleResourceNames]: linstor-controller
+-------------------------------------------
+
+[Service Account]: linstor-stork-scheduler
+  [Resource] (ResourceName/ResourceType): linstor-stork-scheduler/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,update,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods/binding,bindings",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,delete,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "csidrivers,csistoragecapacities",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "csinodes,storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "persistentvolumes,persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "replicasets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services,replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": "events.k8s.io"
+    },
+    {
+        "verbs": "patch,update,delete,get",
+        "Resources": "endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [linstor-stork-scheduler] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/linstor-stork-scheduler] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: kube-scheduler
+-------------------------------------------
+

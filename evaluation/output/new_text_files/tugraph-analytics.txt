@@ -1,0 +1,110 @@
+[Service Account]: geaflow
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "*",
+        "Resources": "deployments/finalizers,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "endpoints,pods,endpoints/status,configmaps,pods/status,services,services/status,pods/log",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [geaflow] [Main configs]
+    [roleBindings]: [ServiceAccount/geaflow] [Main configs]
+-------------------------------------------
+
+[Service Account]: geaflow-operator
+  [Resource] (ResourceName/ResourceType): release-name-geaflow-kubernetes-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "deployments,ingresses",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments/finalizers,deployments,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "events,pods,configmaps,pods/status,services,services/status,pods/log,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "geaflowjobs,geaflownativejobs,geaflowjobs/status,geaflownativejobs/status",
+        "API groups": "geaflow.antgroup.com"
+    },
+    {
+        "verbs": "*",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [geaflow-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/geaflow-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

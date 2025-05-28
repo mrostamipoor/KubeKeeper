@@ -1,0 +1,445 @@
+[Service Account]: release-name-cert-manager-cainjector
+  [Resource] (ResourceName/ResourceType): release-name-cert-manager-cainjector/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "apiservices",
+        "API groups": "apiregistration.k8s.io"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "patch,create,update,get",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "certificates",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-cert-manager-cainjector] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-cert-manager-cainjector] [Main configs]
+
+    [roles]: [release-name-cert-manager-cainjector:leaderelection] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-cert-manager-cainjector] [Main configs]
+    [roleResourceNames]: cert-manager-cainjector-leader-election-core,cert-manager-cainjector-leader-election
+-------------------------------------------
+
+[Service Account]: cert-manager
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "*",
+        "API groups": "acme.testing.cert-manager.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-example-webhook:domain-solver] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/cert-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-cert-manager-webhook
+  [Resource] (ResourceName/ResourceType): release-name-cert-manager-webhook/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-cert-manager-webhook:subjectaccessreviews] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-cert-manager-webhook] [Main configs]
+
+    [roles]: [release-name-cert-manager-webhook:dynamic-serving] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-cert-manager-webhook] [Main configs]
+    [roleResourceNames]: release-name-cert-manager-webhook-ca
+-------------------------------------------
+
+[Service Account]: release-name-example-webhook
+  [Resource] (ResourceName/ResourceType): release-name-example-webhook/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:auth-delegator] []
+    [clusterRoleBindings]: [ServiceAccount/release-name-example-webhook] [Main configs]
+
+    [roles]: [release-name-example-webhook:webhook-authentication-reader] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-example-webhook] [Main configs]
+    [roleResourceNames]: extension-apiserver-authentication
+-------------------------------------------
+
+[Service Account]: release-name-cert-manager
+  [Resource] (ResourceName/ResourceType): release-name-cert-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "approve",
+        "Resources": "signers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "create,delete,update",
+        "Resources": "certificaterequests,certificates",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "create,delete",
+        "Resources": "challenges",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "routes/custom-host",
+        "API groups": "route.openshift.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "httproutes",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "orders",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "services,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "certificaterequests/status,certificaterequests,certificates/status,certificates",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "certificatesigningrequests/status",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "challenges,challenges/status",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "clusterissuers/status,clusterissuers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "issuers,issuers/status",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "orders,orders/status",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "sign",
+        "Resources": "signers",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "certificaterequests/finalizers,certificates/finalizers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "challenges/finalizers",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "httproutes/finalizers,gateways/finalizers",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "ingresses/finalizers",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "orders/finalizers",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "challenges",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "clusterissuers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "httproutes,gateways",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "issuers,certificaterequests,clusterissuers,certificates",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "issuers,clusterissuers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "issuers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "orders,challenges",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "serviceaccounts/token",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-cert-manager-controller-approve:cert-manager-io; release-name-cert-manager-controller-certificates; release-name-cert-manager-controller-certificatesigningrequests; release-name-cert-manager-controller-challenges; release-name-cert-manager-controller-clusterissuers; release-name-cert-manager-controller-ingress-shim; release-name-cert-manager-controller-issuers; release-name-cert-manager-controller-orders] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-cert-manager] [Main configs]
+
+    [roles]: [release-name-cert-manager-tokenrequest; release-name-cert-manager:leaderelection] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-cert-manager] [Main configs]
+    [clusterResourceNames]: issuers.cert-manager.io/*,clusterissuers.cert-manager.io/*
+    [roleResourceNames]: release-name-cert-manager, cert-manager-controller
+-------------------------------------------
+
+[Service Account]: release-name-cert-manager-startupapicheck
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "certificaterequests",
+        "API groups": "cert-manager.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-cert-manager-startupapicheck:create-cert] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-cert-manager-startupapicheck] [Main configs]
+-------------------------------------------
+

@@ -1,0 +1,193 @@
+[Service Account]: akri-agent-sa
+  [Resource] (ResourceName/ResourceType): akri-agent-daemonset/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "instances",
+        "API groups": "akri.sh"
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "configurations",
+        "API groups": "akri.sh"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [akri-agent-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/akri-agent-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: akri-controller-sa
+  [Resource] (ResourceName/ResourceType): akri-controller-deployment/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,deletecollection,patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "services,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "instances",
+        "API groups": "akri.sh"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configurations",
+        "API groups": "akri.sh"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [akri-controller-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/akri-controller-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: akri-video-streaming-app-sa
+  [Resource] (ResourceName/ResourceType): akri-video-streaming-app/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list",
+        "Resources": "services",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [akri-video-streaming-app-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/akri-video-streaming-app-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: akri-helm-cleanup-hook-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,deletecollection,patch",
+        "Resources": "configurations",
+        "API groups": "akri.sh"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [akri-helm-cleanup-hook-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/akri-helm-cleanup-hook-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: akri-webhook-configuration-patch
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "update,get",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [akri-webhook-configuration-patch] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/akri-webhook-configuration-patch] [Main configs]
+
+    [roles]: [akri-webhook-configuration-patch] [Main configs]
+    [roleBindings]: [ServiceAccount/akri-webhook-configuration-patch] [Main configs]
+-------------------------------------------
+

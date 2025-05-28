@@ -1,0 +1,29 @@
+[Service Account]: release-name-ueransim-test-connection
+  [Resource] (ResourceName/ResourceType): release-name-ueransim-test-connection/Pod
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,get",
+        "Resources": "pods/exec",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-ueransim-test-connection] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-ueransim-test-connection] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

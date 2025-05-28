@@ -1,0 +1,576 @@
+[Service Account]: notification-controller
+  [Resource] (ResourceName/ResourceType): notification-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "helm.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "image.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "kustomize.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "notification.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "source.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "head",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,configmaps,serviceaccounts,secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [crd-controller; flux-scc] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/notification-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: nonroot
+-------------------------------------------
+
+[Service Account]: image-reflector-controller
+  [Resource] (ResourceName/ResourceType): image-reflector-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "helm.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "image.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "kustomize.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "notification.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "source.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "head",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,configmaps,serviceaccounts,secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [crd-controller; flux-scc] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/image-reflector-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: nonroot
+-------------------------------------------
+
+[Service Account]: image-automation-controller
+  [Resource] (ResourceName/ResourceType): image-automation-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "helm.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "image.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "kustomize.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "notification.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "source.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "head",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,configmaps,serviceaccounts,secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [crd-controller; flux-scc] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/image-automation-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: nonroot
+-------------------------------------------
+
+[Service Account]: source-controller
+  [Resource] (ResourceName/ResourceType): source-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "helm.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "image.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "kustomize.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "notification.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "source.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "head",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,configmaps,serviceaccounts,secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [crd-controller; flux-scc] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/source-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: nonroot
+-------------------------------------------
+
+[Service Account]: helm-controller
+  [Resource] (ResourceName/ResourceType): helm-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "helm.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "image.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "kustomize.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "notification.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "source.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "head",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,configmaps,serviceaccounts,secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin; crd-controller; flux-scc] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/helm-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: nonroot
+-------------------------------------------
+
+[Service Account]: kustomize-controller
+  [Resource] (ResourceName/ResourceType): kustomize-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "helm.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "image.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "kustomize.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "notification.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "source.toolkit.fluxcd.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "head",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,configmaps,serviceaccounts,secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin; crd-controller; flux-scc] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kustomize-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: nonroot
+-------------------------------------------
+

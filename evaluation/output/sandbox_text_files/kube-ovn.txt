@@ -1,0 +1,966 @@
+[Service Account]: kwok-controller
+  [Resource] (ResourceName/ResourceType): kwok-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "attaches",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clusterattaches",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clusterexecs",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clusterlogs",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clusterportforwards",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clusterresourceusages",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "execs",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "logs",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "metrics",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "portforwards",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "resourceusages",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "stages",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "delete,get,watch,update,list,patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,update,list,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "attaches/status",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "clusterattaches/status",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "clusterexecs/status",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "clusterlogs/status",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "clusterportforwards/status",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "clusterresourceusages/status",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "execs/status",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "logs/status",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "metrics/status",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "nodes/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "portforwards/status",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "resourceusages/status",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "stages/status",
+        "API groups": "kwok.x-k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kwok-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kwok-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: ovn
+  [Resource] (ResourceName/ResourceType): kube-ovn-webhook/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "vlans/status,vpc-nat-gateways,vpc-egress-gateways/status,vpc-egress-gateways,vpcs/status,ippools,iptables-eips/status,switch-lb-rules,vips/status,qos-policies/status,ovn-dnat-rules,iptables-eips,qos-policies,security-groups/status,ips,switch-lb-rules/status,ovn-fips/status,subnets/status,iptables-fip-rules/status,subnets,ovn-snat-rules/status,iptables-fip-rules,iptables-dnat-rules/status,ovn-eips/status,iptables-dnat-rules,iptables-snat-rules/status,security-groups,vpc-dnses/status,ovn-eips,ovn-dnat-rules/status,ovn-snat-rules,vlans,provider-networks,vpc-dnses,iptables-snat-rules,vips,vpc-nat-gateways/status,vpcs,ovn-fips,ippools/status,provider-networks/status",
+        "API groups": "kubeovn.io"
+    },
+    {
+        "verbs": "create,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods/exec",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "deployments,deployments/scale",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list,patch",
+        "Resources": "services/status,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "network-attachment-definitions",
+        "API groups": "k8s.cni.cncf.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "virtualmachines,virtualmachineinstances",
+        "API groups": "kubevirt.io"
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "namespaces,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "sign,approve",
+        "Resources": "signers",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "certificatesigningrequests/status,certificatesigningrequests/approval",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "baselineadminnetworkpolicies,adminnetworkpolicies",
+        "API groups": "policy.networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps,networkpolicies",
+        "API groups": ",networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "virtualmachineinstancemigrations",
+        "API groups": "kubevirt.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (kube-system): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:ovn] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/ovn] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/ovn] [Main configs]
+    [clusterResourceNames]: kubeovn.io/signer
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): kube-ovn-speaker/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "vlans/status,vpc-nat-gateways,vpc-egress-gateways/status,vpc-egress-gateways,vpcs/status,ippools,iptables-eips/status,switch-lb-rules,vips/status,qos-policies/status,ovn-dnat-rules,iptables-eips,qos-policies,security-groups/status,ips,switch-lb-rules/status,ovn-fips/status,subnets/status,iptables-fip-rules/status,subnets,ovn-snat-rules/status,iptables-fip-rules,iptables-dnat-rules/status,ovn-eips/status,iptables-dnat-rules,iptables-snat-rules/status,security-groups,vpc-dnses/status,ovn-eips,ovn-dnat-rules/status,ovn-snat-rules,vlans,provider-networks,vpc-dnses,iptables-snat-rules,vips,vpc-nat-gateways/status,vpcs,ovn-fips,ippools/status,provider-networks/status",
+        "API groups": "kubeovn.io"
+    },
+    {
+        "verbs": "create,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods/exec",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "deployments,deployments/scale",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list,patch",
+        "Resources": "services/status,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "network-attachment-definitions",
+        "API groups": "k8s.cni.cncf.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "virtualmachines,virtualmachineinstances",
+        "API groups": "kubevirt.io"
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "namespaces,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "sign,approve",
+        "Resources": "signers",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "certificatesigningrequests/status,certificatesigningrequests/approval",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "baselineadminnetworkpolicies,adminnetworkpolicies",
+        "API groups": "policy.networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps,networkpolicies",
+        "API groups": ",networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "virtualmachineinstancemigrations",
+        "API groups": "kubevirt.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (kube-system): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:ovn] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/ovn] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/ovn] [Main configs]
+    [clusterResourceNames]: kubeovn.io/signer
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): kube-ovn-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "vlans/status,vpc-nat-gateways,vpc-egress-gateways/status,vpc-egress-gateways,vpcs/status,ippools,iptables-eips/status,switch-lb-rules,vips/status,qos-policies/status,ovn-dnat-rules,iptables-eips,qos-policies,security-groups/status,ips,switch-lb-rules/status,ovn-fips/status,subnets/status,iptables-fip-rules/status,subnets,ovn-snat-rules/status,iptables-fip-rules,iptables-dnat-rules/status,ovn-eips/status,iptables-dnat-rules,iptables-snat-rules/status,security-groups,vpc-dnses/status,ovn-eips,ovn-dnat-rules/status,ovn-snat-rules,vlans,provider-networks,vpc-dnses,iptables-snat-rules,vips,vpc-nat-gateways/status,vpcs,ovn-fips,ippools/status,provider-networks/status",
+        "API groups": "kubeovn.io"
+    },
+    {
+        "verbs": "create,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods/exec",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "deployments,deployments/scale",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list,patch",
+        "Resources": "services/status,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "network-attachment-definitions",
+        "API groups": "k8s.cni.cncf.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "virtualmachines,virtualmachineinstances",
+        "API groups": "kubevirt.io"
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "namespaces,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "sign,approve",
+        "Resources": "signers",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "certificatesigningrequests/status,certificatesigningrequests/approval",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "baselineadminnetworkpolicies,adminnetworkpolicies",
+        "API groups": "policy.networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps,networkpolicies",
+        "API groups": ",networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "virtualmachineinstancemigrations",
+        "API groups": "kubevirt.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (kube-system): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:ovn] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/ovn] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/ovn] [Main configs]
+    [clusterResourceNames]: kubeovn.io/signer
+-------------------------------------------
+
+[Service Account]: kube-ovn-app
+  [Resource] (ResourceName/ResourceType): kube-ovn-pinger/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "pods,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (kube-system): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:kube-ovn-app] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kube-ovn-app] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/kube-ovn-app] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): kube-ovn-monitor/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "pods,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (kube-system): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:kube-ovn-app] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kube-ovn-app] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/kube-ovn-app] [Main configs]
+-------------------------------------------
+
+[Service Account]: kube-ovn-pre-delete-hook
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "patch,list,get",
+        "Resources": "subnets",
+        "API groups": "kubeovn.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:kube-ovn-pre-delete-hook] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kube-ovn-pre-delete-hook] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: ovn-ovs
+  [Resource] (ResourceName/ResourceType): ovs-ovn/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "services,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "controllerrevisions",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:ovn-ovs] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/ovn-ovs] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): ovn-central/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "services,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "controllerrevisions",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:ovn-ovs] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/ovn-ovs] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: kube-ovn-cni
+  [Resource] (ResourceName/ResourceType): kube-ovn-cni/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "ovn-eips,nodes,nodes/status,pods,ovn-eips/status",
+        "API groups": ",kubeovn.io"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "ips",
+        "API groups": "kubeovn.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "vlans,provider-networks,subnets",
+        "API groups": "kubeovn.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (kube-system): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:kube-ovn-cni] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kube-ovn-cni] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/kube-ovn-cni] [Main configs]
+-------------------------------------------
+

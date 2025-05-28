@@ -1,0 +1,436 @@
+[Service Account]: pod-restart-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "events",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [pod-restart-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/pod-restart-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: namespace-pod-check
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "khstates,khjobs,khchecks",
+        "API groups": "comcast.github.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods/eviction",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,deletecollection,patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,deletecollection,patch",
+        "Resources": "daemonsets",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,deletecollection,patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,componentstatuses,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kuberhealthy] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/namespace-pod-check] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: kuberhealthy
+  [Resource] (ResourceName/ResourceType): kuberhealthy/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "khstates,khjobs,khchecks",
+        "API groups": "comcast.github.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods/eviction",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,deletecollection,patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,deletecollection,patch",
+        "Resources": "daemonsets",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,deletecollection,patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,componentstatuses,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kuberhealthy] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kuberhealthy] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: daemonset-khcheck
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "delete,get,create,watch,list,update,deletecollection,patch",
+        "Resources": "daemonsets,pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,deletecollection,patch",
+        "Resources": "daemonsets,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,deletecollection,patch",
+        "Resources": "daemonsets,pods",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": "apps"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [kuberhealthy-daemonset-khcheck] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/daemonset-khcheck] [Main configs]
+
+    [roles]: [ds-admin] [Main configs]
+    [roleBindings]: [ServiceAccount/daemonset-khcheck] [Main configs]
+-------------------------------------------
+
+[Service Account]: kuberhealthy-resource-quota
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list",
+        "Resources": "namespaces,resourcequotas",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kuberhealthy-resource-quota] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kuberhealthy-resource-quota] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: cronjob-checker
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [kuberhealthy] []
+    [roleBindings]: [ServiceAccount/cronjob-checker] [Main configs]
+-------------------------------------------
+
+[Service Account]: pod-status-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [pod-status-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/pod-status-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: dns-internal-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [dns-internal-service-cr] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/dns-internal-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: deployment-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [deployment-service-role] [Main configs]
+    [roleBindings]: [ServiceAccount/deployment-sa] [Main configs]
+-------------------------------------------
+

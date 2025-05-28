@@ -1,0 +1,120 @@
+[Service Account]: compaction-service-serviceaccount
+  [Resource] (ResourceName/ResourceType): compaction-service/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "memberlists",
+        "API groups": "chroma.cluster"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [compaction-service-memberlist-readerwriter] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/compaction-service-serviceaccount] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: rust-frontend-service-serviceaccount
+  [Resource] (ResourceName/ResourceType): rust-frontend-service/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "memberlists",
+        "API groups": "chroma.cluster"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [query-service-memberlist-readerwriter] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/rust-frontend-service-serviceaccount] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: sysdb-serviceaccount
+  [Resource] (ResourceName/ResourceType): sysdb/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "memberlists",
+        "API groups": "chroma.cluster"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [compaction-service-memberlist-readerwriter; query-service-memberlist-readerwriter] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/sysdb-serviceaccount] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: query-service-serviceaccount
+  [Resource] (ResourceName/ResourceType): query-service/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "memberlists",
+        "API groups": "chroma.cluster"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [query-service-memberlist-readerwriter] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/query-service-serviceaccount] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: default
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "memberlists",
+        "API groups": "chroma.cluster"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [compaction-service-memberlist-readerwriter; query-service-memberlist-readerwriter] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/default] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

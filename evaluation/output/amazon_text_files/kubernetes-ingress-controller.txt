@@ -1,0 +1,320 @@
+[Service Account]: kong-serviceaccount
+  [Resource] (ResourceName/ResourceType): ingress-kong/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "backendtlspolicies,tlsroutes,gatewayclasses,httproutes,grpcroutes,udproutes,tcproutes,referencegrants",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "configmaps,secrets,services,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "httproutes",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ingresses,ingressclasses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "kongconsumergroups,udpingresses,konglicenses,kongingresses,kongplugins,kongconsumers,ingressclassparameterses,kongvaults,kongclusterplugins,tcpingresses,kongupstreampolicies,kongcustomentities",
+        "API groups": "configuration.konghq.com"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "kongservicefacades",
+        "API groups": "incubator.ingress-controller.konghq.com"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "services,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "referencegrants/status",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "nodes,configmaps,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get,list,watch",
+        "Resources": "gateways",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "grpcroutes/status",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "ingresses/status",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "konglicenses/status,kongingresses/status,kongconsumers/status,udpingresses/status,kongupstreampolicies/status,tcpingresses/status,kongconsumergroups/status,kongvaults/status,kongclusterplugins/status,kongplugins/status,kongcustomentities/status",
+        "API groups": "configuration.konghq.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "kongservicefacades/status",
+        "API groups": "incubator.ingress-controller.konghq.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "services/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "tcproutes/status,gateways/status,tlsroutes/status,httproutes/status,udproutes/status,gatewayclasses/status",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "update,patch",
+        "Resources": "backendtlspolicies/status",
+        "API groups": "gateway.networking.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (kong): [
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kong-ingress; kong-ingress-crds; kong-ingress-gateway; kong-kong-ingress] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kong-serviceaccount] [Main configs]
+
+    [roles]: [kong-leader-election] [Main configs]
+    [roleBindings]: [ServiceAccount/kong-serviceaccount] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): proxy-kong/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "backendtlspolicies,tlsroutes,gatewayclasses,httproutes,grpcroutes,udproutes,tcproutes,referencegrants",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "configmaps,secrets,services,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "httproutes",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ingresses,ingressclasses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "kongconsumergroups,udpingresses,konglicenses,kongingresses,kongplugins,kongconsumers,ingressclassparameterses,kongvaults,kongclusterplugins,tcpingresses,kongupstreampolicies,kongcustomentities",
+        "API groups": "configuration.konghq.com"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "kongservicefacades",
+        "API groups": "incubator.ingress-controller.konghq.com"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "services,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "referencegrants/status",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "nodes,configmaps,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get,list,watch",
+        "Resources": "gateways",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "grpcroutes/status",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "ingresses/status",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "konglicenses/status,kongingresses/status,kongconsumers/status,udpingresses/status,kongupstreampolicies/status,tcpingresses/status,kongconsumergroups/status,kongvaults/status,kongclusterplugins/status,kongplugins/status,kongcustomentities/status",
+        "API groups": "configuration.konghq.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "kongservicefacades/status",
+        "API groups": "incubator.ingress-controller.konghq.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "services/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "tcproutes/status,gateways/status,tlsroutes/status,httproutes/status,udproutes/status,gatewayclasses/status",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "update,patch",
+        "Resources": "backendtlspolicies/status",
+        "API groups": "gateway.networking.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (kong): [
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kong-ingress; kong-ingress-crds; kong-ingress-gateway; kong-kong-ingress] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kong-serviceaccount] [Main configs]
+
+    [roles]: [kong-leader-election] [Main configs]
+    [roleBindings]: [ServiceAccount/kong-serviceaccount] [Main configs]
+-------------------------------------------
+
+[Service Account]: default
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/default] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

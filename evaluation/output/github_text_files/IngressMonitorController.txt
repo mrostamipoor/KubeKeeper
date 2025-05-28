@@ -1,0 +1,276 @@
+[Service Account]: ingressmonitorcontroller
+  [Resource] (ResourceName/ResourceType): ingressmonitorcontroller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpointmonitors",
+        "API groups": "endpointmonitor.stakater.com"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "ingresses",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "routes",
+        "API groups": "route.openshift.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "endpointmonitors/status",
+        "API groups": "endpointmonitor.stakater.com"
+    },
+    {
+        "verbs": "update",
+        "Resources": "endpointmonitors/finalizers",
+        "API groups": "endpointmonitor.stakater.com"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases,configmaps",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases,configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [ingressmonitorcontroller-manager-role; ingressmonitorcontroller-metrics-reader; ingressmonitorcontroller-proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/ingressmonitorcontroller] [Main configs]
+
+    [roles]: [ingressmonitorcontroller-leader-election-role; ingressmonitorcontroller-secret-viewer-role] [Main configs]
+    [roleBindings]: [ServiceAccount/ingressmonitorcontroller] [Main configs]
+-------------------------------------------
+
+[Service Account]: ingressmonitorcontroller-controller-manager
+  [Resource] (ResourceName/ResourceType): ingressmonitorcontroller-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpointmonitors",
+        "API groups": "endpointmonitor.stakater.com"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "ingresses",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "routes",
+        "API groups": "route.openshift.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "endpointmonitors/status",
+        "API groups": "endpointmonitor.stakater.com"
+    },
+    {
+        "verbs": "update",
+        "Resources": "endpointmonitors/finalizers",
+        "API groups": "endpointmonitor.stakater.com"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [ingressmonitorcontroller-manager-role; ingressmonitorcontroller-proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/ingressmonitorcontroller-controller-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: controller-manager
+  [Resource] (ResourceName/ResourceType): controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpointmonitors",
+        "API groups": "endpointmonitor.stakater.com"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "ingresses",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "routes",
+        "API groups": "route.openshift.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "endpointmonitors/status",
+        "API groups": "endpointmonitor.stakater.com"
+    },
+    {
+        "verbs": "update",
+        "Resources": "endpointmonitors/finalizers",
+        "API groups": "endpointmonitor.stakater.com"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "list,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [manager-role; proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller-manager] [Main configs]
+
+    [roles]: [leader-election-role; secret-viewer] [Main configs]
+    [roleBindings]: [ServiceAccount/controller-manager] [Main configs]
+-------------------------------------------
+

@@ -1,0 +1,1891 @@
+[Service Account]: minio-2-update-prometheus-secret
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (minio-2): [
+    {
+        "verbs": "create",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "servicemonitors",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "patch,create,update,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [minio-2-update-prometheus-secret] [Main configs]
+    [roleBindings]: [ServiceAccount/minio-2-update-prometheus-secret] [Main configs]
+    [roleResourceNames]: minio-2, minio-2-prometheus
+-------------------------------------------
+
+[Service Account]: hwameistor-admin
+  [Resource] (ResourceName/ResourceType): hwameistor-local-disk-manager/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "*",
+        "API groups": "hwameistor.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pods/status,pods/binding,persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "volumesnapshotcontents,volumesnapshotcontents/status,volumesnapshots/status,volumesnapshotclasses,volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,watch,list,update,patch",
+        "Resources": "volumeattachments,volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "daemonsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services,pods,replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "csistoragecapacities,csinodes,csidrivers",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [hwameistor-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/hwameistor-admin] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): hwameistor-local-storage/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "*",
+        "API groups": "hwameistor.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pods/status,pods/binding,persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "volumesnapshotcontents,volumesnapshotcontents/status,volumesnapshots/status,volumesnapshotclasses,volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,watch,list,update,patch",
+        "Resources": "volumeattachments,volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "daemonsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services,pods,replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "csistoragecapacities,csinodes,csidrivers",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [hwameistor-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/hwameistor-admin] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): hwameistor-admission-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "*",
+        "API groups": "hwameistor.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pods/status,pods/binding,persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "volumesnapshotcontents,volumesnapshotcontents/status,volumesnapshots/status,volumesnapshotclasses,volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,watch,list,update,patch",
+        "Resources": "volumeattachments,volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "daemonsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services,pods,replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "csistoragecapacities,csinodes,csidrivers",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [hwameistor-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/hwameistor-admin] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): hwameistor-apiserver/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "*",
+        "API groups": "hwameistor.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pods/status,pods/binding,persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "volumesnapshotcontents,volumesnapshotcontents/status,volumesnapshots/status,volumesnapshotclasses,volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,watch,list,update,patch",
+        "Resources": "volumeattachments,volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "daemonsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services,pods,replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "csistoragecapacities,csinodes,csidrivers",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [hwameistor-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/hwameistor-admin] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): hwameistor-auditor/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "*",
+        "API groups": "hwameistor.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pods/status,pods/binding,persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "volumesnapshotcontents,volumesnapshotcontents/status,volumesnapshots/status,volumesnapshotclasses,volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,watch,list,update,patch",
+        "Resources": "volumeattachments,volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "daemonsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services,pods,replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "csistoragecapacities,csinodes,csidrivers",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [hwameistor-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/hwameistor-admin] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): hwameistor-volume-evictor/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "*",
+        "API groups": "hwameistor.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pods/status,pods/binding,persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "volumesnapshotcontents,volumesnapshotcontents/status,volumesnapshots/status,volumesnapshotclasses,volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,watch,list,update,patch",
+        "Resources": "volumeattachments,volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "daemonsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services,pods,replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "csistoragecapacities,csinodes,csidrivers",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [hwameistor-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/hwameistor-admin] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): hwameistor-exporter/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "*",
+        "API groups": "hwameistor.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pods/status,pods/binding,persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "volumesnapshotcontents,volumesnapshotcontents/status,volumesnapshots/status,volumesnapshotclasses,volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,watch,list,update,patch",
+        "Resources": "volumeattachments,volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "daemonsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services,pods,replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "csistoragecapacities,csinodes,csidrivers",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [hwameistor-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/hwameistor-admin] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): hwameistor-failover-assistant/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "*",
+        "API groups": "hwameistor.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pods/status,pods/binding,persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "volumesnapshotcontents,volumesnapshotcontents/status,volumesnapshots/status,volumesnapshotclasses,volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,watch,list,update,patch",
+        "Resources": "volumeattachments,volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "daemonsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services,pods,replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "csistoragecapacities,csinodes,csidrivers",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [hwameistor-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/hwameistor-admin] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): hwameistor-local-disk-action-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "*",
+        "API groups": "hwameistor.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pods/status,pods/binding,persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "volumesnapshotcontents,volumesnapshotcontents/status,volumesnapshots/status,volumesnapshotclasses,volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,watch,list,update,patch",
+        "Resources": "volumeattachments,volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "daemonsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services,pods,replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "csistoragecapacities,csinodes,csidrivers",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [hwameistor-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/hwameistor-admin] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): hwameistor-local-storage-csi-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "*",
+        "API groups": "hwameistor.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pods/status,pods/binding,persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "volumesnapshotcontents,volumesnapshotcontents/status,volumesnapshots/status,volumesnapshotclasses,volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,watch,list,update,patch",
+        "Resources": "volumeattachments,volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "daemonsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services,pods,replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "csistoragecapacities,csinodes,csidrivers",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [hwameistor-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/hwameistor-admin] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): hwameistor-pvc-autoresizer/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "*",
+        "API groups": "hwameistor.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pods/status,pods/binding,persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "volumesnapshotcontents,volumesnapshotcontents/status,volumesnapshots/status,volumesnapshotclasses,volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,watch,list,update,patch",
+        "Resources": "volumeattachments,volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "daemonsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services,pods,replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "csistoragecapacities,csinodes,csidrivers",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [hwameistor-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/hwameistor-admin] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): hwameistor-scheduler/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "*",
+        "API groups": "hwameistor.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pods/status,pods/binding,persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "volumesnapshotcontents,volumesnapshotcontents/status,volumesnapshots/status,volumesnapshotclasses,volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,watch,list,update,patch",
+        "Resources": "volumeattachments,volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "daemonsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services,pods,replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "csistoragecapacities,csinodes,csidrivers",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [hwameistor-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/hwameistor-admin] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: minio-1-update-prometheus-secret
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (minio): [
+    {
+        "verbs": "create",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "servicemonitors",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "patch,create,update,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [minio-1-update-prometheus-secret] [Main configs]
+    [roleBindings]: [ServiceAccount/minio-1-update-prometheus-secret] [Main configs]
+    [roleResourceNames]: minio-1, minio-1-prometheus
+-------------------------------------------
+

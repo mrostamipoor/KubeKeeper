@@ -1,0 +1,122 @@
+[Service Account]: controller
+  [Resource] (ResourceName/ResourceType): webhook/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services/status,routes/status,services,routes",
+        "API groups": "serving.knative.dev"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [knative-serving-admin; knative-serving-aggregated-addressable-resolver] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services/status,routes/status,services,routes",
+        "API groups": "serving.knative.dev"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [knative-serving-admin; knative-serving-aggregated-addressable-resolver] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): autoscaler/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services/status,routes/status,services,routes",
+        "API groups": "serving.knative.dev"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [knative-serving-admin; knative-serving-aggregated-addressable-resolver] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): autoscaler-hpa/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services/status,routes/status,services,routes",
+        "API groups": "serving.knative.dev"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [knative-serving-admin; knative-serving-aggregated-addressable-resolver] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: activator
+  [Resource] (ResourceName/ResourceType): activator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "revisions",
+        "API groups": "serving.knative.dev"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services,endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [knative-serving-activator-cluster] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/activator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

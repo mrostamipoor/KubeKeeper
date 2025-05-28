@@ -1,0 +1,459 @@
+[Service Account]: default
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [longhorn-ocp-privileged-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/default] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: anyuid,privileged
+-------------------------------------------
+
+[Service Account]: longhorn-service-account
+  [Resource] (ResourceName/ResourceType): longhorn-manager/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "clusterrolebindings,clusterroles,roles,rolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets,statefulsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "podsecuritypolicies,poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "*",
+        "Resources": "proxy/nodes,pods/log,persistentvolumeclaims/status,persistentvolumeclaims,secrets,events,persistentvolumes,nodes,serviceaccounts,pods,services,endpoints,configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "storageclasses,volumeattachments/status,volumeattachments,csinodes,csidrivers",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "volumes/status,systembackups,backups,replicas,volumes,supportbundles,nodes/status,replicas/status,backingimages/status,engineimages/status,orphans/status,nodes,volumeattachments,instancemanagers/status,engines,recurringjobs/status,backupbackingimages/status,sharemanagers,backingimagemanagers/status,backups/status,recurringjobs,backupbackingimages,backingimagedatasources,backingimagemanagers,backingimages,systemrestores/status,settings,backupvolumes/status,backuptargets,systembackups/status,systemrestores,engineimages,backupvolumes,orphans,settings/status,supportbundles/status,volumeattachments/status,backingimagedatasources/status,snapshots/status,engines/status,instancemanagers,backuptargets/status,snapshots,sharemanagers/status",
+        "API groups": "longhorn.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "volumesnapshotcontents,volumesnapshotcontents/status,volumesnapshotclasses,volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,list,patch",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "pods,nodes",
+        "API groups": "metrics.k8s.io"
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "apiservices",
+        "API groups": "apiregistration.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "priorityclasses",
+        "API groups": "scheduling.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [longhorn-ocp-privileged-role; longhorn-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/longhorn-service-account] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: anyuid,privileged
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): longhorn-driver-deployer/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "clusterrolebindings,clusterroles,roles,rolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets,statefulsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "podsecuritypolicies,poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "*",
+        "Resources": "proxy/nodes,pods/log,persistentvolumeclaims/status,persistentvolumeclaims,secrets,events,persistentvolumes,nodes,serviceaccounts,pods,services,endpoints,configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "storageclasses,volumeattachments/status,volumeattachments,csinodes,csidrivers",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "volumes/status,systembackups,backups,replicas,volumes,supportbundles,nodes/status,replicas/status,backingimages/status,engineimages/status,orphans/status,nodes,volumeattachments,instancemanagers/status,engines,recurringjobs/status,backupbackingimages/status,sharemanagers,backingimagemanagers/status,backups/status,recurringjobs,backupbackingimages,backingimagedatasources,backingimagemanagers,backingimages,systemrestores/status,settings,backupvolumes/status,backuptargets,systembackups/status,systemrestores,engineimages,backupvolumes,orphans,settings/status,supportbundles/status,volumeattachments/status,backingimagedatasources/status,snapshots/status,engines/status,instancemanagers,backuptargets/status,snapshots,sharemanagers/status",
+        "API groups": "longhorn.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "volumesnapshotcontents,volumesnapshotcontents/status,volumesnapshotclasses,volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,list,patch",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "pods,nodes",
+        "API groups": "metrics.k8s.io"
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "apiservices",
+        "API groups": "apiregistration.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "priorityclasses",
+        "API groups": "scheduling.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [longhorn-ocp-privileged-role; longhorn-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/longhorn-service-account] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: anyuid,privileged
+-------------------------------------------
+
+[Service Account]: longhorn-ui-service-account
+  [Resource] (ResourceName/ResourceType): longhorn-ui/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [longhorn-ocp-privileged-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/longhorn-ui-service-account] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: anyuid,privileged
+-------------------------------------------
+
+[Service Account]: longhorn-support-bundle
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/longhorn-support-bundle] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: longhorn-uninstall-service-account
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets,statefulsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "persistentvolumeclaims,secrets,nodes,persistentvolumes,pods,services,endpoints,configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "*",
+        "Resources": "storageclasses,volumeattachments,csidrivers",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "systembackups,backups,replicas,volumes,supportbundles,nodes,volumeattachments,engines,sharemanagers,recurringjobs,backupbackingimages,backingimagedatasources,backingimagemanagers,backingimages,settings,systemrestores,backuptargets,engineimages,backupvolumes,orphans,instancemanagers,snapshots",
+        "API groups": "longhorn.io"
+    },
+    {
+        "verbs": "delete,get",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "priorityclasses",
+        "API groups": "scheduling.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [longhorn-uninstall-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/longhorn-uninstall-service-account] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

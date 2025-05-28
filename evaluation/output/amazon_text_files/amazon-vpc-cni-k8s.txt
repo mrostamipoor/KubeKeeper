@@ -1,0 +1,123 @@
+[Service Account]: multus
+  [Resource] (ResourceName/ResourceType): kube-multus-ds/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "k8s.cni.cncf.io"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "pods/status,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,patch,create",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [multus] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/multus] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: cni-metrics-helper
+  [Resource] (ResourceName/ResourceType): cni-metrics-helper/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods/proxy,pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cni-metrics-helper] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/cni-metrics-helper] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: aws-node
+  [Resource] (ResourceName/ResourceType): aws-node/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,patch,watch",
+        "Resources": "cninodes",
+        "API groups": "vpcresources.k8s.aws"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "eniconfigs",
+        "API groups": "crd.k8s.amazonaws.com"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "policyendpoints",
+        "API groups": "networking.k8s.aws"
+    },
+    {
+        "verbs": "get",
+        "Resources": "policyendpoints/status",
+        "API groups": "networking.k8s.aws"
+    },
+    {
+        "verbs": "patch,list,create",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [aws-node] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/aws-node] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

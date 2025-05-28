@@ -1,0 +1,575 @@
+[Service Account]: release-name-kubedl
+  [Resource] (ResourceName/ResourceType): release-name-kubedl/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "podgroups",
+        "API groups": "scheduling.sigs.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "queues,podgroups",
+        "API groups": "scheduling.incubator.k8s.io,scheduling.sigs.dev,scheduling.volcano.sh"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "cachebackends",
+        "API groups": "cache.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "crons",
+        "API groups": "apps.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "elasticdljobs",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "inferences",
+        "API groups": "serving.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "marsjobs",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "models",
+        "API groups": "model.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "modelversions",
+        "API groups": "model.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "mpijobs",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "notebooks",
+        "API groups": "notebook.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pods,pods/log",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pytorchjobs",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "tfjobs",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "xdljobs",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "xgboostjobs",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create,list,get",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "cachebackends/status",
+        "API groups": "cache.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "crons/status",
+        "API groups": "apps.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "elasticdljobs/status",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "inferences/status",
+        "API groups": "serving.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "marsjobs/status",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "models/status",
+        "API groups": "model.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "modelversions/status",
+        "API groups": "model.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "mpijobs/status",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "notebooks/status",
+        "API groups": "notebook.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "pytorchjobs/status",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "services/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "tfjobs/status",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "xdljobs/status",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "xgboostjobs/status",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-kubedl-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-kubedl] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: default
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "containerrecreaterequests - containerrecreaterequests/status",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "podgroups",
+        "API groups": "scheduling.sigs.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "queues,podgroups",
+        "API groups": "scheduling.incubator.k8s.io,scheduling.sigs.dev,scheduling.volcano.sh"
+    },
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "cachebackends",
+        "API groups": "cache.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "crons",
+        "API groups": "apps.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "elasticbatchjobs/status",
+        "API groups": "inference.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "elasticbatchjobs",
+        "API groups": "inference.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "elasticdljobs",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "inferences",
+        "API groups": "serving.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "marsjobs",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "models",
+        "API groups": "model.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "modelversions",
+        "API groups": "model.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "mpijobs",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "notebooks",
+        "API groups": "notebook.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pods,pods/log",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "pytorchjobs",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "resourcequotas/status,resourcequotas",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "tfjobs",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "xdljobs",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "xgboostjobs",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create,list,get",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "cachebackends/status",
+        "API groups": "cache.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "crons/status",
+        "API groups": "apps.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "elasticbatchjobs/status",
+        "API groups": "inference.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "elasticdljobs/status",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "inferences/status",
+        "API groups": "serving.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "marsjobs/status",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "models/status",
+        "API groups": "model.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "modelversions/status",
+        "API groups": "model.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "mpijobs/status",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "notebooks/status",
+        "API groups": "notebook.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "pytorchjobs/status",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "services/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "tfjobs/status",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "xdljobs/status",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "xgboostjobs/status",
+        "API groups": "training.kubedl.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kubedl-leader-election-role; kubedl-manager-role; kubedl-proxy-role; leader-election-role; manager-role; proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/default] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

@@ -1,0 +1,18 @@
+Application Name,Over-Privileged,Critical Permissions,Direct Access via Secret Permissions Counts,Indirect Access via Secret Manipulation Counts,Indirect Access via Resource Scheduling Control Counts,Indirect Access via Node Manipulation Counts
+nim-deploy,N/A,,0,0,0,0
+calico,True,create::cronjobs::batch::whole; create::daemonsets::apps::whole; create::deployments::apps::whole; create::jobs::batch::whole; create::pods::::whole; create::statefulsets::apps::whole; get::secrets::::whole; list::secrets::::whole; patch::daemonsets::apps::whole; patch::deployments::apps::whole; patch::nodes::::whole; patch::statefulsets::apps::whole; update::cronjobs::batch::whole; update::daemonsets::apps::whole; update::deployments::apps::whole; update::jobs::batch::specific; update::jobs::batch::whole; update::nodes::::whole; update::pods::::whole; update::statefulsets::apps::whole; watch::secrets::::whole,3,0,18,4
+issuer-node,N/A,,0,0,0,0
+mondoo-operator,True,create::cronjobs::batch::whole; create::daemonsets::apps::whole; create::deployments::apps::whole; get::*::*::whole; get::secrets::::whole; list::*::*::whole; patch::cronjobs::batch::whole; patch::daemonsets::apps::whole; patch::deployments::apps::whole; update::cronjobs::batch::whole; update::daemonsets::apps::whole; update::deployments::apps::whole; watch::*::*::whole,12,0,27,0
+click-to-deploy,True,*::cronjobs::batch::whole; *::daemonsets::apps::whole; *::deployments::apps::whole; *::jobs::batch::whole; *::pods::::whole; *::replicasets::apps::whole; *::secrets::::whole; *::statefulsets::apps::whole; get::secrets::::whole; list::secrets::::whole; watch::secrets::::whole,4,0,7,0
+gcp-compute-persistent-disk-csi-driver,N/A,,0,0,0,0
+scim-examples,N/A,,0,0,0,0
+consul,N/A,,0,0,0,0
+helm-chart,N/A,,0,0,0,0
+anthos-microk8s,N/A,,0,0,0,0
+prometheus-engine,True,get::secrets::core::whole; list::secrets::::whole; list::secrets::core::whole; watch::secrets::::whole; watch::secrets::core::whole,8,0,0,0
+airflow,True,create::pods::core::whole; patch::pods::core::whole,0,0,2,0
+helm-charts,True,create::pods::core::whole; patch::pods::core::whole; update::pods::core::whole,0,0,3,0
+elastic-agent,True,list::secrets::::whole; watch::secrets::::whole,2,0,0,0
+k8s-config-connector,True,create::deployments::apps::whole; create::jobs::batch::whole; create::statefulsets::apps::whole; get::*::*::whole; get::secrets::::whole; list::*::*::whole; list::secrets::::whole; patch::deployments::apps::whole; patch::jobs::batch::whole; patch::secrets::::whole; patch::statefulsets::apps::whole; update::deployments::apps::whole; update::secrets::::whole; update::statefulsets::apps::whole; watch::secrets::::whole,13,6,14,0
+gcp-filestore-csi-driver,N/A,,0,0,0,0
+marqo-on-kubernetes,N/A,,0,0,0,0

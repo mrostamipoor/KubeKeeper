@@ -1,0 +1,339 @@
+[Service Account]: $CONTROLLER_SERVICE_ACCOUNT
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/$CONTROLLER_SERVICE_ACCOUNT] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: $PROMETHEUS_SERVICE_ACCOUNT
+  [Resource] (ResourceName/ResourceType): $APP_INSTANCE_NAME-prometheus/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes,services,pods,nodes/metrics,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [$PROMETHEUS_SERVICE_ACCOUNT] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/$PROMETHEUS_SERVICE_ACCOUNT] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: prometheus
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ingresses",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes,services,pods,nodes/proxy,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [prometheus] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/prometheus] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: $KUBE_STATE_METRICS_SERVICE_ACCOUNT
+  [Resource] (ResourceName/ResourceType): $APP_INSTANCE_NAME-kube-state-metrics/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes,secrets,services,replicationcontrollers,resourcequotas,pods,namespaces,limitranges,persistentvolumeclaims,configmaps,persistentvolumes,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,get,list,watch",
+        "Resources": "deployments,daemonsets,replicasets",
+        "API groups": "extensions"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [$KUBE_STATE_METRICS_SERVICE_ACCOUNT] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/$KUBE_STATE_METRICS_SERVICE_ACCOUNT] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: $DASHBOARD_SERVICE_ACCOUNT
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "nuclioprojects,nucliofunctionevents,nucliofunctions",
+        "API groups": "nuclio.io"
+    },
+    {
+        "verbs": "get,list",
+        "Resources": "nodes,pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [$DASHBOARD_SERVICE_ACCOUNT-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/$DASHBOARD_SERVICE_ACCOUNT] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: $OPERATOR_SERVICE_ACCOUNT
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "jaegertracing.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "clusterrolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments,daemonsets,statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "ingresses,replicasets,deployments,daemonsets,statefulsets",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "*",
+        "Resources": "kafkausers,kafkas",
+        "API groups": "kafka.strimzi.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets,services,pods,serviceaccounts,persistentvolumeclaims,configmaps,events,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create",
+        "Resources": "servicemonitors",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "get,list",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments/finalizers",
+        "API groups": "extensions,apps"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [$OPERATOR_SERVICE_ACCOUNT-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/$OPERATOR_SERVICE_ACCOUNT] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: jaeger-operator
+-------------------------------------------
+
+[Service Account]: $APP_INSTANCE_NAME-rabbitmq-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get",
+        "Resources": "endpoints",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [$APP_INSTANCE_NAME-rabbitmq-endpoint-reader] [Main configs]
+    [roleBindings]: [ServiceAccount/$APP_INSTANCE_NAME-rabbitmq-sa] [Main configs]
+-------------------------------------------
+
+[Service Account]: $CRD_SERVICE_ACCOUNT
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,create",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [$CRD_SERVICE_ACCOUNT-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/$CRD_SERVICE_ACCOUNT] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

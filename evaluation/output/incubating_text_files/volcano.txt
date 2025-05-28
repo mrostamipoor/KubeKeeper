@@ -1,0 +1,917 @@
+[Service Account]: release-name-admission
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,list,get",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "create,update",
+        "Resources": "certificatesigningrequests/approval",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "podgroups",
+        "API groups": "scheduling.incubator.k8s.io,scheduling.volcano.sh"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "queues",
+        "API groups": "scheduling.incubator.k8s.io,scheduling.volcano.sh"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-admission] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-admission] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-controllers
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,get",
+        "Resources": "networkpolicies",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,watch,list,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,watch,update,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "queues,queues/status,podgroups",
+        "API groups": "scheduling.incubator.k8s.io,scheduling.volcano.sh"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "jobflows,jobtemplates",
+        "API groups": "flow.volcano.sh"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "jobs",
+        "API groups": "batch.volcano.sh"
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "priorityclasses",
+        "API groups": "scheduling.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,watch,list,get",
+        "Resources": "commands",
+        "API groups": "bus.volcano.sh"
+    },
+    {
+        "verbs": "get",
+        "Resources": "daemonsets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "jobs/status,jobs/finalizers",
+        "API groups": "batch.volcano.sh"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "jobtemplates/finalizers,jobs/finalizers,jobflows/status,jobtemplates/status",
+        "API groups": "flow.volcano.sh"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "pods/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-controllers] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-controllers] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: volcano-scheduler
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,watch,update,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods/binding",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "queues",
+        "API groups": "scheduling.incubator.k8s.io,scheduling.volcano.sh"
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "delete,get,watch,list,patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,watch,list,update",
+        "Resources": "jobs",
+        "API groups": "batch.volcano.sh"
+    },
+    {
+        "verbs": "delete,watch,list,get",
+        "Resources": "numatopologies",
+        "API groups": "nodeinfo.volcano.sh"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "jobs/status",
+        "API groups": "batch.volcano.sh"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "queues/status",
+        "API groups": "scheduling.incubator.k8s.io,scheduling.volcano.sh"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "daemonsets,statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,services,replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "priorityclasses",
+        "API groups": "scheduling.k8s.io"
+    },
+    {
+        "verbs": "watch,list,update",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,update",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,update",
+        "Resources": "podgroups",
+        "API groups": "scheduling.incubator.k8s.io,scheduling.volcano.sh"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "resourcequotas",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "storageclasses,csistoragecapacities,csinodes,csidrivers",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [volcano-scheduler] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/volcano-scheduler] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: volcano-controllers
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,get",
+        "Resources": "networkpolicies",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,watch,list,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,watch,update,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "queues,queues/status,podgroups",
+        "API groups": "scheduling.incubator.k8s.io,scheduling.volcano.sh"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "jobflows,jobtemplates",
+        "API groups": "flow.volcano.sh"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "jobs",
+        "API groups": "batch.volcano.sh"
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "priorityclasses",
+        "API groups": "scheduling.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,watch,list,get",
+        "Resources": "commands",
+        "API groups": "bus.volcano.sh"
+    },
+    {
+        "verbs": "get",
+        "Resources": "daemonsets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "jobs/status,jobs/finalizers",
+        "API groups": "batch.volcano.sh"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "jobtemplates/finalizers,jobs/finalizers,jobflows/status,jobtemplates/status",
+        "API groups": "flow.volcano.sh"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "pods/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [volcano-controllers] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/volcano-controllers] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-admission-init
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "patch,create,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-admission-init] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-admission-init] [Main configs]
+-------------------------------------------
+
+[Service Account]: volcano-admission
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,list,get",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "create,update",
+        "Resources": "certificatesigningrequests/approval",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "podgroups",
+        "API groups": "scheduling.incubator.k8s.io,scheduling.volcano.sh"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "queues",
+        "API groups": "scheduling.incubator.k8s.io,scheduling.volcano.sh"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [volcano-admission] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/volcano-admission] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-scheduler
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,watch,update,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods/binding",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "queues",
+        "API groups": "scheduling.incubator.k8s.io,scheduling.volcano.sh"
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "delete,get,watch,list,patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,watch,list,update",
+        "Resources": "jobs",
+        "API groups": "batch.volcano.sh"
+    },
+    {
+        "verbs": "delete,watch,list,get",
+        "Resources": "numatopologies",
+        "API groups": "nodeinfo.volcano.sh"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "jobs/status",
+        "API groups": "batch.volcano.sh"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "queues/status",
+        "API groups": "scheduling.incubator.k8s.io,scheduling.volcano.sh"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "daemonsets,statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,services,replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "priorityclasses",
+        "API groups": "scheduling.k8s.io"
+    },
+    {
+        "verbs": "watch,list,update",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,update",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,update",
+        "Resources": "podgroups",
+        "API groups": "scheduling.incubator.k8s.io,scheduling.volcano.sh"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "resourcequotas",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "storageclasses,csistoragecapacities,csinodes,csidrivers",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-scheduler] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-scheduler] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: default
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ingresses",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes/proxy,nodes,services,pods,endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [prometheus-volcano] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/default] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: kube-state-metrics
+  [Resource] (ResourceName/ResourceType): kube-state-metrics/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "daemonsets,deployments,ingresses,replicasets",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "daemonsets,statefulsets,deployments,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "networkpolicies",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "persistentvolumeclaims,secrets,nodes,persistentvolumes,limitranges,resourcequotas,namespaces,pods,services,endpoints,configmaps,replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "storageclasses,volumeattachments",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kube-state-metrics] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/kube-state-metrics] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: volcano-agent
+  [Resource] (ResourceName/ResourceType): volcano-agent/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods/eviction",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "nodes/status,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [volcano-agent] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/volcano-agent] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

@@ -1,0 +1,52 @@
+[Service Account]: metrics-server
+  [Resource] (ResourceName/ResourceType): metrics-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "nodes/metrics",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes,pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (kube-system): [
+    {
+        "verbs": "get",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,get",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [system:auth-delegator; system:metrics-server; system:metrics-server-nanny] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/metrics-server] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader; metrics-server-nanny] [Main configs]
+    [roleBindings]: [ServiceAccount/metrics-server] [Main configs]
+    [roleResourceNames]: metrics-server
+-------------------------------------------
+

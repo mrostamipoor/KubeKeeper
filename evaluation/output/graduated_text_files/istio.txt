@@ -1,0 +1,1059 @@
+[Service Account]: loki
+  [Resource] (ResourceName/ResourceType): loki/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps,secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [loki-clusterrole] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/loki] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: istio-cni
+  [Resource] (ResourceName/ResourceType): istio-cni-node/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,pods,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [istio-cni; istio-cni-repair-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/istio-cni] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: prometheus
+  [Resource] (ResourceName/ResourceType): prometheus/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ingresses/status,ingresses",
+        "API groups": "extensions,networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes/proxy,nodes/metrics,nodes,ingresses,services,pods,endpoints,configmaps",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [prometheus] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/prometheus] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: metrics-server
+  [Resource] (ResourceName/ResourceType): metrics-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "nodes/metrics",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (kube-system): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:auth-delegator; system:metrics-server] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/metrics-server] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/metrics-server] [Main configs]
+-------------------------------------------
+
+[Service Account]: istio-reader-service-account
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "serviceexports",
+        "API groups": "multicluster.x-k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "*",
+        "API groups": "telemetry.istio.io,networking.istio.io,authentication.istio.io,extensions.istio.io,rbac.istio.io,config.istio.io,security.istio.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "gateways",
+        "API groups": "networking.x-k8s.io,gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets,nodes,namespaces,services,pods,endpoints,replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "serviceimports",
+        "API groups": "multicluster.x-k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "workloadentries",
+        "API groups": "networking.istio.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [istio-reader-clusterrole-default] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/istio-reader-service-account] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: istiod
+  [Resource] (ResourceName/ResourceType): istiod/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "ingresses/status",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "authorizationpolicies/status",
+        "API groups": "security.istio.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "services/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "workloadentries/status,serviceentries/status",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "workloadentries",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "serviceexports",
+        "API groups": "multicluster.x-k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "patch,create,delete,update",
+        "Resources": "gatewayclasses",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "tlsroutes/status,grpcroutes/status,tcproutes/status,referencegrants/status,udproutes/status,gatewayclasses/status,backendtlspolicies/status,gateways/status,httproutes/status",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "*",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "*",
+        "API groups": "telemetry.istio.io,networking.istio.io,authentication.istio.io,extensions.istio.io,rbac.istio.io,config.istio.io,security.istio.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ingressclasses,ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes,namespaces,services,pods,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "serviceimports",
+        "API groups": "multicluster.x-k8s.io"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [istiod-clusterrole-default; istiod-gateway-controller-default] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/istiod] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: spire-server
+  [Resource] (ResourceName/ResourceType): spire-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,get",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clusterfederatedtrustdomains",
+        "API groups": "spire.spiffe.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clusterspiffeids",
+        "API groups": "spire.spiffe.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "clusterfederatedtrustdomains/status",
+        "API groups": "spire.spiffe.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "clusterspiffeids/status",
+        "API groups": "spire.spiffe.io"
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "clusterfederatedtrustdomains/finalizers",
+        "API groups": "spire.spiffe.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "clusterspiffeids/finalizers",
+        "API groups": "spire.spiffe.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [manager-role; spire-server-cluster-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/spire-server] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: calico-node
+  [Resource] (ResourceName/ResourceType): calico-node/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,get",
+        "Resources": "ipamconfigs",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "create,update",
+        "Resources": "bgppeers,bgpconfigurations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "create,update",
+        "Resources": "ippools,felixconfigurations,clusterinformations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "create",
+        "Resources": "serviceaccounts/token",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "ipamhandles,blockaffinities,ipamblocks",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "namespaces,pods,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "nodes/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "caliconodestatuses",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ippools,ipreservations,caliconodestatuses,ipamblocks,networksets,globalfelixconfigs,globalnetworksets,globalnetworkpolicies,networkpolicies,globalbgpconfigs,bgpconfigurations,blockaffinities,hostendpoints,felixconfigurations,bgppeers,clusterinformations,bgpfilters",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "namespaces,pods,serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "networkpolicies",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "blockaffinities",
+        "API groups": "crd.projectcalico.org"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [calico-node] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/calico-node] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: calico-cni-plugin
+-------------------------------------------
+
+[Service Account]: calico-kube-controllers
+  [Resource] (ResourceName/ResourceType): calico-kube-controllers/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,watch,update,get",
+        "Resources": "kubecontrollersconfigurations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "hostendpoints",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "ipamhandles,blockaffinities,ipamblocks",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "get,create,watch,update,list",
+        "Resources": "clusterinformations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "list",
+        "Resources": "ipreservations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "ippools",
+        "API groups": "crd.projectcalico.org"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [calico-kube-controllers] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/calico-kube-controllers] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: istio-egressgateway-service-account
+  [Resource] (ResourceName/ResourceType): istio-egressgateway/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [istio-egressgateway-sds] [Main configs]
+    [roleBindings]: [ServiceAccount/istio-egressgateway-service-account] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name
+  [Resource] (ResourceName/ResourceType): release-name/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name] [Main configs]
+-------------------------------------------
+
+[Service Account]: calico-cni-plugin
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "ippools,ipreservations,ipamconfigs,ipamblocks,ipamhandles,blockaffinities,clusterinformations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "get",
+        "Resources": "namespaces,pods,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods/status",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [calico-cni-plugin] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/calico-cni-plugin] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: spire-agent
+  [Resource] (ResourceName/ResourceType): spire-agent/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "nodes/proxy,pods,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [spire-agent-cluster-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/spire-agent] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: speaker
+  [Resource] (ResourceName/ResourceType): speaker/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "use",
+        "Resources": "podsecuritypolicies",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,services,nodes,endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [metallb-system:speaker] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/speaker] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: speaker
+-------------------------------------------
+
+[Service Account]: istio-ingressgateway-service-account
+  [Resource] (ResourceName/ResourceType): istio-ingressgateway/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [istio-ingressgateway-sds] [Main configs]
+    [roleBindings]: [ServiceAccount/istio-ingressgateway-service-account] [Main configs]
+-------------------------------------------
+
+[Service Account]: controller
+  [Resource] (ResourceName/ResourceType): controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "services/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "use",
+        "Resources": "podsecuritypolicies",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [metallb-system:controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: l2advertisements.metallb.io,bgpadvertisements.metallb.io,bgppeers.metallb.io,bfdprofiles.metallb.io,ipaddresspools.metallb.io,communities.metallb.io,addresspools.metallb.io, controller, metallb-webhook-configuration
+-------------------------------------------
+
+[Service Account]: kiali
+  [Resource] (ResourceName/ResourceType): kiali/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,post",
+        "Resources": "pods/portforward",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,patch",
+        "Resources": "*",
+        "API groups": "telemetry.istio.io,networking.istio.io,gateway.networking.k8s.io,extensions.istio.io,security.istio.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "oauthclients",
+        "API groups": "oauth.openshift.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "projects",
+        "API groups": "project.openshift.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "routes",
+        "API groups": "route.openshift.io"
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "daemonsets,statefulsets,deployments,replicasets",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "deploymentconfigs",
+        "API groups": "apps.openshift.io"
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "namespaces,services,pods,replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps,pods/log,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kiali] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kiali] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: kiali-istio-system
+-------------------------------------------
+

@@ -1,0 +1,104 @@
+[Service Account]: controller-manager
+  [Resource] (ResourceName/ResourceType): controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,create,watch,list,patch",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "admissionpolicies,clusteradmissionpolicies,clusteradmissionpolicygroups,policyservers,admissionpolicygroups",
+        "API groups": "policies.kubewarden.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "clusteradmissionpolicygroups/status,admissionpolicies/status,admissionpolicygroups/status,policyservers/status,clusteradmissionpolicies/status",
+        "API groups": "policies.kubewarden.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "clusteradmissionpolicygroups/finalizers,admissionpolicies/finalizers,admissionpolicygroups/finalizers,clusteradmissionpolicies/finalizers,policyservers/finalizers",
+        "API groups": "policies.kubewarden.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [manager-role; proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller-manager] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/controller-manager] [Main configs]
+-------------------------------------------
+
+[Service Account]: kubewarden-controller-controller-manager
+  [Resource] (ResourceName/ResourceType): kubewarden-controller-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,create,watch,list,patch",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "admissionpolicies,clusteradmissionpolicies,clusteradmissionpolicygroups,policyservers,admissionpolicygroups",
+        "API groups": "policies.kubewarden.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "clusteradmissionpolicygroups/status,admissionpolicies/status,admissionpolicygroups/status,policyservers/status,clusteradmissionpolicies/status",
+        "API groups": "policies.kubewarden.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "clusteradmissionpolicygroups/finalizers,admissionpolicies/finalizers,admissionpolicygroups/finalizers,clusteradmissionpolicies/finalizers,policyservers/finalizers",
+        "API groups": "policies.kubewarden.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kubewarden-controller-manager-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kubewarden-controller-controller-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

@@ -1,0 +1,95 @@
+[Service Account]: aeraki
+  [Resource] (ResourceName/ResourceType): aeraki/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "*",
+        "API groups": "metaprotocol.aeraki.io,redis.aeraki.io,dubbo.aeraki.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "destinationrules,envoyfilters,virtualservices,serviceentries",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "*",
+        "API groups": "networking.istio.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "events,configmaps",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [aeraki] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/aeraki] [Main configs]
+
+    [roles]: [aeraki] [Main configs]
+    [roleBindings]: [ServiceAccount/aeraki] [Main configs]
+-------------------------------------------
+
+[Service Account]: prometheus
+  [Resource] (ResourceName/ResourceType): prometheus/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ingresses/status,ingresses",
+        "API groups": "extensions,networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes/proxy,nodes/metrics,nodes,ingresses,services,pods,endpoints,configmaps",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [prometheus] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/prometheus] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

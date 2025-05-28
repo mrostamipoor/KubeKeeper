@@ -1,0 +1,70 @@
+[Service Account]: release-name-traefik
+  [Resource] (ResourceName/ResourceType): release-name-traefik/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ingresses,ingressclasses",
+        "API groups": "extensions,networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "tlsstores,ingressroutes,tlsoptions,ingressroutetcps,middlewares,middlewaretcps,serverstransports,ingressrouteudps,serverstransporttcps,traefikservices",
+        "API groups": "traefik.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "ingresses/status",
+        "API groups": "extensions,networking.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-traefik-default] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-traefik] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

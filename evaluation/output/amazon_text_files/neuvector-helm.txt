@@ -1,0 +1,162 @@
+[Service Account]: default
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,delete",
+        "Resources": "nvadmissioncontrolsecurityrules",
+        "API groups": "neuvector.com"
+    },
+    {
+        "verbs": "get,list,delete",
+        "Resources": "nvclustersecurityrules,nvsecurityrules",
+        "API groups": "neuvector.com"
+    },
+    {
+        "verbs": "get,list,delete",
+        "Resources": "nvcomplianceprofiles",
+        "API groups": "neuvector.com"
+    },
+    {
+        "verbs": "get,list,delete",
+        "Resources": "nvdlpsecurityrules",
+        "API groups": "neuvector.com"
+    },
+    {
+        "verbs": "get,list,delete",
+        "Resources": "nvgroupdefinitions",
+        "API groups": "neuvector.com"
+    },
+    {
+        "verbs": "get,list,delete",
+        "Resources": "nvvulnerabilityprofiles",
+        "API groups": "neuvector.com"
+    },
+    {
+        "verbs": "get,list,delete",
+        "Resources": "nvwafsecurityrules",
+        "API groups": "neuvector.com"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "clusterroles,clusterrolebindings,roles,rolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "update,get,create,watch",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "update,get,list,watch",
+        "Resources": "nodes,services,pods,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,delete,create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "deployments,daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get,list",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,get,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "update,get,list,watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,patch",
+        "Resources": "cronjobs/finalizers,cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [neuvector-binding-admission; neuvector-binding-app; neuvector-binding-customresourcedefinition; neuvector-binding-nvadmissioncontrolsecurityrules; neuvector-binding-nvcomplianceprofiles; neuvector-binding-nvdlpsecurityrules; neuvector-binding-nvgroupdefinitions; neuvector-binding-nvsecurityrules; neuvector-binding-nvvulnerabilityprofiles; neuvector-binding-nvwafsecurityrules; neuvector-binding-rbac; view] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/default] [Main configs]
+
+    [roles]: [admin; neuvector-binding-cert-upgrader; neuvector-binding-job-creation; neuvector-binding-lease; neuvector-binding-secret] [Main configs]
+    [roleBindings]: [ServiceAccount/default] [Main configs]
+-------------------------------------------
+

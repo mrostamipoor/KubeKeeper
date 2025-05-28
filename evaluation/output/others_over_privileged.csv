@@ -1,0 +1,30 @@
+Application Name,Over-Privileged,Critical Permissions,Direct Access via Secret Permissions Counts,Indirect Access via Secret Manipulation Counts,Indirect Access via Resource Scheduling Control Counts,Indirect Access via Node Manipulation Counts
+metrics-server,True,patch::deployments::apps::whole,0,0,1,0
+seaweedfs,N/A,,0,0,0,0
+chart,N/A,,0,0,0,0
+wildfly-charts,N/A,,0,0,0,0
+chainloop,N/A,,0,0,0,0
+appsmith,N/A,,0,0,0,0
+helm-drupal,N/A,,0,0,0,0
+kuberay,True,create::jobs::batch::whole; create::pods::::whole; patch::jobs::batch::whole; patch::pods::::whole; update::jobs::batch::whole; update::pods::::whole,0,0,6,0
+external-dns,N/A,,0,0,0,0
+ejbca-community-helm,N/A,,0,0,0,0
+kubeapps,N/A,,0,0,0,0
+solr-operator,True,create::deployments::apps::whole; create::statefulsets::apps::whole; get::secrets::::whole; list::secrets::::whole; patch::deployments::apps::whole; patch::secrets::::whole; patch::statefulsets::apps::whole; update::deployments::apps::whole; update::secrets::::whole; update::statefulsets::apps::whole; watch::secrets::::whole,3,2,6,0
+consul,N/A,,0,0,0,0
+zipkin-helm,N/A,,0,0,0,0
+apisix-helm-chart,N/A,,0,0,0,0
+helm-chart,N/A,,0,0,0,0
+cloud-on-k8s,True,get::*::*::whole; list::*::*::whole; patch::secrets::::whole; update::secrets::::whole; watch::*::*::whole,3,2,0,0
+scylla-operator,True,*::secrets::::whole; *::statefulsets::apps::whole; create::daemonsets::apps::whole; create::deployments::apps::whole; create::jobs::batch::whole; create::pods::::whole; create::statefulsets::apps::whole; get::secrets::::whole; list::secrets::::whole; patch::daemonsets::apps::whole; patch::deployments::apps::whole; patch::jobs::batch::whole; patch::secrets::::whole; patch::statefulsets::apps::whole; update::daemonsets::apps::whole; update::deployments::apps::whole; update::jobs::batch::whole; update::secrets::::whole; update::statefulsets::apps::whole; watch::secrets::::whole,22,7,14,0
+k8s,N/A,,0,0,0,0
+minio,N/A,,0,0,0,0
+helm-charts,N/A,,0,0,0,0
+zero-to-jupyterhub-k8s,N/A,,0,0,0,0
+charts,N/A,,0,0,0,0
+helm-chart-sonarqube,N/A,,0,0,0,0
+concourse-chart,N/A,,0,0,0,0
+sealed-secrets,N/A,,0,0,0,0
+whereabouts,N/A,,0,0,0,0
+nessie,N/A,,0,0,0,0
+manifests,N/A,,0,0,0,0

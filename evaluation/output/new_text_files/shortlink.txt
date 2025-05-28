@@ -1,0 +1,810 @@
+[Service Account]: opencost
+  [Resource] (ResourceName/ResourceType): opencost/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "deployments,replicasets,daemonsets",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "jobs,cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "resourcequotas,deployments,endpoints,pods,limitranges,replicationcontrollers,configmaps,nodes,services,persistentvolumeclaims,persistentvolumes,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "deployments,replicasets,daemonsets,statefulsets",
+        "API groups": "apps"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [opencost] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/opencost] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: operator-webhook
+  [Resource] (ResourceName/ResourceType): operator-webhook/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "mutatingwebhookconfigurations,validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments/finalizers",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "namespaces/finalizers",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [knative-operator-webhook] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/operator-webhook] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: local-path-provisioner-service-account
+  [Resource] (ResourceName/ResourceType): local-path-provisioner/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods,nodes,persistentvolumeclaims,configmaps,pods/log",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [local-path-provisioner-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/local-path-provisioner-service-account] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: spicedb-operator
+  [Resource] (ResourceName/ResourceType): spicedb-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "jobs,events,serviceaccounts,services,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "rolebindings,roles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "spicedbclusters,spicedbclusters/status",
+        "API groups": "authzed.com"
+    },
+    {
+        "verbs": "list,watch,delete,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [spicedb-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/spicedb-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: typesense-operator-sa
+  [Resource] (ResourceName/ResourceType): typesense-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,get,create,watch",
+        "Resources": "clusterkopfpeerings",
+        "API groups": "kopf.dev"
+    },
+    {
+        "verbs": "list,patch,update,create,watch,delete",
+        "Resources": "statefulsets,configmaps,services,namespaces,secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,patch,update,create,watch,delete",
+        "Resources": "typesenseoperators",
+        "API groups": "typesenseproject.org"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,patch,update,create,watch,delete",
+        "Resources": "events,pods,statefulsets,configmaps,services,namespaces,secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,patch,update,create,watch,delete",
+        "Resources": "typesenseoperators",
+        "API groups": "typesenseproject.org"
+    },
+    {
+        "verbs": "list,patch,watch,get",
+        "Resources": "kopfpeerings",
+        "API groups": "kopf.dev"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": "*"
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": "*"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": "*"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [typesenseoperator-role-cluster] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/typesense-operator-sa] [Main configs]
+
+    [roles]: [typesenseoperator-role-namespaced] [Main configs]
+    [roleBindings]: [ServiceAccount/typesense-operator-sa] [Main configs]
+-------------------------------------------
+
+[Service Account]: knative-operator
+  [Resource] (ResourceName/ResourceType): knative-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "operator.knative.dev"
+    },
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "images",
+        "API groups": "caching.internal.knative.dev"
+    },
+    {
+        "verbs": "*",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "bind,get",
+        "Resources": "clusterroles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "bind,get",
+        "Resources": "roles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete",
+        "Resources": "configmaps",
+        "API groups": "*"
+    },
+    {
+        "verbs": "delete",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete",
+        "Resources": "deployments,horizontalpodautoscalers,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "*"
+    },
+    {
+        "verbs": "delete",
+        "Resources": "leases",
+        "API groups": "*"
+    },
+    {
+        "verbs": "delete",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "delete",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "deletecollection",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "bindings/status,exchanges/status,queues/status",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,create,delete,get",
+        "Resources": "apiservices",
+        "API groups": "apiregistration.k8s.io"
+    },
+    {
+        "verbs": "list,create,delete,get",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "list,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get,create,watch,delete",
+        "Resources": "deployments,replicasets,daemonsets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get,create,watch,delete",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete,deletecollection",
+        "Resources": "httpproxies,tlscertificatedelegations",
+        "API groups": "projectcontour.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "consumers,consumergroups/status,consumergroups,consumers/status",
+        "API groups": "internal.kafka.eventing.knative.dev"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "exchanges,queues,bindings",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "guardians",
+        "API groups": "guard.security.knative.dev"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "statefulsets/scale",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,update,get,create,delete",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "list,update,get,create,delete",
+        "Resources": "pods/finalizers",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,update,get,create,delete",
+        "Resources": "rolebindings,clusterrolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "bundles",
+        "API groups": "trust.cert-manager.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "configmaps,services",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "deployments,peerauthentications,daemonsets,statefulsets,replicasets,poddisruptionbudgets",
+        "API groups": "apps,policy,security.istio.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "issuers,clusterissuers,certificates",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "scaledobjects,triggerauthentications,scaledobjects/status,triggerauthentications/status,scaledobjects/finalizers",
+        "API groups": "keda.sh"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "serviceaccounts",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,update,get,escalate,create,delete",
+        "Resources": "clusterroles,roles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "rabbitmqclusters",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "*"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "configmaps",
+        "API groups": "*"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "services",
+        "API groups": "*"
+    },
+    {
+        "verbs": "update,delete",
+        "Resources": "consumers/finalizers,consumergroups/finalizers",
+        "API groups": "internal.kafka.eventing.knative.dev"
+    },
+    {
+        "verbs": "update",
+        "Resources": "apiservices",
+        "API groups": "apiregistration.k8s.io"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "pods",
+        "API groups": "*"
+    },
+    {
+        "verbs": "watch,update,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "clusterrolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "create",
+        "Resources": "replicasets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": "*"
+    },
+    {
+        "verbs": "create",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "replicasets",
+        "API groups": "policy"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [knative-eventing-operator; knative-eventing-operator-aggregated; knative-eventing-operator-aggregated-stable; knative-serving-operator; knative-serving-operator-aggregated; knative-serving-operator-aggregated-stable] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/knative-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: kafka-channel-config, knative-ingressgateway, system:auth-delegator, kafka-webhook, knative-eventing-operator, knative-serving-operator, config-controller, extension-apiserver-authentication-reader
+-------------------------------------------
+

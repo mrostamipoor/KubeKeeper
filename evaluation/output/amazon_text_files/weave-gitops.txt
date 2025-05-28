@@ -1,0 +1,80 @@
+[Service Account]: gitopssets-controller-manager
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "kustomizations",
+        "API groups": "kustomize.toolkit.fluxcd.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [configmaps-demo-role; demo-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/gitopssets-controller-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-weave-gitops
+  [Resource] (ResourceName/ResourceType): release-name-weave-gitops/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "impersonate",
+        "Resources": "users,groups",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-weave-gitops] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-weave-gitops] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: oidc-auth,cluster-user-auth
+-------------------------------------------
+

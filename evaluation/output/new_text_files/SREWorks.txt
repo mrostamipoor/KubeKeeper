@@ -1,0 +1,3574 @@
+[Service Account]: openebs-lvm-node-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,get",
+        "Resources": "persistentvolumes,services,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch",
+        "Resources": "lvmsnapshots,lvmnodes,lvmvolumes",
+        "API groups": "local.openebs.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [openebs-lvm-driver-registrar-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/openebs-lvm-node-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-nfs-provisioner
+  [Resource] (ResourceName/ResourceType): release-name-nfs-provisioner/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets,statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments/finalizers,deployments,events,endpoints,pods,pods/exec,jobs,replicationcontrollers,replicasets,configmaps,services,cronjobs,namespaces,secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes,nodes/proxy",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "persistentvolumes,persistentvolumeclaims,storageclasses",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,delete",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "resourcequotas,limitranges",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "verticalpodautoscalers,poddisruptionbudgets,horizontalpodautoscalers,ingresses,certificatesigningrequests",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "replicasets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "cronjobs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-nfs-provisioner] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-nfs-provisioner] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: openebs-cstor-operator
+  [Resource] (ResourceName/ResourceType): release-name-cstor-admission-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "cstor.openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets,statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments/finalizers,deployments,events,endpoints,pods,jobs,replicationcontrollers,replicasets,configmaps,services,cronjobs,namespaces,secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "migrationtasks,upgradetasks",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes,nodes/proxy",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "persistentvolumes,persistentvolumeclaims,storageclasses",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,create,get",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,create,get",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,get,create,watch,delete",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "volumesnapshotclasses",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,delete",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,delete",
+        "Resources": "mutatingwebhookconfigurations,validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "certificatesigningrequests",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "resourcequotas,limitranges",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "replicasets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "cronjobs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [openebs-cstor-migration; openebs-cstor-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/openebs-cstor-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): release-name-cstor-cspc-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "cstor.openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets,statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments/finalizers,deployments,events,endpoints,pods,jobs,replicationcontrollers,replicasets,configmaps,services,cronjobs,namespaces,secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "migrationtasks,upgradetasks",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes,nodes/proxy",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "persistentvolumes,persistentvolumeclaims,storageclasses",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,create,get",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,create,get",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,get,create,watch,delete",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "volumesnapshotclasses",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,delete",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,delete",
+        "Resources": "mutatingwebhookconfigurations,validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "certificatesigningrequests",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "resourcequotas,limitranges",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "replicasets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "cronjobs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [openebs-cstor-migration; openebs-cstor-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/openebs-cstor-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): release-name-cstor-cvc-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "cstor.openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets,statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments/finalizers,deployments,events,endpoints,pods,jobs,replicationcontrollers,replicasets,configmaps,services,cronjobs,namespaces,secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "migrationtasks,upgradetasks",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes,nodes/proxy",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "persistentvolumes,persistentvolumeclaims,storageclasses",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,create,get",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,create,get",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,get,create,watch,delete",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "volumesnapshotclasses",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,delete",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,delete",
+        "Resources": "mutatingwebhookconfigurations,validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "certificatesigningrequests",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "resourcequotas,limitranges",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "replicasets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "cronjobs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [openebs-cstor-migration; openebs-cstor-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/openebs-cstor-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-prometheus-alertmanager
+  [Resource] (ResourceName/ResourceType): release-name-prometheus-alertmanager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-prometheus-alertmanager] []
+    [clusterRoleBindings]: [ServiceAccount/release-name-prometheus-alertmanager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-prometheus-server
+  [Resource] (ResourceName/ResourceType): release-name-prometheus-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,pods,nodes/proxy,nodes,configmaps,services,nodes/metrics,ingresses",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "ingresses/status,ingresses",
+        "API groups": "extensions"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-prometheus-server] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-prometheus-server] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-localpv-provisioner
+  [Resource] (ResourceName/ResourceType): release-name-localpv-provisioner/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "events,namespaces,pods,endpoints",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "persistentvolumes,persistentvolumeclaims,storageclasses",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,delete",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "resourcequotas,limitranges",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-localpv-provisioner] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-localpv-provisioner] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: sreworks-openebs
+  [Resource] (ResourceName/ResourceType): sreworks-openebs-ndm/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "cstor.openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets,statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments/finalizers,deployments,events,endpoints,pods,pods/exec,jobs,replicationcontrollers,replicasets,configmaps,services,cronjobs,namespaces,secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes,nodes/proxy",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "persistentvolumes,persistentvolumeclaims,storageclasses",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,delete",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,delete",
+        "Resources": "mutatingwebhookconfigurations,validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "volumesnapshotdatas,volumesnapshots",
+        "API groups": "volumesnapshot.external-storage.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "resourcequotas,limitranges",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "verticalpodautoscalers,poddisruptionbudgets,horizontalpodautoscalers,ingresses,certificatesigningrequests",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "replicasets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "cronjobs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [sreworks-openebs] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/sreworks-openebs] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): sreworks-openebs-localpv-provisioner/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "cstor.openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets,statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments/finalizers,deployments,events,endpoints,pods,pods/exec,jobs,replicationcontrollers,replicasets,configmaps,services,cronjobs,namespaces,secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes,nodes/proxy",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "persistentvolumes,persistentvolumeclaims,storageclasses",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,delete",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,delete",
+        "Resources": "mutatingwebhookconfigurations,validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "volumesnapshotdatas,volumesnapshots",
+        "API groups": "volumesnapshot.external-storage.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "resourcequotas,limitranges",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "verticalpodautoscalers,poddisruptionbudgets,horizontalpodautoscalers,ingresses,certificatesigningrequests",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "replicasets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "cronjobs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [sreworks-openebs] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/sreworks-openebs] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): sreworks-openebs-ndm-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "cstor.openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets,statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments/finalizers,deployments,events,endpoints,pods,pods/exec,jobs,replicationcontrollers,replicasets,configmaps,services,cronjobs,namespaces,secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes,nodes/proxy",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "persistentvolumes,persistentvolumeclaims,storageclasses",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,delete",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,delete",
+        "Resources": "mutatingwebhookconfigurations,validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "volumesnapshotdatas,volumesnapshots",
+        "API groups": "volumesnapshot.external-storage.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "resourcequotas,limitranges",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "verticalpodautoscalers,poddisruptionbudgets,horizontalpodautoscalers,ingresses,certificatesigningrequests",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "replicasets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "cronjobs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [sreworks-openebs] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/sreworks-openebs] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: openebs-jiva-csi-controller-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "jivavolumeattachments,jivavolumes,jivavolumeconfigs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "create,delete",
+        "Resources": "csidrivers",
+        "API groups": "csi.storage.k8s.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "namespaces,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,create,watch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "persistentvolumes,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "volumeattachments",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "csinodeinfos",
+        "API groups": "csi.storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "csinodes,storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "volumesnapshotclasses",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "csinodes,volumeattachments",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "volumesnapshotcontents/status",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "volumesnapshots/status",
+        "API groups": "snapshot.storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [openebs-jiva-csi-attacher-role; openebs-jiva-csi-cluster-registrar-role; openebs-jiva-csi-provisioner-role; openebs-jiva-csi-snapshotter-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/openebs-jiva-csi-controller-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-ingress-nginx
+  [Resource] (ResourceName/ResourceType): release-name-ingress-nginx-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "ingressclasses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "endpoints,pods,configmaps,nodes,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "ingresses/status",
+        "API groups": "networking.k8s.io,extensions"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "services",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create,update,get",
+        "Resources": "endpoints",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "namespaces",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,configmaps,secrets,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "ingressclasses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "ingresses",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "ingresses/status",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "update",
+        "Resources": "ingresses/status",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "services",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-ingress-nginx] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-ingress-nginx] [Main configs]
+
+    [roles]: [release-name-ingress-nginx] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-ingress-nginx] [Main configs]
+    [roleResourceNames]: ingress-controller-leader-nginx
+-------------------------------------------
+
+[Service Account]: openebs-zfs-controller-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "csistoragecapacities",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "zfssnapshots,zfsrestores,zfsvolumes,zfsnodes,zfsbackups",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,create,watch,delete",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,create,watch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "persistentvolumes,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "csinodes,storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "volumesnapshotclasses",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "volumesnapshotcontents/status",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "volumesnapshots/status",
+        "API groups": "snapshot.storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [openebs-zfs-provisioner-role; openebs-zfs-snapshotter-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/openebs-zfs-controller-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-openebs
+  [Resource] (ResourceName/ResourceType): release-name-openebs-ndm/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "cstor.openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets,statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments/finalizers,deployments,events,endpoints,pods,pods/exec,jobs,replicationcontrollers,replicasets,configmaps,services,cronjobs,namespaces,secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes,nodes/proxy",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "persistentvolumes,persistentvolumeclaims,storageclasses",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,delete",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,delete",
+        "Resources": "mutatingwebhookconfigurations,validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "volumesnapshotdatas,volumesnapshots",
+        "API groups": "volumesnapshot.external-storage.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "resourcequotas,limitranges",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "verticalpodautoscalers,poddisruptionbudgets,horizontalpodautoscalers,ingresses,certificatesigningrequests",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "replicasets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "cronjobs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-openebs] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-openebs] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): release-name-openebs-localpv-provisioner/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "cstor.openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets,statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments/finalizers,deployments,events,endpoints,pods,pods/exec,jobs,replicationcontrollers,replicasets,configmaps,services,cronjobs,namespaces,secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes,nodes/proxy",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "persistentvolumes,persistentvolumeclaims,storageclasses",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,delete",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,delete",
+        "Resources": "mutatingwebhookconfigurations,validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "volumesnapshotdatas,volumesnapshots",
+        "API groups": "volumesnapshot.external-storage.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "resourcequotas,limitranges",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "verticalpodautoscalers,poddisruptionbudgets,horizontalpodautoscalers,ingresses,certificatesigningrequests",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "replicasets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "cronjobs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-openebs] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-openebs] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): release-name-openebs-ndm-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "cstor.openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets,statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments/finalizers,deployments,events,endpoints,pods,pods/exec,jobs,replicationcontrollers,replicasets,configmaps,services,cronjobs,namespaces,secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes,nodes/proxy",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "persistentvolumes,persistentvolumeclaims,storageclasses",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,delete",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,delete",
+        "Resources": "mutatingwebhookconfigurations,validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "volumesnapshotdatas,volumesnapshots",
+        "API groups": "volumesnapshot.external-storage.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "resourcequotas,limitranges",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "verticalpodautoscalers,poddisruptionbudgets,horizontalpodautoscalers,ingresses,certificatesigningrequests",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "replicasets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "cronjobs",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-openebs] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-openebs] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: openebs-lvm-controller-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "csistoragecapacities",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "lvmsnapshots,lvmnodes,lvmvolumes",
+        "API groups": "local.openebs.io"
+    },
+    {
+        "verbs": "list,create,watch,delete",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,create,watch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "persistentvolumes,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "csinodes,storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "volumesnapshotclasses",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "volumesnapshotcontents/status",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "volumesnapshots/status",
+        "API groups": "snapshot.storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [openebs-lvm-provisioner-role; openebs-lvm-snapshotter-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/openebs-lvm-controller-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: openebs-jiva-csi-node-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,get",
+        "Resources": "persistentvolumes,services,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "jivavolumes",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch",
+        "Resources": "events",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [openebs-jiva-csi-registrar-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/openebs-jiva-csi-node-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: openebs-jiva-operator
+  [Resource] (ResourceName/ResourceType): release-name-jiva-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments,replicasets,daemonsets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "endpoints,events,pods,services/finalizers,persistentvolumes,persistentvolumeclaims,services,configmaps,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "create,get",
+        "Resources": "servicemonitors",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "get",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments/finalizers",
+        "API groups": "apps"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [jiva-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/openebs-jiva-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: jiva-operator
+-------------------------------------------
+
+[Service Account]: openebs-cstor-csi-controller-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "cstorvolumeconfigs,cstorvolumes,cstorvolumeattachments",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "create,delete",
+        "Resources": "csidrivers",
+        "API groups": "csi.storage.k8s.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "namespaces,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,create,watch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "persistentvolumes,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "volumeattachments",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "csinodeinfos",
+        "API groups": "csi.storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "csinodes,storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "volumesnapshotclasses",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "csinodes,volumeattachments",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "volumesnapshotcontents/status",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "volumesnapshots/status",
+        "API groups": "snapshot.storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [openebs-cstor-csi-attacher-role; openebs-cstor-csi-cluster-registrar-role; openebs-cstor-csi-provisioner-role; openebs-cstor-csi-snapshotter-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/openebs-cstor-csi-controller-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: openebs-cstor-csi-node-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,get",
+        "Resources": "persistentvolumes,services,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "cstorvolumeconfigs,cstorvolumes,cstorvolumeattachments",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch",
+        "Resources": "events",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [openebs-cstor-csi-registrar-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/openebs-cstor-csi-node-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: default
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "clonesets/status",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "deployments/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "jobs/status",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get",
+        "Resources": "statefulsets/status",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "statefulsets/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "clonesets",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "jobs",
+        "API groups": "apps.abm.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "microservices",
+        "API groups": "apps.abm.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "statefulsets",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "jobs/status",
+        "API groups": "apps.abm.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "microservices/status",
+        "API groups": "apps.abm.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [appmanager-operator-manager-role; appmanager-operator-proxy-role; cluster-admin; manager-role; proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/default] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/default] [Main configs]
+-------------------------------------------
+
+[Service Account]: kruise-daemon
+  [Resource] (ResourceName/ResourceType): kruise-daemon/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,update,get,watch",
+        "Resources": "nodeimages",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "list,patch,update,get,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "containerrecreaterequests",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "containerrecreaterequests/status",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "nodeimages/status",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "pods/status",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kruise-daemon-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kruise-daemon] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-grafana
+  [Resource] (ResourceName/ResourceType): release-name-grafana/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "use",
+        "Resources": "podsecuritypolicies",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-grafana-clusterrole] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-grafana] [Main configs]
+
+    [roles]: [release-name-grafana] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-grafana] [Main configs]
+    [roleResourceNames]: release-name-grafana
+-------------------------------------------
+
+[Service Account]: release-name-kube-state-metrics
+  [Resource] (ResourceName/ResourceType): release-name-kube-state-metrics/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "daemonsets",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "deployments",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "limitranges",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "replicasets",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "resourcequotas",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-kube-state-metrics] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-kube-state-metrics] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: openebs-zfs-node-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,get",
+        "Resources": "persistentvolumes,services,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch",
+        "Resources": "zfssnapshots,zfsrestores,zfsvolumes,zfsnodes,zfsbackups",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [openebs-zfs-driver-registrar-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/openebs-zfs-node-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: kruise-manager
+  [Resource] (ResourceName/ResourceType): kruise-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "replicasets/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "advancedcronjobs",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "broadcastjobs",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "clonesets",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "containerrecreaterequests",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "controllerrevisions",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "daemonsets",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "imagepulljobs",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "nodeimages",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "podunavailablebudgets",
+        "API groups": "policy.kruise.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "sidecarsets",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "statefulsets",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "uniteddeployments",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "list,patch,update,get,watch,delete",
+        "Resources": "ephemeraljobs",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "list,patch,update,get,watch",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,watch",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,watch",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,watch",
+        "Resources": "workloadspreads",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "resourcedistributions",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "list",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "advancedcronjobs/status",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "broadcastjobs/status",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "clonesets/status",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "containerrecreaterequests/status",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "daemonsets/status",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "deployments/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "ephemeraljobs/status",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "imagepulljobs/status",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "jobs/status",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "nodeimages/status",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "podunavailablebudgets/status",
+        "API groups": "policy.kruise.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "resourcedistributions/status",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "sidecarsets/status",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "statefulsets/status",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "statefulsets/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "uniteddeployments/status",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "workloadspreads/status",
+        "API groups": "apps.kruise.io"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "pods/ephemeralcontainers",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kruise-manager-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kruise-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-metricbeat
+  [Resource] (ResourceName/ResourceType): release-name-metricbeat/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "nodes/stats",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "deployments,replicasets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "events,nodes,pods,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "replicasets",
+        "API groups": "extensions"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-metricbeat-cluster-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-metricbeat] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): release-name-metricbeat-metrics/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "nodes/stats",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "deployments,replicasets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "events,nodes,pods,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "replicasets",
+        "API groups": "extensions"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-metricbeat-cluster-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-metricbeat] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-filebeat
+  [Resource] (ResourceName/ResourceType): release-name-filebeat/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "namespaces,pods,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-filebeat-cluster-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-filebeat] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-prometheus-pushgateway
+  [Resource] (ResourceName/ResourceType): release-name-prometheus-pushgateway/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-prometheus-pushgateway] []
+    [clusterRoleBindings]: [ServiceAccount/release-name-prometheus-pushgateway] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: openebs-ndm
+  [Resource] (ResourceName/ResourceType): release-name-openebs-ndm/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "blockdeviceclaims,blockdevices",
+        "API groups": "openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs,events,pods,nodes,configmaps",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-openebs-ndm] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/openebs-ndm] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): release-name-openebs-ndm-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "blockdeviceclaims,blockdevices",
+        "API groups": "openebs.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs,events,pods,nodes,configmaps",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-openebs-ndm] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/openebs-ndm] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-ingress-nginx-admission
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "update,get",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-ingress-nginx-admission] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-ingress-nginx-admission] [Main configs]
+
+    [roles]: [release-name-ingress-nginx-admission] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-ingress-nginx-admission] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-cost-analyzer
+  [Resource] (ResourceName/ResourceType): release-name-cost-analyzer/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "deployments,replicasets,daemonsets",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "events",
+        "API groups": "events.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "jobs,cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "resourcequotas,events,deployments,endpoints,pods,limitranges,replicationcontrollers,configmaps,nodes,services,persistentvolumeclaims,persistentvolumes,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "deployments,replicasets,daemonsets,statefulsets",
+        "API groups": "apps"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods/log",
+        "API groups": "core"
+    },
+    {
+        "verbs": "use",
+        "Resources": "podsecuritypolicies",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-cost-analyzer] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-cost-analyzer] [Main configs]
+
+    [roles]: [release-name-cost-analyzer; release-name-cost-analyzer-psp] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-cost-analyzer] [Main configs]
+    [roleResourceNames]: release-name-cost-analyzer-psp
+-------------------------------------------
+

@@ -1,0 +1,1363 @@
+[Service Account]: vineyard-manager
+  [Resource] (ResourceName/ResourceType): vineyard-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "services,serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,update,list,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "jobs/status",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "backups",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "csidrivers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "globalobjects",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "localobjects",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "operations",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "recovers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "sidecars",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "vineyardds",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,update,list",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,update,list",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,create,watch,update,list",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "volumeattachments",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "deployments/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "pods/log",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": "events.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "backups/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "csidrivers/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "globalobjects/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "localobjects/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "operations/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "recovers/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "sidecars/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "vineyardds/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "persistentvolumeclaims/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "persistentvolumes/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "csidrivers/finalizers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "operations/finalizers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "sidecars/finalizers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "vineyardds/finalizers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "csinodeinfos",
+        "API groups": "csi.storage.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "csinodes",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "volumesnapshotclasses",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "workflows",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "watch,update,list,get",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:kube-scheduler; system:volume-scheduler; vineyard-manager-role; vineyard-scheduler-plugin-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/vineyard-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: vineyard-mutating-webhook-configuration, vineyard-validating-webhook-configuration
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "services,serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,update,list,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "jobs/status",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "backups",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "csidrivers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "globalobjects",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "localobjects",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "operations",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "recovers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "sidecars",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "vineyardds",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,update,list",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,update,list",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,create,watch,update,list",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "volumeattachments",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "deployments/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "pods/log",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": "events.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "backups/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "csidrivers/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "globalobjects/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "localobjects/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "operations/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "recovers/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "sidecars/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "vineyardds/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "persistentvolumeclaims/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "persistentvolumes/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "csidrivers/finalizers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "operations/finalizers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "sidecars/finalizers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "vineyardds/finalizers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "csinodeinfos",
+        "API groups": "csi.storage.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "csinodes",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "volumesnapshotclasses",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "workflows",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "watch,update,list,get",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:kube-scheduler; system:volume-scheduler; vineyard-manager-role; vineyard-scheduler-plugin-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/vineyard-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: vineyard-mutating-webhook-configuration, vineyard-validating-webhook-configuration
+-------------------------------------------
+
+[Service Account]: default
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "services,serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "jobs/status",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "backups",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "csidrivers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "globalobjects",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "localobjects",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "operations",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "recovers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "sidecars",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "vineyardds",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,update,list",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,create,watch,update,list",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "volumeattachments",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "deployments/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "pods/log",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "backups/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "csidrivers/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "globalobjects/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "localobjects/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "operations/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "recovers/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "sidecars/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "vineyardds/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "persistentvolumeclaims/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "persistentvolumes/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "csidrivers/finalizers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "operations/finalizers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "sidecars/finalizers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "vineyardds/finalizers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "csinodeinfos",
+        "API groups": "csi.storage.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "csinodes",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "volumesnapshotclasses",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "watch,update,list,get",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [manager-role; proxy-role; vineyard-manager-role; vineyard-proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/default] [Main configs]
+
+    [roles]: [leader-election-role; vineyard-leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/default] [Main configs]
+-------------------------------------------
+
+[Service Account]: manager
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "services,serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,update,list,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "jobs/status",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,update,list",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "backups",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "csidrivers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "globalobjects",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "localobjects",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "operations",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "recovers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "sidecars",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "vineyardds",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,update,list",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,update,list",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,create,watch,update,list",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "volumeattachments",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "deployments/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "pods/log",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": "events.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "backups/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "csidrivers/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "globalobjects/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "localobjects/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "operations/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "recovers/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "sidecars/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "vineyardds/status",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "persistentvolumeclaims/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "persistentvolumes/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "csidrivers/finalizers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "operations/finalizers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "sidecars/finalizers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "vineyardds/finalizers",
+        "API groups": "k8s.v6d.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "csinodeinfos",
+        "API groups": "csi.storage.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "csinodes",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "volumesnapshotclasses",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "workflows",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "watch,update,list,get",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [manager-role; scheduler-plugin-role; system:kube-scheduler; system:volume-scheduler] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: vineyard-mutating-webhook-configuration, vineyard-validating-webhook-configuration
+-------------------------------------------
+
+[Service Account]: pipeline-runner
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,list,update,patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,list,update",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [pipeline-runner-role] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/pipeline-runner] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: process-data
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,patch",
+        "Resources": "pods/log,pods/exec,services,pods,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create,delete,get",
+        "Resources": "roles,rolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [process-data-role] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/process-data] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

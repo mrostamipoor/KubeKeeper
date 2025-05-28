@@ -1,0 +1,29 @@
+[Service Account]: dex
+  [Resource] (ResourceName/ResourceType): dex/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "dex.coreos.com"
+    },
+    {
+        "verbs": "create",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [dex] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/dex] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

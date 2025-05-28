@@ -1,0 +1,29 @@
+[Service Account]: vip
+  [Resource] (ResourceName/ResourceType): kube-vip-cluster/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,create,list,update,put",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "watch,get",
+        "Resources": "configmaps,endpoints",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [vip-role] [Example configs]
+    [roleBindings]: [ServiceAccount/vip] [Example configs]
+-------------------------------------------
+

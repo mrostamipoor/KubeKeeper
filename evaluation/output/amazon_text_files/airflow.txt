@@ -1,0 +1,108 @@
+[Service Account]: release-name-airflow-triggerer
+  [Resource] (ResourceName/ResourceType): release-name-triggerer/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get,list",
+        "Resources": "pods/log",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-pod-log-reader-role] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-airflow-triggerer] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-airflow-webserver
+  [Resource] (ResourceName/ResourceType): release-name-webserver/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get,list",
+        "Resources": "pods/log",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-pod-log-reader-role] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-airflow-webserver] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-airflow-worker
+  [Resource] (ResourceName/ResourceType): release-name-worker/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,create",
+        "Resources": "pods/exec",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "pods/log",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,patch,list,get,delete,create",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-pod-launcher-role] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-airflow-worker] [Main configs]
+-------------------------------------------
+

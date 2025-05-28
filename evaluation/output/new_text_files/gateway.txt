@@ -1,0 +1,182 @@
+[Service Account]: release-name-gateway-helm-certgen
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create,update,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-gateway-helm-certgen] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-gateway-helm-certgen] [Main configs]
+-------------------------------------------
+
+[Service Account]: envoy-gateway
+  [Resource] (ResourceName/ResourceType): envoy-gateway/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,update,get,watch",
+        "Resources": "gatewayclasses",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps,secrets,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "deployments,daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "httproutefilters,backends,clienttrafficpolicies,securitypolicies,envoyproxies,backendtrafficpolicies,envoyextensionpolicies,envoypatchpolicies",
+        "API groups": "gateway.envoyproxy.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "serviceimports",
+        "API groups": "multicluster.x-k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "udproutes,tcproutes,grpcroutes,gateways,backendtlspolicies,referencegrants,httproutes,tlsroutes",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "backendtlspolicies/status,tcproutes/status,gateways/status,udproutes/status,grpcroutes/status,tlsroutes/status,httproutes/status",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "gatewayclasses/status",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "securitypolicies/status,envoyextensionpolicies/status,backends/status,envoypatchpolicies/status,clienttrafficpolicies/status,backendtrafficpolicies/status",
+        "API groups": "gateway.envoyproxy.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,get,create,delete,deletecollection",
+        "Resources": "deployments,daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,get,create,delete,deletecollection",
+        "Resources": "horizontalpodautoscalers,poddisruptionbudgets",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "patch,get,create,delete,deletecollection",
+        "Resources": "horizontalpodautoscalers,poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "patch,get,create,delete,deletecollection",
+        "Resources": "serviceaccounts,configmaps,services",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-gateway-helm-envoy-gateway-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/envoy-gateway] [Main configs]
+
+    [roles]: [release-name-gateway-helm-infra-manager; release-name-gateway-helm-leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/envoy-gateway] [Main configs]
+-------------------------------------------
+

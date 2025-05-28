@@ -1,0 +1,60 @@
+[Service Account]: adot-collector-sa
+  [Resource] (ResourceName/ResourceType): adot-collector-daemonset/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,create",
+        "Resources": "configmaps,events,nodes/stats",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "nodes/proxy",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "nodes,pods,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,get,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [adot-collector-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/adot-collector-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: otel-container-insight-clusterleader, otel-container-insight-clusterleader,adot-container-insight-clusterleader
+-------------------------------------------
+

@@ -1,0 +1,346 @@
+[Service Account]: hpcc-esp-service
+  [Resource] (ResourceName/ResourceType): eclwatch/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services,pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [hpcc-esp-service] [Main configs]
+    [roleBindings]: [ServiceAccount/hpcc-esp-service] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): eclservices/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services,pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [hpcc-esp-service] [Main configs]
+    [roleBindings]: [ServiceAccount/hpcc-esp-service] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): eclqueries/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services,pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [hpcc-esp-service] [Main configs]
+    [roleBindings]: [ServiceAccount/hpcc-esp-service] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): esdl-sandbox/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services,pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [hpcc-esp-service] [Main configs]
+    [roleBindings]: [ServiceAccount/hpcc-esp-service] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): sql2ecl/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services,pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [hpcc-esp-service] [Main configs]
+    [roleBindings]: [ServiceAccount/hpcc-esp-service] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): dfs/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,services,pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [hpcc-esp-service] [Main configs]
+    [roleBindings]: [ServiceAccount/hpcc-esp-service] [Main configs]
+-------------------------------------------
+
+[Service Account]: hpcc-agent
+  [Resource] (ResourceName/ResourceType): hthor/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get,create,watch,delete",
+        "Resources": "jobs,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "services,pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [hpcc-agent] [Main configs]
+    [roleBindings]: [ServiceAccount/hpcc-agent] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): roxie-workunit/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get,create,watch,delete",
+        "Resources": "jobs,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "services,pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [hpcc-agent] [Main configs]
+    [roleBindings]: [ServiceAccount/hpcc-agent] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): myeclccserver/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get,create,watch,delete",
+        "Resources": "jobs,services",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "services,pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [hpcc-agent] [Main configs]
+    [roleBindings]: [ServiceAccount/hpcc-agent] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-filebeat
+  [Resource] (ResourceName/ResourceType): release-name-filebeat/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "namespaces,pods,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create,update,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-filebeat-cluster-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-filebeat] [Main configs]
+
+    [roles]: [release-name-filebeat-role] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-filebeat] [Main configs]
+-------------------------------------------
+
+[Service Account]: hpcc-thoragent
+  [Resource] (ResourceName/ResourceType): thor-thoragent/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create,delete,get",
+        "Resources": "networkpolicies",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "list,create,get",
+        "Resources": "services,pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get,create,watch,delete",
+        "Resources": "jobs,services",
+        "API groups": "batch"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [hpcc-thoragent] [Main configs]
+    [roleBindings]: [ServiceAccount/hpcc-thoragent] [Main configs]
+-------------------------------------------
+
+[Service Account]: hpcc-dali
+  [Resource] (ResourceName/ResourceType): mydali/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,get",
+        "Resources": "services",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [hpcc-dali] [Main configs]
+    [roleBindings]: [ServiceAccount/hpcc-dali] [Main configs]
+-------------------------------------------
+

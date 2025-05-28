@@ -1,0 +1,493 @@
+[Service Account]: release-name-logging-operator
+  [Resource] (ResourceName/ResourceType): release-name-logging-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "create,watch,list,get",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,use,watch,list,update,patch",
+        "Resources": "podsecuritypolicies",
+        "API groups": "extensions,policy"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "bridges,subscriptions,collectors,tenants,outputs",
+        "API groups": "telemetry.kube-logging.dev"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clusterrolebindings,clusterroles,roles,rolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "daemonsets,statefulsets,deployments",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "daemonsets,statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "eventtailers,hosttailers",
+        "API groups": "logging-extensions.banzaicloud.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "fluentbitagents,flows,syslogngconfigs,syslogngflows,clusterflows,fluentdconfigs,loggings,clusteroutputs,loggingroutes,nodeagents,syslogngclusteroutputs,outputs,syslogngoutputs,syslogngclusterflows",
+        "API groups": "logging.banzaicloud.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "ingresses",
+        "API groups": "extensions,networking.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims,secrets,serviceaccounts,pods,services,configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "servicemonitors,prometheusrules",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "clusterflows/status,fluentbitagents/status,fluentdconfigs/status,nodeagents/status,syslogngoutputs/status,loggings/status,outputs/status,syslogngclusterflows/status,syslogngclusteroutputs/status,clusteroutputs/status,flows/status,loggingroutes/status,syslogngflows/status,syslogngconfigs/status",
+        "API groups": "logging.banzaicloud.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "eventtailers/status,hosttailers/status",
+        "API groups": "logging-extensions.banzaicloud.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "loggings/finalizers",
+        "API groups": "logging.banzaicloud.io"
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "events",
+        "API groups": "events.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,nodes/proxy,nodes,endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-logging-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-logging-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: anyuid,privileged
+-------------------------------------------
+
+[Service Account]: default
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "create,watch,list,get",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,use,watch,list,update,patch",
+        "Resources": "podsecuritypolicies",
+        "API groups": "extensions,policy"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "bridges,subscriptions,collectors,tenants,outputs",
+        "API groups": "telemetry.kube-logging.dev"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clusterrolebindings,clusterroles,roles,rolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "daemonsets,statefulsets,deployments",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "daemonsets,statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "eventtailers,hosttailers",
+        "API groups": "logging-extensions.banzaicloud.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "fluentbitagents,flows,syslogngconfigs,syslogngflows,clusterflows,fluentdconfigs,loggings,clusteroutputs,loggingroutes,nodeagents,syslogngclusteroutputs,outputs,syslogngoutputs,syslogngclusterflows",
+        "API groups": "logging.banzaicloud.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "ingresses",
+        "API groups": "extensions,networking.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "persistentvolumeclaims,secrets,serviceaccounts,pods,services,configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "servicemonitors,prometheusrules",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "clusterflows/status,fluentbitagents/status,fluentdconfigs/status,nodeagents/status,syslogngoutputs/status,loggings/status,outputs/status,syslogngclusterflows/status,syslogngclusteroutputs/status,clusteroutputs/status,flows/status,loggingroutes/status,syslogngflows/status,syslogngconfigs/status",
+        "API groups": "logging.banzaicloud.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "eventtailers/status,hosttailers/status",
+        "API groups": "logging-extensions.banzaicloud.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "loggings/finalizers",
+        "API groups": "logging.banzaicloud.io"
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "events",
+        "API groups": "events.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,nodes/proxy,nodes,endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [logging-operator-ws-manager-role; logging-operator-ws-proxy-role; manager-role; proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/default] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/default] [Main configs]
+    [clusterResourceNames]: anyuid,privileged
+-------------------------------------------
+

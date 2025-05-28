@@ -1,0 +1,379 @@
+[Service Account]: controller-manager
+  [Resource] (ResourceName/ResourceType): kubeedge-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "edgeapplications,edgeapplications/status",
+        "API groups": "apps.kubeedge.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodegroups/status,nodegroups",
+        "API groups": "apps.kubeedge.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [controller-manager] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: csi-controller
+  [Resource] (ResourceName/ResourceType): csi-hostpath-controller/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "csinodes",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "volumeattachments",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [external-controller-runner] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/csi-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: cloudcore
+  [Resource] (ResourceName/ResourceType): cloudcore/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,watch,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "devicemodels,devices,devicemodels/status,devices/status",
+        "API groups": "devices.kubeedge.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "objectsyncs/status,objectsyncs,clusterobjectsyncs,clusterobjectsyncs/status",
+        "API groups": "reliablesyncs.kubeedge.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "ruleendpoints/status,rules/status,ruleendpoints,rules",
+        "API groups": "rules.kubeedge.io"
+    },
+    {
+        "verbs": "delete",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "pods/status,persistentvolumeclaims,secrets,configmaps,nodes,serviceaccounts/token,persistentvolumes,pods,services,endpoints,nodes/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods/status,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "*",
+        "API groups": "networking.istio.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "serviceaccounts/token",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "serviceaccounts/token",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "serviceaccounts/token",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "serviceaccounts/token",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cloudcore] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/cloudcore] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: kubeedge-admission
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,list,get",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "create,update",
+        "Resources": "certificatesigningrequests/approval",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "get,create,watch,list,update",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "devicemodels",
+        "API groups": "devices.kubeedge.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "nodeupgradejobs,imageprepulljobs",
+        "API groups": "operations.kubeedge.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "ruleendpoints,rules",
+        "API groups": "rules.kubeedge.io"
+    },
+    {
+        "verbs": "patch,create,get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kubeedge-admission] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kubeedge-admission] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: iptables-manager-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [iptables-manager] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/iptables-manager-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

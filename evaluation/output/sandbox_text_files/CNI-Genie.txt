@@ -1,0 +1,244 @@
+[Service Account]: genie-plugin
+  [Resource] (ResourceName/ResourceType): genie-plugin/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "logicalnetworks",
+        "API groups": "alpha.network.k8s.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "physicalnetworks",
+        "API groups": "alpha.network.k8s.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "network-attachment-definitions",
+        "API groups": "k8s.cni.cncf.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [genie-plugin] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/genie-plugin] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): genie-network-admission-controller/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "logicalnetworks",
+        "API groups": "alpha.network.k8s.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "physicalnetworks",
+        "API groups": "alpha.network.k8s.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "network-attachment-definitions",
+        "API groups": "k8s.cni.cncf.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [genie-plugin] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/genie-plugin] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: genie-policy
+  [Resource] (ResourceName/ResourceType): genie-policy-controller/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "networkpolicies",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "logicalnetworks",
+        "API groups": "alpha.network.k8s.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "physicalnetworks",
+        "API groups": "alpha.network.k8s.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "network-attachment-definitions",
+        "API groups": "k8s.cni.cncf.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [genie-plugin; genie-policy] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/genie-policy] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: genie
+  [Resource] (ResourceName/ResourceType): genie-plugin/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "patch,update,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "logicalnetworks",
+        "API groups": "alpha.network.k8s.io"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "physicalnetworks",
+        "API groups": "alpha.network.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [genie] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/genie] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

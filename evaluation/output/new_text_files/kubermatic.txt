@@ -1,0 +1,1039 @@
+[Service Account]: kube-proxy
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:node-proxier] []
+    [clusterRoleBindings]: [ServiceAccount/kube-proxy] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: dex
+  [Resource] (ResourceName/ResourceType): dex/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,pods,nodes/proxy,nodes,services",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "dex.coreos.com"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/dex] [Main configs]
+
+    [roles]: [dex] [Main configs]
+    [roleBindings]: [ServiceAccount/dex] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-agent-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "users,kubermaticconfigurations,seeds,clusters,projects,usersshkeys",
+        "API groups": "kubermatic.k8c.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-kubermatic-agent-role; release-name-kubernetes-agent-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-agent-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: multus
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "k8s.cni.cncf.io"
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "pods/status,pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [multus] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/multus] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: alertmanager-authz-server
+  [Resource] (ResourceName/ResourceType): alertmanager-authz-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "clusters,userprojectbindings,users,groupprojectbindings",
+        "API groups": "kubermatic.k8c.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [alertmanager-authz-server] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/alertmanager-authz-server] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name
+  [Resource] (ResourceName/ResourceType): release-name/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,pods,nodes/proxy,nodes,services",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,nodes,services,pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name] [Main configs]
+
+    [roles]: [release-name] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name] [Main configs]
+-------------------------------------------
+
+[Service Account]: cdi-operator
+  [Resource] (ResourceName/ResourceType): cdi-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "cdi.kubevirt.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "upload.cdi.kubevirt.io,cdi.kubevirt.io"
+    },
+    {
+        "verbs": "create,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "deletecollection,update",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "cdis",
+        "API groups": "cdi.kubevirt.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "datasources",
+        "API groups": "cdi.kubevirt.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,create,watch",
+        "Resources": "mutatingwebhookconfigurations,validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,get,create,watch,delete",
+        "Resources": "services,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get,create,watch,delete",
+        "Resources": "volumesnapshotclasses,volumesnapshotcontents,volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "datavolumes",
+        "API groups": "cdi.kubevirt.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete,deletecollection",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "apiservices",
+        "API groups": "apiregistration.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "clusterroles,clusterrolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "customresourcedefinitions/status,customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,create,watch",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "list,update,get",
+        "Resources": "dataimportcrons",
+        "API groups": "cdi.kubevirt.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "csidrivers,storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "imagestreams",
+        "API groups": "image.openshift.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "priorityclasses",
+        "API groups": "scheduling.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "proxies",
+        "API groups": "config.openshift.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,delete,get",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "update,delete,get",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "cdis/finalizers",
+        "API groups": "cdi.kubevirt.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "persistentvolumeclaims/finalizers,pods/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "virtualmachines/finalizers",
+        "API groups": "kubevirt.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cdi-operator-cluster] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/cdi-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: cdi-api-populator-validate,cdi-api-dataimportcron-validate,cdi-api-datavolume-validate,cdi-api-validate,objecttransfer-api-validate, cdi-api-datavolume-mutate
+-------------------------------------------
+
+[Service Account]: node-exporter
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [node-exporter] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/node-exporter] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: kubevirt-operator
+  [Resource] (ResourceName/ResourceType): virt-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "cdi.kubevirt.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "export.kubevirt.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "kubevirt.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "snapshot.kubevirt.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods/eviction",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "get,patch,watch,list",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "network-attachment-definitions",
+        "API groups": "k8s.cni.cncf.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "virtualmachineinstances/guestosinfo,virtualmachineinstances/filesystemlist,virtualmachineinstances/userlist,virtualmachineinstances/sev/querylaunchmeasurement,virtualmachineinstances/sev/fetchcertchain,virtualmachines/expand-spec",
+        "API groups": "subresources.kubevirt.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "virtualmachineinstances/vnc,virtualmachineinstances/console,virtualmachineinstances/guestosinfo,virtualmachineinstances/filesystemlist,virtualmachineinstances/userlist,virtualmachineinstances/sev/querylaunchmeasurement,virtualmachineinstances/portforward,virtualmachineinstances/sev/fetchcertchain,virtualmachineinstances/vnc/screenshot",
+        "API groups": "subresources.kubevirt.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "virtualmachines/expand-spec,virtualmachines/portforward",
+        "API groups": "subresources.kubevirt.io"
+    },
+    {
+        "verbs": "list,create,get",
+        "Resources": "controllerrevisions",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,create,watch,get",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "guestfs,version",
+        "API groups": "subresources.kubevirt.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "kubevirts",
+        "API groups": "kubevirt.io"
+    },
+    {
+        "verbs": "list,patch,create,watch,delete",
+        "Resources": "controllerrevisions",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,delete,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,get,create,watch,delete",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,patch,get,create,watch,delete",
+        "Resources": "deployments,daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,get,create,watch,delete",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,patch,get,create,watch,delete",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,patch,get,create,watch",
+        "Resources": "virtualmachineinstancemigrations",
+        "API groups": "kubevirt.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "apiservices",
+        "API groups": "apiregistration.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "mutatingwebhookconfigurations,validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "rolebindings,clusterroles,clusterrolebindings,roles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "serviceaccounts,pods/exec,services,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "servicemonitors,prometheusrules",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "services,endpoints,configmaps,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "virtualmachinepools,virtualmachinepools/finalizers,virtualmachinepools/scale,virtualmachinepools/status",
+        "API groups": "pool.kubevirt.io"
+    },
+    {
+        "verbs": "list,patch,update,get,watch,delete",
+        "Resources": "virtualmachineclones/finalizers,virtualmachineclones/status,virtualmachineclones",
+        "API groups": "clone.kubevirt.io"
+    },
+    {
+        "verbs": "list,patch,update,get,watch",
+        "Resources": "kubevirts",
+        "API groups": "kubevirt.io"
+    },
+    {
+        "verbs": "list,patch,update,get,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,watch",
+        "Resources": "virtualmachineinstances,virtualmachines",
+        "API groups": "kubevirt.io"
+    },
+    {
+        "verbs": "list,patch,watch,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "controllerrevisions",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,update,get,watch,delete",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "list,update,watch",
+        "Resources": "virtualmachineinstances",
+        "API groups": "kubevirt.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "datasources,datavolumes",
+        "API groups": "cdi.kubevirt.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "kubevirts",
+        "API groups": "kubevirt.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "migrationpolicies",
+        "API groups": "migrations.kubevirt.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "routes",
+        "API groups": "route.openshift.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "virtualmachineclones",
+        "API groups": "clone.kubevirt.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "virtualmachineclusterinstancetypes,virtualmachineclusterpreferences",
+        "API groups": "instancetype.kubevirt.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "virtualmachineclusterinstancetypes,virtualmachineinstancetypes,virtualmachinepreferences,virtualmachineclusterpreferences",
+        "API groups": "instancetype.kubevirt.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "virtualmachineexports",
+        "API groups": "export.kubevirt.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "virtualmachineinstancepresets,virtualmachineinstancereplicasets,virtualmachineinstancemigrations,virtualmachineinstances,virtualmachines",
+        "API groups": "kubevirt.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "virtualmachinepools",
+        "API groups": "pool.kubevirt.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "virtualmachinerestores,virtualmachinesnapshots,virtualmachinesnapshotcontents",
+        "API groups": "snapshot.kubevirt.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "volumesnapshotclasses",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "kubevirts",
+        "API groups": "kubevirt.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "limitranges",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "resourcequotas",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "virtualmachineinstancepresets",
+        "API groups": "kubevirt.io"
+    },
+    {
+        "verbs": "list",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,delete",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,list,update,get,create,watch,delete,deletecollection",
+        "Resources": "virtualmachineclones",
+        "API groups": "clone.kubevirt.io"
+    },
+    {
+        "verbs": "patch,list,update,get,create,watch,delete,deletecollection",
+        "Resources": "virtualmachineclusterinstancetypes,virtualmachineinstancetypes,virtualmachinepreferences,virtualmachineclusterpreferences",
+        "API groups": "instancetype.kubevirt.io"
+    },
+    {
+        "verbs": "patch,list,update,get,create,watch,delete,deletecollection",
+        "Resources": "virtualmachineexports",
+        "API groups": "export.kubevirt.io"
+    },
+    {
+        "verbs": "patch,list,update,get,create,watch,delete,deletecollection",
+        "Resources": "virtualmachineinstancepresets,virtualmachineinstancereplicasets,virtualmachineinstancemigrations,virtualmachineinstances,virtualmachines",
+        "API groups": "kubevirt.io"
+    },
+    {
+        "verbs": "patch,list,update,get,create,watch,delete,deletecollection",
+        "Resources": "virtualmachinepools",
+        "API groups": "pool.kubevirt.io"
+    },
+    {
+        "verbs": "patch,list,update,get,create,watch,delete,deletecollection",
+        "Resources": "virtualmachinerestores,virtualmachinesnapshots,virtualmachinesnapshotcontents",
+        "API groups": "snapshot.kubevirt.io"
+    },
+    {
+        "verbs": "patch,list,update,get,create,watch,delete",
+        "Resources": "virtualmachineclones",
+        "API groups": "clone.kubevirt.io"
+    },
+    {
+        "verbs": "patch,list,update,get,create,watch,delete",
+        "Resources": "virtualmachineclusterinstancetypes,virtualmachineinstancetypes,virtualmachinepreferences,virtualmachineclusterpreferences",
+        "API groups": "instancetype.kubevirt.io"
+    },
+    {
+        "verbs": "patch,list,update,get,create,watch,delete",
+        "Resources": "virtualmachineexports",
+        "API groups": "export.kubevirt.io"
+    },
+    {
+        "verbs": "patch,list,update,get,create,watch,delete",
+        "Resources": "virtualmachineinstancepresets,virtualmachineinstancereplicasets,virtualmachineinstancemigrations,virtualmachineinstances,virtualmachines",
+        "API groups": "kubevirt.io"
+    },
+    {
+        "verbs": "patch,list,update,get,create,watch,delete",
+        "Resources": "virtualmachinepools",
+        "API groups": "pool.kubevirt.io"
+    },
+    {
+        "verbs": "patch,list,update,get,create,watch,delete",
+        "Resources": "virtualmachinerestores,virtualmachinesnapshots,virtualmachinesnapshotcontents",
+        "API groups": "snapshot.kubevirt.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "virtualmachines/status",
+        "API groups": "kubevirt.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "expand-vm-spec",
+        "API groups": "subresources.kubevirt.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods/finalizers",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "virtualmachineinstances/freeze,virtualmachineinstances/removevolume,virtualmachineinstances/softreboot,virtualmachineinstances/unfreeze,virtualmachineinstances/sev/setupsession,virtualmachineinstances/addvolume,virtualmachineinstances/sev/injectlaunchsecret",
+        "API groups": "subresources.kubevirt.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "virtualmachineinstances/freeze,virtualmachineinstances/removevolume,virtualmachineinstances/unpause,virtualmachineinstances/softreboot,virtualmachineinstances/unfreeze,virtualmachineinstances/sev/setupsession,virtualmachineinstances/addvolume,virtualmachineinstances/sev/injectlaunchsecret,virtualmachineinstances/pause",
+        "API groups": "subresources.kubevirt.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "virtualmachines/addvolume,virtualmachines/stop,virtualmachines/migrate,virtualmachines/restart,virtualmachines/start,virtualmachines/memorydump,virtualmachines/removevolume",
+        "API groups": "subresources.kubevirt.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kubevirt-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kubevirt-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: kubevirt-export-ca, privileged, kubevirt-controller,kubevirt-handler
+-------------------------------------------
+
+[Service Account]: vpn-client
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [vpn-client] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/vpn-client] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: kubermatic-operator
+  [Resource] (ResourceName/ResourceType): kubermatic-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/kubermatic-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: s3-exporter
+  [Resource] (ResourceName/ResourceType): s3-exporter/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "clusters",
+        "API groups": "kubermatic.k8c.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [default:s3exporter:clusters:reader] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/s3-exporter] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

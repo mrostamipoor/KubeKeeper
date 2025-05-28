@@ -1,0 +1,1265 @@
+[Service Account]: manager
+  [Resource] (ResourceName/ResourceType): controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,create,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "destinationrules",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "mappings",
+        "API groups": "getambassador.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "scaledobjects/finalizers",
+        "API groups": "keda.sh"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "scaledobjects",
+        "API groups": "keda.sh"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "seldondeployments",
+        "API groups": "machinelearning.seldon.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "services",
+        "API groups": "v1"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "tlscontexts",
+        "API groups": "getambassador.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "virtualservices",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "list,update,get,create,delete",
+        "Resources": "mutatingwebhookconfigurations,validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "namespaces",
+        "API groups": "v1"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "customresourcedefinitions/finalizers",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "deployments/finalizers",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "deployments/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "destinationrules/status",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "horizontalpodautoscalers/status",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "mappings/status",
+        "API groups": "getambassador.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "poddisruptionbudgets/status",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "scaledobjects/status",
+        "API groups": "keda.sh"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "seldondeployments/finalizers",
+        "API groups": "machinelearning.seldon.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "seldondeployments/status",
+        "API groups": "machinelearning.seldon.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "services/status",
+        "API groups": "v1"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "tlscontexts/status",
+        "API groups": "getambassador.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "virtualservices/status",
+        "API groups": "networking.istio.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "destinationrules",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "mappings",
+        "API groups": "getambassador.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "scaledobjects/finalizers",
+        "API groups": "keda.sh"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "scaledobjects",
+        "API groups": "keda.sh"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "seldondeployments",
+        "API groups": "machinelearning.seldon.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "services",
+        "API groups": "v1"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "tlscontexts",
+        "API groups": "getambassador.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "virtualservices",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "serviceaccounts",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "deployments/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "destinationrules/status",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "horizontalpodautoscalers/status",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "mappings/status",
+        "API groups": "getambassador.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "poddisruptionbudgets/status",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "scaledobjects/status",
+        "API groups": "keda.sh"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "seldondeployments/finalizers",
+        "API groups": "machinelearning.seldon.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "seldondeployments/status",
+        "API groups": "machinelearning.seldon.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "services/status",
+        "API groups": "v1"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "tlscontexts/status",
+        "API groups": "getambassador.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "virtualservices/status",
+        "API groups": "networking.istio.io"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [manager-role; manager-sas-role; webhook-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/manager] [Main configs]
+
+    [roles]: [leader-election-role; manager-role; manager-sas-role] [Main configs]
+    [roleBindings]: [ServiceAccount/manager] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-kube-state-metrics
+  [Resource] (ResourceName/ResourceType): release-name-kube-state-metrics/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "daemonsets",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "deployments",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "limitranges",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "replicasets",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "resourcequotas",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-kube-state-metrics] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-kube-state-metrics] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-prometheus-alertmanager
+  [Resource] (ResourceName/ResourceType): release-name-prometheus-alertmanager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-prometheus-alertmanager] []
+    [clusterRoleBindings]: [ServiceAccount/release-name-prometheus-alertmanager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: ambassador
+  [Resource] (ResourceName/ResourceType): ambassador/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,update,get,create,watch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "services",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [ambassador] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/ambassador] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: seldonid1-seldon-manager
+  [Resource] (ResourceName/ResourceType): seldonid1-seldon-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "destinationrules",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "mappings",
+        "API groups": "getambassador.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "scaledobjects/finalizers",
+        "API groups": "keda.sh"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "scaledobjects",
+        "API groups": "keda.sh"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "seldondeployments",
+        "API groups": "machinelearning.seldon.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "services",
+        "API groups": "v1"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "tlscontexts",
+        "API groups": "getambassador.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "virtualservices",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "namespaces",
+        "API groups": "v1"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "deployments/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "destinationrules/status",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "horizontalpodautoscalers/status",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "mappings/status",
+        "API groups": "getambassador.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "poddisruptionbudgets/status",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "scaledobjects/status",
+        "API groups": "keda.sh"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "seldondeployments/finalizers",
+        "API groups": "machinelearning.seldon.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "seldondeployments/status",
+        "API groups": "machinelearning.seldon.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "services/status",
+        "API groups": "v1"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "tlscontexts/status",
+        "API groups": "getambassador.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "virtualservices/status",
+        "API groups": "networking.istio.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [seldonid1-seldon-manager-role; seldonid1-seldon-manager-sas-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/seldonid1-seldon-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-prometheus-seldon
+  [Resource] (ResourceName/ResourceType): release-name-prometheus-seldon/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,pods,nodes/proxy,nodes,configmaps,services,nodes/metrics,ingresses",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "ingresses/status,ingresses",
+        "API groups": "extensions"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-prometheus-seldon] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-prometheus-seldon] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: seldon-spartakus-volunteer
+  [Resource] (ResourceName/ResourceType): seldon-spartakus-volunteer/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [seldon-spartakus-volunteer] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/seldon-spartakus-volunteer] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-grafana-test
+  [Resource] (ResourceName/ResourceType): release-name-grafana-test/Pod
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "use",
+        "Resources": "podsecuritypolicies",
+        "API groups": "policy"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-grafana-test] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-grafana-test] [Main configs]
+    [roleResourceNames]: release-name-grafana-test
+-------------------------------------------
+
+[Service Account]: release-name-prometheus-pushgateway
+  [Resource] (ResourceName/ResourceType): release-name-prometheus-pushgateway/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-prometheus-pushgateway] []
+    [clusterRoleBindings]: [ServiceAccount/release-name-prometheus-pushgateway] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: tiller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/tiller] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: seldon-manager
+  [Resource] (ResourceName/ResourceType): seldon-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,create,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "destinationrules",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "mappings",
+        "API groups": "getambassador.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "scaledobjects/finalizers",
+        "API groups": "keda.sh"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "scaledobjects",
+        "API groups": "keda.sh"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "seldondeployments",
+        "API groups": "machinelearning.seldon.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "services",
+        "API groups": "v1"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "tlscontexts",
+        "API groups": "getambassador.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "virtualservices",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "list,update,get,create,delete",
+        "Resources": "mutatingwebhookconfigurations,validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "namespaces",
+        "API groups": "v1"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "customresourcedefinitions/finalizers",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "deployments/finalizers",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "deployments/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "destinationrules/status",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "horizontalpodautoscalers/status",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "mappings/status",
+        "API groups": "getambassador.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "poddisruptionbudgets/status",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "scaledobjects/status",
+        "API groups": "keda.sh"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "seldondeployments/finalizers",
+        "API groups": "machinelearning.seldon.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "seldondeployments/status",
+        "API groups": "machinelearning.seldon.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "services/status",
+        "API groups": "v1"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "tlscontexts/status",
+        "API groups": "getambassador.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "virtualservices/status",
+        "API groups": "networking.istio.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [seldon-manager-role; seldon-manager-role-default; seldon-manager-sas-role; seldon-manager-sas-role-default; seldon-webhook-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/seldon-manager] [Main configs]
+
+    [roles]: [seldon-leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/seldon-manager] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-grafana
+  [Resource] (ResourceName/ResourceType): release-name-grafana/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps,secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "use",
+        "Resources": "podsecuritypolicies",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-grafana-clusterrole] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-grafana] [Main configs]
+
+    [roles]: [release-name-grafana] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-grafana] [Main configs]
+    [roleResourceNames]: release-name-grafana
+-------------------------------------------
+
+[Service Account]: default
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/default] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: prometheus
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,pods,nodes/proxy,nodes,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "ingresses",
+        "API groups": "extensions"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [prometheus] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/prometheus] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

@@ -1,0 +1,9 @@
+Application Name,Over-Privileged,Critical Permissions,Direct Access via Secret Permissions Counts,Indirect Access via Secret Manipulation Counts,Indirect Access via Resource Scheduling Control Counts,Indirect Access via Node Manipulation Counts
+azure-policy,N/A,,0,0,0,0
+cost-analyzer-helm-chart,N/A,,0,0,0,0
+vault-helm,N/A,,0,0,0,0
+traefik-helm-chart,True,get::secrets::::whole; list::secrets::::whole; watch::secrets::::whole,3,0,0,0
+secrets-store-csi-driver-provider-azure,N/A,,0,0,0,0
+helm-charts,True,*::pods::core::whole,0,0,1,0
+swi-k8s-opentelemetry-collector,N/A,,0,0,0,0
+kubernetes-ingress-controller,True,get::secrets::::whole; list::secrets::::whole; watch::secrets::::whole,10,0,0,0

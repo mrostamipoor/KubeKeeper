@@ -1,0 +1,101 @@
+[Service Account]: private-action-runner-default-serviceaccount
+  [Resource] (ResourceName/ResourceType): private-action-runner-default/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,list",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [private-action-runner-default-role] [Main configs]
+    [roleBindings]: [ServiceAccount/private-action-runner-default-serviceaccount] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-extendeddaemonset
+  [Resource] (ResourceName/ResourceType): release-name-extendeddaemonset/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "*",
+        "Resources": "extendeddaemonsetreplicasets/status,extendeddaemonsetreplicasets,extendeddaemonsets/status,extendeddaemonsetsettings,extendeddaemonsets,extendeddaemonsetsettings/status",
+        "API groups": "datadoghq.com"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get,watch",
+        "Resources": "services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,get,watch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,get,watch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "podtemplates",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-extendeddaemonset] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-extendeddaemonset] [Main configs]
+
+    [roles]: [release-name-extendeddaemonset] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-extendeddaemonset] [Main configs]
+    [roleResourceNames]: extendeddaemonset-lock
+-------------------------------------------
+

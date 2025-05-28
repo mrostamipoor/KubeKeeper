@@ -1,0 +1,36 @@
+[Service Account]: release-name-kubernetes-api-proxy
+  [Resource] (ResourceName/ResourceType): release-name-kubernetes-api-proxy/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [admin] []
+    [roleBindings]: [ServiceAccount/release-name-kubernetes-api-proxy] [Main configs]
+-------------------------------------------
+
+[Service Account]: mesh
+  [Resource] (ResourceName/ResourceType): mesh/Pod
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/mesh] [Main configs]
+
+    [roles]: [admin] []
+    [roleBindings]: [ServiceAccount/mesh] [Main configs]
+-------------------------------------------
+

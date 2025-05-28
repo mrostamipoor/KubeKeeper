@@ -1,0 +1,1058 @@
+[Service Account]: tigera-operator
+  [Resource] (ResourceName/ResourceType): tigera-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "bgppeers,kubecontrollersconfigurations,felixconfigurations,networksets,globalnetworksets,networkpolicies,globalnetworkpolicies,ippools,bgpconfigurations,hostendpoints",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "delete,create",
+        "Resources": "tigerastatuses",
+        "API groups": "operator.tigera.io"
+    },
+    {
+        "verbs": "delete",
+        "Resources": "installations,apiservers",
+        "API groups": "operator.tigera.io"
+    },
+    {
+        "verbs": "delete",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get,list,create,watch",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "get,list,patch,watch",
+        "Resources": "infrastructures,networks",
+        "API groups": "config.openshift.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "bgpconfigurations,kubecontrollersconfigurations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ipamconfigurations",
+        "API groups": "projectcalico.org"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "secrets,resourcequotas",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "clusterinformations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "list,create,watch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,create,watch",
+        "Resources": "tiers",
+        "API groups": "projectcalico.org"
+    },
+    {
+        "verbs": "list,get,patch,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "list",
+        "Resources": "ipamblocks",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "update,bind,escalate,watch,list,get,delete,create",
+        "Resources": "clusterrolebindings,roles,rolebindings,clusterroles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "update,get,delete",
+        "Resources": "tiers",
+        "API groups": "projectcalico.org"
+    },
+    {
+        "verbs": "update,get,list",
+        "Resources": "networks/status",
+        "API groups": "config.openshift.io"
+    },
+    {
+        "verbs": "update,list,create,watch",
+        "Resources": "apiservices",
+        "API groups": "apiregistration.k8s.io"
+    },
+    {
+        "verbs": "update,list,create,watch",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "csidrivers",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "envoyproxies",
+        "API groups": "gateway.envoyproxy.io"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "gatewayclasses",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "networkpolicies",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "priorityclasses",
+        "API groups": "scheduling.k8s.io"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "resourcequotas",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "services,pods,namespaces,endpoints,serviceaccounts,configmaps,events,podtemplates",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "tier.networkpolicies,tier.globalnetworkpolicies",
+        "API groups": "projectcalico.org"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "deployments,daemonsets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "ippools",
+        "API groups": "projectcalico.org"
+    },
+    {
+        "verbs": "update,watch,patch,list,get",
+        "Resources": "gatewayapis/finalizers,managementclusterconnections,tigerastatuses/finalizers,installations/status,apiservers/status,tigerastatuses,apiservers,managementclusterconnections/status,goldmanes,imagesets,apiservers/finalizers,gatewayapis,installations,tigerastatuses/status,managementclusterconnections/finalizers,installations/finalizers,whiskers",
+        "API groups": "operator.tigera.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments/finalizers",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "watch,patch,list,get,create",
+        "Resources": "felixconfigurations,ippools",
+        "API groups": "crd.projectcalico.org"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [tigera-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/tigera-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: tigera-operator, backendtrafficpolicies.gateway.envoyproxy.io,referencegrants.gateway.networking.k8s.io,tcproutes.gateway.networking.k8s.io,httproutefilters.gateway.envoyproxy.io,grpcroutes.gateway.networking.k8s.io,gateways.gateway.networking.k8s.io,backendlbpolicies.gateway.networking.k8s.io,envoypatchpolicies.gateway.envoyproxy.io,httproutes.gateway.networking.k8s.io,backendtlspolicies.gateway.networking.k8s.io,tlsroutes.gateway.networking.k8s.io,backends.gateway.envoyproxy.io,clienttrafficpolicies.gateway.envoyproxy.io,envoyproxies.gateway.envoyproxy.io,envoyextensionpolicies.gateway.envoyproxy.io,securitypolicies.gateway.envoyproxy.io,gatewayclasses.gateway.networking.k8s.io,udproutes.gateway.networking.k8s.io, calico-critical-pods,tigera-critical-pods, tigera-gateway-api-gateway-helm-certgen, hostaccess, allow-tigera, clusterinformations.crd.projectcalico.org,stagedglobalnetworkpolicies.crd.projectcalico.org,apiservers.operator.tigera.io,imagesets.operator.tigera.io,networkpolicies.crd.projectcalico.org,ipamconfigs.crd.projectcalico.org,bgpconfigurations.crd.projectcalico.org,baselineadminnetworkpolicies.policy.networking.k8s.io,ipamhandles.crd.projectcalico.org,gatewayapis.operator.tigera.io,stagednetworkpolicies.crd.projectcalico.org,ippools.crd.projectcalico.org,kubecontrollersconfigurations.crd.projectcalico.org,globalnetworksets.crd.projectcalico.org,goldmanes.operator.tigera.io,ipreservations.crd.projectcalico.org,globalnetworkpolicies.crd.projectcalico.org,caliconodestatuses.crd.projectcalico.org,adminnetworkpolicies.policy.networking.k8s.io,tigerastatuses.operator.tigera.io,blockaffinities.crd.projectcalico.org,bgppeers.crd.projectcalico.org,felixconfigurations.crd.projectcalico.org,tiers.crd.projectcalico.org,networksets.crd.projectcalico.org,bgpfilters.crd.projectcalico.org,ipamblocks.crd.projectcalico.org,managementclusterconnections.operator.tigera.io,hostendpoints.crd.projectcalico.org,whiskers.operator.tigera.io,stagedkubernetesnetworkpolicies.crd.projectcalico.org,installations.operator.tigera.io, allow-tigera.*
+-------------------------------------------
+
+[Service Account]: kube-dns
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/kube-dns] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: canal
+  [Resource] (ResourceName/ResourceType): canal/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "serviceaccounts/token",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "tiers",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "get,create",
+        "Resources": "ipamconfigs",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ipreservations,bgppeers,bgpconfigurations,tiers,stagedkubernetesnetworkpolicies,globalfelixconfigs,bgpfilters,stagedglobalnetworkpolicies,ippools,felixconfigurations,ipamblocks,networksets,blockaffinities,globalnetworksets,networkpolicies,hostendpoints,caliconodestatuses,clusterinformations,globalbgpconfigs,globalnetworkpolicies,stagednetworkpolicies",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "services,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "nodes,pods,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "baselineadminnetworkpolicies,adminnetworkpolicies",
+        "API groups": "policy.networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "networkpolicies",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "serviceaccounts,pods,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,create",
+        "Resources": "bgpconfigurations,bgppeers",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "update,create",
+        "Resources": "ippools,felixconfigurations,clusterinformations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "update,list,get,delete,create",
+        "Resources": "ipamhandles,ipamblocks,blockaffinities",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "update,patch",
+        "Resources": "nodes/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "caliconodestatuses",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "blockaffinities",
+        "API groups": "crd.projectcalico.org"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [calico-node; flannel] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/canal] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: calico-cni-plugin
+-------------------------------------------
+
+[Service Account]: calico-apiserver
+  [Resource] (ResourceName/ResourceType): calico-apiserver/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "clusterrolebindings,roles,rolebindings,clusterroles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes,pods,namespaces,networkpolicies,serviceaccounts",
+        "API groups": ",extensions,networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "validatingadmissionpolicies,validatingadmissionpolicybindings",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "ipreservations,bgppeers,kubecontrollersconfigurations,felixconfigurations,caliconodestatuses,networksets,ipamblocks,blockaffinities,globalnetworksets,networkpolicies,clusterinformations,bgpfilters,globalnetworkpolicies,ippools,bgpconfigurations,tiers,ipamconfigs,hostendpoints",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "use",
+        "Resources": "podsecuritypolicies",
+        "API groups": "policy"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [calico-crds; calico-extension-apiserver-auth-access; calico-webhook-reader; system:auth-delegator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/calico-apiserver] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: extension-apiserver-authentication, calico-apiserver
+-------------------------------------------
+
+[Service Account]: default
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [tigera-operator-secrets] []
+    [roleBindings]: [ServiceAccount/default] [Main configs]
+-------------------------------------------
+
+[Service Account]: calico-cni-plugin
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "nodes,pods,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,get,delete,create",
+        "Resources": "ipreservations,ipamhandles,ipamblocks,blockaffinities,clusterinformations,ippools,ipamconfigs",
+        "API groups": "crd.projectcalico.org"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [calico-cni-plugin] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/calico-cni-plugin] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: calico-kube-controllers
+  [Resource] (ResourceName/ResourceType): calico-kube-controllers/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "ippools",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "list",
+        "Resources": "ipreservations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "update,get,list,watch",
+        "Resources": "services/status,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,list,get,create",
+        "Resources": "clusterinformations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "update,watch,list,get,create",
+        "Resources": "kubecontrollersconfigurations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "hostendpoints",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "ipamhandles,ipamblocks,blockaffinities,tiers,ipamconfigs",
+        "API groups": "crd.projectcalico.org"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [calico-kube-controllers] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/calico-kube-controllers] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: calicoctl
+  [Resource] (ResourceName/ResourceType): calicoctl/Pod
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list",
+        "Resources": "networkpolicies",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "get,list",
+        "Resources": "serviceaccounts,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get,list",
+        "Resources": "nodes,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,get,delete,create",
+        "Resources": "ipreservations,bgppeers,bgpconfigurations,tiers,stagedkubernetesnetworkpolicies,ipamhandles,stagedglobalnetworkpolicies,ippools,kubecontrollersconfigurations,felixconfigurations,networksets,ipamblocks,blockaffinities,globalnetworksets,networkpolicies,hostendpoints,clusterinformations,globalnetworkpolicies,stagednetworkpolicies,ipamconfigs",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "update",
+        "Resources": "nodes/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods/status",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [calicoctl] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/calicoctl] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: canal-node
+  [Resource] (ResourceName/ResourceType): canal-node/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "nodes,pods,namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [canal] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/canal-node] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: flannel-migration-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "pods/eviction",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods/exec",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,delete,create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get,create",
+        "Resources": "clusterinformations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "update,get,create",
+        "Resources": "felixconfigurations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "update,get,delete",
+        "Resources": "daemonsets",
+        "API groups": "extensions,apps"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "nodes/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,get,delete,create",
+        "Resources": "ipamhandles,ipamblocks,blockaffinities,ipamconfigs",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "update,list,get,delete,create",
+        "Resources": "ippools",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "update,watch,patch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [flannel-migration-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/flannel-migration-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: calico-node
+  [Resource] (ResourceName/ResourceType): calico-node/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "serviceaccounts/token",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "tiers",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "get,create",
+        "Resources": "ipamconfigs",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ipreservations,bgppeers,bgpconfigurations,tiers,stagedkubernetesnetworkpolicies,globalfelixconfigs,bgpfilters,stagedglobalnetworkpolicies,ippools,felixconfigurations,ipamblocks,networksets,blockaffinities,globalnetworksets,networkpolicies,hostendpoints,caliconodestatuses,clusterinformations,globalbgpconfigs,globalnetworkpolicies,stagednetworkpolicies",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "services,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "nodes,pods,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "baselineadminnetworkpolicies,adminnetworkpolicies",
+        "API groups": "policy.networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "networkpolicies",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "serviceaccounts,pods,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,create",
+        "Resources": "bgpconfigurations,bgppeers",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "update,create",
+        "Resources": "ippools,felixconfigurations,clusterinformations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "update,list,get,delete,create",
+        "Resources": "ipamhandles,ipamblocks,blockaffinities",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "update,patch",
+        "Resources": "nodes/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "caliconodestatuses",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "blockaffinities",
+        "API groups": "crd.projectcalico.org"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [calico-node] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/calico-node] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: calico-cni-plugin
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): calico-typha/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "serviceaccounts/token",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "tiers",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "get,create",
+        "Resources": "ipamconfigs",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ipreservations,bgppeers,bgpconfigurations,tiers,stagedkubernetesnetworkpolicies,globalfelixconfigs,bgpfilters,stagedglobalnetworkpolicies,ippools,felixconfigurations,ipamblocks,networksets,blockaffinities,globalnetworksets,networkpolicies,hostendpoints,caliconodestatuses,clusterinformations,globalbgpconfigs,globalnetworkpolicies,stagednetworkpolicies",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "services,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "nodes,pods,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "baselineadminnetworkpolicies,adminnetworkpolicies",
+        "API groups": "policy.networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "networkpolicies",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "serviceaccounts,pods,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,create",
+        "Resources": "bgpconfigurations,bgppeers",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "update,create",
+        "Resources": "ippools,felixconfigurations,clusterinformations",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "update,list,get,delete,create",
+        "Resources": "ipamhandles,ipamblocks,blockaffinities",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "update,patch",
+        "Resources": "nodes/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "caliconodestatuses",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "blockaffinities",
+        "API groups": "crd.projectcalico.org"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [calico-node] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/calico-node] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: calico-cni-plugin
+-------------------------------------------
+

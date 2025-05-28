@@ -1,0 +1,1170 @@
+[Service Account]: prometheus
+  [Resource] (ResourceName/ResourceType): prometheus-deployment/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes/proxy,nodes,services,pods,endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [prometheus] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/prometheus] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: antrea-controller
+  [Resource] (ResourceName/ResourceType): antrea-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,list",
+        "Resources": "antreaagentinfos",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "antreacontrollerinfos",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "configmaps,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "groups,clustergroups,externalentities",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "networkpolicies,clusternetworkpolicies",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "tiers",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "traceflows,traceflows/status",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "get,watch,list,update,patch",
+        "Resources": "egresses",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "list,update",
+        "Resources": "apiservices",
+        "API groups": "apiregistration.k8s.io"
+    },
+    {
+        "verbs": "list,update",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "externalippools/status,ippools/status",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "sign,approve",
+        "Resources": "signers",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "certificatesigningrequests/status,certificatesigningrequests/approval",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "clustergroups/status,egresses/status,groups/status",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "clusternetworkpolicies/status,networkpolicies/status",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "services/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "supportbundlecollections/status",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "baselineadminnetworkpolicies,adminnetworkpolicies",
+        "API groups": "policy.networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "externalnodes",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ippools,externalippools",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "labelidentities",
+        "API groups": "multicluster.crd.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,services,pods,configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "networkpolicies",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "supportbundlecollections",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "watch,list,update,get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [antrea-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/antrea-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: antrea-controller-tls,antrea-ipsec-ca, extension-apiserver-authentication, antrea-ca,antrea-ipsec-ca,antrea-cluster-identity, antrea.io/antrea-agent-ipsec-tunnel
+-------------------------------------------
+
+[Service Account]: fluentd
+  [Resource] (ResourceName/ResourceType): fluentd/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [fluentd] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/fluentd] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: antctl
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,get",
+        "Resources": "supportbundles",
+        "API groups": "system.antrea.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "networkpolicyevaluation",
+        "API groups": "controlplane.antrea.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "controllerinfos",
+        "API groups": "system.antrea.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "supportbundles/download",
+        "API groups": "system.antrea.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "antreaagentinfos,antreacontrollerinfos",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "networkpolicies,addressgroups,appliedtogroups",
+        "API groups": "controlplane.antrea.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "networkpolicystats,antreaclusternetworkpolicystats,antreanetworkpolicystats",
+        "API groups": "stats.antrea.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "daemonsets,deployments,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [antctl] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/antctl] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: antrea-ca,antrea-ipsec-ca,antrea-config,antrea-cluster-identity
+-------------------------------------------
+
+[Service Account]: vm-agent
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,get",
+        "Resources": "networkpolicies/status",
+        "API groups": "controlplane.antrea.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "nodestatssummaries",
+        "API groups": "controlplane.antrea.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "supportbundlecollections/status",
+        "API groups": "controlplane.antrea.io"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "antreaagentinfos",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "networkpolicies,addressgroups,appliedtogroups",
+        "API groups": "controlplane.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "supportbundlecollections",
+        "API groups": "controlplane.antrea.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [vm-agent] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/vm-agent] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: antrea-ca, extension-apiserver-authentication
+-------------------------------------------
+
+[Service Account]: member-access-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (antrea-multicluster): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [member-cluster-role] []
+    [roleBindings]: [ServiceAccount/member-access-sa] [Main configs]
+-------------------------------------------
+
+[Service Account]: flow-aggregator
+  [Resource] (ResourceName/ResourceType): flow-aggregator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,watch,list,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [antrea-cluster-identity-reader; flow-aggregator-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/flow-aggregator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: extension-apiserver-authentication, antrea-cluster-identity, flow-aggregator-client-tls, flow-aggregator-ca, flow-aggregator-configmap
+-------------------------------------------
+
+[Service Account]: antrea-mc-controller
+  [Resource] (ResourceName/ResourceType): antrea-mc-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clusterinfoimports",
+        "API groups": "multicluster.crd.antrea.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clusternetworkpolicies",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clustersets",
+        "API groups": "multicluster.crd.antrea.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "gateways",
+        "API groups": "multicluster.crd.antrea.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "labelidentities",
+        "API groups": "multicluster.crd.antrea.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "serviceexports",
+        "API groups": "multicluster.x-k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "serviceimports",
+        "API groups": "multicluster.x-k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,update",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "clusterinfoimports/status",
+        "API groups": "multicluster.crd.antrea.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "clustersets/status",
+        "API groups": "multicluster.crd.antrea.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "gateways/status",
+        "API groups": "multicluster.crd.antrea.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "serviceexports/status",
+        "API groups": "multicluster.x-k8s.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "serviceimports/status",
+        "API groups": "multicluster.x-k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "clusterinfoimports/finalizers",
+        "API groups": "multicluster.crd.antrea.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "clustersets/finalizers",
+        "API groups": "multicluster.crd.antrea.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "gateways/finalizers",
+        "API groups": "multicluster.crd.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "clusterclaims",
+        "API groups": "multicluster.crd.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "tiers",
+        "API groups": "crd.antrea.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [antrea-mc-controller-role; antrea-mc-controller-webhook-role; antrea-multicluster-antrea-mc-controller-webhook-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/antrea-mc-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: controller
+  [Resource] (ResourceName/ResourceType): controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clusternetworkpolicies",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "memberclusterannounces,resourceexports,clustersets,clusterinfoimports,gateways,resourceimports",
+        "API groups": "multicluster.crd.antrea.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "serviceimports,serviceexports",
+        "API groups": "multicluster.x-k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "services,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,update",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "resourceimports/status,resourceexports/status,memberclusterannounces/status,clusterinfoimports/status,clustersets/status,gateways/status",
+        "API groups": "multicluster.crd.antrea.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "serviceexports/status,serviceimports/status",
+        "API groups": "multicluster.x-k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "resourceexports/finalizers,clusterinfoimports/finalizers,resourceimports/finalizers,clustersets/finalizers,memberclusterannounces/finalizers,gateways/finalizers",
+        "API groups": "multicluster.crd.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "tiers",
+        "API groups": "crd.antrea.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [controller-role; controller-webhook-role; proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/controller] [Main configs]
+-------------------------------------------
+
+[Service Account]: antrea-agent
+  [Resource] (ResourceName/ResourceType): antrea-agent/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,get",
+        "Resources": "networkpolicies/status",
+        "API groups": "controlplane.antrea.io"
+    },
+    {
+        "verbs": "create,watch,list,get",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "nodelatencystats",
+        "API groups": "stats.antrea.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "nodestatssummaries",
+        "API groups": "controlplane.antrea.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "supportbundlecollections/status",
+        "API groups": "controlplane.antrea.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "traceflows,traceflows/status",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "gateways",
+        "API groups": "multicluster.crd.antrea.io"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "antreaagentinfos",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "egresses/status",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "ippools/status",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "packetcaptures/status",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "egresses",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "egressgroups",
+        "API groups": "controlplane.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ippools,trafficcontrols,externalippools,bgppolicies,nodelatencymonitors",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "labelidentities,clusterinfoimports",
+        "API groups": "multicluster.crd.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,services,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "network-attachment-definitions",
+        "API groups": "k8s.cni.cncf.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "networkpolicies,addressgroups,appliedtogroups",
+        "API groups": "controlplane.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "packetcaptures",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "supportbundlecollections",
+        "API groups": "controlplane.antrea.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (kube-system): [
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [antrea-agent] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/antrea-agent] [Main configs]
+
+    [roles]: [flow-exporter-role] [Main configs]
+    [roleBindings]: [ServiceAccount/antrea-agent] [Main configs]
+    [clusterResourceNames]: antrea-packetcapture-fileserver-auth,antrea-bgp-passwords, antrea-ca, extension-apiserver-authentication
+    [roleResourceNames]: flow-aggregator-client-tls, flow-aggregator-ca
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): antrea-agent-windows/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,get",
+        "Resources": "networkpolicies/status",
+        "API groups": "controlplane.antrea.io"
+    },
+    {
+        "verbs": "create,watch,list,get",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "nodelatencystats",
+        "API groups": "stats.antrea.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "nodestatssummaries",
+        "API groups": "controlplane.antrea.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "supportbundlecollections/status",
+        "API groups": "controlplane.antrea.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "traceflows,traceflows/status",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,watch,list,get",
+        "Resources": "gateways",
+        "API groups": "multicluster.crd.antrea.io"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "antreaagentinfos",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "egresses/status",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "ippools/status",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "packetcaptures/status",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "egresses",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "egressgroups",
+        "API groups": "controlplane.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ippools,trafficcontrols,externalippools,bgppolicies,nodelatencymonitors",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "labelidentities,clusterinfoimports",
+        "API groups": "multicluster.crd.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,services,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "network-attachment-definitions",
+        "API groups": "k8s.cni.cncf.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "networkpolicies,addressgroups,appliedtogroups",
+        "API groups": "controlplane.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "packetcaptures",
+        "API groups": "crd.antrea.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "supportbundlecollections",
+        "API groups": "controlplane.antrea.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (kube-system): [
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [antrea-agent] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/antrea-agent] [Main configs]
+
+    [roles]: [flow-exporter-role] [Main configs]
+    [roleBindings]: [ServiceAccount/antrea-agent] [Main configs]
+    [clusterResourceNames]: antrea-packetcapture-fileserver-auth,antrea-bgp-passwords, antrea-ca, extension-apiserver-authentication
+    [roleResourceNames]: flow-aggregator-client-tls, flow-aggregator-ca
+-------------------------------------------
+

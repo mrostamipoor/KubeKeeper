@@ -1,0 +1,367 @@
+[Service Account]: horizontal-pod-autoscaler
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "external.metrics.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [keda-external-metrics-reader] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/horizontal-pod-autoscaler] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: keda-operator
+  [Resource] (ResourceName/ResourceType): keda-metrics-apiserver/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "*/scale",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "apiservices",
+        "API groups": "apiregistration.k8s.io"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "cloudeventsources,clustercloudeventsources/status,cloudeventsources/status,clustercloudeventsources",
+        "API groups": "eventing.keda.sh"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "scaledobjects/status,scaledobjects/finalizers,triggerauthentications/status,clustertriggerauthentications,scaledjobs/finalizers,clustertriggerauthentications/status,scaledjobs/status,triggerauthentications,scaledjobs,scaledobjects",
+        "API groups": "keda.sh"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets,configmaps/status,pods,services,configmaps,external",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "limitranges,serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "statefulsets,deployments",
+        "API groups": "apps"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (keda): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [keda-operator; system:auth-delegator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/keda-operator] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/keda-operator] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): keda-admission/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "*/scale",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "apiservices",
+        "API groups": "apiregistration.k8s.io"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "cloudeventsources,clustercloudeventsources/status,cloudeventsources/status,clustercloudeventsources",
+        "API groups": "eventing.keda.sh"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "scaledobjects/status,scaledobjects/finalizers,triggerauthentications/status,clustertriggerauthentications,scaledjobs/finalizers,clustertriggerauthentications/status,scaledjobs/status,triggerauthentications,scaledjobs,scaledobjects",
+        "API groups": "keda.sh"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets,configmaps/status,pods,services,configmaps,external",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "limitranges,serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "statefulsets,deployments",
+        "API groups": "apps"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (keda): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [keda-operator; system:auth-delegator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/keda-operator] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/keda-operator] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): keda-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "*/scale",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "apiservices",
+        "API groups": "apiregistration.k8s.io"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "cloudeventsources,clustercloudeventsources/status,cloudeventsources/status,clustercloudeventsources",
+        "API groups": "eventing.keda.sh"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "scaledobjects/status,scaledobjects/finalizers,triggerauthentications/status,clustertriggerauthentications,scaledjobs/finalizers,clustertriggerauthentications/status,scaledjobs/status,triggerauthentications,scaledjobs,scaledobjects",
+        "API groups": "keda.sh"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets,configmaps/status,pods,services,configmaps,external",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "limitranges,serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "statefulsets,deployments",
+        "API groups": "apps"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (keda): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [keda-operator; system:auth-delegator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/keda-operator] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/keda-operator] [Main configs]
+-------------------------------------------
+

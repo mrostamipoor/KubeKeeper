@@ -1,0 +1,24 @@
+[Service Account]: release-name-git-webhook
+  [Resource] (ResourceName/ResourceType): release-name-git-webhook/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "wordpresses/status,wordpresses",
+        "API groups": "wordpress.presslabs.org"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-git-webhook] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-git-webhook] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

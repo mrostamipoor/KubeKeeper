@@ -1,0 +1,152 @@
+[Service Account]: tink-server
+  [Resource] (ResourceName/ResourceType): tink-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "workflows/status,workflows",
+        "API groups": "tinkerbell.org"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "hardware,hardware/status,templates,templates/status",
+        "API groups": "tinkerbell.org"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [tink-server-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/tink-server] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: tink-controller-manager
+  [Resource] (ResourceName/ResourceType): tink-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "job/status,job",
+        "API groups": "bmc.tinkerbell.org"
+    },
+    {
+        "verbs": "delete,get,watch,update,list,patch",
+        "Resources": "workflows/status,workflows",
+        "API groups": "tinkerbell.org"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "hardware,hardware/status,templates,templates/status",
+        "API groups": "tinkerbell.org"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [tink-manager-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/tink-controller-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: server
+  [Resource] (ResourceName/ResourceType): server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "workflows/status,workflows",
+        "API groups": "tinkerbell.org"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "hardware,hardware/status,templates,templates/status",
+        "API groups": "tinkerbell.org"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [server-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/server] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: controller-manager
+  [Resource] (ResourceName/ResourceType): controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "job/status,job",
+        "API groups": "bmc.tinkerbell.org"
+    },
+    {
+        "verbs": "delete,get,watch,update,list,patch",
+        "Resources": "workflows/status,workflows",
+        "API groups": "tinkerbell.org"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "hardware,hardware/status,templates,templates/status",
+        "API groups": "tinkerbell.org"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [manager-role; proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller-manager] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/controller-manager] [Main configs]
+-------------------------------------------
+

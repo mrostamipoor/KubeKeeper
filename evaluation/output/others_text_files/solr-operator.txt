@@ -1,0 +1,176 @@
+[Service Account]: solr-operator
+  [Resource] (ResourceName/ResourceType): solr-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "pods/exec",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "ingresses/status",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "services/status,configmaps/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "statefulsets/status,deployments/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "zookeeperclusters/status",
+        "API groups": "zookeeper.pravega.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps,secrets,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "deployments,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "solrbackups,solrprometheusexporters,solrclouds",
+        "API groups": "solr.apache.org"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "zookeeperclusters",
+        "API groups": "zookeeper.pravega.io"
+    },
+    {
+        "verbs": "list,watch,delete,get",
+        "Resources": "persistentvolumeclaims,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,get",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "solrbackups/status,solrprometheusexporters/status,solrclouds/status",
+        "API groups": "solr.apache.org"
+    },
+    {
+        "verbs": "update",
+        "Resources": "solrprometheusexporters/finalizers,solrclouds/finalizers,solrbackups/finalizers",
+        "API groups": "solr.apache.org"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (solr-operator): [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [solr-operator-proxy-role; solr-operator-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/solr-operator] [Main configs]
+
+    [roles]: [solr-operator-leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/solr-operator] [Main configs]
+-------------------------------------------
+

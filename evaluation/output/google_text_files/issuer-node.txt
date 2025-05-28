@@ -1,0 +1,162 @@
+[Service Account]: release-name-default-service-account
+  [Resource] (ResourceName/ResourceType): api-issuer-node/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [pod-reader] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-default-service-account] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): notifications-issuer-node/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [pod-reader] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-default-service-account] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): pending-publisher-issuer-node/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [pod-reader] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-default-service-account] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): ui-issuer-node/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [pod-reader] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-default-service-account] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): redis-issuer-node/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [pod-reader] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-default-service-account] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): vault-issuer-node/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [pod-reader] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-default-service-account] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): postgres-issuer-node/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [pod-reader] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-default-service-account] [Main configs]
+-------------------------------------------
+

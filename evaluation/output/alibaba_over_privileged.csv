@@ -1,0 +1,16 @@
+Application Name,Over-Privileged,Critical Permissions,Direct Access via Secret Permissions Counts,Indirect Access via Secret Manipulation Counts,Indirect Access via Resource Scheduling Control Counts,Indirect Access via Node Manipulation Counts
+node-problem-detector,N/A,,0,0,0,0
+spring-cloud-alibaba,N/A,,0,0,0,0
+open-local,True,create::pods::::whole; get::*::*::whole; get::secrets::::whole; list::*::*::whole; list::secrets::::whole; patch::nodes::::whole; patch::pods::::whole; patch::secrets::::whole; update::nodes::::whole; update::pods::::whole; update::secrets::::whole; watch::*::*::whole; watch::secrets::::whole,6,2,3,2
+kubernetes-ingress,True,get::secrets::::whole; get::secrets::core::whole; list::secrets::::whole; list::secrets::core::whole; update::pods::::whole; update::pods::core::whole; watch::secrets::::whole; watch::secrets::core::whole,12,0,2,0
+higress,True,create::deployments::apps::whole; get::secrets::::whole; get::secrets::core::whole; list::secrets::::whole; list::secrets::core::whole; patch::deployments::apps::whole; patch::secrets::::whole; update::deployments::apps::whole; update::secrets::::whole; update::secrets::core::whole; watch::secrets::::whole; watch::secrets::core::whole,18,3,3,0
+cloud-native-app-initializer,N/A,,0,0,0,0
+log-pilot,N/A,,0,0,0,0
+flannel,N/A,,0,0,0,0
+gpushare-scheduler-extender,True,patch::pods::::whole; update::pods::::whole,0,0,4,0
+sentinel-golang,N/A,,0,0,0,0
+alibaba-load-balancer-controller,True,create::deployments::apps::whole; get::secrets::::whole; list::secrets::::whole; patch::deployments::apps::whole; patch::pods::::whole; patch::secrets::::whole; update::deployments::apps::whole; update::pods::::whole; update::secrets::::whole; watch::secrets::::whole,3,2,5,0
+alibaba-cloud-csi-driver,True,get::secrets::core::whole; patch::nodes::::whole; patch::secrets::core::whole; update::nodes::::whole,1,1,0,3
+ilogtail,N/A,,0,0,0,0
+terway,True,get::secrets::core::whole; patch::nodes::::whole; patch::pods::::whole; patch::secrets::core::whole; update::secrets::core::whole; watch::secrets::core::whole,2,2,4,5
+Sentinel,N/A,,0,0,0,0

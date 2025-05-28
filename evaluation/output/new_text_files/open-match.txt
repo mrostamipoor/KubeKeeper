@@ -1,0 +1,18 @@
+[Service Account]: gke-metadata-server
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (kube-system): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [gce:podsecuritypolicy:privileged] []
+    [roleBindings]: [ServiceAccount/gke-metadata-server] [Main configs]
+-------------------------------------------
+

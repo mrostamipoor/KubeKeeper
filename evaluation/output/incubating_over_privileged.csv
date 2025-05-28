@@ -1,0 +1,37 @@
+Application Name,Over-Privileged,Critical Permissions,Direct Access via Secret Permissions Counts,Indirect Access via Secret Manipulation Counts,Indirect Access via Resource Scheduling Control Counts,Indirect Access via Node Manipulation Counts
+spec,N/A,,0,0,0,0
+kyverno,True,get::secrets::core::whole; list::secrets::core::whole; patch::deployments::apps::whole; patch::pods::::whole; patch::secrets::core::whole; update::deployments::apps::whole; update::pods::::whole; update::secrets::core::whole; watch::secrets::core::whole,12,3,4,0
+pack,N/A,,0,0,0,0
+cortex,N/A,,0,0,0,0
+dapr,True,get::secrets::::whole; get::secrets::core::whole; list::secrets::::whole; update::secrets::core::whole; watch::secrets::::whole,6,1,0,0
+cni,N/A,,0,0,0,0
+community,N/A,,0,0,0,0
+longhorn,True,*::cronjobs::batch::whole; *::daemonsets::apps::whole; *::deployments::apps::whole; *::jobs::batch::whole; *::nodes::::whole; *::pods::::whole; *::secrets::::whole; *::statefulsets::apps::whole,3,0,18,3
+chaos-mesh,True,create::pods::::whole; get::secrets::::whole; get::secrets::core::whole; list::secrets::::whole; list::secrets::core::whole; patch::pods::::whole; patch::secrets::::whole; update::pods::::whole; update::secrets::::whole; watch::secrets::::whole; watch::secrets::core::whole,6,2,3,0
+karmada,True,create::deployments::apps::whole; create::statefulsets::apps::whole; get::*::*::whole; get::secrets::::whole; list::*::*::whole; update::deployments::apps::whole; update::secrets::::whole; update::statefulsets::apps::whole; watch::*::*::whole,5,2,8,0
+cloud-custodian,N/A,,0,0,0,0
+kubeedge,True,create::deployments::apps::whole; create::pods::::whole; get::secrets::::whole; get::serviceaccounts/token::::whole; list::secrets::::whole; list::serviceaccounts/token::::whole; patch::deployments::apps::whole; patch::nodes::::whole; patch::secrets::::whole; update::deployments::apps::whole; update::nodes::::whole; update::pods::::whole; update::secrets::::whole; update::serviceaccounts/token::::whole; watch::secrets::::whole; watch::serviceaccounts/token::::whole,9,3,5,3
+backstage,N/A,,0,0,0,0
+cert-manager,True,create::pods::::whole; get::secrets::::whole; get::secrets::core::whole; list::secrets::::whole; list::secrets::core::whole; patch::secrets::::whole; update::secrets::::whole; update::secrets::core::whole; watch::secrets::::whole; watch::secrets::core::whole,15,4,1,0
+lifecycle-toolkit,True,*::secrets::::whole; *::statefulsets::apps::whole; create::deployments::::whole; create::jobs::batch::whole; get::secrets::::whole; list::secrets::::whole; patch::deployments::::whole; update::deployments::::whole; update::jobs::batch::whole; update::pods::::whole; watch::secrets::::whole,5,0,7,0
+Dragonfly2,N/A,,0,0,0,0
+kubevela,True,get::secrets::core::whole,2,0,0,0
+strimzi-kafka-operator,True,get::secrets::::whole; get::secrets::core::whole; list::secrets::::whole; list::secrets::core::whole; patch::pods::::whole; patch::secrets::::whole; patch::secrets::core::whole; update::secrets::::whole; update::secrets::core::whole; watch::secrets::::whole; watch::secrets::core::whole,6,4,1,0
+nats-server,N/A,,0,0,0,0
+kubevirt,True,update::pods::::whole,0,0,1,0
+OpenMetrics,N/A,,0,0,0,0
+serving,N/A,,0,0,0,0
+in-toto,N/A,,0,0,0,0
+volcano,True,create::pods::::whole; get::secrets::::whole; get::secrets::core::whole; list::secrets::::whole; patch::nodes::::whole; patch::pods::::whole; patch::secrets::core::whole; update::nodes::::whole; update::secrets::::whole; watch::secrets::::whole,8,3,6,6
+crossplane,True,create::deployments::apps::whole; get::secrets::::whole; list::secrets::::whole; patch::deployments::apps::whole; patch::secrets::::whole; update::deployments::apps::whole; update::secrets::::whole; watch::secrets::::whole,3,2,3,0
+keycloak,True,create::jobs::batch::whole; create::statefulsets::apps::whole; get::secrets::core::whole; list::secrets::core::whole; patch::jobs::batch::whole; patch::secrets::core::whole; patch::statefulsets::apps::whole; update::jobs::batch::whole; update::secrets::core::whole; update::statefulsets::apps::whole; watch::secrets::core::whole,3,2,6,0
+hub,N/A,,0,0,0,0
+kubeflow,True,*::statefulsets::apps::whole; create::deployments::apps::whole; get::secrets::core::whole; update::deployments::apps::whole,2,0,9,0
+notation,N/A,,0,0,0,0
+thanos,N/A,,0,0,0,0
+litmus,True,*::secrets::::whole; *::statefulsets::apps::whole; create::daemonsets::::whole; create::daemonsets::apps::whole; create::daemonsets::batch::whole; create::deployments::::whole; create::deployments::apps::whole; create::deployments::batch::whole; create::jobs::::whole; create::jobs::apps::whole; create::jobs::batch::whole; create::pods::::whole; create::pods::core::whole; create::statefulsets::apps::whole; get::secrets::::whole; get::secrets::apps::whole; get::secrets::core::whole; list::secrets::::whole; list::secrets::apps::whole; list::secrets::core::whole; patch::daemonsets::::whole; patch::daemonsets::apps::whole; patch::daemonsets::batch::whole; patch::deployments::::whole; patch::deployments::apps::whole; patch::deployments::batch::whole; patch::jobs::::whole; patch::jobs::apps::whole; patch::jobs::batch::whole; patch::nodes::::whole; patch::pods::::whole; patch::pods::core::whole; patch::secrets::::whole; patch::secrets::core::whole; patch::statefulsets::apps::whole; update::daemonsets::apps::whole; update::deployments::::whole; update::deployments::apps::whole; update::jobs::::whole; update::jobs::batch::whole; update::nodes::::whole; update::pods::::whole; update::pods::core::whole; update::replicasets::apps::whole; update::secrets::::whole; update::secrets::core::whole; update::statefulsets::apps::whole; watch::secrets::::whole; watch::secrets::apps::whole; watch::secrets::core::whole,46,18,239,4
+contour,True,create::daemonsets::apps::whole; create::deployments::apps::whole; get::secrets::::whole; list::secrets::::whole; update::daemonsets::apps::whole; update::deployments::apps::whole; update::secrets::::whole; watch::secrets::::whole,9,1,4,0
+kruise,True,create::deployments::apps::whole; create::jobs::batch::whole; create::pods::::whole; create::statefulsets::apps::whole; get::secrets::::whole; list::*::*::whole; list::secrets::::whole; patch::deployments::apps::whole; patch::jobs::batch::whole; patch::pods::::whole; patch::statefulsets::apps::whole; update::deployments::apps::whole; update::jobs::batch::whole; update::pods::::whole; update::secrets::::whole; update::statefulsets::apps::whole; watch::secrets::::whole,12,3,36,0
+emissary,True,*::secrets::::whole; *::statefulsets::apps::whole; get::secrets::::whole; list::secrets::::whole; patch::secrets::::whole,3,1,1,0
+cubefs,N/A,,0,0,0,0
+grpc,N/A,,0,0,0,0

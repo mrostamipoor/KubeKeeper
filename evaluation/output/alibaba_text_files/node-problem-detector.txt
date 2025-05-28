@@ -1,0 +1,18 @@
+[Service Account]: node-problem-detector
+  [Resource] (ResourceName/ResourceType): node-problem-detector/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:node-problem-detector] []
+    [clusterRoleBindings]: [ServiceAccount/node-problem-detector] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

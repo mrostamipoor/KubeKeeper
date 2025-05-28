@@ -1,0 +1,48 @@
+[Service Account]: release-name-prometheus
+  [Resource] (ResourceName/ResourceType): prometheus/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,services,pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-prometheus] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-prometheus] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-controller
+  [Resource] (ResourceName/ResourceType): gateway/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "policies,profiles",
+        "API groups": "openfaas.com"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-profiles] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-controller] [Main configs]
+-------------------------------------------
+

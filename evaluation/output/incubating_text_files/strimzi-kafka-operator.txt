@@ -1,0 +1,281 @@
+[Service Account]: strimzi-kube-state-metrics
+  [Resource] (ResourceName/ResourceType): strimzi-kube-state-metrics/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "kafkatopics,kafkausers",
+        "API groups": "kafka.strimzi.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [strimzi-kube-state-metrics] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/strimzi-kube-state-metrics] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: strimzi-cluster-operator
+  [Resource] (ResourceName/ResourceType): strimzi-cluster-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clusterrolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (myproject): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [strimzi-cluster-operator-global; strimzi-kafka-broker; strimzi-kafka-client] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/strimzi-cluster-operator] [Main configs]
+
+    [roles]: [strimzi-cluster-operator-leader-election; strimzi-cluster-operator-namespaced; strimzi-cluster-operator-watched; strimzi-entity-operator] []
+    [roleBindings]: [ServiceAccount/strimzi-cluster-operator] [Main configs]
+-------------------------------------------
+
+[Service Account]: strimzi-user-operator
+  [Resource] (ResourceName/ResourceType): strimzi-user-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get,create,watch,list,update,patch",
+        "Resources": "kafkausers",
+        "API groups": "kafka.strimzi.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "kafkausers/status",
+        "API groups": "kafka.strimzi.io"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [strimzi-user-operator] [Main configs]
+    [roleBindings]: [ServiceAccount/strimzi-user-operator] [Main configs]
+-------------------------------------------
+
+[Service Account]: strimzi-topic-operator
+  [Resource] (ResourceName/ResourceType): strimzi-topic-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "kafkatopics",
+        "API groups": "kafka.strimzi.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "kafkatopics/status",
+        "API groups": "kafka.strimzi.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [strimzi-topic-operator] [Main configs]
+    [roleBindings]: [ServiceAccount/strimzi-topic-operator] [Main configs]
+-------------------------------------------
+
+[Service Account]: strimzi-access-operator
+  [Resource] (ResourceName/ResourceType): strimzi-access-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "kafkaaccesses/status,kafkaaccesses",
+        "API groups": "access.strimzi.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "kafkas,kafkausers",
+        "API groups": "kafka.strimzi.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [strimzi-access-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/strimzi-access-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: strimzi-drain-cleaner
+  [Resource] (ResourceName/ResourceType): strimzi-drain-cleaner/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "patch,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [strimzi-drain-cleaner] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/strimzi-drain-cleaner] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: prometheus-server
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ingresses",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes/proxy,nodes,services,pods,endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [prometheus-server] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/prometheus-server] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

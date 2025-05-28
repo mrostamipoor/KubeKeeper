@@ -1,0 +1,9 @@
+deployment,time_to_create,time_to_start
+nginx,0,1
+redis,0,2
+node,0,19
+python,0,2
+postgres,1,1
+tensorflow,0,19
+elasticsearch,0,1
+jenkins,0,1

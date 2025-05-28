@@ -1,0 +1,189 @@
+[Service Account]: controller-manager
+  [Resource] (ResourceName/ResourceType): namespace-configuration-operator-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "groupconfigs",
+        "API groups": "redhatcop.redhat.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "namespaceconfigs",
+        "API groups": "redhatcop.redhat.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "userconfigs",
+        "API groups": "redhatcop.redhat.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "groupconfigs/status",
+        "API groups": "redhatcop.redhat.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "namespaceconfigs/status",
+        "API groups": "redhatcop.redhat.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "userconfigs/status",
+        "API groups": "redhatcop.redhat.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "groupconfigs/finalizers",
+        "API groups": "redhatcop.redhat.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "namespaceconfigs/finalizers",
+        "API groups": "redhatcop.redhat.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "userconfigs/finalizers",
+        "API groups": "redhatcop.redhat.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [manager-role; namespace-configuration-manager-role; namespace-configuration-operator-manager-role; namespace-configuration-operator-proxy-role; namespace-configuration-proxy-role; proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller-manager] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/controller-manager] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "groupconfigs",
+        "API groups": "redhatcop.redhat.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "namespaceconfigs",
+        "API groups": "redhatcop.redhat.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "userconfigs",
+        "API groups": "redhatcop.redhat.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "groupconfigs/status",
+        "API groups": "redhatcop.redhat.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "namespaceconfigs/status",
+        "API groups": "redhatcop.redhat.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "userconfigs/status",
+        "API groups": "redhatcop.redhat.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "groupconfigs/finalizers",
+        "API groups": "redhatcop.redhat.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "namespaceconfigs/finalizers",
+        "API groups": "redhatcop.redhat.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "userconfigs/finalizers",
+        "API groups": "redhatcop.redhat.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [manager-role; namespace-configuration-manager-role; namespace-configuration-operator-manager-role; namespace-configuration-operator-proxy-role; namespace-configuration-proxy-role; proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller-manager] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/controller-manager] [Main configs]
+-------------------------------------------
+

@@ -1,0 +1,189 @@
+[Service Account]: release-name-vela-core-admission
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "update,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-vela-core-admission] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-vela-core-admission] [Main configs]
+
+    [roles]: [release-name-vela-core-admission] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-vela-core-admission] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-vela-core
+  [Resource] (ResourceName/ResourceType): release-name-cluster-gateway/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clustergateways/proxy",
+        "API groups": "cluster.core.oam.dev"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin; release-name-vela-core:cluster-gateway:proxy] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-vela-core] [Main configs]
+
+    [roles]: [release-name-vela-core:leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-vela-core] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): release-name-vela-core/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clustergateways/proxy",
+        "API groups": "cluster.core.oam.dev"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin; release-name-vela-core:cluster-gateway:proxy] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-vela-core] [Main configs]
+
+    [roles]: [release-name-vela-core:leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-vela-core] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): release-name-application-test/Pod
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "clustergateways/proxy",
+        "API groups": "cluster.core.oam.dev"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin; release-name-vela-core:cluster-gateway:proxy] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-vela-core] [Main configs]
+
+    [roles]: [release-name-vela-core:leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-vela-core] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-vela-core-cluster-gateway-admission
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-vela-core-cluster-gateway-admission] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-vela-core-cluster-gateway-admission] [Main configs]
+-------------------------------------------
+

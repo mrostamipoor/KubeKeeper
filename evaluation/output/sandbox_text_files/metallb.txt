@@ -1,0 +1,752 @@
+[Service Account]: prometheus-k8s
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "nodes/metrics",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [prometheus-k8s] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/prometheus-k8s] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: frr-k8s-daemon
+  [Resource] (ResourceName/ResourceType): frr-k8s-webhook-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "frrconfigurations",
+        "API groups": "frrk8s.metallb.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "frrnodestates",
+        "API groups": "frrk8s.metallb.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "frrconfigurations/status",
+        "API groups": "frrk8s.metallb.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "frrnodestates/status",
+        "API groups": "frrk8s.metallb.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "frrconfigurations/finalizers",
+        "API groups": "frrk8s.metallb.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [frr-k8s-daemon-role; frr-k8s-proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/frr-k8s-daemon] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: frr-k8s-validating-webhook-configuration
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): frr-k8s-daemon/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "frrconfigurations",
+        "API groups": "frrk8s.metallb.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "frrnodestates",
+        "API groups": "frrk8s.metallb.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "frrconfigurations/status",
+        "API groups": "frrk8s.metallb.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "frrnodestates/status",
+        "API groups": "frrk8s.metallb.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "frrconfigurations/finalizers",
+        "API groups": "frrk8s.metallb.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [frr-k8s-daemon-role; frr-k8s-proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/frr-k8s-daemon] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: frr-k8s-validating-webhook-configuration
+-------------------------------------------
+
+[Service Account]: prometheus-operator
+  [Resource] (ResourceName/ResourceType): prometheus-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "configmaps,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "prometheuses/status,probes,prometheuses,podmonitors,alertmanagers/finalizers,prometheusrules,alertmanagerconfigs,alertmanagers,thanosrulers/finalizers,servicemonitors,prometheuses/finalizers,thanosrulers",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "services/finalizers,services,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,list",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [prometheus-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/prometheus-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: speaker
+  [Resource] (ResourceName/ResourceType): speaker/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "servicel2statuses,servicel2statuses/status",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "use",
+        "Resources": "podsecuritypolicies",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,services,nodes,endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "*",
+        "Resources": "servicebgpstatuses/status,servicebgpstatuses",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "bfdprofiles",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "bgpadvertisements",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "bgppeers",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "communities",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ipaddresspools",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "l2advertisements",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [metallb-system:speaker] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/speaker] [Main configs]
+
+    [roles]: [pod-lister] [Main configs]
+    [roleBindings]: [ServiceAccount/speaker] [Main configs]
+    [clusterResourceNames]: speaker
+-------------------------------------------
+
+[Service Account]: release-name-metallb-controller
+  [Resource] (ResourceName/ResourceType): release-name-metallb-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "services/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create,watch,list,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "bgpadvertisements",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "bgppeers",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "l2advertisements",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "ipaddresspools/status",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "bfdprofiles",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "communities",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ipaddresspools",
+        "API groups": "metallb.io"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-metallb:controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-metallb-controller] [Main configs]
+
+    [roles]: [release-name-metallb-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-metallb-controller] [Main configs]
+    [clusterResourceNames]: metallb-webhook-configuration, l2advertisements.metallb.io,bgpadvertisements.metallb.io,bgppeers.metallb.io,bfdprofiles.metallb.io,ipaddresspools.metallb.io,communities.metallb.io
+    [roleResourceNames]: release-name-metallb-controller, release-name-metallb-memberlist
+-------------------------------------------
+
+[Service Account]: controller
+  [Resource] (ResourceName/ResourceType): controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "services/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "use",
+        "Resources": "podsecuritypolicies",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "bgppeers",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "ipaddresspools/status",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "bfdprofiles",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "bgpadvertisements",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "communities",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ipaddresspools",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "l2advertisements",
+        "API groups": "metallb.io"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [metallb-system:controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller] [Main configs]
+
+    [roles]: [controller] [Main configs]
+    [roleBindings]: [ServiceAccount/controller] [Main configs]
+    [clusterResourceNames]: metallb-webhook-configuration, l2advertisements.metallb.io,bgpadvertisements.metallb.io,bgppeers.metallb.io,bfdprofiles.metallb.io,ipaddresspools.metallb.io,communities.metallb.io, controller
+    [roleResourceNames]: controller, memberlist
+-------------------------------------------
+
+[Service Account]: release-name-metallb-speaker
+  [Resource] (ResourceName/ResourceType): release-name-metallb-speaker/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "servicel2statuses,servicel2statuses/status",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,services,nodes,endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "*",
+        "Resources": "servicebgpstatuses/status,servicebgpstatuses",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "bfdprofiles",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "bgpadvertisements",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "bgppeers",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "communities",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ipaddresspools",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "l2advertisements",
+        "API groups": "metallb.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-metallb:speaker] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-metallb-speaker] [Main configs]
+
+    [roles]: [release-name-metallb-pod-lister] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-metallb-speaker] [Main configs]
+-------------------------------------------
+

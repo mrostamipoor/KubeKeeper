@@ -1,0 +1,276 @@
+[Service Account]: appdynamics-operator
+  [Resource] (ResourceName/ResourceType): release-name-appdynamics-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "deployments,daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "secrets,services,configmaps,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get,create",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "clustermons/status",
+        "API groups": "cluster.appdynamics.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "containermons/status",
+        "API groups": "cluster.appdynamics.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "inframons/status",
+        "API groups": "cluster.appdynamics.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "logcollectors/status",
+        "API groups": "cluster.appdynamics.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "otelcollectors/status",
+        "API groups": "cluster.appdynamics.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "servermons/status",
+        "API groups": "cluster.appdynamics.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "clustermons",
+        "API groups": "cluster.appdynamics.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "containermons",
+        "API groups": "cluster.appdynamics.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "inframons",
+        "API groups": "cluster.appdynamics.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "logcollectors",
+        "API groups": "cluster.appdynamics.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "otelcollectors",
+        "API groups": "cluster.appdynamics.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "servermons",
+        "API groups": "cluster.appdynamics.com"
+    },
+    {
+        "verbs": "update",
+        "Resources": "clustermons/finalizers",
+        "API groups": "cluster.appdynamics.com"
+    },
+    {
+        "verbs": "update",
+        "Resources": "containermons/finalizers",
+        "API groups": "cluster.appdynamics.com"
+    },
+    {
+        "verbs": "update",
+        "Resources": "inframons/finalizers",
+        "API groups": "cluster.appdynamics.com"
+    },
+    {
+        "verbs": "update",
+        "Resources": "logcollectors/finalizers",
+        "API groups": "cluster.appdynamics.com"
+    },
+    {
+        "verbs": "update",
+        "Resources": "otelcollectors/finalizers",
+        "API groups": "cluster.appdynamics.com"
+    },
+    {
+        "verbs": "update",
+        "Resources": "servermons/finalizers",
+        "API groups": "cluster.appdynamics.com"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,list,get,create",
+        "Resources": "deployments,daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,watch,list,get,create",
+        "Resources": "services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "secrets,configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [appdynamics-operator-clusterrole; operator-role; proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/appdynamics-operator] [Main configs]
+
+    [roles]: [appdynamics-operator-role; leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/appdynamics-operator] [Main configs]
+-------------------------------------------
+
+[Service Account]: appdynamics-infraviz
+  [Resource] (ResourceName/ResourceType): release-name-machine-agent/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "apiservices/status,apiservices",
+        "API groups": "apiregistration.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "customresourcedefinitions,customresourcedefinitions/status",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "events",
+        "API groups": "events.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "replicasets/status,deployments/scale,deployments/status,daemonsets/status,statefulsets/scale,statefulsets/status,replicasets,replicasets/scale,deployments,daemonsets,controllerrevisions,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "replicationcontrollers,jobs,replicationcontrollers/scale,storageclasses,ingresses,deployments,horizontalpodautoscalers/status,daemonsets,deployments/scale,deployments/status,podsecuritypolicies,daemonsets/status,ingresses/status,jobs/status,horizontalpodautoscalers,networkpolicies,thirdpartyresources,replicasets,replicasets/status,replicasets/scale",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "replicationcontrollers,replicationcontrollers/status,namespaces/status,resourcequotas,namespaces,replicationcontrollers/scale,pods/binding,serviceaccounts,configmaps,endpoints,podtemplates,pods/log,securitycontextconstraints,nodes/status,persistentvolumes/status,persistentvolumeclaims/status,persistentvolumeclaims,componentstatuses,events,nodes,resourcequotas/status,services/status,pods,limitranges,pods/eviction,bindings,services,pods/status,persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-machine-agent] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/appdynamics-infraviz] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

@@ -1,0 +1,4939 @@
+[Service Account]: release-name-ingress-nginx-admission
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "update,get",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,create",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-ingress-nginx-admission] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-ingress-nginx-admission] [Main configs]
+
+    [roles]: [release-name-ingress-nginx-admission] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-ingress-nginx-admission] [Main configs]
+-------------------------------------------
+
+[Service Account]: otomi-tekton-triggers-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "clusterinterceptors,clustertriggerbindings",
+        "API groups": "triggers.tekton.dev"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [tekton-triggers-eventlistener-clusterroles] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/otomi-tekton-triggers-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-cert-manager-webhook
+  [Resource] (ResourceName/ResourceType): release-name-cert-manager-webhook/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,get,list,watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-cert-manager-webhook:subjectaccessreviews] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-cert-manager-webhook] [Main configs]
+
+    [roles]: [release-name-cert-manager-webhook:dynamic-serving] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-cert-manager-webhook] [Main configs]
+    [roleResourceNames]: release-name-cert-manager-webhook-ca
+-------------------------------------------
+
+[Service Account]: kyverno-admission-controller
+  [Resource] (ResourceName/ResourceType): kyverno-admission-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,patch,get,delete,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get",
+        "Resources": "deployments,deployments/scale",
+        "API groups": "apps"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-kyverno:admission-controller] []
+    [clusterRoleBindings]: [ServiceAccount/kyverno-admission-controller] [Main configs]
+
+    [roles]: [release-name-kyverno:admission-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/kyverno-admission-controller] [Main configs]
+    [roleResourceNames]: release-name-kyverno,release-name-kyverno-metrics
+-------------------------------------------
+
+[Service Account]: release-name-redis-ha
+  [Resource] (ResourceName/ResourceType): release-name-redis-ha-server/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get",
+        "Resources": "endpoints",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-redis-ha] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-redis-ha] [Main configs]
+-------------------------------------------
+
+[Service Account]: argocd-notifications-controller
+  [Resource] (ResourceName/ResourceType): release-name-argocd-notifications-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "configmaps,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get",
+        "Resources": "applications,appprojects",
+        "API groups": "argoproj.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "configmaps,secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get",
+        "Resources": "applications,appprojects",
+        "API groups": "argoproj.io"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-argocd-notifications-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/argocd-notifications-controller] [Main configs]
+
+    [roles]: [release-name-argocd-notifications-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/argocd-notifications-controller] [Main configs]
+    [clusterResourceNames]: argocd-notifications-cm, argocd-notifications-secret
+    [roleResourceNames]: argocd-notifications-cm, argocd-notifications-secret
+-------------------------------------------
+
+[Service Account]: kyverno-background-controller
+  [Resource] (ResourceName/ResourceType): kyverno-background-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,get,patch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-kyverno:background-controller] []
+    [clusterRoleBindings]: [ServiceAccount/kyverno-background-controller] [Main configs]
+
+    [roles]: [release-name-kyverno:background-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/kyverno-background-controller] [Main configs]
+    [roleResourceNames]: release-name-kyverno,release-name-kyverno-metrics, kyverno-background-controller
+-------------------------------------------
+
+[Service Account]: release-name-cert-manager
+  [Resource] (ResourceName/ResourceType): release-name-cert-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "approve",
+        "Resources": "signers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "routes/custom-host",
+        "API groups": "route.openshift.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "delete,create",
+        "Resources": "challenges",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "certificates,issuers,clusterissuers,certificaterequests",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "challenges,orders",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "challenges",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "clusterissuers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "gateways,httproutes",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "issuers,clusterissuers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "issuers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "sign",
+        "Resources": "signers",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "update,delete,create",
+        "Resources": "certificates,certificaterequests",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "update,get,list,watch",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "update,patch",
+        "Resources": "certificates,certificaterequests,certificaterequests/status,certificates/status",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "update,patch",
+        "Resources": "certificatesigningrequests/status",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "update,patch",
+        "Resources": "challenges,challenges/status",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "update,patch",
+        "Resources": "clusterissuers,clusterissuers/status",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "update,patch",
+        "Resources": "issuers,issuers/status",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "update,patch",
+        "Resources": "orders/status,orders",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "httproutes",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "certificates/finalizers,certificaterequests/finalizers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "challenges/finalizers",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "httproutes/finalizers,gateways/finalizers",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "ingresses/finalizers",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "orders/finalizers",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "watch,list,get,delete,create",
+        "Resources": "orders",
+        "API groups": "acme.cert-manager.io"
+    },
+    {
+        "verbs": "watch,list,get,delete,create",
+        "Resources": "services,pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "serviceaccounts/token",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-cert-manager-controller-approve:cert-manager-io; release-name-cert-manager-controller-certificates; release-name-cert-manager-controller-certificatesigningrequests; release-name-cert-manager-controller-challenges; release-name-cert-manager-controller-clusterissuers; release-name-cert-manager-controller-ingress-shim; release-name-cert-manager-controller-issuers; release-name-cert-manager-controller-orders] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-cert-manager] [Main configs]
+
+    [roles]: [release-name-cert-manager-tokenrequest; release-name-cert-manager:leaderelection] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-cert-manager] [Main configs]
+    [clusterResourceNames]: clusterissuers.cert-manager.io/*,issuers.cert-manager.io/*
+    [roleResourceNames]: release-name-cert-manager, cert-manager-controller
+-------------------------------------------
+
+[Service Account]: istio-operator
+  [Resource] (ResourceName/ResourceType): istio-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "authentication.istio.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "config.istio.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "extensions.istio.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "install.istio.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "security.istio.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "telemetry.istio.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "clusterrolebindings,roles,rolebindings,clusterroles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions,customresourcedefinitions.apiextensions.k8s.io",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments,daemonsets,deployments/finalizers,replicasets",
+        "API groups": "extensions,apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "*",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets,services,resourcequotas,pods,namespaces,pods/proxy,serviceaccounts,pods/portforward,persistentvolumeclaims,configmaps,events,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "update,get,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "update,get,create",
+        "Resources": "servicemonitors",
+        "API groups": "monitoring.coreos.com"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [istio-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/istio-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-cert-manager-startupapicheck
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "certificaterequests",
+        "API groups": "cert-manager.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-cert-manager-startupapicheck:create-cert] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-cert-manager-startupapicheck] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-external-dns
+  [Resource] (ResourceName/ResourceType): release-name-external-dns/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "gateways,virtualservices",
+        "API groups": "networking.istio.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "httpproxies",
+        "API groups": "projectcontour.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ingresses,hosts",
+        "API groups": "getambassador.io,extensions,networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes,services,pods,namespaces,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "proxies,virtualservices",
+        "API groups": "gateway.solo.io,gloo.solo.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "routegroups",
+        "API groups": "zalando.org"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "routes",
+        "API groups": "route.openshift.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "tcpingresses",
+        "API groups": "configuration.konghq.com"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "tlsroutes,httproutes,udproutes,gateways,tcproutes,grpcroutes",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "virtualservers",
+        "API groups": "cis.f5.com"
+    },
+    {
+        "verbs": "update,patch",
+        "Resources": "routegroups/status",
+        "API groups": "zalando.org"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-external-dns-default] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-external-dns] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-apl-harbor-operator
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,patch",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-apl-harbor-operator-edit-harbor] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-apl-harbor-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: kyverno-cleanup-controller
+  [Resource] (ResourceName/ResourceType): kyverno-cleanup-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,get,patch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "update,watch,list,get,delete",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-kyverno:cleanup-controller] []
+    [clusterRoleBindings]: [ServiceAccount/kyverno-cleanup-controller] [Main configs]
+
+    [roles]: [release-name-kyverno:cleanup-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/kyverno-cleanup-controller] [Main configs]
+    [roleResourceNames]: release-name-kyverno,release-name-kyverno-metrics, kyverno-cleanup-controller.default.svc.kyverno-tls-pair,kyverno-cleanup-controller.default.svc.kyverno-tls-ca, kyverno-cleanup-controller
+-------------------------------------------
+
+[Service Account]: cert-manager
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "*",
+        "API groups": "acme.slicen.me"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-cert-manager-webhook-linode:domain-solver] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/cert-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-ingress-nginx
+  [Resource] (ResourceName/ResourceType): release-name-ingress-nginx-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ingressclasses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "nodes,secrets,pods,namespaces,configmaps,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "ingresses/status",
+        "API groups": "networking.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "endpoints,configmaps,pods,secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ingressclasses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "namespaces",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "ingresses/status",
+        "API groups": "networking.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-ingress-nginx] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-ingress-nginx] [Main configs]
+
+    [roles]: [release-name-ingress-nginx] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-ingress-nginx] [Main configs]
+    [roleResourceNames]: release-name-ingress-nginx-leader
+-------------------------------------------
+
+[Service Account]: release-name-metrics-server
+  [Resource] (ResourceName/ResourceType): release-name-metrics-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,create",
+        "Resources": "nodes/metrics",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes,pods,namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-metrics-server-default; system:auth-delegator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-metrics-server] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/release-name-metrics-server] [Main configs]
+-------------------------------------------
+
+[Service Account]: operator-webhook
+  [Resource] (ResourceName/ResourceType): operator-webhook/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,create",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments/finalizers",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "namespaces/finalizers",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [knative-operator-webhook] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/operator-webhook] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-velero-server
+  [Resource] (ResourceName/ResourceType): release-name-velero/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "*"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/release-name-velero-server] [Main configs]
+
+    [roles]: [release-name-velero-server] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-velero-server] [Main configs]
+-------------------------------------------
+
+[Service Account]: kyverno-cleanup-jobs
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,delete,deletecollection",
+        "Resources": "admissionreports,clusteradmissionreports",
+        "API groups": "kyverno.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kyverno-cleanup-jobs] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kyverno-cleanup-jobs] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: tekton-dashboard
+  [Resource] (ResourceName/ResourceType): tekton-dashboard/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "clusterinterceptors,clustertriggerbindings",
+        "API groups": "triggers.tekton.dev"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "clustertasks",
+        "API groups": "tekton.dev"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "customruns,pipelines,tasks,pipelineruns,taskruns",
+        "API groups": "tekton.dev"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "extensions",
+        "API groups": "dashboard.tekton.dev"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods/log,pods,namespaces,serviceaccounts,events",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "triggers,triggertemplates,triggerbindings,eventlisteners,interceptors",
+        "API groups": "triggers.tekton.dev"
+    },
+    {
+        "verbs": "get,list",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "customruns,pipelines,tasks,pipelineruns,taskruns",
+        "API groups": "tekton.dev"
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-tekton-dashbo-backend; release-name-tekton-dashbo-resources; release-name-tekton-dashbo-tenant] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/tekton-dashboard] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: argocd-application-controller
+  [Resource] (ResourceName/ResourceType): release-name-argocd-application-controller/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "*",
+        "Resources": "",
+        "API groups": "core"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "secrets,configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "applications,appprojects",
+        "API groups": "argoproj.io"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-argocd-application-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/argocd-application-controller] [Main configs]
+
+    [roles]: [release-name-argocd-application-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/argocd-application-controller] [Main configs]
+-------------------------------------------
+
+[Service Account]: tekton-triggers-core-interceptors
+  [Resource] (ResourceName/ResourceType): tekton-triggers-core-interceptors/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get,list,watch",
+        "Resources": "clusterinterceptors",
+        "API groups": "triggers.tekton.dev"
+    },
+    {
+        "verbs": "update,get,list,watch",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [tekton-triggers-core-interceptors; tekton-triggers-core-interceptors-secrets] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/tekton-triggers-core-interceptors] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: tekton-triggers-core-interceptors-certs
+-------------------------------------------
+
+[Service Account]: release-name-cloudnative-pg
+  [Resource] (ResourceName/ResourceType): release-name-cloudnative-pg/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "clusterimagecatalogs",
+        "API groups": "postgresql.cnpg.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "imagecatalogs",
+        "API groups": "postgresql.cnpg.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,patch",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "update,get,patch,watch",
+        "Resources": "clusters/status,poolers/status",
+        "API groups": "postgresql.cnpg.io"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "scheduledbackups/status,databases/status,publications/status,backups/status,subscriptions/status",
+        "API groups": "postgresql.cnpg.io"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "secrets/status,configmaps/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,create",
+        "Resources": "roles,rolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,create",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "configmaps,services,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "databases,poolers,clusters,backups,subscriptions,publications,scheduledbackups",
+        "API groups": "postgresql.cnpg.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "update",
+        "Resources": "poolers/finalizers,clusters/finalizers",
+        "API groups": "postgresql.cnpg.io"
+    },
+    {
+        "verbs": "watch,patch,list,get,create",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "watch,patch,list,get,delete,create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "watch,patch,list,get,delete,create",
+        "Resources": "podmonitors",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "watch,patch,list,get,delete,create",
+        "Resources": "pods/exec,persistentvolumeclaims,pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-cloudnative-pg] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-cloudnative-pg] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: argocd-applicationset-controller
+  [Resource] (ResourceName/ResourceType): release-name-argocd-applicationset-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "deployments",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "appprojects",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "applicationsets/status",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "applicationsets/finalizers,applications,applicationsets",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "watch,patch,list,get,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-argocd-applicationset-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/argocd-applicationset-controller] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-cert-manager-webhook-linode
+  [Resource] (ResourceName/ResourceType): release-name-cert-manager-webhook-linode/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (cert-manager): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:auth-delegator] []
+    [clusterRoleBindings]: [ServiceAccount/release-name-cert-manager-webhook-linode] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/release-name-cert-manager-webhook-linode] [Main configs]
+-------------------------------------------
+
+[Service Account]: tekton-pipelines-webhook
+  [Resource] (ResourceName/ResourceType): tekton-pipelines-webhook/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "update,get,delete",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "update,get,delete",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "customresourcedefinitions,customresourcedefinitions/status",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "namespaces/finalizers",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [tekton-pipelines-webhook-cluster-access] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/tekton-pipelines-webhook] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: resolutionrequests.resolution.tekton.dev,verificationpolicies.tekton.dev,clustertasks.tekton.dev,pipelineruns.tekton.dev,pipelines.tekton.dev,customruns.tekton.dev,tasks.tekton.dev,taskruns.tekton.dev,stepactions.tekton.dev, validation.webhook.pipeline.tekton.dev,config.webhook.pipeline.tekton.dev, webhook.pipeline.tekton.dev, tekton-pipelines
+-------------------------------------------
+
+[Service Account]: release-name-argocd-repo-server
+  [Resource] (ResourceName/ResourceType): release-name-argocd-repo-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-argocd-repo-server] []
+    [roleBindings]: [ServiceAccount/release-name-argocd-repo-server] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-kiali-operator
+  [Resource] (ResourceName/ResourceType): release-name-kiali-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "get,create",
+        "Resources": "servicemonitors",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "get,list,patch,watch",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get,list,patch,watch",
+        "Resources": "deploymentconfigs",
+        "API groups": "apps.openshift.io"
+    },
+    {
+        "verbs": "get,list,patch,watch",
+        "Resources": "deployments,daemonsets,statefulsets,replicasets",
+        "API groups": "extensions,apps"
+    },
+    {
+        "verbs": "get,list,patch,watch",
+        "Resources": "services,replicationcontrollers,pods,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,patch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods/log,configmaps,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "clusteroperators",
+        "API groups": "config.openshift.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "projects",
+        "API groups": "project.openshift.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "routes",
+        "API groups": "route.openshift.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,create,watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "clusteroperators",
+        "API groups": "config.openshift.io"
+    },
+    {
+        "verbs": "list",
+        "Resources": "selfsubjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "post,create",
+        "Resources": "pods/portforward",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "*",
+        "API groups": "kiali.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "clusterrolebindings,roles,rolebindings,clusterroles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "consolelinks",
+        "API groups": "console.openshift.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "deployments,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "ingresses",
+        "API groups": "extensions,networking.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "oauthclients",
+        "API groups": "oauth.openshift.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "routes/custom-host,routes",
+        "API groups": "route.openshift.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "services,pods,services/finalizers,serviceaccounts,configmaps,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments/finalizers",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,patch,list,get,delete,create",
+        "Resources": "*",
+        "API groups": "security.istio.io,gateway.networking.k8s.io,authentication.istio.io,telemetry.istio.io,rbac.istio.io,networking.istio.io,config.istio.io,extensions.istio.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-kiali-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-kiali-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: kiali-signing-key, kube-apiserver, cacerts,istio-ca-secret, kiali-operator
+-------------------------------------------
+
+[Service Account]: release-name-apl
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/release-name-apl] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: kyverno-reports-controller
+  [Resource] (ResourceName/ResourceType): kyverno-reports-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,get,patch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-kyverno:reports-controller] []
+    [clusterRoleBindings]: [ServiceAccount/kyverno-reports-controller] [Main configs]
+
+    [roles]: [release-name-kyverno:reports-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/kyverno-reports-controller] [Main configs]
+    [roleResourceNames]: release-name-kyverno,release-name-kyverno-metrics, kyverno-reports-controller
+-------------------------------------------
+
+[Service Account]: tekton-pipelines-resolvers
+  [Resource] (ResourceName/ResourceType): tekton-pipelines-remote-resolvers/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list",
+        "Resources": "pipelines,tasks",
+        "API groups": "tekton.dev"
+    },
+    {
+        "verbs": "update,watch,patch,list,get",
+        "Resources": "resolutionrequests,resolutionrequests/status",
+        "API groups": "resolution.tekton.dev"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [tekton-pipelines-resolvers-resolution-request-updates] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/tekton-pipelines-resolvers] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-falco
+  [Resource] (ResourceName/ResourceType): release-name-falco/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "deployments,daemonsets,statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes,services,replicationcontrollers,pods,namespaces,replicasets,configmaps,deployments,daemonsets,events",
+        "API groups": ",extensions"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-falco] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-falco] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-trivy-operator
+  [Resource] (ResourceName/ResourceType): release-name-trivy-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "clusterrolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "clusterroles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "deploymentconfigs",
+        "API groups": "apps.openshift.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "limitranges",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "networkpolicies",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "resourcequotas",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "rolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "roles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,list",
+        "Resources": "pods/log",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "clustercompliancereports/status",
+        "API groups": "aquasecurity.github.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "clustercompliancedetailreports",
+        "API groups": "aquasecurity.github.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "clustercompliancereports",
+        "API groups": "aquasecurity.github.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "clusterconfigauditreports",
+        "API groups": "aquasecurity.github.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "clusterinfraassessmentreports",
+        "API groups": "aquasecurity.github.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "clusterrbacassessmentreports",
+        "API groups": "aquasecurity.github.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "clustersbomreports",
+        "API groups": "aquasecurity.github.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "clustervulnerabilityreports",
+        "API groups": "aquasecurity.github.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "configauditreports",
+        "API groups": "aquasecurity.github.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "exposedsecretreports",
+        "API groups": "aquasecurity.github.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "infraassessmentreports",
+        "API groups": "aquasecurity.github.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "rbacassessmentreports",
+        "API groups": "aquasecurity.github.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "sbomreports",
+        "API groups": "aquasecurity.github.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "vulnerabilityreports",
+        "API groups": "aquasecurity.github.io"
+    },
+    {
+        "verbs": "watch,list,get,delete,create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get,delete,create",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get,list,create,watch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,get,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [trivy-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-trivy-operator] [Main configs]
+
+    [roles]: [release-name-trivy-operator; release-name-trivy-operator-leader-election] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-trivy-operator] [Main configs]
+-------------------------------------------
+
+[Service Account]: tekton-pipelines-controller
+  [Resource] (ResourceName/ResourceType): tekton-pipelines-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "serviceaccounts,limitranges,configmaps,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "verificationpolicies",
+        "API groups": "tekton.dev"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "customruns,pipelines,tasks,pipelineruns,taskruns,clustertasks,stepactions",
+        "API groups": "tekton.dev"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "persistentvolumeclaims,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "pipelines/status,stepactions/status,verificationpolicies/status,tasks/status,taskruns/status,customruns/status,clustertasks/status,pipelineruns/status",
+        "API groups": "tekton.dev"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "resolutionrequests,resolutionrequests/status",
+        "API groups": "resolution.tekton.dev"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "taskruns/finalizers,pipelineruns/finalizers,customruns/finalizers",
+        "API groups": "tekton.dev"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [tekton-pipelines-controller-cluster-access; tekton-pipelines-controller-tenant-access] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/tekton-pipelines-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-apl-keycloak-operator
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-apl-keycloak-operator-edit-keycloak] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-apl-keycloak-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-otomi-operator
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-otomi-operator-edit-secrets] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-otomi-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-sealed-secrets
+  [Resource] (ResourceName/ResourceType): release-name-sealed-secrets/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "sealedsecrets",
+        "API groups": "bitnami.com"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "sealedsecrets/status",
+        "API groups": "bitnami.com"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,create",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [secrets-unsealer] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-sealed-secrets] [Main configs]
+
+    [roles]: [release-name-sealed-secrets-key-admin] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-sealed-secrets] [Main configs]
+    [roleResourceNames]: sealed-secrets-key
+-------------------------------------------
+
+[Service Account]: keycloak-operator
+  [Resource] (ResourceName/ResourceType): release-name-keycloak-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "secrets,services",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "statefulsets",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [keycloak-operator-role; keycloakcontroller-cluster-role; keycloakrealmimportcontroller-cluster-role; view] [Main configs]
+    [roleBindings]: [ServiceAccount/keycloak-operator] [Main configs]
+-------------------------------------------
+
+[Service Account]: tekton-events-controller
+  [Resource] (ResourceName/ResourceType): tekton-events-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "customruns,pipelines,tasks,pipelineruns,taskruns,clustertasks",
+        "API groups": "tekton.dev"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [tekton-events-controller-cluster-access] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/tekton-events-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: argocd-dex-server
+  [Resource] (ResourceName/ResourceType): release-name-argocd-dex-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "secrets,configmaps",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-argocd-dex-server] [Main configs]
+    [roleBindings]: [ServiceAccount/argocd-dex-server] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-jaeger-operator
+  [Resource] (ResourceName/ResourceType): release-name-jaeger-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "imagestreams",
+        "API groups": "image.openshift.io"
+    },
+    {
+        "verbs": "update,get,list,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "deployments/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "jaegers/status",
+        "API groups": "jaegertracing.io"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "namespaces/status",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "clusterrolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "consolelinks",
+        "API groups": "console.openshift.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "deployments,daemonsets,statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "elasticsearch",
+        "API groups": "logging.openshift.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "elasticsearches",
+        "API groups": "logging.openshift.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "ingresses",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "jaegers",
+        "API groups": "jaegertracing.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "kafkausers,kafkas",
+        "API groups": "kafka.strimzi.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "namespaces",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "routes",
+        "API groups": "route.openshift.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "secrets,persistentvolumeclaims,services,pods,services/finalizers,serviceaccounts,configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "servicemonitors",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jaegers/finalizers",
+        "API groups": "jaegertracing.io"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-jaeger-operator] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-jaeger-operator] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-promtail
+  [Resource] (ResourceName/ResourceType): release-name-promtail/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes,services,pods,nodes/proxy,endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-promtail] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-promtail] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: knative-operator
+  [Resource] (ResourceName/ResourceType): knative-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "operator.knative.dev"
+    },
+    {
+        "verbs": "*",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "images",
+        "API groups": "caching.internal.knative.dev"
+    },
+    {
+        "verbs": "*",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "bind,get",
+        "Resources": "clusterroles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "bind,get",
+        "Resources": "roles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete",
+        "Resources": "configmaps",
+        "API groups": "*"
+    },
+    {
+        "verbs": "delete",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete",
+        "Resources": "deployments,services,horizontalpodautoscalers",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "*"
+    },
+    {
+        "verbs": "delete",
+        "Resources": "leases",
+        "API groups": "*"
+    },
+    {
+        "verbs": "delete",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "delete",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "deletecollection",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,list,delete,create",
+        "Resources": "apiservices",
+        "API groups": "apiregistration.k8s.io"
+    },
+    {
+        "verbs": "get,list,delete,create",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "rabbitmqclusters",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "get",
+        "Resources": "bindings/status,queues/status,exchanges/status",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "*"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "configmaps",
+        "API groups": "*"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "services",
+        "API groups": "*"
+    },
+    {
+        "verbs": "update,delete",
+        "Resources": "consumergroups/finalizers,consumers/finalizers",
+        "API groups": "internal.kafka.eventing.knative.dev"
+    },
+    {
+        "verbs": "update,get,watch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,create,get,delete,escalate",
+        "Resources": "roles,clusterroles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "update,list,get,delete,create",
+        "Resources": "clusterrolebindings,rolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "update,list,get,delete,create",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "update,list,get,delete,create",
+        "Resources": "pods/finalizers",
+        "API groups": "*"
+    },
+    {
+        "verbs": "update,list,get,watch",
+        "Resources": "pods",
+        "API groups": "*"
+    },
+    {
+        "verbs": "update,patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "bundles",
+        "API groups": "trust.cert-manager.io"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "certificates,issuers,clusterissuers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "configmaps,services",
+        "API groups": "*"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "peerauthentications,replicasets,poddisruptionbudgets,deployments,daemonsets,statefulsets",
+        "API groups": "security.istio.io,policy,apps"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "scaledobjects/finalizers,scaledobjects,triggerauthentications/status,triggerauthentications,scaledobjects/status",
+        "API groups": "keda.sh"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "serviceaccounts",
+        "API groups": "*"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "bindings,queues,exchanges",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "consumergroups/status,consumers/status,consumers,consumergroups",
+        "API groups": "internal.kafka.eventing.knative.dev"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "guardians",
+        "API groups": "guard.security.knative.dev"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "statefulsets/scale",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,deletecollection,delete,create",
+        "Resources": "httpproxies,tlscertificatedelegations",
+        "API groups": "projectcontour.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "apiservices",
+        "API groups": "apiregistration.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get,delete,create",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get,delete,create",
+        "Resources": "deployments,daemonsets,statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,get,delete,create",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "clusterrolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": "*"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "update",
+        "Resources": "replicasets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "*"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "replicasets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "update",
+        "Resources": "jobs",
+        "API groups": "batch"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [knative-eventing-operator; knative-eventing-operator-aggregated; knative-eventing-operator-aggregated-stable; knative-serving-operator; knative-serving-operator-aggregated; knative-serving-operator-aggregated-stable] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/knative-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: kafka-channel-config, config-controller, extension-apiserver-authentication-reader, kafka-webhook, knative-eventing-operator, knative-ingressgateway, knative-serving-operator, system:auth-delegator
+-------------------------------------------
+
+[Service Account]: release-name-grafana
+  [Resource] (ResourceName/ResourceType): release-name-grafana/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-grafana-clusterrole] []
+    [clusterRoleBindings]: [ServiceAccount/release-name-grafana] [Main configs]
+
+    [roles]: [release-name-grafana] []
+    [roleBindings]: [ServiceAccount/release-name-grafana] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-velero-server-upgrade-crds
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "update,patch,list,get,create",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-velero-upgrade-crds] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-velero-server-upgrade-crds] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-kube-state-metrics
+  [Resource] (ResourceName/ResourceType): release-name-kube-state-metrics/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "daemonsets",
+        "API groups": "extensions,apps"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "deployments",
+        "API groups": "extensions,apps"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "ingresses",
+        "API groups": "extensions,networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "limitranges",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "networkpolicies",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "replicasets",
+        "API groups": "extensions,apps"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "resourcequotas",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "volumeattachments",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-kube-state-metrics] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-kube-state-metrics] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-kube-promethe-operator
+  [Resource] (ResourceName/ResourceType): release-name-kube-promethe-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "alertmanagerconfigs,prometheusagents/finalizers,scrapeconfigs,prometheusagents,servicemonitors,alertmanagers/finalizers,probes,prometheuses/status,thanosrulers/finalizers,prometheuses,prometheusagents/status,thanosrulers/status,prometheusrules,podmonitors,alertmanagers,alertmanagers/status,thanosrulers,prometheuses/finalizers",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "*",
+        "Resources": "configmaps,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,delete",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get,delete,create",
+        "Resources": "services/finalizers,services,endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-kube-promethe-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-kube-promethe-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-rabbitmq-messaging-topology-operator
+  [Resource] (ResourceName/ResourceType): release-name-rabbitmq-messaging-topology-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "rabbitmqclusters",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "operatorpolicies/status",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "get",
+        "Resources": "rabbitmqclusters/status",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "bindings/status",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "exchanges/status",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "federations/status",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "permissions/status",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "policies/status",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "queues/status",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "schemareplications/status",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "shovels/status",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "superstreams/status",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "topicpermissions/status",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "users/status",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "vhosts/status",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,create",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "bindings",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "exchanges",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "federations",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "operatorpolicies",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "permissions",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "policies",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "queues",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "schemareplications",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "shovels",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "superstreams",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "topicpermissions",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "users",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "vhosts",
+        "API groups": "rabbitmq.com"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-rabbitmq-messaging-topology-operator-default] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-rabbitmq-messaging-topology-operator] [Main configs]
+
+    [roles]: [release-name-rabbitmq-messaging-topology-operator] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-rabbitmq-messaging-topology-operator] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-cert-manager-cainjector
+  [Resource] (ResourceName/ResourceType): release-name-cert-manager-cainjector/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "certificates",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get,patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get",
+        "Resources": "apiservices",
+        "API groups": "apiregistration.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-cert-manager-cainjector] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-cert-manager-cainjector] [Main configs]
+
+    [roles]: [release-name-cert-manager-cainjector:leaderelection] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-cert-manager-cainjector] [Main configs]
+    [roleResourceNames]: cert-manager-cainjector-leader-election-core,cert-manager-cainjector-leader-election
+-------------------------------------------
+
+[Service Account]: otomi-tekton-tasks-sa
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/otomi-tekton-tasks-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-kured
+  [Resource] (ResourceName/ResourceType): release-name-kured/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "pods/eviction",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,delete",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "daemonsets",
+        "API groups": "extensions"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "update,patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,patch",
+        "Resources": "daemonsets",
+        "API groups": "extensions"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-kured] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-kured] [Main configs]
+
+    [roles]: [release-name-kured] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-kured] [Main configs]
+    [roleResourceNames]: release-name-kured
+-------------------------------------------
+
+[Service Account]: argocd-server
+  [Resource] (ResourceName/ResourceType): release-name-argocd-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "workflows",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "get,patch,delete",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "get",
+        "Resources": "pods/log,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get,list,watch",
+        "Resources": "applications,applicationsets",
+        "API groups": "argoproj.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get",
+        "Resources": "*",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "applications,appprojects,applicationsets",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "secrets,configmaps",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-argocd-server] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/argocd-server] [Main configs]
+
+    [roles]: [release-name-argocd-server] [Main configs]
+    [roleBindings]: [ServiceAccount/argocd-server] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-kube-promethe-admission
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "update,get",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,create",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-kube-promethe-admission] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-kube-promethe-admission] [Main configs]
+
+    [roles]: [release-name-kube-promethe-admission] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-kube-promethe-admission] [Main configs]
+-------------------------------------------
+
+[Service Account]: opentelemetry-operator
+  [Resource] (ResourceName/ResourceType): release-name-opentelemetry-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get,list,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "opentelemetrycollectors/finalizers",
+        "API groups": "opentelemetry.io"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "opentelemetrycollectors/status",
+        "API groups": "opentelemetry.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "routes",
+        "API groups": "route.openshift.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,watch,patch,list,get",
+        "Resources": "instrumentations",
+        "API groups": "opentelemetry.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get",
+        "Resources": "opentelemetrycollectors",
+        "API groups": "opentelemetry.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "configmaps/status",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "configmaps",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-opentelemetry-operator-manager; release-name-opentelemetry-operator-proxy] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/opentelemetry-operator] [Main configs]
+
+    [roles]: [release-name-opentelemetry-operator-leader-election] [Main configs]
+    [roleBindings]: [ServiceAccount/opentelemetry-operator] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-rabbitmq-cluster-operator
+  [Resource] (ResourceName/ResourceType): release-name-rabbitmq-cluster-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "pods/exec",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get,list,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "rabbitmqclusters/status",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,watch,list,get,create",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,list,get,create",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,list,get,create",
+        "Resources": "rabbitmqclusters",
+        "API groups": "rabbitmq.com"
+    },
+    {
+        "verbs": "update,watch,list,get,create",
+        "Resources": "rolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "update,watch,list,get,create",
+        "Resources": "roles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "update,watch,list,get,create",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,list,get,create",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,list,get,create",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "rabbitmqclusters/finalizers",
+        "API groups": "rabbitmq.com"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-rabbitmq-cluster-operator-default] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-rabbitmq-cluster-operator] [Main configs]
+
+    [roles]: [release-name-rabbitmq-cluster-operator] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-rabbitmq-cluster-operator] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-kube-promethe-prometheus
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes,services,pods,nodes/metrics,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-kube-promethe-prometheus] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-kube-promethe-prometheus] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: tekton-triggers-controller
+  [Resource] (ResourceName/ResourceType): tekton-triggers-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "configmaps,services,events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "deployments,deployments/finalizers",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "eventlisteners/status,triggertemplates/status,triggers/status,clusterinterceptors/status,clustertriggerbindings/status,triggerbindings/status,interceptors/status",
+        "API groups": "triggers.tekton.dev"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "triggers,clustertriggerbindings,triggertemplates,triggerbindings,clusterinterceptors,eventlisteners/finalizers,eventlisteners,interceptors",
+        "API groups": "triggers.tekton.dev"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,deletecollection,delete,create",
+        "Resources": "*,*/finalizers,*/status",
+        "API groups": "serving.knative.dev"
+    },
+    {
+        "verbs": "update",
+        "Resources": "namespaces/finalizers",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [tekton-triggers-admin] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/tekton-triggers-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: tekton-pipelines
+-------------------------------------------
+
+[Service Account]: tekton-triggers-webhook
+  [Resource] (ResourceName/ResourceType): tekton-triggers-webhook/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "configmaps,services,events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "deployments,deployments/finalizers",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "eventlisteners/status,triggertemplates/status,triggers/status,clusterinterceptors/status,clustertriggerbindings/status,triggerbindings/status,interceptors/status",
+        "API groups": "triggers.tekton.dev"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "triggers,clustertriggerbindings,triggertemplates,triggerbindings,clusterinterceptors,eventlisteners/finalizers,eventlisteners,interceptors",
+        "API groups": "triggers.tekton.dev"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,deletecollection,delete,create",
+        "Resources": "*,*/finalizers,*/status",
+        "API groups": "serving.knative.dev"
+    },
+    {
+        "verbs": "update",
+        "Resources": "namespaces/finalizers",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [tekton-triggers-admin] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/tekton-triggers-webhook] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: tekton-pipelines
+-------------------------------------------
+

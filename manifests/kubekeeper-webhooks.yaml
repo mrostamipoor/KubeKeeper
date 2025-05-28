@@ -1,0 +1,52 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: secret-mutation
+webhooks:
+  - name: "secret-mutation.webhook-server.kubekeeper.svc"
+    namespaceSelector: {}  # This will match all namespaces
+    rules:
+      - operations: [ "CREATE", "UPDATE" ]
+        apiGroups: [ "" ]  
+        apiVersions: [ "v1" ]
+        resources: [ "secrets" ]
+        scope: "Namespaced"
+    objectSelector:
+      matchLabels:
+        protected-secret: "true"
+    clientConfig:
+      service:
+        namespace: kubekeeper
+        name: kubekeeper
+        path: "/secret-mutation"
+      caBundle: ${ENCODED_CA}
+    admissionReviewVersions: ["v1"]
+    sideEffects: None
+    timeoutSeconds: 5
+
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: deployment-mutation
+webhooks:
+  - name: "deployment-mutation.webhook-server.kubekeeper.svc"
+    namespaceSelector: {}  # This will match all namespaces
+    rules:
+      - operations: [ "CREATE" ]
+        apiGroups: [""]
+        apiVersions: [ "v1" ]
+        resources: [ "pods" ]
+        scope: "Namespaced"
+    objectSelector:
+      matchLabels:
+        secret-access: "true"
+    clientConfig:
+      service:
+        namespace: kubekeeper
+        name: kubekeeper
+        path: "/deployment-mutation"
+      caBundle: ${ENCODED_CA}
+    admissionReviewVersions: ["v1"]
+    sideEffects: None
+    timeoutSeconds: 5

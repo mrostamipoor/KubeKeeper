@@ -1,0 +1,676 @@
+[Service Account]: mondoo-operator-k8s-resources-scanning
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "*",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list",
+        "Resources": "*",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [mondoo-operator-k8s-resources-scanning] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/mondoo-operator-k8s-resources-scanning] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: controller-manager
+  [Resource] (ResourceName/ResourceType): controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "deletecollection",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get,delete,create",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "deployments,daemonsets,statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "mondoooperatorconfigs",
+        "API groups": "k8s.mondoo.com"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes,pods,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get,list,watch",
+        "Resources": "mondooauditconfigs",
+        "API groups": "k8s.mondoo.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "mondooauditconfigs/status",
+        "API groups": "k8s.mondoo.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "mondoooperatorconfigs/status",
+        "API groups": "k8s.mondoo.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "certificates,issuers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "deployments,daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "servicemonitors",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "mondooauditconfigs/finalizers",
+        "API groups": "k8s.mondoo.com"
+    },
+    {
+        "verbs": "update",
+        "Resources": "mondoooperatorconfigs/finalizers",
+        "API groups": "k8s.mondoo.com"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [manager-role; proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller-manager] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/controller-manager] [Main configs]
+-------------------------------------------
+
+[Service Account]: k8s-resources-scanning
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "*",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list",
+        "Resources": "*",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [k8s-resources-scanning] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/k8s-resources-scanning] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-mondoo-operator-nodes
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods",
+        "API groups": "*"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-mondoo-operator-nodes] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-mondoo-operator-nodes] [Main configs]
+-------------------------------------------
+
+[Service Account]: mondoo-operator-controller-manager
+  [Resource] (ResourceName/ResourceType): mondoo-operator-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "deletecollection",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get,delete,create",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "deployments,daemonsets,statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "mondoooperatorconfigs",
+        "API groups": "k8s.mondoo.com"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes,pods,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get,list,watch",
+        "Resources": "mondooauditconfigs",
+        "API groups": "k8s.mondoo.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "mondooauditconfigs/status",
+        "API groups": "k8s.mondoo.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "mondoooperatorconfigs/status",
+        "API groups": "k8s.mondoo.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "certificates,issuers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "deployments,daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "servicemonitors",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "mondooauditconfigs/finalizers",
+        "API groups": "k8s.mondoo.com"
+    },
+    {
+        "verbs": "update",
+        "Resources": "mondoooperatorconfigs/finalizers",
+        "API groups": "k8s.mondoo.com"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [mondoo-operator-manager-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/mondoo-operator-controller-manager] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-mondoo-operator-controller-manager
+  [Resource] (ResourceName/ResourceType): release-name-mondoo-operator-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "deletecollection",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get,delete,create",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "deployments,daemonsets,statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "mondoooperatorconfigs",
+        "API groups": "k8s.mondoo.com"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes,pods,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get,list,watch",
+        "Resources": "mondooauditconfigs",
+        "API groups": "k8s.mondoo.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "mondooauditconfigs/status",
+        "API groups": "k8s.mondoo.com"
+    },
+    {
+        "verbs": "update,get,patch",
+        "Resources": "mondoooperatorconfigs/status",
+        "API groups": "k8s.mondoo.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "certificates,issuers",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "deployments,daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "servicemonitors",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "mondooauditconfigs/finalizers",
+        "API groups": "k8s.mondoo.com"
+    },
+    {
+        "verbs": "update",
+        "Resources": "mondoooperatorconfigs/finalizers",
+        "API groups": "k8s.mondoo.com"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-mondoo-operator-manager-role; release-name-mondoo-operator-proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-mondoo-operator-controller-manager] [Main configs]
+
+    [roles]: [release-name-mondoo-operator-leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-mondoo-operator-controller-manager] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-mondoo-operator-k8s-resources-scanning
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "*",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "*",
+        "API groups": "*"
+    },
+    {
+        "verbs": "list",
+        "Resources": "*",
+        "API groups": "*"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-mondoo-operator-k8s-resources-scanning; workload] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-mondoo-operator-k8s-resources-scanning] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

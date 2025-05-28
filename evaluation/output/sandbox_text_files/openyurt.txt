@@ -1,0 +1,958 @@
+[Service Account]: yurt-manager-platform-admin-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,update,patch",
+        "Resources": "configmaps,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,update,patch",
+        "Resources": "platformadmins",
+        "API groups": "iot.openyurt.io"
+    },
+    {
+        "verbs": "delete,get,create,update,patch",
+        "Resources": "yurtappsets",
+        "API groups": "apps.openyurt.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "platformadmins/status",
+        "API groups": "iot.openyurt.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "services/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "yurtappsets/status",
+        "API groups": "apps.openyurt.io"
+    },
+    {
+        "verbs": "patch,watch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "platformadmins/finalizers",
+        "API groups": "iot.openyurt.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [yurt-manager-platform-admin-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-manager-platform-admin-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: yurt-manager-yurt-app-set-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,update,patch",
+        "Resources": "controllerrevisions,statefulsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,update,patch",
+        "Resources": "yurtappsets",
+        "API groups": "apps.openyurt.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "nodepools",
+        "API groups": "apps.openyurt.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "deployments/status,statefulsets/status",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "yurtappsets/status",
+        "API groups": "apps.openyurt.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [yurt-manager-yurt-app-set-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-manager-yurt-app-set-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: yurt-manager-node-bucket-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,update,patch",
+        "Resources": "nodebuckets",
+        "API groups": "apps.openyurt.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "nodepools",
+        "API groups": "apps.openyurt.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [yurt-manager-node-bucket-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-manager-node-bucket-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: yurt-tunnel-dns
+  [Resource] (ResourceName/ResourceType): yurt-tunnel-dns/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "namespaces,services,pods,endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:yurt-tunnel-dns] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-tunnel-dns] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: yurt-manager-hubleader-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "patch,update,get",
+        "Resources": "nodepools/status,nodepools",
+        "API groups": "apps.openyurt.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [yurt-manager-hubleader-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-manager-hubleader-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: yurt-manager-load-balancer-set-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,update,patch",
+        "Resources": "poolservices",
+        "API groups": "network.openyurt.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "poolservices/status",
+        "API groups": "network.openyurt.io"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "services/status",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [yurt-manager-load-balancer-set-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-manager-load-balancer-set-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: yurt-manager-gateway-pickup-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "gateways",
+        "API groups": "raven.openyurt.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "blockaffinities",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "gateways/status",
+        "API groups": "raven.openyurt.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "gateways/finalizers",
+        "API groups": "raven.openyurt.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [yurt-manager-gateway-pickup-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-manager-gateway-pickup-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: yurt-manager-hubleaderconfig-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "nodepools/status,nodepools",
+        "API groups": "apps.openyurt.io"
+    },
+    {
+        "verbs": "patch,create,update,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [yurt-manager-hubleaderconfig-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-manager-hubleaderconfig-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: yurt-manager-pod-binding-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [yurt-manager-pod-binding-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-manager-pod-binding-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: yurt-manager-daemon-pod-updater-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "patch,delete,update,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [yurt-manager-daemon-pod-updater-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-manager-daemon-pod-updater-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: yurt-manager-csr-approver-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "approve",
+        "Resources": "signers",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "certificatesigningrequests/approval",
+        "API groups": "certificates.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [yurt-manager-csr-approver-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-manager-csr-approver-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: kubernetes.io/kube-apiserver-client,kubernetes.io/kubelet-serving
+-------------------------------------------
+
+[Service Account]: yurt-manager-yurt-static-set-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,update,patch",
+        "Resources": "configmaps,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,update,patch",
+        "Resources": "yurtstaticsets",
+        "API groups": "apps.openyurt.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "yurtstaticsets/status",
+        "API groups": "apps.openyurt.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "yurtstaticsets/finalizers",
+        "API groups": "apps.openyurt.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [yurt-manager-yurt-static-set-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-manager-yurt-static-set-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: yurt-manager-gateway-internal-service-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "services,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "gateways",
+        "API groups": "raven.openyurt.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [yurt-manager-gateway-internal-service-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-manager-gateway-internal-service-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: yurt-manager-gateway-dns-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "nodepools",
+        "API groups": "apps.openyurt.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "services,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [yurt-manager-gateway-dns-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-manager-gateway-dns-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: yurt-manager
+  [Resource] (ResourceName/ResourceType): yurt-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,get",
+        "Resources": "namespaces,serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "serviceaccounts/token",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "blockaffinities",
+        "API groups": "crd.projectcalico.org"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "clusterroles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "controllerrevisions,daemonsets,statefulsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "gateways",
+        "API groups": "raven.openyurt.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "nodes,pods,services,endpoints,configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "platformadmins",
+        "API groups": "iot.openyurt.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "poolservices",
+        "API groups": "network.openyurt.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "yurtappsets,yurtappdaemons,yurtstaticsets,nodebuckets,nodepools",
+        "API groups": "apps.openyurt.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "update,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [yurt-manager-basecontroller; yurt-manager-webhook] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-manager] [Main configs]
+
+    [roles]: [yurt-manager-webhook] [Main configs]
+    [roleBindings]: [ServiceAccount/yurt-manager] [Main configs]
+    [roleResourceNames]: yurt-manager-webhook-certs
+-------------------------------------------
+
+[Service Account]: raven-proxy-dns
+  [Resource] (ResourceName/ResourceType): raven-proxy-dns/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list",
+        "Resources": "namespaces,services,pods,endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [system:raven-proxy-dns] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/raven-proxy-dns] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: yurt-manager-service-topology-endpointslice-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [yurt-manager-service-topology-endpointslice-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-manager-service-topology-endpointslice-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: yurt-manager-gateway-public-service-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete,update,get",
+        "Resources": "services,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "gateways",
+        "API groups": "raven.openyurt.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [yurt-manager-gateway-public-service-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-manager-gateway-public-service-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: yurt-manager-hubleaderrbac-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,update,escalate,get",
+        "Resources": "clusterroles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "nodepools",
+        "API groups": "apps.openyurt.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [yurt-manager-hubleaderrbac-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-manager-hubleaderrbac-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: yurt-manager-nodepool-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "patch,update,get",
+        "Resources": "nodepools/status,nodepools",
+        "API groups": "apps.openyurt.io"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [yurt-manager-nodepool-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-manager-nodepool-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: yurt-manager-service-topology-endpoints-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,get",
+        "Resources": "endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [yurt-manager-service-topology-endpoints-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-manager-service-topology-endpoints-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: yurt-manager-node-life-cycle-controller
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods/status,nodes/status",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [yurt-manager-node-life-cycle-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/yurt-manager-node-life-cycle-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

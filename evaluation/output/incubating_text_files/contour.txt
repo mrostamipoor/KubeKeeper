@@ -1,0 +1,250 @@
+[Service Account]: contour-gateway-provisioner
+  [Resource] (ResourceName/ResourceType): contour-gateway-provisioner/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,update,get",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "create,update,get",
+        "Resources": "extensionservices/status,httpproxies/status,contourconfigurations/status",
+        "API groups": "projectcontour.io"
+    },
+    {
+        "verbs": "create,update,get",
+        "Resources": "ingresses/status",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "create,update,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "clusterrolebindings,clusterroles,roles,rolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "contourconfigurations",
+        "API groups": "projectcontour.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "daemonsets,deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "serviceaccounts,services,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "tlsroutes/status,grpcroutes/status,tcproutes/status,gatewayclasses/status,backendtlspolicies/status,gateways/status,httproutes/status",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "grpcroutes,tcproutes,httproutes,referencegrants,backendtlspolicies,gatewayclasses,gateways,tlsroutes",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "httpproxies,contourdeployments,extensionservices,tlscertificatedelegations",
+        "API groups": "projectcontour.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,configmaps,endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [contour-gateway-provisioner] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/contour-gateway-provisioner] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: contour
+  [Resource] (ResourceName/ResourceType): contour/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,update,get",
+        "Resources": "extensionservices/status,httpproxies/status,contourconfigurations/status",
+        "API groups": "projectcontour.io"
+    },
+    {
+        "verbs": "create,update,get",
+        "Resources": "ingresses/status",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "tlsroutes/status,grpcroutes/status,tcproutes/status,gatewayclasses/status,backendtlspolicies/status,gateways/status,httproutes/status",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "grpcroutes,tcproutes,httproutes,referencegrants,backendtlspolicies,gatewayclasses,gateways,tlsroutes",
+        "API groups": "gateway.networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "httpproxies,contourconfigurations,extensionservices,tlscertificatedelegations",
+        "API groups": "projectcontour.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets,namespaces,services,endpoints,configmaps",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [contour] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/contour] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: projectcontour-auth-htpasswd
+  [Resource] (ResourceName/ResourceType): htpasswd/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [projectcontour:authserver:htpasswd] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/projectcontour-auth-htpasswd] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

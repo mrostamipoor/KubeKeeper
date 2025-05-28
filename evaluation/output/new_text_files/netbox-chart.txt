@@ -1,0 +1,55 @@
+[Service Account]: release-name-netbox-operator
+  [Resource] (ResourceName/ResourceType): release-name-netbox-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "ipaddressclaims,prefixes,prefixclaims,ipranges,ipaddresses,iprangeclaims",
+        "API groups": "netbox.dev"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "ipranges/status,prefixes/status,ipaddresses/status,iprangeclaims/status,prefixclaims/status,ipaddressclaims/status",
+        "API groups": "netbox.dev"
+    },
+    {
+        "verbs": "update",
+        "Resources": "ipaddressclaims/finalizers,ipranges/finalizers,ipaddresses/finalizers,prefixes/finalizers,prefixclaims/finalizers,iprangeclaims/finalizers",
+        "API groups": "netbox.dev"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-netbox-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-netbox-operator] [Main configs]
+
+    [roles]: [release-name-netbox-operator-leader-election] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-netbox-operator] [Main configs]
+-------------------------------------------
+

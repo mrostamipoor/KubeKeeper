@@ -1,0 +1,286 @@
+[Service Account]: trident-operator
+  [Resource] (ResourceName/ResourceType): trident-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,create",
+        "Resources": "volumesnapshotclasses",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "get,list,create,watch",
+        "Resources": "deployments,daemonsets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,list,create",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "get,list,create",
+        "Resources": "serviceaccounts,services,pods/exec",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods/log",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,create",
+        "Resources": "clusterroles,clusterrolebindings,roles,rolebindings",
+        "API groups": "rbac.authorization.k8s.io,authorization.openshift.io"
+    },
+    {
+        "verbs": "list,create",
+        "Resources": "podsecuritypolicies",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get,list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,patch,delete",
+        "Resources": "clusterroles,clusterrolebindings,roles,rolebindings",
+        "API groups": "rbac.authorization.k8s.io,authorization.openshift.io"
+    },
+    {
+        "verbs": "update,patch,delete",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,patch,delete",
+        "Resources": "deployments,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update,patch,delete",
+        "Resources": "podsecuritypolicies",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "update,patch,delete",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "update,patch,delete",
+        "Resources": "serviceaccounts",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,patch,delete",
+        "Resources": "services,pods/exec",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,patch",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,patch",
+        "Resources": "volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "update,patch",
+        "Resources": "volumesnapshotcontents/status,volumesnapshots/status",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "csidrivers,csinodes",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "csinodeinfos,csidrivers",
+        "API groups": "csi.storage.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "persistentvolumeclaims,persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "resourcequotas",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "tridentbackendconfigs,tridentbackends,tridentorchestrators/status,tridentsnapshotinfos,tridentsnapshotinfos/status,tridentsnapshots,tridentmirrorrelationships,tridentactionsnapshotrestores/status,tridentactionmirrorupdates/status,tridentvolumes,tridentconfigurators/status,tridentactionmirrorupdates,tridentorchestrators,tridentstorageclasses,tridentvolumereferences,tridenttransactions,tridentvolumepublications,tridentconfigurators,tridentprovisioners,tridentmirrorrelationships/status,tridentnodes,tridentactionsnapshotrestores,tridentprovisioners/status,tridentversions,tridentbackendconfigs/status",
+        "API groups": "trident.netapp.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get",
+        "Resources": "volumeattachments",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get",
+        "Resources": "volumesnapshotclasses,volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "use",
+        "Resources": "podsecuritypolicies",
+        "API groups": "policy"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [trident-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/trident-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: trident,trident-controller,trident-node-linux,trident-node-windows, trident-csi-windows,trident,trident-csi,trident-node-linux,trident-node-windows, trident-controller,trident,trident-node-windows,trident-node-linux,trident-csi, trident-controller,tridentpods,trident-node-linux,trident-node-windows, tridentoperatorpods, trident,trident-csi, trident,trident-controller,trident-csi, trident-controller,trident-node-linux,trident-node-windows
+-------------------------------------------
+

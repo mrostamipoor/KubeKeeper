@@ -1,0 +1,45 @@
+[Service Account]: secret-generator
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "delete,get,create,update,list,patch",
+        "Resources": "configmaps,secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-ns-psp-role-nonprivileged] []
+    [clusterRoleBindings]: [ServiceAccount/secret-generator] [Example configs]
+
+    [roles]: [configgin-role; secrets-role] [Example configs]
+    [roleBindings]: [ServiceAccount/secret-generator] [Example configs]
+-------------------------------------------
+

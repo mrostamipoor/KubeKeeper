@@ -1,0 +1,175 @@
+[Service Account]: tackle-ui
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [tackle-ui-role] []
+    [clusterRoleBindings]: [ServiceAccount/tackle-ui] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: tackle-operator
+  [Resource] (ResourceName/ResourceType): tackle-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "keycloakrealms,keycloaks,keycloakusers,keycloakclients",
+        "API groups": "keycloak.org,k8s.keycloak.org"
+    },
+    {
+        "verbs": "delete,watch,list,get",
+        "Resources": "clusterserviceversions,subscriptions",
+        "API groups": "operators.coreos.com"
+    },
+    {
+        "verbs": "get",
+        "Resources": "proxies,clusterversions",
+        "API groups": "config.openshift.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "dnses",
+        "API groups": "operator.openshift.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "*",
+        "Resources": "daemonsets,statefulsets,deployments,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "networkpolicies,ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "persistentvolumeclaims,secrets,events,serviceaccounts,services/finalizers,services,pods,endpoints,configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "*",
+        "Resources": "routes",
+        "API groups": "route.openshift.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "addons,tasks,extensions,tackles,tackles/status,tackles/finalizers",
+        "API groups": "tackle.konveyor.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "deploymentconfigs",
+        "API groups": "apps.openshift.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "servicemonitors",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments/finalizers",
+        "API groups": "apps"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [manager-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/tackle-operator] [Main configs]
+
+    [roles]: [manager-role] [Main configs]
+    [roleBindings]: [ServiceAccount/tackle-operator] [Main configs]
+    [roleResourceNames]: tackle-operator
+-------------------------------------------
+
+[Service Account]: tackle-hub
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "core"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "tackle.konveyor.io"
+    },
+    {
+        "verbs": "use",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [tackle-hub-role] [Main configs]
+    [roleBindings]: [ServiceAccount/tackle-hub] [Main configs]
+    [roleResourceNames]: anyuid
+-------------------------------------------
+

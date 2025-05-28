@@ -1,0 +1,179 @@
+[Service Account]: release-name-nuclio
+  [Resource] (ResourceName/ResourceType): release-name-nuclio-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "custom.metrics.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "metrics.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "*",
+        "Resources": "events,pods,configmaps,services,pods/log,secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "*",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "*",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs,cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nuclioprojects,nuclioapigateways,nucliofunctionevents,nucliofunctions",
+        "API groups": "nuclio.io"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "*",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-nuclio-crd-admin-role; release-name-nuclio-function-deployer-role] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-nuclio] [Main configs]
+-------------------------------------------
+
+  [Resource] (ResourceName/ResourceType): release-name-nuclio-dashboard/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "custom.metrics.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "metrics.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "*",
+        "Resources": "events,pods,configmaps,services,pods/log,secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "*",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "*",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs,cronjobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nuclioprojects,nuclioapigateways,nucliofunctionevents,nucliofunctions",
+        "API groups": "nuclio.io"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "*",
+        "Resources": "cronjobs",
+        "API groups": "batch"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-nuclio-crd-admin-role; release-name-nuclio-function-deployer-role] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-nuclio] [Main configs]
+-------------------------------------------
+

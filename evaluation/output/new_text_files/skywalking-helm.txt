@@ -1,0 +1,355 @@
+[Service Account]: horizontal-pod-autoscaler
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "custom.metrics.k8s.io,external.metrics.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-skywalking-helm-sw-custom-metrics-server-resources] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/horizontal-pod-autoscaler] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-skywalking-helm-swck-operator-controller-manager
+  [Resource] (ResourceName/ResourceType): release-name-skywalking-helm-swck-operator-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "clusterroles,clusterrolebindings",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "approve",
+        "Resources": "signers",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "create,update,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,get,create,watch,delete",
+        "Resources": "certificatesigningrequests",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "banyandbs",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "fetchers",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "javaagents",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "oapserverconfigs",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "oapserverdynamicconfigs",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "oapservers",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "satellites",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "serviceaccounts,persistentvolumeclaims,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "serviceaccounts,secrets,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "serviceaccounts,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "storages",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "swagents",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "uis",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,delete,get",
+        "Resources": "javaagents/status",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "banyandbs/status",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "fetchers/status",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "oapserverconfigs/status",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "oapserverdynamicconfigs/status",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "oapservers/status",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "satellites/status",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "storages/status",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "swagents/status",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "uis/status",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "update",
+        "Resources": "banyandbs/finalizers",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "update",
+        "Resources": "certificatesigningrequests/approval",
+        "API groups": "certificates.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "satellites/finalizers",
+        "API groups": "operator.skywalking.apache.org"
+    },
+    {
+        "verbs": "update",
+        "Resources": "swagents/finalizers",
+        "API groups": "operator.skywalking.apache.org"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-skywalking-helm-swck-operator-manager-role; release-name-skywalking-helm-swck-operator-metrics-reader; release-name-skywalking-helm-swck-operator-proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-skywalking-helm-swck-operator-controller-manager] [Main configs]
+
+    [roles]: [release-name-skywalking-helm-swck-operator-leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-skywalking-helm-swck-operator-controller-manager] [Main configs]
+    [clusterResourceNames]: kubernetes.io/*
+-------------------------------------------
+
+[Service Account]: skywalking-custom-metrics-apiserver
+  [Resource] (ResourceName/ResourceType): release-name-skywalking-helm-swck-adapter-adapter/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes,pods,nodes/stats",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-skywalking-helm-swc-custom-metrics-resource-reader; system:auth-delegator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/skywalking-custom-metrics-apiserver] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/skywalking-custom-metrics-apiserver] [Main configs]
+-------------------------------------------
+

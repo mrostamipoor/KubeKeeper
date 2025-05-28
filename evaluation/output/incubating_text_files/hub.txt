@@ -1,0 +1,24 @@
+[Service Account]: hub
+  [Resource] (ResourceName/ResourceType): hub/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "jobs",
+        "API groups": "batch"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [job-reader] [Main configs]
+    [roleBindings]: [ServiceAccount/hub] [Main configs]
+-------------------------------------------
+

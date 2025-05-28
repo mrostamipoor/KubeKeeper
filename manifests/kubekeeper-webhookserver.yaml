@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubekeeper
+  namespace: kubekeeper
+  labels:
+    app: kubekeeper
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubekeeper
+  template:
+    metadata:
+      labels:
+        app: kubekeeper
+    spec:
+      containers:
+        - name: kubekeeper
+          image: kubekeeper:v1.0.0
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8443
+          volumeMounts:
+            - name: tls-certs
+              mountPath: /etc/certs
+              readOnly: true
+            - name: config
+              mountPath: "/etc/config"              
+      volumes:
+        - name: tls-certs
+          secret:
+            secretName: kubekeeper-tls
+        - name: config
+          configMap:
+            name: blocked-accounts-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubekeeper
+  namespace: kubekeeper
+spec:
+  selector:
+    app: kubekeeper
+  ports:
+    - port: 443
+      targetPort: 8443

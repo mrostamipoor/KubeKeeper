@@ -1,0 +1,180 @@
+[Service Account]: csi-gce-pd-node-sa-win
+  [Resource] (ResourceName/ResourceType): csi-gce-pd-node-win/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "use",
+        "Resources": "podsecuritypolicies",
+        "API groups": "policy"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [csi-gce-pd-node-deploy-win] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/csi-gce-pd-node-sa-win] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: csi-gce-pd-node-psp-win
+-------------------------------------------
+
+[Service Account]: csi-gce-pd-controller-sa
+  [Resource] (ResourceName/ResourceType): csi-gce-pd-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "csinodes",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "volumeattachments",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "volumeattributesclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "volumesnapshotclasses",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "get,list",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "get,list",
+        "Resources": "volumesnapshots",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "volumeattachments/status",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "update,get,list,watch",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,patch",
+        "Resources": "persistentvolumeclaims/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,patch",
+        "Resources": "volumesnapshotcontents/status",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "volumesnapshotcontents",
+        "API groups": "snapshot.storage.k8s.io"
+    },
+    {
+        "verbs": "update,watch,patch,list,get",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get",
+        "Resources": "volumeattachments",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "use",
+        "Resources": "podsecuritypolicies",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "watch,list,get,delete,create",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [csi-gce-pd-attacher-role; csi-gce-pd-controller-deploy; csi-gce-pd-node-deploy; csi-gce-pd-provisioner-role; csi-gce-pd-resizer-role; csi-gce-pd-snapshotter-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/csi-gce-pd-controller-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: csi-gce-pd-controller-psp, csi-gce-pd-node-psp
+-------------------------------------------
+
+[Service Account]: csi-gce-pd-node-sa
+  [Resource] (ResourceName/ResourceType): csi-gce-pd-node/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "use",
+        "Resources": "podsecuritypolicies",
+        "API groups": "policy"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [csi-gce-pd-node-deploy] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/csi-gce-pd-node-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: csi-gce-pd-node-psp
+-------------------------------------------
+

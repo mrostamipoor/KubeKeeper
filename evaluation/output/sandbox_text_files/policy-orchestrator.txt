@@ -1,0 +1,137 @@
+[Service Account]: aws-load-balancer-controller
+  [Resource] (ResourceName/ResourceType): aws-load-balancer-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "targetgroupbindings",
+        "API groups": "elbv2.k8s.aws"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "ingresses",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "get,watch,update,list,patch",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "ingresses/status",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "ingresses/status",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "pods/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "services/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "targetgroupbindings/status",
+        "API groups": "elbv2.k8s.aws"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ingressclasses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "ingressclassparams",
+        "API groups": "elbv2.k8s.aws"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (kube-system): [
+    {
+        "verbs": "create",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [aws-load-balancer-controller-role] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/aws-load-balancer-controller] [Example configs]
+
+    [roles]: [aws-load-balancer-controller-leader-election-role] [Example configs]
+    [roleBindings]: [ServiceAccount/aws-load-balancer-controller] [Example configs]
+    [roleResourceNames]: aws-load-balancer-controller-leader
+-------------------------------------------
+

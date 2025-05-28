@@ -1,0 +1,2296 @@
+[Service Account]: bcs-cluster-autoscaler
+  [Resource] (ResourceName/ResourceType): bcs-cluster-autoscaler/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods/eviction",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "*",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "csinodes,storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods,replicationcontrollers,persistentvolumes,persistentvolumeclaims,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "replicasets,daemonsets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "replicasets,daemonsets",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods/status",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "*",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list",
+        "Resources": "*",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "*",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [bcs-cluster-autoscaler] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/bcs-cluster-autoscaler] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: bcs-cluster-autoscaler
+-------------------------------------------
+
+[Service Account]: argocd-dex-server
+  [Resource] (ResourceName/ResourceType): argocd-dex-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps,secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [argocd-dex-server] [Main configs]
+    [roleBindings]: [ServiceAccount/argocd-dex-server] [Main configs]
+-------------------------------------------
+
+[Service Account]: bcs-egress
+  [Resource] (ResourceName/ResourceType): bcs-egress/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create,get",
+        "Resources": "servicemonitors",
+        "API groups": "monitoring.coreos.com"
+    },
+    {
+        "verbs": "get",
+        "Resources": "deployments,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "bcsegresscontrollers,*",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "deployments,replicasets,daemonsets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "endpoints,events,pods,services/finalizers,configmaps,persistentvolumeclaims,services,secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments/finalizers",
+        "API groups": "apps"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "update",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [bcs-egress] [Main configs]
+    [roleBindings]: [ServiceAccount/bcs-egress] [Main configs]
+    [roleResourceNames]: bcs-egress
+-------------------------------------------
+
+[Service Account]: bcs-federated-apiserver
+  [Resource] (ResourceName/ResourceType): bcs-federated-apiserver/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "kubefedclusters",
+        "API groups": "core.kubefed.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "mutatingwebhookconfigurations,validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "podaggregations",
+        "API groups": "aggregation.federated.bkbcs.tencent.com"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (bcs-system): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [bcs-federated-apiserver-clusterrole; system:auth-delegator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/bcs-federated-apiserver] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/bcs-federated-apiserver] [Main configs]
+-------------------------------------------
+
+[Service Account]: argocd-applicationset-controller
+  [Resource] (ResourceName/ResourceType): argocd-applicationset-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,patch,get,create,watch",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "applications,appprojects,applicationsets,applicationsets/finalizers",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps,secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "deployments",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "applicationsets/status",
+        "API groups": "argoproj.io"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [argocd-applicationset-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/argocd-applicationset-controller] [Main configs]
+-------------------------------------------
+
+[Service Account]: bcs-general-pod-autoscaler
+  [Resource] (ResourceName/ResourceType): bcs-general-pod-autoscaler/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "services/proxy",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "*",
+        "API groups": "custom.metrics.k8s.io"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "*",
+        "API groups": "external.metrics.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "generalpodautoscalers",
+        "API groups": "autoscaling.bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "pods",
+        "API groups": "metrics.k8s.io"
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "*/scale",
+        "API groups": "*"
+    },
+    {
+        "verbs": "update",
+        "Resources": "generalpodautoscalers/status",
+        "API groups": "autoscaling.bkbcs.tencent.com"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [bcs-general-pod-autoscaler] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/bcs-general-pod-autoscaler] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: https:heapster:,http:heapster:
+-------------------------------------------
+
+[Service Account]: release-name-bcs-k8s-custom-scheduler
+  [Resource] (ResourceName/ResourceType): release-name-bcs-k8s-custom-scheduler/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "pods/binding,bindings",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "bcsnetips,bcsnetipclaims,bcsnetpools",
+        "API groups": "netservice.bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes,pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-bcs-k8s-custom-scheduler-clusterrole] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-bcs-k8s-custom-scheduler] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: clb-controller-serviceaccount
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "appnodes",
+        "API groups": "mesh.bmsf.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "appsvcs",
+        "API groups": "mesh.bmsf.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "clbingresses",
+        "API groups": "clb.bmsf.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "cloudlisteners",
+        "API groups": "network.bmsf.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "mutatingwebhookconfigurations,validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,pods,configmaps,services",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "appnodes/status",
+        "API groups": "mesh.bmsf.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "appsvcs/status",
+        "API groups": "mesh.bmsf.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "clbingresses/status",
+        "API groups": "clb.bmsf.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "cloudlisteners/status",
+        "API groups": "network.bmsf.tencent.com"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [clb-controller-clusterrole] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/clb-controller-serviceaccount] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-bcs-argocd-controller
+  [Resource] (ResourceName/ResourceType): release-name-bcs-argocd-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "*"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "*"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-bcs-argocd-controller] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-bcs-argocd-controller] [Main configs]
+
+    [roles]: [release-name-bcs-argocd-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-bcs-argocd-controller] [Main configs]
+-------------------------------------------
+
+[Service Account]: release-name-bcs-netservice-controller
+  [Resource] (ResourceName/ResourceType): release-name-bcs-netservice-controller/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,get",
+        "Resources": "pods",
+        "API groups": "netservice.bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "bcsnetipclaims",
+        "API groups": "netservice.bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "bcsnetips",
+        "API groups": "netservice.bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "bcsnetpools",
+        "API groups": "netservice.bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,patch,watch,get",
+        "Resources": "nodes,pods,nodes/status",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bcsnetipclaims/status",
+        "API groups": "netservice.bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bcsnetips/status",
+        "API groups": "netservice.bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bcsnetpools/status",
+        "API groups": "netservice.bkbcs.tencent.com"
+    },
+    {
+        "verbs": "update",
+        "Resources": "bcsnetipclaims/finalizers",
+        "API groups": "netservice.bkbcs.tencent.com"
+    },
+    {
+        "verbs": "update",
+        "Resources": "bcsnetpools/finalizers",
+        "API groups": "netservice.bkbcs.tencent.com"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-bcs-netservice-controller-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-bcs-netservice-controller] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: argocd-redis
+  [Resource] (ResourceName/ResourceType): argocd-redis/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [argocd-redis] []
+    [roleBindings]: [ServiceAccount/argocd-redis] [Main configs]
+-------------------------------------------
+
+[Service Account]: gamedeployment-operator
+  [Resource] (ResourceName/ResourceType): bcs-gamedeployment-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,get,create,watch,delete",
+        "Resources": "hookruns",
+        "API groups": "tkex.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "controllerrevisions",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "endpoints,events,pods,statefulsets,configmaps,pods/status,services,persistentvolumeclaims,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "gamedeployments/status,gamedeployments",
+        "API groups": "tkex.tencent.com"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "hooktemplates",
+        "API groups": "tkex.tencent.com"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [gamedeployment-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/gamedeployment-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: zookeeper-operator
+  [Resource] (ResourceName/ResourceType): zookeeper-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "zookeeper.pravega.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments,replicasets,daemonsets,statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "endpoints,events,pods,configmaps,persistentvolumeclaims,services,secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "*",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "*",
+        "Resources": "daemonsets",
+        "API groups": "apps"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [zookeeper-operator] [Main configs]
+    [roleBindings]: [ServiceAccount/zookeeper-operator] [Main configs]
+-------------------------------------------
+
+[Service Account]: argocd-notifications-controller
+  [Resource] (ResourceName/ResourceType): argocd-notifications-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,watch",
+        "Resources": "applications,appprojects",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "configmaps,secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [argocd-notifications-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/argocd-notifications-controller] [Main configs]
+    [roleResourceNames]: argocd-notifications-secret, argocd-notifications-cm
+-------------------------------------------
+
+[Service Account]: cluster-autoscaler-e2e
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create,delete",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "create,delete",
+        "Resources": "deployments",
+        "API groups": "extensions"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "deployments/scale",
+        "API groups": "apps"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "create",
+        "Resources": "deployments",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-autoscaler-e2e] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/cluster-autoscaler-e2e] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: bcs-k8s-watch
+  [Resource] (ResourceName/ResourceType): bcs-k8s-watch/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/bcs-k8s-watch] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: gamestatefulset-operator
+  [Resource] (ResourceName/ResourceType): bcs-gamestatefulset-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,get,create,watch,delete",
+        "Resources": "hookruns",
+        "API groups": "tkex.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "controllerrevisions",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "endpoints,events,pods,statefulsets,configmaps,pods/status,services,persistentvolumeclaims,nodes,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "gamestatefulsets,gamestatefulsets/status",
+        "API groups": "tkex.tencent.com"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "hooktemplates",
+        "API groups": "tkex.tencent.com"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "statefulsets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "statefulsets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "statefulsets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [gamestatefulset-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/gamestatefulset-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: default
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "admissionwebhookconfigurations",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "agents",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "agentschedinfoes",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "applications",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "bcsclusteragentsettings",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "bcscommandinfoes",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "bcsconfigmaps",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "bcsdaemonsets",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "bcsendpoints",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "bcssecrets",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "bcsservices",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "bcstransactions",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "crds",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "crrs",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "deployments",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "frameworks",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "servicemonitors",
+        "API groups": "monitor.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "taskgroups",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "tasks",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "transactions",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "versions",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "admissionwebhookconfigurations/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "agents/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "agentschedinfoes/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "applications/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bcsclusteragentsettings/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bcscommandinfoes/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bcsconfigmaps/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bcsdaemonsets/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bcsendpoints/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bcssecrets/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bcsservices/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bcstransactions/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "crds/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "crrs/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "deployments/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "frameworks/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "servicemonitors/status",
+        "API groups": "monitor.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "taskgroups/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "tasks/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "transactions/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "versions/status",
+        "API groups": "bkbcs.tencent.com"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [manager-role; proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/default] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/default] [Main configs]
+-------------------------------------------
+
+[Service Account]: hook-operator
+  [Resource] (ResourceName/ResourceType): bcs-hook-operator/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "controllerrevisions",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "events,endpoints,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "hooktemplates,hookruns/status,hookruns",
+        "API groups": "tkex.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "gamestatefulsets,gamedeployments",
+        "API groups": "tkex.tencent.com"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [hook-operator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/hook-operator] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-account
+  [Resource] (ResourceName/ResourceType): release-name/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete,deletecollection",
+        "Resources": "leases,events,configmaps,secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete,deletecollection",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete,deletecollection",
+        "Resources": "noticegroups,monitorrules/status,panels/status,monitorrules,appmonitors,appmonitors/status,panels,noticegroups/status",
+        "API groups": "batch,monitorextension.bkbcs.tencent.com"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-account] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: bcs-repack-descheduler-sa
+  [Resource] (ResourceName/ResourceType): release-name-bcs-repack-descheduler/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "deployments,replicasets,statefulsets",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "*",
+        "Resources": "deschedulepolicies,gamedeployments/status,gamestatefulsets/status,gamedeployments,deschedulepolicies/status,gamestatefulsets",
+        "API groups": "tkex.bkbcs.tencent.com"
+    },
+    {
+        "verbs": "*",
+        "Resources": "events,pods,pods/binding,pods/eviction,nodes,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "*",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "*",
+        "Resources": "deployments",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "*",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [bcs-repack-descheduler-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/bcs-repack-descheduler-sa] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-serviceaccount
+  [Resource] (ResourceName/ResourceType): release-name/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "appnodes",
+        "API groups": "mesh.bmsf.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "appsvcs",
+        "API groups": "mesh.bmsf.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "clbingresses",
+        "API groups": "clb.bmsf.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "cloudlisteners",
+        "API groups": "network.bmsf.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "mutatingwebhookconfigurations,validatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints,configmaps,services,pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "statefulsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "appnodes/status",
+        "API groups": "mesh.bmsf.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "appsvcs/status",
+        "API groups": "mesh.bmsf.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "clbingresses/status",
+        "API groups": "clb.bmsf.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "cloudlisteners/status",
+        "API groups": "network.bmsf.tencent.com"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-clusterrole] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-serviceaccount] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: argocd-application-controller
+  [Resource] (ResourceName/ResourceType): argocd-application-controller/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "applications,appprojects",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "configmaps,secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [argocd-application-controller] [Main configs]
+    [roleBindings]: [ServiceAccount/argocd-application-controller] [Main configs]
+-------------------------------------------
+
+[Service Account]: multus
+  [Resource] (ResourceName/ResourceType): kube-multus-ds/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "k8s.cni.cncf.io"
+    },
+    {
+        "verbs": "patch,create,update",
+        "Resources": "events",
+        "API groups": ",events.k8s.io"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "pods/status,pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [multus] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/multus] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name
+  [Resource] (ResourceName/ResourceType): release-name/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "cloudips/status",
+        "API groups": "cloud.bkbcs.tencent.com"
+    },
+    {
+        "verbs": "get",
+        "Resources": "cloudsubnets/status",
+        "API groups": "cloud.bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "cloudips",
+        "API groups": "cloud.bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "cloudsubnets",
+        "API groups": "cloud.bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "event",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes,pods,namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: csi-tencentcloud
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,update,get,create,watch,delete",
+        "Resources": "persistentvolumes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "persistentvolumeclaims",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,list,watch,get",
+        "Resources": "volumeattachments",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [csi-tencentcloud] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/csi-tencentcloud] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: bcs-apiserver-proxy
+  [Resource] (ResourceName/ResourceType): bcs-apiserver-proxy/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,get",
+        "Resources": "endpoints,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [bcs-apiserver-proxy] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/bcs-apiserver-proxy] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: controller-manager
+  [Resource] (ResourceName/ResourceType): controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "admissionwebhookconfigurations",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "agents",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "agentschedinfoes",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "applications",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "bcsclusteragentsettings",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "bcscommandinfoes",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "bcsconfigmaps",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "bcsdaemonsets",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "bcsendpoints",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "bcssecrets",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "bcsservices",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "bcstransactions",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "crds",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "crrs",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "deployments",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "frameworks",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "servicemonitors",
+        "API groups": "monitor.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "taskgroups",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "tasks",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "transactions",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "versions",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "admissionwebhookconfigurations/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "agents/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "agentschedinfoes/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "applications/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bcsclusteragentsettings/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bcscommandinfoes/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bcsconfigmaps/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bcsdaemonsets/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bcsendpoints/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bcssecrets/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bcsservices/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "bcstransactions/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "crds/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "crrs/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "deployments/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "frameworks/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "servicemonitors/status",
+        "API groups": "monitor.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "taskgroups/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "tasks/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "transactions/status",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "versions/status",
+        "API groups": "bkbcs.tencent.com"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "configmaps/status",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [manager-role; proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller-manager] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/controller-manager] [Main configs]
+-------------------------------------------
+
+[Service Account]: argocd-server
+  [Resource] (ResourceName/ResourceType): argocd-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "applications,appprojects",
+        "API groups": "argoproj.io"
+    },
+    {
+        "verbs": "list,patch,update,get,create,watch,delete",
+        "Resources": "configmaps,secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "patch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [argocd-server] [Main configs]
+    [roleBindings]: [ServiceAccount/argocd-server] [Main configs]
+-------------------------------------------
+
+[Service Account]: bcs-webhook-server
+  [Resource] (ResourceName/ResourceType): bcs-webhook-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "*",
+        "Resources": "*",
+        "API groups": "bkbcs.tencent.com"
+    },
+    {
+        "verbs": "*",
+        "Resources": "gamestatefulsets,gamedeployments",
+        "API groups": "tkex.tencent.com"
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "list,get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,update,get,create,watch",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list,watch,get",
+        "Resources": "nodes,pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "*",
+        "Resources": "jobs",
+        "API groups": "batch"
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [bcs-webhook-server] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/bcs-webhook-server] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: bcs-kube-agent
+  [Resource] (ResourceName/ResourceType): bcs-kube-agent/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [cluster-admin] []
+    [clusterRoleBindings]: [ServiceAccount/bcs-kube-agent] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

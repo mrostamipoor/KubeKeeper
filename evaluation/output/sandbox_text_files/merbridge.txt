@@ -1,0 +1,24 @@
+[Service Account]: merbridge
+  [Resource] (ResourceName/ResourceType): merbridge/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [merbridge] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/merbridge] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

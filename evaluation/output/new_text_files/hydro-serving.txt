@@ -1,0 +1,18 @@
+[Service Account]: hydro-serving-manager-sa-release-name
+  [Resource] (ResourceName/ResourceType): release-name-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [edit] []
+    [roleBindings]: [ServiceAccount/hydro-serving-manager-sa-release-name] [Main configs]
+-------------------------------------------
+

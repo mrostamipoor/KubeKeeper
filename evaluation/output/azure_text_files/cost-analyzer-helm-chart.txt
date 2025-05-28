@@ -1,0 +1,235 @@
+[Service Account]: kubecost-cost-analyzer
+  [Resource] (ResourceName/ResourceType): kubecost-cost-analyzer/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "deployments,daemonsets,statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "events",
+        "API groups": "events.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes,services,replicationcontrollers,resourcequotas,pods,namespaces,limitranges,persistentvolumes,persistentvolumeclaims,configmaps,events,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kubecost-cost-analyzer] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kubecost-cost-analyzer] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-prometheus-server
+  [Resource] (ResourceName/ResourceType): release-name-prometheus-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ingresses/status,ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes,services,pods,nodes/proxy,nodes/metrics,ingresses,configmaps,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-prometheus-server] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-prometheus-server] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-cost-analyzer
+  [Resource] (ResourceName/ResourceType): release-name-cost-analyzer/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "deployments,daemonsets,statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "events",
+        "API groups": "events.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "horizontalpodautoscalers",
+        "API groups": "autoscaling"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes,services,replicationcontrollers,resourcequotas,pods,namespaces,limitranges,persistentvolumes,persistentvolumeclaims,configmaps,events,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "poddisruptionbudgets",
+        "API groups": "policy"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "storageclasses",
+        "API groups": "storage.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods/log",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,get,list,watch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-cost-analyzer] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-cost-analyzer] [Main configs]
+
+    [roles]: [release-name-cost-analyzer] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-cost-analyzer] [Main configs]
+-------------------------------------------
+
+[Service Account]: kubecost-grafana
+  [Resource] (ResourceName/ResourceType): kubecost-grafana/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "configmaps",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kubecost-grafana-clusterrole] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kubecost-grafana] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: kubecost-prometheus-server
+  [Resource] (ResourceName/ResourceType): kubecost-prometheus-server/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ingresses/status,ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes,services,pods,nodes/proxy,nodes/metrics,ingresses,configmaps,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "get",
+        "Resources": "",
+        "API groups": "core"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [kubecost-prometheus-server] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/kubecost-prometheus-server] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: release-name-grafana
+  [Resource] (ResourceName/ResourceType): release-name-grafana/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "configmaps",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [release-name-grafana-clusterrole] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-grafana] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+

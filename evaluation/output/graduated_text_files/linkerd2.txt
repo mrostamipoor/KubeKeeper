@@ -1,0 +1,458 @@
+[Service Account]: linkerd-local-service-mirror
+  [Resource] (ResourceName/ResourceType): linkerd-local-service-mirror/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "services,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create,update,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "links/status",
+        "API groups": "multicluster.linkerd.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "links",
+        "API groups": "multicluster.linkerd.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [linkerd-local-service-mirror-access-local-resources] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/linkerd-local-service-mirror] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: prometheus
+  [Resource] (ResourceName/ResourceType): prometheus/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes/proxy,pods,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [linkerd-default-prometheus] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/prometheus] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: tap
+  [Resource] (ResourceName/ResourceType): tap/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "cronjobs,jobs",
+        "API groups": "extensions,batch"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "daemonsets,statefulsets,deployments,replicasets",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes,namespaces,services,pods,replicationcontrollers",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [linkerd-default-tap; system:auth-delegator] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/tap] [Main configs]
+
+    [roles]: [extension-apiserver-authentication-reader] []
+    [roleBindings]: [ServiceAccount/tap] [Main configs]
+-------------------------------------------
+
+[Service Account]: collector
+  [Resource] (ResourceName/ResourceType): collector/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "cronjobs,jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "daemonsets,statefulsets,replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,pods",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [collector] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/collector] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: web
+  [Resource] (ResourceName/ResourceType): web/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "apiservices",
+        "API groups": "apiregistration.k8s.io"
+    },
+    {
+        "verbs": "list",
+        "Resources": "clusterrolebindings,clusterroles",
+        "API groups": "rbac.authorization.k8s.io"
+    },
+    {
+        "verbs": "list",
+        "Resources": "customresourcedefinitions",
+        "API groups": "apiextensions.k8s.io"
+    },
+    {
+        "verbs": "list",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "serviceprofiles",
+        "API groups": "linkerd.io"
+    },
+    {
+        "verbs": "list",
+        "Resources": "services,pods,nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "validatingwebhookconfigurations,mutatingwebhookconfigurations",
+        "API groups": "admissionregistration.k8s.io"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "*",
+        "API groups": "tap.linkerd.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [linkerd-default-tap-admin; linkerd-default-web-api; linkerd-default-web-check] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/web] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: linkerd-service-mirror-remote-access-default
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "jobs",
+        "API groups": "batch"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "replicasets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "servers",
+        "API groups": "policy.linkerd.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "services,pods,endpoints",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [linkerd-service-mirror-remote-access-default] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/linkerd-service-mirror-remote-access-default] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: linkerd-config
+-------------------------------------------
+
+[Service Account]: metrics-api
+  [Resource] (ResourceName/ResourceType): metrics-api/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "list,get",
+        "Resources": "authorizationpolicies,httproutes,serverauthorizations,servers",
+        "API groups": "policy.linkerd.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "cronjobs,jobs",
+        "API groups": "extensions,batch"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "daemonsets,statefulsets,deployments,replicasets",
+        "API groups": "apps,extensions"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,services,pods,endpoints,replicationcontrollers",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "serviceprofiles",
+        "API groups": "linkerd.io"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [linkerd-default-metrics-api] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/metrics-api] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: jaeger-injector
+  [Resource] (ResourceName/ResourceType): jaeger-injector/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [linkerd-jaeger-injector] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/jaeger-injector] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: linkerd-cni
+  [Resource] (ResourceName/ResourceType): linkerd-cni/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces,services,pods,nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [linkerd-cni] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/linkerd-cni] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: tap-injector
+  [Resource] (ResourceName/ResourceType): tap-injector/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [linkerd-tap-injector] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/tap-injector] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: namespace-metadata
+  [Resource] (ResourceName/ResourceType): active/default
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "patch,get",
+        "Resources": "namespaces",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [namespace-metadata] [Main configs]
+    [roleBindings]: [ServiceAccount/namespace-metadata] [Main configs]
+    [roleResourceNames]: default
+-------------------------------------------
+
+[Service Account]: linkerd-service-mirror-
+  [Resource] (ResourceName/ResourceType): linkerd-service-mirror-/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list,update",
+        "Resources": "services,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "namespaces",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "patch,create,update,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,update",
+        "Resources": "links/status",
+        "API groups": "multicluster.linkerd.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "links",
+        "API groups": "multicluster.linkerd.io"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [linkerd-service-mirror-access-local-resources-] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/linkerd-service-mirror-] [Main configs]
+
+    [roles]: [linkerd-service-mirror-read-remote-creds-] [Main configs]
+    [roleBindings]: [ServiceAccount/linkerd-service-mirror-] [Main configs]
+    [roleResourceNames]: cluster-credentials-
+-------------------------------------------
+

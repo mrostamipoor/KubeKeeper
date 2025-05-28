@@ -1,0 +1,141 @@
+[Service Account]: controller-manager
+  [Resource] (ResourceName/ResourceType): controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "create",
+        "Resources": "subjectaccessreviews",
+        "API groups": "authorization.k8s.io"
+    },
+    {
+        "verbs": "create",
+        "Resources": "tokenreviews",
+        "API groups": "authentication.k8s.io"
+    },
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "imagejobs",
+        "API groups": "eraser.sh"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "imagejobs/status",
+        "API groups": "eraser.sh"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "imagelists/status",
+        "API groups": "eraser.sh"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "imagelists",
+        "API groups": "eraser.sh"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (system): [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "patch,create",
+        "Resources": "events",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [manager-role; proxy-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/controller-manager] [Main configs]
+
+    [roles]: [leader-election-role] [Main configs]
+    [roleBindings]: [ServiceAccount/controller-manager] [Main configs]
+-------------------------------------------
+
+[Service Account]: eraser-controller-manager
+  [Resource] (ResourceName/ResourceType): eraser-controller-manager/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "delete,get,create,watch,list",
+        "Resources": "imagejobs",
+        "API groups": "eraser.sh"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "imagejobs/status",
+        "API groups": "eraser.sh"
+    },
+    {
+        "verbs": "patch,update,get",
+        "Resources": "imagelists/status",
+        "API groups": "eraser.sh"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "imagelists",
+        "API groups": "eraser.sh"
+    },
+    {
+        "verbs": "watch,list,get",
+        "Resources": "nodes",
+        "API groups": ""
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "configmaps",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,list,update,patch",
+        "Resources": "podtemplates",
+        "API groups": "core"
+    },
+    {
+        "verbs": "delete,get,create,watch,update,list",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "create",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [eraser-manager-role] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/eraser-controller-manager] [Main configs]
+
+    [roles]: [eraser-manager-role] [Main configs]
+    [roleBindings]: [ServiceAccount/eraser-controller-manager] [Main configs]
+-------------------------------------------
+

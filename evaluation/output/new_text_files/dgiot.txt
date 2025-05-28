@@ -1,0 +1,24 @@
+[Service Account]: release-name-emqx
+  [Resource] (ResourceName/ResourceType): release-name-emqx/StatefulSet
+
+  [Permissions]:
+    [clusterPermissions]: []
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "list,watch,get",
+        "Resources": "endpoints",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [] []
+    [clusterRoleBindings]: [] []
+
+    [roles]: [release-name-emqx] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-emqx] [Main configs]
+-------------------------------------------
+

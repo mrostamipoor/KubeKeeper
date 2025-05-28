@@ -1,0 +1,408 @@
+[Service Account]: release-name-nginx-ingress
+  [Resource] (ResourceName/ResourceType): release-name-nginx-ingress-controller/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "configmaps,secrets,pods,namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "virtualserverroutes,transportservers,globalconfigurations,virtualservers,policies",
+        "API groups": "k8s.nginx.org"
+    },
+    {
+        "verbs": "get,list",
+        "Resources": "ingressclasses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "replicasets,daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "list",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,list,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "ingresses/status",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "virtualserverroutes/status,transportservers/status,policies/status,virtualservers/status",
+        "API groups": "k8s.nginx.org"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): [
+    {
+        "verbs": "create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "configmaps,services,pods,secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "namespaces",
+        "API groups": "core"
+    },
+    {
+        "verbs": "patch,list,create",
+        "Resources": "events",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update,get",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": "core"
+    }
+]
+    [role over-privileged permissions]: [
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": "core"
+    },
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": "core"
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": "core"
+    }
+]
+
+  [Role Details]:
+    [clusterRoles]: [release-name-nginx-ingress] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/release-name-nginx-ingress] [Main configs]
+
+    [roles]: [release-name-nginx-ingress] [Main configs]
+    [roleBindings]: [ServiceAccount/release-name-nginx-ingress] [Main configs]
+    [roleResourceNames]: release-name-nginx-ingress-leader-election
+-------------------------------------------
+
+[Service Account]: nginx-cluster-connector
+  [Resource] (ResourceName/ResourceType): nginx-cluster-connector/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,use,delete,create",
+        "Resources": "securitycontextconstraints",
+        "API groups": "security.openshift.io"
+    },
+    {
+        "verbs": "patch,list,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,list,get,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [nginx-cluster-connector] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/nginx-cluster-connector] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+    [clusterResourceNames]: nginx-cluster-connector
+-------------------------------------------
+
+[Service Account]: external-dns
+  [Resource] (ResourceName/ResourceType): external-dns/Deployment
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "dnsendpoints",
+        "API groups": "externaldns.nginx.org"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ingresses",
+        "API groups": "extensions,networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "services,pods,endpoints",
+        "API groups": ""
+    },
+    {
+        "verbs": "list,watch",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "dnsendpoints/status",
+        "API groups": "externaldns.nginx.org"
+    }
+]
+    [cluster role over-privileged permissions]: [] 
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [external-dns] [Example configs]
+    [clusterRoleBindings]: [ServiceAccount/external-dns] [Example configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
+[Service Account]: nginx-ingress
+  [Resource] (ResourceName/ResourceType): nginx-ingress/DaemonSet
+
+  [Permissions]:
+    [clusterPermissions]: [
+    {
+        "verbs": "get,list,watch",
+        "Resources": "apusersigs,appolicies,aplogconfs",
+        "API groups": "appprotect.f5.com"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "dosprotectedresources,apdospolicies,apdoslogconfs",
+        "API groups": "appprotectdos.f5.com"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "endpointslices",
+        "API groups": "discovery.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ingresses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "ingresslinks",
+        "API groups": "cis.f5.com"
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "namespaces",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "get,list,watch",
+        "Resources": "virtualserverroutes,transportservers,globalconfigurations,virtualservers,policies",
+        "API groups": "k8s.nginx.org"
+    },
+    {
+        "verbs": "get,list",
+        "Resources": "ingressclasses",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "get",
+        "Resources": "replicasets,daemonsets",
+        "API groups": "apps"
+    },
+    {
+        "verbs": "list",
+        "Resources": "nodes",
+        "API groups": ""
+    },
+    {
+        "verbs": "patch,list,create",
+        "Resources": "events",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,get,list,watch",
+        "Resources": "pods",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,list,get,create",
+        "Resources": "configmaps",
+        "API groups": ""
+    },
+    {
+        "verbs": "update,watch,list,get,create",
+        "Resources": "leases",
+        "API groups": "coordination.k8s.io"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "certificates",
+        "API groups": "cert-manager.io"
+    },
+    {
+        "verbs": "update,watch,list,get,delete,create",
+        "Resources": "dnsendpoints",
+        "API groups": "externaldns.nginx.org"
+    },
+    {
+        "verbs": "update,watch,patch,list,get,delete,create",
+        "Resources": "services",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "dnsendpoints/status",
+        "API groups": "externaldns.nginx.org"
+    },
+    {
+        "verbs": "update",
+        "Resources": "ingresses/status",
+        "API groups": "networking.k8s.io"
+    },
+    {
+        "verbs": "update",
+        "Resources": "policies/status,virtualservers/status,dnsendpoints/status,virtualserverroutes/status,transportservers/status",
+        "API groups": "k8s.nginx.org"
+    }
+]
+    [cluster role over-privileged permissions]: [
+    {
+        "verbs": "get",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "list",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "watch",
+        "Resources": "secrets",
+        "API groups": ""
+    },
+    {
+        "verbs": "update",
+        "Resources": "pods",
+        "API groups": ""
+    }
+]
+
+    [rolePermissions] (default): []
+    [role over-privileged permissions]: [] 
+
+  [Role Details]:
+    [clusterRoles]: [nginx-ingress; nginx-ingress-app-protect; nginx-ingress-app-protect-dos] [Main configs]
+    [clusterRoleBindings]: [ServiceAccount/nginx-ingress] [Main configs]
+
+    [roles]: [] []
+    [roleBindings]: [] []
+-------------------------------------------
+
