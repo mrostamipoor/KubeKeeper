@@ -36,18 +36,8 @@ Kubernetes' built-in secrets management suffers from several critical limitation
 
 ---
 
-## Quick Start
 
-### 1. Prerequisites
-
-- Linux/macOS machine
-- Docker
-- [kubectl](https://kubernetes.io/docs/tasks/tools/)
-- No Kubernetes cluster required (Kind will be set up automatically)
-
----
-
-### 2. Install Kubernetes and Kind
+### 1. Install Kubernetes and Kind
 
 Run the provided script to install [Kind](https://kind.sigs.k8s.io/) and set up a local Kubernetes cluster:
 
@@ -58,7 +48,7 @@ Run the provided script to install [Kind](https://kind.sigs.k8s.io/) and set up 
 
 ---
 
-### 3. Deploy KubeKeeper
+### 2. Deploy KubeKeeper
 
 To deploy KubeKeeper and its webhook server, simply run:
 
@@ -69,7 +59,7 @@ To deploy KubeKeeper and its webhook server, simply run:
 
 ---
 
-### 4. Deploy a Protected Secret and Consumer Deployment
+### 3. Deploy a Protected Secret and Consumer Deployment
 
 Deploy a sample Secret (protected by KubeKeeper) and a Deployment that consumes this Secret:
 
